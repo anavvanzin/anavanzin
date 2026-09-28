@@ -9,7 +9,7 @@ export interface ExhibitionItem {
   title: Localized
   subtitle: Localized
   territory: Localized
-  date: string
+  date: string | Localized
   medium: Localized
   themes: string[]
   observed: Localized

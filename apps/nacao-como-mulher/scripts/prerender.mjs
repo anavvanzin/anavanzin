@@ -12,10 +12,10 @@ const cards = data.items.map((item, index) => `
   <article class="object-card" id="${escape(item.id)}">
     <div class="folio">${String(index + 1).padStart(2, '0')}</div>
     <div class="object-visual">
-      <img src="/atlas/nacao-como-mulher/${escape(item.images.plate)}" alt="${escape(item.images.alt.pt)}">
+      <img src="/atlas/nacao-como-mulher/${escape(item.images.plate)}" alt="${escape(item.images.alt.pt)}" loading="${index > 1 ? 'lazy' : 'eager'}">
     </div>
     <div class="object-copy">
-      <div class="eyebrow">${escape(item.territory.pt)} · ${escape(item.date)} · ${escape(item.medium.pt)}</div>
+      <div class="eyebrow">${escape(item.territory.pt)} · ${escape(typeof item.date === 'string' ? item.date : item.date.pt)} · ${escape(item.medium.pt)}</div>
       <h2>${escape(item.title.pt)}</h2>
       <p class="object-subtitle">${escape(item.subtitle.pt)}</p>
       <div class="scope-badge">${item.scope === 'canonical' ? 'objeto relacionado ao corpus canônico' : 'antecedente genealógico comparativo'}</div>
@@ -37,7 +37,7 @@ const fallback = `<div class="exhibition prerendered">
   <header class="site-bar"><a href="/atlas/"><img src="/assets/sun-seal.svg" alt=""> <b>ana vanzin</b><span>atlas · exposição temática</span></a></header>
   <main>
     <a class="back-link" href="/atlas/">← voltar ao Atlas</a>
-    <header class="hero"><p class="hero-kicker">ICONOCRACIA · exposição 01 · 2026</p><h1>A Nação como Mulher</h1><p class="hero-deck">Nove estudos sobre corpos femininos convocados para tornar território, República e soberania visíveis.</p><p class="provenance-note">As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.</p><div class="snapshot-grid"><div><b>${data.metadata.canonicalCorpus.count}</b><span>corpus canônico em expansão</span><small>${data.metadata.snapshotDate}</small></div><div><b>${data.metadata.comparativeSurvey.female}/${data.metadata.comparativeSurvey.total}</b><span>levantamento comparativo datado</span><small>${data.metadata.snapshotDate}</small></div></div></header>
+    <header class="hero"><p class="hero-kicker">ICONOCRACIA · exposição 01 · 2026</p><h1>A Nação como Mulher</h1><p class="hero-deck">Nove estudos sobre corpos femininos convocados para tornar território, República e soberania visíveis.</p><p class="provenance-note">As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.</p><div class="snapshot-grid"><div><b>${data.metadata.canonicalCorpus.count}</b><span>corpus canônico em expansão</span><small>${data.metadata.snapshotDate}</small></div><div><b>${data.metadata.comparativeSurvey.female}/${data.metadata.comparativeSurvey.total}</b><span>levantamento comparativo datado</span><small>${data.metadata.snapshotDate}</small></div></div><p class="corpus-note">As duas contagens pertencem a universos documentais diferentes e não devem ser somadas.</p></header>
     <div class="objects">${cards}</div>
   </main>
 </div>`

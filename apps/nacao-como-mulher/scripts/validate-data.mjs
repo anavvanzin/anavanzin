@@ -16,6 +16,7 @@ for (const item of data.items) {
   if (ids.has(item.id)) errors.push(`duplicate id: ${item.id}`)
   ids.add(item.id)
   if (!['canonical', 'comparative-antecedent'].includes(item.scope)) errors.push(`${item.id}: invalid scope`)
+  if (typeof item.date === 'string' ? !item.date.trim() : !item.date?.pt?.trim() || !item.date?.en?.trim()) errors.push(`${item.id}: incomplete date`)
   for (const field of localizedPaths) {
     if (!item[field]?.pt?.trim() || !item[field]?.en?.trim()) errors.push(`${item.id}: incomplete ${field}`)
   }

@@ -7,6 +7,7 @@ const data = rawData as ExhibitionData
 const base = import.meta.env.BASE_URL
 const asset = (path: string) => `${base}${path}`
 const t = (value: Localized, lang: Lang) => value[lang]
+const date = (item: ExhibitionItem, lang: Lang) => typeof item.date === 'string' ? item.date : t(item.date, lang)
 
 const copy = {
   pt: {
@@ -24,6 +25,8 @@ const copy = {
     comparison: 'Leitura comparativa', emptyComparison: 'Escolha dois objetos para compará-los lado a lado.',
     corpusNote: 'As duas contagens pertencem a universos documentais diferentes e não devem ser somadas.',
     back: 'voltar ao Atlas', rights: 'Direitos', record: 'Registro', reviewed: 'revisado em',
+    scopes: 'Escopos documentais', controls: 'Controles da exposição', mode: 'Modo de leitura',
+    filter: 'Filtrar por tema', tabs: 'Objetos para explorar',
   },
   en: {
     atlas: 'atlas · thematic exhibition',
@@ -40,6 +43,8 @@ const copy = {
     comparison: 'Comparative reading', emptyComparison: 'Choose two objects to compare them side by side.',
     corpusNote: 'The two counts describe different documentary universes and must not be added together.',
     back: 'back to the Atlas', rights: 'Rights', record: 'Record', reviewed: 'reviewed on',
+    scopes: 'Documentary scopes', controls: 'Exhibition controls', mode: 'Reading mode',
+    filter: 'Filter by theme', tabs: 'Objects to explore',
   },
 } as const
 
@@ -107,7 +112,7 @@ function ReadingCard({ item, index, lang, selected, onCompare }: {
         <img src={asset(item.images.plate)} alt={t(item.images.alt, lang)} loading={index > 1 ? 'lazy' : 'eager'} />
       </div>
       <div className="object-copy">
-        <div className="eyebrow">{t(item.territory, lang)} · {item.date} · {t(item.medium, lang)}</div>
+        <div className="eyebrow">{t(item.territory, lang)} · {date(item, lang)} · {t(item.medium, lang)}</div>
         <h2>{t(item.title, lang)}</h2>
         <p className="object-subtitle">{t(item.subtitle, lang)}</p>
         <div className="scope-badge">{item.scope === 'canonical' ? c.scopeCanonical : c.scopeAntecedent}</div>
@@ -160,7 +165,9 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
     { text: t(item.interpretation, lang), font: '18px Georgia', lineHeight: 30, gapAfter: 0 },
   ], [item, lang])
   const layout = useMemo(() => flowText(width, blocks, obstacle, cache), [blocks, cache, obstacle, width])
-  const height = Math.max(layout.height + 40, obstacle.y + obstacle.h + 84, 560)
+  // The bounds must not follow the figure as it moves down the stage.
+  const baseline = useMemo(() => flowText(width, blocks, { ...obstacle, y: 72 }, cache), [blocks, cache, obstacle.w, obstacle.h, obstacle.x, width])
+  const height = Math.max(560, baseline.height + 40, obstacle.h + 156)
 
   const clamp = useCallback((next: Obstacle): Obstacle => ({
     ...next,
@@ -169,7 +176,7 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
   }), [height, width])
 
   const resize = (delta: number) => setObstacle((current) => {
-    const nextWidth = Math.min(430, Math.max(150, current.w + delta))
+    const nextWidth = Math.min(Math.min(430, width * 0.9), Math.max(Math.min(150, width * 0.28), current.w + delta))
     return clamp({ ...current, w: nextWidth, h: contour.h * (nextWidth / contour.w) })
   })
 
@@ -188,7 +195,7 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
   return (
     <section className="explore-section" aria-labelledby={`explore-${item.id}`}>
       <div className="explore-meta">
-        <p className="eyebrow">{t(item.territory, lang)} · {item.date}</p>
+        <p className="eyebrow">{t(item.territory, lang)} · {date(item, lang)}</p>
         <h2 id={`explore-${item.id}`}>{t(item.title, lang)}</h2>
         <p id={`instructions-${item.id}`}>{c.instructions}</p>
         <div className="explore-actions">
@@ -197,9 +204,9 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
         </div>
       </div>
       <div className="living-text" ref={stageRef} style={{ height }}>
-        {layout.lines.map((line, index) => (
+        <div aria-hidden="true">{layout.lines.map((line, index) => (
           <span key={`${line.y}-${index}`} className={line.heading ? 'living-line heading' : 'living-line'} style={{ left: line.x, top: line.y }}>{line.text}</span>
-        ))}
+        ))}</div>
         <button
           type="button"
           className="draggable-figure"
@@ -249,7 +256,7 @@ function Comparison({ items, lang, clear }: { items: ExhibitionItem[]; lang: Lan
             <article key={item.id}>
               <img src={asset(item.images.figure)} alt={t(item.images.alt, lang)} />
               <h3>{t(item.title, lang)}</h3>
-              <p className="eyebrow">{t(item.territory, lang)} · {item.date} · {t(item.medium, lang)}</p>
+              <p className="eyebrow">{t(item.territory, lang)} · {date(item, lang)} · {t(item.medium, lang)}</p>
               <h4>{c.observed}</h4><p>{t(item.observed, lang)}</p>
               <h4>{c.interpretation}</h4><p>{t(item.interpretation, lang)}</p>
             </article>
@@ -269,7 +276,7 @@ export default function App() {
   const [comparison, setComparison] = useState<string[]>([])
   const themes = useMemo(() => Array.from(new Set(data.items.flatMap((item) => item.themes))), [])
   const visible = theme === 'all' ? data.items : data.items.filter((item) => item.themes.includes(theme))
-  const exploreItem = data.items.find((item) => item.id === activeExplore) ?? visible[0] ?? data.items[0]
+  const exploreItem = visible.find((item) => item.id === activeExplore) ?? visible[0]
   const comparisonItems = comparison.map((id) => data.items.find((item) => item.id === id)).filter(Boolean) as ExhibitionItem[]
 
   const toggleComparison = (id: string) => setComparison((current) => {
@@ -295,19 +302,19 @@ export default function App() {
           <h1>{c.title}</h1>
           <p className="hero-deck">{c.deck}</p>
           <p className="provenance-note">{c.note}</p>
-          <div className="snapshot-grid" aria-label="Escopos documentais">
+          <div className="snapshot-grid" aria-label={c.scopes}>
             <div><b>{data.metadata.canonicalCorpus.count}</b><span>{c.canonical}</span><small>{data.metadata.snapshotDate}</small></div>
             <div><b>{data.metadata.comparativeSurvey.female}/{data.metadata.comparativeSurvey.total}</b><span>{c.survey}</span><small>{data.metadata.snapshotDate}</small></div>
           </div>
           <p className="corpus-note">{c.corpusNote}</p>
         </header>
 
-        <div className="toolbar" aria-label="Controles da exposição">
-          <div className="mode-switch" role="group" aria-label="Modo de leitura">
+        <div className="toolbar" aria-label={c.controls}>
+          <div className="mode-switch" role="group" aria-label={c.mode}>
             <button type="button" aria-pressed={mode === 'reading'} onClick={() => setMode('reading')}>{c.read}</button>
             <button type="button" aria-pressed={mode === 'explore'} onClick={() => setMode('explore')}>{c.explore}</button>
           </div>
-          <div className="filter-list" role="group" aria-label="Filtrar por tema">
+          <div className="filter-list" role="group" aria-label={c.filter}>
             <button type="button" aria-pressed={theme === 'all'} onClick={() => setTheme('all')}>{c.all}</button>
             {themes.map((value) => <button type="button" key={value} aria-pressed={theme === value} onClick={() => setTheme(value)}>{t(themeLabels[value], lang)}</button>)}
           </div>
@@ -320,7 +327,7 @@ export default function App() {
           </div>
         ) : (
           <div className="explore-mode">
-            <nav className="object-tabs" aria-label="Objetos para explorar">
+            <nav className="object-tabs" aria-label={c.tabs}>
               {visible.map((item) => <button type="button" key={item.id} aria-pressed={exploreItem.id === item.id} onClick={() => setActiveExplore(item.id)}>{t(item.title, lang)}</button>)}
             </nav>
             <ExploreStage item={exploreItem} lang={lang} />

@@ -23,7 +23,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #1b67a5; outline-offset: 4px; }
 
-.exhibition { min-height: 100vh; overflow: hidden; background: radial-gradient(circle at 15% 0%, rgba(255,255,255,.72), transparent 36rem), var(--paper); }
+.exhibition { min-height: 100vh; overflow-x: clip; background: radial-gradient(circle at 15% 0%, rgba(255,255,255,.72), transparent 36rem), var(--paper); }
 .site-bar { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 11px clamp(18px, 4vw, 62px); border-bottom: 1px solid var(--line); background: rgba(241,234,220,.93); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
 .site-bar > a { display: flex; align-items: center; gap: 12px; text-decoration: none; letter-spacing: .02em; }
 .site-bar img { width: 36px; height: 36px; }

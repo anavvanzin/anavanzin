@@ -20,7 +20,7 @@
       "title": { "pt": "Europa Regina", "en": "Europa Regina" },
       "subtitle": { "pt": "O continente convertido em corpo soberano", "en": "A continent turned into a sovereign body" },
       "territory": { "pt": "Europa", "en": "Europe" },
-      "date": "1537 / edições posteriores",
+      "date": { "pt": "1537 / edições posteriores", "en": "1537 / later editions" },
       "medium": { "pt": "mapa antropomórfico", "en": "anthropomorphic map" },
       "themes": ["genealogia", "cartografia", "soberania"],
       "observed": {
