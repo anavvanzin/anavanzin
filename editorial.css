@@ -366,3 +366,33 @@ figcaption .src {
   .ed-page .rise { animation: edRise .6s var(--ease-page) both; animation-delay: var(--d, 0s); }
 }
 @keyframes edRise { from { transform: translateY(14px); } to { transform: none; } }
+
+
+/* Approved editorial redesign: shared reading rooms, scoped away from the desktop. */
+body.ed{--paper:#F5F0E6;--ink:#171412;--rubric:#750D20;--accent:#750D20;--accent-hover:#510A16;--font-display:'Instrument Serif',Georgia,serif;--font-body:'DM Sans',Arial,sans-serif;--text-base:16px;--text-lead:19px;--leading-body:1.7;--page-max:1320px;--page-pad:clamp(20px,5vw,72px);--rule-hairline:#c8b9a6}
+body.ed .ed-bar{min-height:82px;padding:16px var(--page-pad);gap:22px;border-bottom-color:var(--rule-hairline)}
+body.ed .ed-bar .brand b{font-size:34px;font-weight:400;letter-spacing:-.02em;color:var(--rubric)}
+body.ed .ed-bar .brand img{width:24px;height:24px}
+body.ed .ed-bar .brand .lbl{font-family:var(--font-body);font-size:12px;font-weight:400;letter-spacing:.04em}
+body.ed .avnav{gap:16px}body.ed .avnav a{font-size:14px;padding:8px 0}
+html.js body.ed .langtog{border:0;border-radius:0;gap:12px;overflow:visible}
+body.ed .langtog button{font-family:var(--font-body);font-weight:400;font-size:13px;background:transparent;padding:6px 0;border-bottom:2px solid transparent}
+body.ed .langtog button[aria-pressed=true]{color:var(--rubric);background:transparent;border-bottom-color:var(--rubric)}
+body.ed .ed-title{font-size:clamp(62px,7.5vw,110px);font-weight:400;color:var(--rubric);line-height:.98;letter-spacing:-.025em}
+body.ed .ed-page{padding-top:clamp(36px,6vw,76px)}body.ed .ed-head{max-width:850px}
+body.ed .kicker{font-family:var(--font-body);font-size:12px;letter-spacing:.15em;font-weight:400}
+body.ed .dek{line-height:1.65;max-width:62ch}
+body.ed .prose h2,body.ed .related .ri-t,body.ed .theme-index .nm,body.ed .atlas-grid .ti{font-weight:400}
+body.ed .pub .pt-t,body.ed .strand .st{font-family:var(--font-display);font-weight:400;font-size:30px;line-height:1.15}
+body.ed .pub .venue,body.ed .pub .line{display:block;line-height:1.6}
+body.ed .pub{padding:28px 0}body.ed .pub .line{font-size:16px}
+body.ed .atlas-grid{background:transparent;border:0;gap:38px 32px}
+body.ed .atlas-grid li{min-width:0}body.ed .atlas-grid .th{display:block;border:0}
+body.ed .atlas-grid .cap{display:block;padding:20px 0;border-bottom:1px solid var(--rule-hairline)}
+body.ed .atlas-grid .ti,body.ed .atlas-grid .mt,body.ed .atlas-grid .ds{display:block}
+body.ed .atlas-grid .ti{font-size:32px}body.ed .atlas-grid .ds{font-size:16px;line-height:1.65}
+body.ed .tfilter button{border-radius:0;border-color:transparent;padding:8px 12px}
+body.ed .tfilter button[aria-pressed=true]{background:var(--rubric);border-color:var(--rubric)}
+body.ed .ed-foot .id b{font-size:38px;font-weight:400}
+body.ed :is(a,button):focus-visible{outline:2px solid var(--rubric);outline-offset:5px}
+@media(max-width:720px){body.ed .ed-bar{gap:12px}body.ed .ed-bar .sp{display:none}body.ed .ed-bar .avnav{display:flex;order:3;flex-basis:100%;gap:10px 18px}body.ed .ed-bar .langtog{margin-left:auto}body.ed .ed-bar .brand b{font-size:30px}body.ed .ed-title{font-size:clamp(54px,13vw,82px)}body.ed .atlas-grid{gap:28px}body.ed .mn{float:none;margin-right:0;width:auto}}

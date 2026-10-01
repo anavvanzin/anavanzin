@@ -32,7 +32,7 @@
   .pub .acc .req { color: var(--text-faint); }
   .pub .ar { color: var(--rubric); align-self:start; padding-top:4px; }
   .pub:hover .pt-t { color: var(--rubric); }
-  @media(max-width:600px){ .pub { grid-template-columns: 1fr auto; } .pub .yr { grid-column:1; } .pub .acc { grid-column:1; } }
+  @media(max-width:600px){ .pub { grid-template-columns: minmax(0,1fr) auto; } .pub .yr { grid-column:1; grid-row:1; } .pub > span:nth-child(2) { grid-column:1 / -1; grid-row:2; min-width:0; } .pub .ar { grid-column:2; grid-row:1; } .pub .acc { grid-column:1; } }
 </style>
 <script type="application/ld+json">
 {
@@ -84,6 +84,7 @@
       <a href="/publicacoes/" data-route="publicacoes" data-pt="publicações" data-en="publications">publicações</a>
       <a href="../sala-de-leitura/" data-route="leitura" data-pt="sala de leitura" data-en="reading room">sala de leitura</a>
       <a href="/advocacia" data-route="advocacia" data-pt="advocacia" data-en="practice">advocacia</a>
+      <a href="/atlas/" data-route="atlas">atlas</a>
       <a href="/sobre" data-route="sobre" data-pt="sobre" data-en="about">sobre</a>
     </nav>
     <span class="langtog" role="group" aria-label="Idioma / Language">
@@ -96,7 +97,7 @@
     <a class="ed-back" href="../iconocracia/"><span class="ar">←</span><span data-pt="ICONOCRACIA" data-en="ICONOCRACIA">ICONOCRACIA</span></a>
     <div class="ed-head">
       <p class="kicker rise" data-pt="Pesquisa e escrita" data-en="Research and writing">Pesquisa e escrita</p>
-      <h1 class="ed-title rise" style="--d:.06s">publicações</h1>
+      <h1 class="ed-title rise" style="--d:.06s" data-pt="publicações" data-en="publications">publicações</h1>
       <p class="dek rise" style="--d:.12s" data-pt="Artigos, capítulos e trabalhos colaborativos sobre direito, imagens, gênero, alegoria política e história do direito." data-en="Articles, chapters and collaborative work on law, images, gender, political allegory and legal history.">Artigos, capítulos e trabalhos colaborativos sobre direito, imagens, gênero, alegoria política e história do direito.</p>
     </div>
 
@@ -173,7 +174,7 @@
       </div>
       <nav class="zone nav" aria-label="Navegação do rodapé">
         <span class="zt" data-pt="navegação" data-en="navigation">navegação</span>
-        <a href="/">mesa</a>
+        <a href="/mesa/" data-pt="mesa" data-en="work desk">mesa</a>
         <a href="/iconocracia/">iconocracia</a>
         <a href="/publicacoes/" data-pt="publicações" data-en="publications">publicações</a>
         <a href="/sala-de-leitura/" data-pt="sala de leitura" data-en="reading room">sala de leitura</a>
