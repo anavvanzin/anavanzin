@@ -32,7 +32,7 @@
   .pub .acc .req { color: var(--text-faint); }
   .pub .ar { color: var(--rubric); align-self:start; padding-top:4px; }
   .pub:hover .pt-t { color: var(--rubric); }
-  @media(max-width:600px){ .pub { grid-template-columns: 1fr auto; } .pub .yr { grid-column:1; } .pub .acc { grid-column:1; } }
+  @media(max-width:600px){ .pub { grid-template-columns: minmax(0,1fr) auto; } .pub .yr { grid-column:1; grid-row:1; } .pub > span:nth-child(2) { grid-column:1 / -1; grid-row:2; min-width:0; } .pub .ar { grid-column:2; grid-row:1; } .pub .acc { grid-column:1; } }
 </style>
 <script type="application/ld+json">
 {
@@ -197,4 +197,3 @@
   <script src="../editorial.js"></script>
 </body>
 </html>
-
