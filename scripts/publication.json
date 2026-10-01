@@ -20,6 +20,12 @@
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
     {
+      "file": "anavanzin-loader.html",
+      "canonical": "https://anavanzin.com/anavanzin-loader",
+      "category": "utility",
+      "reason": "Prévia auxiliar do loader; manter fora da indexação."
+    },
+    {
       "file": "apresentacao/index.html",
       "canonical": "https://anavanzin.com/apresentacao/",
       "category": "ready",
