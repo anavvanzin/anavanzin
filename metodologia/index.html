@@ -21,6 +21,15 @@
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/editorial.css">
 <style>
+  body[data-route="metodologia"] .guide-index { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--rubric); }
+  body[data-route="metodologia"] .guide-index h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1.2; margin: 0 0 12px; }
+  body[data-route="metodologia"] .guide-index ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; list-style: none; margin: 0; padding: 0; }
+  body[data-route="metodologia"] .guide-index a { display: block; min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--rule-hairline); font-size: 15px; line-height: 1.5; text-decoration: none; }
+  body[data-route="metodologia"] .guide-index a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  body[data-route="metodologia"] .prose h2[id] { scroll-margin-top: 128px; }
+  @media (max-width: 1000px) { body[data-route="metodologia"] .prose h2[id] { scroll-margin-top: 210px; } }
+  @media (max-width: 360px) { body[data-route="metodologia"] .prose h2[id] { scroll-margin-top: 270px; } }
+  @media (max-width: 560px) { body[data-route="metodologia"] .guide-index ol { grid-template-columns: 1fr; } }
   .method-card { border-bottom: 1px solid var(--rule-hairline); padding: 18px 0; }
   .method-card:first-of-type { border-top: 1px solid var(--ink); }
   .method-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin: 0 0 4px; }
@@ -66,22 +75,36 @@
     <a class="ed-back" href="/"><span class="ar">←</span> <span data-pt="ana vanzin" data-en="ana vanzin">ana vanzin</span></a>
     <div class="ed-head">
       <p class="kicker rise" data-pt="materiais para estudantes" data-en="materials for students">materiais para estudantes</p>
-      <h1 class="ed-title caps rise" style="--d:.06s">Metodologia</h1>
+      <h1 class="ed-title caps rise" style="--d:.06s" data-pt="Metodologia" data-en="Methodology">Metodologia</h1>
       <p class="dek rise" style="--d:.12s"
          data-pt="Métodos, ferramentas e materiais de pesquisa em história do direito e iconografia jurídica. Um guia prático para quem está começando — da formulação da pergunta à gestão das fontes."
          data-en="Methods, tools, and research materials in legal history and juridical iconography. A practical guide for those starting out — from formulating the question to managing sources.">Métodos, ferramentas e materiais de pesquisa em história do direito e iconografia jurídica. Um guia prático para quem está começando — da formulação da pergunta à gestão das fontes.</p>
     </div>
 
+    <nav class="guide-index" aria-labelledby="guide-index-title">
+      <h2 id="guide-index-title" data-pt="Neste guia" data-en="In this guide">Neste guia</h2>
+      <ol>
+        <li><a href="#comecar" data-pt="1. Por onde começar" data-en="1. Where to begin">1. Por onde começar</a></li>
+        <li><a href="#metodos" data-pt="2. Métodos de pesquisa" data-en="2. Research methods">2. Métodos de pesquisa</a></li>
+        <li><a href="#iconografia" data-pt="3. Análise de imagens" data-en="3. Image analysis">3. Análise de imagens</a></li>
+        <li><a href="#ferramentas" data-pt="4. Ferramentas digitais" data-en="4. Digital tools">4. Ferramentas digitais</a></li>
+        <li><a href="#acervos" data-pt="5. Acervos digitais" data-en="5. Digital collections">5. Acervos digitais</a></li>
+        <li><a href="#buscas" data-pt="6. Estratégias de busca" data-en="6. Search strategies">6. Estratégias de busca</a></li>
+        <li><a href="#boas-praticas" data-pt="7. Normas e boas práticas" data-en="7. Standards and good practices">7. Normas e boas práticas</a></li>
+        <li><a href="#revisao-sistematica" data-pt="8. Revisão sistemática" data-en="8. Systematic review">8. Revisão sistemática</a></li>
+      </ol>
+    </nav>
+
     <div class="ed-body">
       <div class="prose">
 
-        <h2 data-pt="1. Por onde começar" data-en="1. Where to begin">1. Por onde começar</h2>
+        <h2 id="comecar" data-pt="1. Por onde começar" data-en="1. Where to begin">1. Por onde começar</h2>
         <p class="lede" data-pt="Toda pesquisa jurídica começa com uma pergunta. Mas onde você procura a resposta? Este guia cobre métodos que servem a qualquer pesquisa em direito — da análise normativa à revisão sistemática — e dedica atenção especial a duas frentes que a formação jurídica tradicional costuma negligenciar: a dimensão histórica do fenômeno jurídico e sua dimensão visual. A mesma lei que você lê no código também vive na imagem — na moeda, no frontispício, na arquitetura do tribunal."
            data-en="Every legal research project begins with a question. But where do you look for the answer? This guide covers methods that serve any legal research — from normative analysis to systematic review — and pays special attention to two fronts that traditional legal education tends to neglect: the historical dimension of the legal phenomenon and its visual dimension. The same law you read in the code also lives in the image — on the coin, on the frontispiece, in the courthouse architecture.">Toda pesquisa jurídica começa com uma pergunta. Mas onde você procura a resposta? Este guia cobre métodos que servem a qualquer pesquisa em direito — da análise normativa à revisão sistemática — e dedica atenção especial a duas frentes que a formação jurídica tradicional costuma negligenciar: a dimensão histórica do fenômeno jurídico e sua dimensão visual. A mesma lei que você lê no código também vive na imagem — na moeda, no frontispício, na arquitetura do tribunal.</p>
         <p data-pt="Antes de escolher o método, é útil delimitar o que se quer saber. Três perguntas ajudam: (1) qual o recorte temporal e geográfico? (2) que tipo de fonte vou examinar — textos legais, imagens, decisões judiciais, tratados? (3) qual a minha hipótese de partida, mesmo que provisória?"
            data-en="Before choosing a method, it helps to delimit what you want to know. Three questions help: (1) what is the temporal and geographic scope? (2) what type of source will I examine — legal texts, images, judicial decisions, treatises? (3) what is my starting hypothesis, even if provisional?">Antes de escolher o método, é útil delimitar o que se quer saber. Três perguntas ajudam: (1) qual o recorte temporal e geográfico? (2) que tipo de fonte vou examinar — textos legais, imagens, decisões judiciais, tratados? (3) qual a minha hipótese de partida, mesmo que provisória?</p>
 
-        <h2 data-pt="2. Métodos de pesquisa em história do direito" data-en="2. Research methods in legal history">2. Métodos de pesquisa em história do direito</h2>
+        <h2 id="metodos" data-pt="2. Métodos de pesquisa em história do direito" data-en="2. Research methods in legal history">2. Métodos de pesquisa em história do direito</h2>
         <p data-pt="A história do direito mobiliza diferentes métodos, dependendo da fonte e da pergunta. Abaixo, uma visão geral dos principais."
            data-en="Legal history mobilizes different methods, depending on the source and the question. Below, an overview of the main ones.">A história do direito mobiliza diferentes métodos, dependendo da fonte e da pergunta. Abaixo, uma visão geral dos principais.</p>
 
@@ -113,7 +136,7 @@
              data-en="Combination of systematic source coding (with indicators, ordinal scales, statistical analysis) and in-depth qualitative interpretation. Useful when the corpus is too large for purely artisanal analysis. Example: classifying dozens of images by degree of abstraction, rigidity, or presence of state inscriptions, and then deepening the most revealing cases.">Combinação de codificação sistemática de fontes (com indicadores, escalas ordinais, análise estatística) com interpretação qualitativa aprofundada. Útil quando o corpus é extenso demais para análise puramente artesanal.</p>
         </div>
 
-        <h2 data-pt="3. Análise iconográfica e iconológica" data-en="3. Iconographic and iconological analysis">3. Análise iconográfica e iconológica</h2>
+        <h2 id="iconografia" data-pt="3. Análise iconográfica e iconológica" data-en="3. Iconographic and iconological analysis">3. Análise iconográfica e iconológica</h2>
         <p data-pt="Para quem trabalha com imagens jurídicas — alegorias da justiça, representações do Estado, frontispícios de códigos, monumentos forenses — o método de referência é o de Erwin Panofsky, que distingue três níveis de leitura."
            data-en="For those working with legal images — allegories of justice, representations of the State, codex frontispieces, forensic monuments — the reference method is Erwin Panofsky's, which distinguishes three levels of reading.">Para quem trabalha com imagens jurídicas — alegorias da justiça, representações do Estado, frontispícios de códigos, monumentos forenses — o método de referência é o de Erwin Panofsky, que distingue três níveis de leitura.</p>
 
@@ -155,7 +178,7 @@
         <p data-pt="Uma contribuição importante das humanidades digitais críticas (Drucker; D'Ignazio &amp; Klein) é a ideia de que dados não são 'coletados' passivamente — são capta, isto é, 'tomados e construídos' a partir de decisões interpretativas situadas. Toda codificação de uma imagem — atribuir um gênero, classificar uma postura, pontuar um atributo — é uma intervenção, não uma extração neutra. A implicação prática: um bom protocolo de pesquisa iconográfica separa descrição (o que se vê) de interpretação (o que se infere), registra quem codifica e em que condições, e mantém campos para documentar incerteza e desacordo entre codificadores."
            data-en="An important contribution from critical digital humanities (Drucker; D'Ignazio &amp; Klein) is the idea that data are not passively 'collected' — they are capta, that is, 'taken and constructed' from situated interpretive decisions. Every coding of an image — attributing a gender, classifying a posture, scoring an attribute — is an intervention, not a neutral extraction. The practical implication: a good iconographic research protocol separates description (what is seen) from interpretation (what is inferred), records who codes and under what conditions, and maintains fields to document uncertainty and disagreement between coders.">Uma contribuição importante das humanidades digitais críticas (Drucker; D'Ignazio &amp; Klein) é a ideia de que dados não são 'coletados' passivamente — são capta, isto é, 'tomados e construídos' a partir de decisões interpretativas situadas. Toda codificação de uma imagem — atribuir gênero, classificar postura, pontuar atributo — é uma intervenção, não uma extração neutra. A implicação prática: separe descrição de interpretação, registre quem codifica e em que condições, documente incerteza e desacordo.</p>
 
-        <h2 data-pt="4. Ferramentas digitais" data-en="4. Digital tools">4. Ferramentas digitais</h2>
+        <h2 id="ferramentas" data-pt="4. Ferramentas digitais" data-en="4. Digital tools">4. Ferramentas digitais</h2>
         <p data-pt="A pesquisa em humanidades se beneficia enormemente de ferramentas digitais bem escolhidas. Abaixo, as que utilizo e recomendo."
            data-en="Humanities research benefits enormously from well-chosen digital tools. Below, those I use and recommend.">A pesquisa em humanidades se beneficia enormemente de ferramentas digitais bem escolhidas. Abaixo, as que utilizo e recomendo.</p>
 
@@ -182,7 +205,7 @@
           </div>
         </div>
 
-        <h2 data-pt="5. Acervos digitais para iconografia jurídica" data-en="5. Digital collections for legal iconography">5. Acervos digitais para iconografia jurídica</h2>
+        <h2 id="acervos" data-pt="5. Acervos digitais para iconografia jurídica" data-en="5. Digital collections for legal iconography">5. Acervos digitais para iconografia jurídica</h2>
         <p data-pt="Estes acervos oferecem acesso gratuito a imagens de alta resolução, muitas em domínio público, com metadados ricos e, em vários casos, APIs e protocolos IIIF para pesquisa programática."
            data-en="These collections offer free access to high-resolution images, many in the public domain, with rich metadata and, in several cases, APIs and IIIF protocols for programmatic research.">Estes acervos oferecem acesso gratuito a imagens de alta resolução, muitas em domínio público, com metadados ricos e, em vários casos, APIs e protocolos IIIF para pesquisa programática.</p>
 
@@ -197,7 +220,7 @@
           <li><span class="name">Smithsonian</span> <span class="url">si.edu</span> <span data-pt="Acervo diversificado: numismática, arte, história. A coleção do National Museum of American History é particularmente útil." data-en="Diverse collection: numismatics, art, history. The National Museum of American History collection is particularly useful.">Acervo diversificado: numismática, arte, história americana.</span></li>
         </ul>
 
-        <h2 data-pt="6. Estratégias de busca em bases de dados" data-en="6. Database search strategies">6. Estratégias de busca em bases de dados</h2>
+        <h2 id="buscas" data-pt="6. Estratégias de busca em bases de dados" data-en="6. Database search strategies">6. Estratégias de busca em bases de dados</h2>
         <p data-pt="A escolha dos termos de busca é tão importante quanto a escolha da base. Abaixo, uma tabela de termos produtivos em português e inglês, testados no Catálogo de Teses da CAPES e no sistema HOLLIS de Harvard."
            data-en="The choice of search terms is as important as the choice of database. Below, a table of productive terms in Portuguese and English, tested in the CAPES Thesis Catalog and Harvard's HOLLIS system.">A escolha dos termos de busca é tão importante quanto a escolha da base. Abaixo, uma tabela de termos produtivos em português e inglês, testados no Catálogo de Teses da CAPES e no sistema HOLLIS de Harvard.</p>
 
@@ -234,7 +257,7 @@
         <p data-pt="Duas técnicas complementares para expandir sua bibliografia a partir de poucos artigos-chave: (1) forward citation — identifique artigos que citam um trabalho seminal (use 'Cited by' no Google Scholar ou Semantic Scholar); (2) backward citation — extraia as referências dos artigos incluídos e identifique quais são citadas por múltiplos estudos (alta sobreposição = provável obra fundamental). O snowball sampling automatiza isso: parta de 3–5 artigos altamente relevantes, extraia todas as referências, verifique quais aparecem em múltiplas bibliografias, leia esses artigos e repita."
            data-en="Two complementary techniques to expand your bibliography from a few key articles: (1) forward citation — identify articles that cite a seminal work (use 'Cited by' in Google Scholar or Semantic Scholar); (2) backward citation — extract references from included articles and identify which are cited by multiple studies (high overlap = likely foundational work). Snowball sampling automates this: start with 3–5 highly relevant articles, extract all references, check which appear in multiple bibliographies, read those articles, and repeat.">Duas técnicas para expandir sua bibliografia: (1) forward citation — identifique artigos que citam um trabalho seminal ('Cited by' no Google Scholar); (2) backward citation — extraia as referências e identifique as citadas por múltiplos estudos. Snowball sampling: parta de 3–5 artigos-chave, extraia referências, leia as de alta sobreposição, repita.</p>
 
-        <h2 data-pt="7. Normas e boas práticas" data-en="7. Standards and good practices">7. Normas e boas práticas</h2>
+        <h2 id="boas-praticas" data-pt="7. Normas e boas práticas" data-en="7. Standards and good practices">7. Normas e boas práticas</h2>
 
         <h3 data-pt="Citações e referências" data-en="Citations and references">Citações e referências</h3>
         <p data-pt="No Brasil, a norma vigente é a ABNT NBR 6023:2025. Algumas regras essenciais: autoria em caixa alta (SOBRENOME, Nome), título em itálico para livros e periódicos, edição indicada a partir da segunda, local e editora obrigatórios, DOI ou URL quando disponível. Para artigos: título do periódico em negrito, volume, número, páginas e DOI."
@@ -252,7 +275,7 @@
         <p data-pt="Se seu projeto envolve codificar dezenas ou centenas de imagens com atributos controlados, algumas práticas são essenciais: (1) separe campos de descrição (o que se vê) de campos de interpretação (o que se infere) — a ambiguidade do ícone não se resolve com consenso forçado; (2) estabeleça um protocolo de confiabilidade entre codificadores: quando dois pesquisadores divergem sobre um atributo, a divergência é um dado, não um erro; (3) documente a fonte da imagem (edição, suporte, repositório) — porque a mesma alegoria pode variar radicalmente entre uma gravura e uma moeda; (4) trate o 'dado negativo' (ausência de figura, ausência de atributo) como informação substantiva — em iconografia estatal, o que não aparece também significa."
            data-en="If your project involves coding dozens or hundreds of images with controlled attributes, some practices are essential: (1) separate description fields (what is seen) from interpretation fields (what is inferred) — the icon's ambiguity is not resolved by forced consensus; (2) establish an inter-coder reliability protocol: when two researchers diverge on an attribute, the divergence is data, not an error; (3) document the image source (edition, support, repository) — because the same allegory can vary radically between an engraving and a coin; (4) treat 'negative data' (absence of figure, absence of attribute) as substantive information — in state iconography, what does not appear also signifies.">Se seu projeto envolve codificar dezenas ou centenas de imagens com atributos controlados: (1) separe descrição de interpretação — a ambiguidade do ícone não se resolve com consenso forçado; (2) estabeleça protocolo de confiabilidade entre codificadores — a divergência é um dado, não um erro; (3) documente a fonte da imagem (edição, suporte, repositório); (4) trate o 'dado negativo' (ausência) como informação substantiva — em iconografia estatal, o que não aparece também significa.</p>
 
-        <h2 data-pt="8. Revisão sistemática de literatura" data-en="8. Systematic literature review">8. Revisão sistemática de literatura</h2>
+        <h2 id="revisao-sistematica" data-pt="8. Revisão sistemática de literatura" data-en="8. Systematic literature review">8. Revisão sistemática de literatura</h2>
         <p data-pt="Uma revisão de literatura não é um fichamento encadeado — é uma síntese crítica organizada tematicamente. O padrão-ouro para revisões sistemáticas é o protocolo PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses), que estrutura o processo em fases documentadas e reprodutíveis."
            data-en="A literature review is not a chain of summaries — it is a critical synthesis organized thematically. The gold standard for systematic reviews is the PRISMA protocol (Preferred Reporting Items for Systematic Reviews and Meta-Analyses), which structures the process into documented, reproducible phases.">Uma revisão de literatura não é um fichamento encadeado — é uma síntese crítica organizada tematicamente. O padrão-ouro é o protocolo PRISMA, que estrutura o processo em fases documentadas e reprodutíveis.</p>
 
