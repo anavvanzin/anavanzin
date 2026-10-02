@@ -18,9 +18,16 @@ test('exhibition has a complete no-JavaScript reading edition', async ({ browser
 test('language, filters and modes are keyboard-accessible', async ({ page }) => {
   await page.goto(route);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('A Nação como Mulher');
+  await expect(page.locator('.hero-kicker')).toHaveText('ICONOCRACIA · exposição 01 · 2026');
   await page.getByRole('button', { name: 'EN', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Nation as a Woman');
+  await expect(page.locator('.hero-kicker')).toHaveText('ICONOCRACIA · exhibition 01 · 2026');
   expect(await page.evaluate(() => localStorage.getItem('av_lang'))).toBe('en');
+  await page.reload();
+  await expect(page.locator('.hero-kicker')).toHaveText('ICONOCRACIA · exhibition 01 · 2026');
+  await page.getByRole('button', { name: 'PT', exact: true }).click();
+  await expect(page.locator('.hero-kicker')).toHaveText('ICONOCRACIA · exposição 01 · 2026');
+  await page.getByRole('button', { name: 'EN', exact: true }).click();
 
   await page.getByRole('button', { name: 'war', exact: true }).click();
   await expect(page.locator('.object-card')).toHaveCount(4);

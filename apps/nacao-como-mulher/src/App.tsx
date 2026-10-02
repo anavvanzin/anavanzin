@@ -12,6 +12,7 @@ const date = (item: ExhibitionItem, lang: Lang) => typeof item.date === 'string'
 const copy = {
   pt: {
     atlas: 'atlas · exposição temática',
+    exhibition: 'exposição 01',
     title: 'A Nação como Mulher',
     deck: 'Nove estudos sobre corpos femininos convocados para tornar território, República e soberania visíveis.',
     note: 'As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.',
@@ -30,6 +31,7 @@ const copy = {
   },
   en: {
     atlas: 'atlas · thematic exhibition',
+    exhibition: 'exhibition 01',
     title: 'The Nation as a Woman',
     deck: 'Nine studies of female bodies summoned to make territory, the Republic and sovereignty visible.',
     note: 'The plates are AI-generated interpretive studies based on identified historical objects. They are neither reproductions nor corpus evidence.',
@@ -298,7 +300,7 @@ export default function App() {
       <main>
         <a className="back-link" href="/atlas/">← {c.back}</a>
         <header className="hero">
-          <p className="hero-kicker">ICONOCRACIA · exposição 01 · 2026</p>
+          <p className="hero-kicker">ICONOCRACIA · {c.exhibition} · 2026</p>
           <h1>{c.title}</h1>
           <p className="hero-deck">{c.deck}</p>
           <p className="provenance-note">{c.note}</p>
