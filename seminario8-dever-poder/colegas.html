@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Guia de estudo do Seminário 8 — Do Poder-Dever ao Dever-Poder. Os quatro artigos, o caso INSS, os espelhos internacionais, as quatro colunas e o Conselho de Contestação Algorítmica.">
+<title>Guia de Estudo — Do Poder-Dever ao Dever-Poder · Vanzin &amp; Oliveira</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+html{color-scheme:light}
+:root{
+  --vc-black:#171717;
+  --vc-white:#ffffff;
+  --vc-gray700:#3a3a3a;
+  --vc-gray600:#4d4d4d;
+  --vc-gray500:#666666;
+  --vc-gray400:#808080;
+  --vc-gray200:#d6d6d6;
+  --vc-gray100:#ebebeb;
+  --vc-gray50:#fafafa;
+  --vc-blue:#0a72ef;     /* promessa / regulação */
+  --vc-pink:#de1d8d;     /* choque / ruptura */
+  --vc-red:#ff5b4f;      /* conflito */
+  --vc-green:#0a8f5b;    /* resolução */
+  --shadow-border:rgba(0,0,0,0.08) 0 0 0 1px;
+  --shadow-card:rgba(0,0,0,0.08) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 4px;
+  --shadow-lift:rgba(0,0,0,0.12) 0 0 0 1px, rgba(0,0,0,0.10) 0 8px 24px;
+  --font:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --maxw:1080px;
+  --space:clamp(4rem,2.5rem+6vw,8rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--vc-white);font-family:var(--font);color:var(--vc-gray600);
+  line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+
+/* ── skip link ── */
+.skip{position:absolute;left:-9999px;top:0;background:var(--vc-black);color:#fff;
+  padding:10px 16px;border-radius:6px;z-index:200;font-size:14px}
+.skip:focus{left:12px;top:12px}
+
+/* ── focus ── */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--vc-blue);outline-offset:3px;border-radius:3px}
+
+/* ── top bar ── */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(160%) blur(10px);box-shadow:0 1px 0 0 rgba(0,0,0,.07)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:52px}
+.brand{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--vc-gray400)}
+.brand b{color:var(--vc-black);font-weight:600}
+.topbar nav{display:flex;gap:22px}
+.topbar nav a{font-size:13px;color:var(--vc-gray500);text-decoration:none;transition:color .15s}
+.topbar nav a:hover{color:var(--vc-black)}
+@media(max-width:760px){.topbar nav{display:none}}
+
+/* ── reveal (JS only; reduced-motion safe) ── */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ── section scaffolding ── */
+section{padding-block:var(--space)}
+section+section{border-top:1px solid var(--vc-gray100)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--vc-gray400);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--vc-blue);flex-shrink:0}
+h2{font-size:clamp(1.7rem,1.2rem+1.8vw,2.6rem);font-weight:300;letter-spacing:-.025em;
+  line-height:1.1;color:var(--vc-black);margin-bottom:18px;text-wrap:balance}
+h2 em{font-style:italic}
+.lede{font-size:clamp(1.05rem,1rem+.4vw,1.25rem);color:var(--vc-gray600);max-width:62ch;line-height:1.6}
+
+/* ── HERO ── */
+.hero{padding-top:clamp(3rem,2rem+4vw,6rem);padding-bottom:var(--space);border-top:none}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--vc-blue);margin-bottom:22px}
+.hero h1{font-size:clamp(2.6rem,1.4rem+5.5vw,6rem);font-weight:300;letter-spacing:-.04em;
+  line-height:.98;color:var(--vc-black);margin-bottom:26px;text-wrap:balance}
+.hero h1 .small{display:block;font-size:.42em;letter-spacing:-.02em;color:var(--vc-gray400);margin-top:14px;font-weight:400}
+.hero .intro{font-size:clamp(1.05rem,1rem+.5vw,1.35rem);color:var(--vc-gray500);max-width:60ch;line-height:1.55}
+
+/* ── Janus mirror ── */
+.janus{margin-top:56px;display:grid;grid-template-columns:1fr auto 1fr;gap:0;
+  box-shadow:var(--shadow-card);border-radius:14px;overflow:hidden}
+.janus .face{padding:34px 30px}
+.janus .face.reg{background:var(--vc-gray50)}
+.janus .face.rdo{background:var(--vc-black);color:#fff}
+.janus .face .tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.janus .face.reg .tag{color:var(--vc-blue)}
+.janus .face.rdo .tag{color:var(--vc-pink)}
+.janus .face h3{font-size:1.5rem;font-weight:500;letter-spacing:-.02em;margin-bottom:10px}
+.janus .face.reg h3{color:var(--vc-black)}
+.janus .face p{font-size:14px;line-height:1.55}
+.janus .face.reg p{color:var(--vc-gray500)}
+.janus .face.rdo p{color:var(--vc-gray200)}
+.janus .pivot{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--vc-gray50),var(--vc-black));
+  font-size:30px;color:var(--vc-pink);padding:0 6px;font-family:var(--mono)}
+@media(max-width:680px){
+  .janus{grid-template-columns:1fr}
+  .janus .pivot{padding:14px 0;background:var(--vc-black);transform:rotate(90deg)}
+}
+.thesis-line{margin-top:28px;font-size:clamp(1.15rem,1rem+.8vw,1.6rem);font-weight:300;
+  line-height:1.4;color:var(--vc-black);max-width:64ch}
+.thesis-line strong{font-weight:500;background:linear-gradient(transparent 62%,rgba(222,29,141,.22) 62%)}
+
+/* ── ARC strip ── */
+.arc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;box-shadow:var(--shadow-border);border-radius:12px;overflow:hidden;margin-top:8px}
+.arc .step{padding:22px 20px;background:var(--vc-white);position:relative}
+.arc .step+.step{border-left:1px solid var(--vc-gray100)}
+.arc .step .n{font-family:var(--mono);font-size:11px;color:var(--vc-gray400)}
+.arc .step .t{display:block;font-size:1.05rem;font-weight:500;color:var(--vc-black);margin:6px 0 4px;letter-spacing:-.01em}
+.arc .step .d{font-size:12.5px;line-height:1.45;color:var(--vc-gray500)}
+.arc .step.s1{box-shadow:inset 0 3px 0 0 var(--vc-blue)}
+.arc .step.s2{box-shadow:inset 0 3px 0 0 var(--vc-pink)}
+.arc .step.s3{box-shadow:inset 0 3px 0 0 var(--vc-red)}
+.arc .step.s4{box-shadow:inset 0 3px 0 0 var(--vc-green)}
+@media(max-width:680px){.arc{grid-template-columns:1fr 1fr}.arc .step:nth-child(3){border-left:none}.arc .step:nth-child(odd){border-left:none}.arc .step:nth-child(n+3){border-top:1px solid var(--vc-gray100)}}
+
+/* ── article cards ── */
+.articles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+@media(max-width:760px){.articles{grid-template-columns:1fr}}
+.art{box-shadow:var(--shadow-card);border-radius:12px;padding:26px;background:var(--vc-white);
+  display:flex;flex-direction:column;gap:14px;transition:box-shadow .25s,transform .25s}
+.art:hover{box-shadow:var(--shadow-lift);transform:translateY(-3px)}
+.art .ref{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--vc-blue);text-transform:uppercase}
+.art h3{font-size:1.15rem;font-weight:500;color:var(--vc-black);line-height:1.3;letter-spacing:-.01em}
+.art .cite{font-size:12.5px;color:var(--vc-gray400);font-style:italic;line-height:1.45}
+.art dl{margin-top:4px}
+.art dt{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vc-gray400);margin-top:12px}
+.art dd{font-size:13.5px;line-height:1.55;color:var(--vc-gray600);margin-top:3px}
+.art dd.tension{color:var(--vc-black)}
+
+/* ── black box (INSS) ── */
+.blackbox{margin-top:36px;background:var(--vc-black);color:#fff;border-radius:14px;padding:clamp(28px,3vw,44px);position:relative;overflow:hidden}
+.blackbox .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:14px;margin:26px 0 8px}
+.blackbox .node{text-align:center}
+.blackbox .node .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--vc-gray400);margin-bottom:8px}
+.blackbox .node .val{font-size:14px;line-height:1.4;color:#fff}
+.blackbox .box{border:1.5px dashed var(--vc-pink);border-radius:10px;padding:18px 14px;background:rgba(222,29,141,.08)}
+.blackbox .box .val{color:var(--vc-pink);font-weight:500}
+.blackbox .arrow{color:var(--vc-gray500);font-size:20px;font-family:var(--mono)}
+.blackbox p{font-size:14.5px;line-height:1.6;color:var(--vc-gray200);max-width:70ch}
+.blackbox .punch{color:#fff;font-size:clamp(1.05rem,1rem+.5vw,1.3rem);font-weight:300;margin-top:18px;line-height:1.45}
+.blackbox .punch b{font-weight:500;color:var(--vc-pink)}
+@media(max-width:680px){.blackbox .flow{grid-template-columns:1fr;gap:10px}.blackbox .arrow{transform:rotate(90deg)}}
+
+/* ── mirrors ── */
+.mirror-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+@media(max-width:680px){.mirror-grid{grid-template-columns:1fr}}
+.mirror{box-shadow:var(--shadow-border);border-radius:12px;padding:24px;border-left:3px solid var(--vc-blue)}
+.mirror .flag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vc-gray400)}
+.mirror h3{font-size:1.1rem;font-weight:500;color:var(--vc-black);margin:8px 0 8px}
+.mirror p{font-size:13.5px;line-height:1.55;color:var(--vc-gray500)}
+
+/* ── contribution ── */
+.contrib{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+@media(max-width:680px){.contrib{grid-template-columns:1fr}}
+.contrib .c{box-shadow:var(--shadow-card);border-radius:12px;padding:28px;background:var(--vc-gray50)}
+.contrib .c .num{font-family:var(--mono);font-size:13px;color:var(--vc-pink)}
+.contrib .c h3{font-size:1.3rem;font-weight:500;color:var(--vc-black);margin:6px 0 10px;letter-spacing:-.01em}
+.contrib .c p{font-size:14px;line-height:1.6;color:var(--vc-gray600)}
+.contrib .c blockquote{margin-top:12px;font-style:italic;color:var(--vc-black);font-size:14.5px;border-left:2px solid var(--vc-pink);padding-left:12px}
+.datapoint{margin-top:26px;display:flex;gap:18px;align-items:center;box-shadow:var(--shadow-border);border-radius:12px;padding:22px 26px;flex-wrap:wrap}
+.datapoint .big{font-size:clamp(2.4rem,1.5rem+3vw,3.6rem);font-weight:300;letter-spacing:-.03em;color:var(--vc-blue);font-variant-numeric:tabular-nums;line-height:1}
+.datapoint p{font-size:13.5px;color:var(--vc-gray500);max-width:52ch;line-height:1.5}
+
+/* ── pillars ── */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+@media(max-width:760px){.pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.pillars{grid-template-columns:1fr}}
+.pillar{box-shadow:var(--shadow-card);border-radius:12px;padding:24px 20px;background:var(--vc-white);transition:transform .25s,box-shadow .25s}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.pillar .rn{font-family:var(--mono);font-size:28px;font-weight:500;color:var(--vc-green);line-height:1}
+.pillar .lbl{font-size:1.05rem;font-weight:600;color:var(--vc-black);margin:10px 0 8px;letter-spacing:-.01em}
+.pillar .desc{font-size:12.5px;line-height:1.5;color:var(--vc-gray500)}
+
+/* ── council / app CTA ── */
+.council{margin-top:32px;background:var(--vc-gray50);border-radius:14px;padding:clamp(26px,3vw,40px);box-shadow:var(--shadow-border)}
+.council .personas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+@media(max-width:680px){.council .personas{grid-template-columns:1fr 1fr}}
+.council .persona{background:#fff;border-radius:10px;padding:16px;box-shadow:var(--shadow-border)}
+.council .persona .pe{font-size:22px}
+.council .persona .pn{font-size:13.5px;font-weight:600;color:var(--vc-black);margin:6px 0 4px}
+.council .persona .pd{font-size:12px;line-height:1.45;color:var(--vc-gray500)}
+.council .phases{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.council .phase{font-family:var(--mono);font-size:12px;color:var(--vc-gray600);background:#fff;padding:6px 12px;border-radius:6px;box-shadow:var(--shadow-border)}
+.council .phase b{color:var(--vc-pink)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;font-weight:500;
+  text-decoration:none;padding:11px 18px;border-radius:8px;transition:transform .15s,box-shadow .2s,background-color .2s}
+.btn.primary{background:var(--vc-black);color:#fff}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+.btn.ghost{background:#fff;color:var(--vc-black);box-shadow:var(--shadow-border)}
+.btn.ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+
+/* ── glossary ── */
+.gloss{columns:2;column-gap:36px;margin-top:30px}
+@media(max-width:680px){.gloss{columns:1}}
+.gloss .term{break-inside:avoid;margin-bottom:18px}
+.gloss dt{font-weight:600;color:var(--vc-black);font-size:14.5px;letter-spacing:-.01em}
+.gloss dd{font-size:13px;line-height:1.5;color:var(--vc-gray500);margin-top:3px}
+
+/* ── questions ── */
+.questions{margin-top:30px;display:grid;gap:12px}
+.q{display:flex;gap:16px;box-shadow:var(--shadow-border);border-radius:10px;padding:18px 20px;transition:box-shadow .2s}
+.q:hover{box-shadow:var(--shadow-card)}
+.q .qn{font-family:var(--mono);font-size:15px;color:var(--vc-blue);flex-shrink:0;font-variant-numeric:tabular-nums}
+.q p{font-size:14.5px;line-height:1.5;color:var(--vc-gray700)}
+.final-q{margin-top:26px;background:var(--vc-black);color:#fff;border-radius:14px;padding:clamp(28px,3vw,40px)}
+.final-q .lab{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--vc-pink);margin-bottom:14px}
+.final-q p{font-size:clamp(1.2rem,1rem+1.1vw,1.85rem);font-weight:300;line-height:1.35;letter-spacing:-.01em}
+
+/* ── kit cards ── */
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:34px}
+.kc{box-shadow:var(--shadow-card);border-radius:12px;padding:22px;background:#fff;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .25s}
+.kc:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.kc .kk{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vc-gray400)}
+.kc h3{font-size:1.05rem;font-weight:500;color:var(--vc-black)}
+.kc h3 em{font-style:italic;color:var(--vc-blue)}
+.kc p{font-size:13px;line-height:1.5;color:var(--vc-gray500)}
+.kc .go{font-family:var(--mono);font-size:12.5px;color:var(--vc-blue);margin-top:auto;display:inline-flex;gap:6px;transition:gap .15s}
+.kc:hover .go{gap:11px}
+.kc.live{border-top:3px solid var(--vc-pink)}
+.kc.main{border-top:3px solid var(--vc-blue)}
+
+/* ── share / QR ── */
+.share{margin-top:36px;display:flex;gap:26px;align-items:center;flex-wrap:wrap;
+  box-shadow:var(--shadow-border);border-radius:14px;padding:28px 32px;background:var(--vc-gray50)}
+.share img{width:116px;height:116px;border-radius:10px;background:#fff;padding:8px;box-shadow:var(--shadow-border);flex-shrink:0}
+.share h3{font-size:1.15rem;font-weight:500;color:var(--vc-black);margin-bottom:6px}
+.share p{font-size:13.5px;color:var(--vc-gray500);max-width:46ch}
+.share .url{font-family:var(--mono);font-size:13px;color:var(--vc-blue);margin-top:8px;word-break:break-all}
+
+/* ── footer ── */
+footer{padding:48px 0 40px;border-top:1px solid var(--vc-gray100);text-align:center}
+footer p{font-family:var(--mono);font-size:12px;color:var(--vc-gray400);line-height:1.7}
+footer p b{color:var(--vc-gray600);font-weight:500}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+@media print{
+  @page{size:A4;margin:14mm}
+  html,body{font-size:11px}
+  .topbar,.skip{display:none!important}
+  .js .reveal,.reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  section{padding-block:18px!important;border-top:1px solid var(--vc-gray200)}
+  .hero{padding-top:6px}
+  :root{--space:24px}
+  .art,.pillar,.mirror,.kc,.q,.contrib .c,.janus,.blackbox,.final-q,.datapoint,.share,.council{break-inside:avoid;page-break-inside:avoid}
+  h2{break-after:avoid}
+  .kc:hover,.art:hover,.pillar:hover{transform:none}
+  a[href^="http"]{text-decoration:none}
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="integration.css">
+<link rel="canonical" href="https://anavanzin.com/seminario8-dever-poder/colegas">
+<meta name="robots" content="index,follow">
+</head>
+<body>
+<nav class="work-nav" aria-label="Navegação dos trabalhos"><a href="/trabalhos">← trabalhos</a><a href="/seminario8-dever-poder/">seminário</a><a href="/prot-tipo/">Conselho · demonstração</a><a href="/algoritmo-em-disputa/">adaptação do LLM Council</a></nav>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="brand"><b>Seminário VIII</b> · Guia de Estudo</span>
+    <nav aria-label="Seções do guia">
+      <a href="#artigos">Artigos</a>
+      <a href="#inss">Caso INSS</a>
+      <a href="#colunas">4 Colunas</a>
+      <a href="#conselho">O Conselho</a>
+      <a href="#kit">Kit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══ HERO / A CHAVE ══ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <p class="kicker">PPGD/UFSC · Maio 2026 · Vanzin &amp; Oliveira</p>
+      <h1 id="hero-h">Do Poder-Dever<br>ao Dever-Poder
+        <span class="small">Um guia para ler quatro artigos como um só argumento.</span>
+      </h1>
+      <p class="intro">A Administração Pública digital promete eficiência. Mas quando o Estado decide por algoritmo, quem perde o direito de compreender, contestar e participar? Este guia recompõe o arco do seminário — para você revisitar depois da aula.</p>
+
+      <div class="janus reveal" role="group" aria-label="O Estado como regulador e regulado">
+        <div class="face reg">
+          <div class="tag">a face que regula</div>
+          <h3>Regulador</h3>
+          <p>Edita a LAI e a LGPD, cria a ANPD, publica resoluções, instruções normativas e regras de governança. Tem o <em>poder-dever</em> de disciplinar a tecnologia.</p>
+        </div>
+        <div class="pivot" aria-hidden="true">⇄</div>
+        <div class="face rdo">
+          <div class="tag">a face que descumpre</div>
+          <h3>Regulado</h3>
+          <p>É o maior controlador de dados do país e o maior usuário de decisões automatizadas. Quando vira destinatário da norma, administra o dever em benefício próprio — o <em>dever-poder</em>.</p>
+        </div>
+      </div>
+
+      <p class="publication-context">Os casos do Conselho são fictícios e didáticos. A revisão humana prévia é uma proposta acadêmica; o art. 20 da LGPD garante pedido de revisão sem exigir expressamente pessoa natural. <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD vigente</a> · <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14129.htm">Lei do Governo Digital</a>.</p><p class="thesis-line">A tese: o Estado opera como <strong>regulador ⇄ regulado</strong> — quem edita a regra é, com frequência, quem mais a descumpre contra o cidadão.</p>
+    </div>
+  </section>
+
+  <!-- ══ O ARCO ══ -->
+  <section aria-labelledby="arco-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>como o argumento se desdobra</p>
+      <h2 id="arco-h">Quatro tempos de <em>tensão</em></h2>
+      <p class="lede">O seminário lê os artigos como um arco dramático. Cada artigo ocupa um tempo desse arco — da promessa da Administração 4.0 até a resolução normativa.</p>
+      <div class="arc reveal">
+        <div class="step s1"><span class="n">i — promessa</span><span class="t">Defesa</span><span class="d">Mesmo com LGPD, o cidadão ainda precisa ser defendido do próprio Estado.</span></div>
+        <div class="step s2"><span class="n">ii — promessa</span><span class="t">Abertura</span><span class="d">Governo aberto é dever — mas quem decide o que se abre e o que se fecha é o Estado.</span></div>
+        <div class="step s3"><span class="n">iii–iv — choque</span><span class="t">Escala &amp; opacidade</span><span class="d">Big data tensiona a LGPD; a decisão automatizada vira caixa-preta.</span></div>
+        <div class="step s4"><span class="n">resolução</span><span class="t">Contraditório</span><span class="d">Explicável, contestável, inclusiva e controlável: as quatro colunas.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ OS 4 ARTIGOS ══ -->
+  <section id="artigos" aria-labelledby="art-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>04 artigos · direito digital &amp; administrativo · 2019–2024</p>
+      <h2 id="art-h">Os textos, em <em>linguagem direta</em></h2>
+      <p class="lede">Para cada artigo: o que ele afirma, a tensão que ele revela e por que isso sustenta a tese do seminário.</p>
+
+      <div class="articles">
+
+        <article class="art reveal">
+          <span class="ref">Art. I · privacidade</span>
+          <h3>Privacidade como direito multifuncional</h3>
+          <p class="cite">Saito, Vitória Hiromi; Salgado, Eneida Desiree — <em>Privacidade e proteção de dados: por uma compreensão ampla do direito fundamental em face da sua multifuncionalidade.</em> IJDL, v.1, n.3, p.117–137, 2020. <a href="https://journal.nuped.com.br/index.php/revista/article/view/saito2020">Artigo e DOI</a>.</p>
+          <dl>
+            <dt>O que diz</dt>
+            <dd>A privacidade tem três funções: defesa contra o Estado, prestação normativa pelo Estado e prestação fática de proteção. A LGPD marca uma nova geração desse direito.</dd>
+            <dt>A tensão</dt>
+            <dd class="tension">Mesmo criando a LGPD, o Estado segue sendo um dos maiores agentes de tratamento de dados — a MP 954/2020 tentou ampliar o compartilhamento sem finalidade clara, e o STF teve de conter na ADI 6.387.</dd>
+            <dt>Por que importa</dt>
+            <dd>A autotutela não bastou: foi preciso outro Poder segurar o regulador. Primeira aparição da tese.</dd>
+          </dl>
+        </article>
+
+        <article class="art reveal">
+          <span class="ref">Art. II · governo aberto</span>
+          <h3>Governo aberto e opacidade seletiva</h3>
+          <p class="cite">Cristóvam, J. S. da S. &amp; Hahn, T. M. — <em>Administração Pública orientada por dados: governo aberto e infraestrutura nacional de dados abertos.</em> Rev. de Direito Administrativo e Gestão Pública (RDAGP), v.6, n.1, p.1–24, 2020. <a href="https://indexlaw.org/index.php/rdagp/article/view/6388">Artigo e DOI</a>.</p>
+          <dl>
+            <dt>O que diz</dt>
+            <dd>O artigo de 2020 discute governo aberto, transparência, participação, accountability e infraestrutura de dados abertos. A Lei 14.129/2021 é um desenvolvimento normativo posterior mobilizado pelo seminário.</dd>
+            <dt>A tensão</dt>
+            <dd class="tension">Quem decide o que aparece, em que formato e o que permanece sigiloso é o próprio Estado. A LAI obriga transparência, mas também permite classificar informações como reservadas ou secretas.</dd>
+            <dt>Por que importa</dt>
+            <dd>Um portal pode ser transparente no fiscal e totalmente opaco na decisão algorítmica. A mesma estrutura guarda as chaves da opacidade.</dd>
+          </dl>
+        </article>
+
+        <article class="art reveal">
+          <span class="ref">Art. III · big data</span>
+          <h3>Big data e o grande coletor</h3>
+          <p class="cite">Sarlet, G. B. S. &amp; Molinaro, C. — <em>Questões tecnológicas, éticas e normativas da proteção de dados pessoais na área da saúde em um contexto de big data.</em> Rev. Bras. de Direitos Fundamentais &amp; Justiça, ano 13, n.41, p.183–212, edição 2019; publicação online em 2020. <a href="https://dfj.emnuvens.com.br/dfj/article/view/811">Artigo e DOI</a>.</p>
+          <dl>
+            <dt>O que diz</dt>
+            <dd>O big data pressiona as categorias centrais da LGPD — finalidade, minimização, consentimento, anonimização.</dd>
+            <dt>A tensão</dt>
+            <dd class="tension">O maior coletor é o próprio Estado: saúde, educação, assistência, previdência, tributação, segurança. A pergunta deixa de ser “há base legal?” e passa a ser <em>quem controla o controlador?</em></dd>
+            <dt>Por que importa</dt>
+            <dd>Se o Estado concentra os dados, regula a proteção e é o maior usuário das bases, a minimização corre o risco de virar promessa retórica.</dd>
+          </dl>
+        </article>
+
+        <article class="art reveal">
+          <span class="ref">Art. IV · contraditório algorítmico</span>
+          <h3>Explicabilidade e contraditório prévio</h3>
+          <p class="cite">Tavares, A. A.; Bitencourt, C. M. &amp; Cristóvam, J. S. da S. — <em>Explicabilidade e contraditório algorítmico nas decisões automatizadas no setor público.</em> Diké – Revista Jurídica, v.23, n.27, p.2–32, 2024. <a href="https://periodicos.uesc.br/index.php/dike/article/view/4556">Artigo e DOI</a>.</p>
+          <dl>
+            <dt>O que diz</dt>
+            <dd>O contraditório deve ser <em>prévio</em> à decisão automatizada — não suprido por recurso posterior. Tipifica decisões em humanas, híbridas e algorítmicas.</dd>
+            <dt>A tensão</dt>
+            <dd class="tension">No caso INSS, a negativa chega como fórmula (“não comprovada a qualidade de segurado especial”), sem dizer quais dados pesaram nem qual critério foi usado. Inferência não é prova.</dd>
+            <dt>Por que importa</dt>
+            <dd>O órgão que edita a regra (IN 128/2022) é o mesmo que automatiza a negativa. O regulador vira regulado — e falha.</dd>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CASO-ÂNCORA INSS ══ -->
+  <section id="inss" aria-labelledby="inss-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" style="background:var(--vc-red)"></span>caso-âncora · Brasil</p>
+      <h2 id="inss-h">A <em>caixa-preta</em> do INSS</h2>
+      <p class="lede">Neste cenário didático, uma trabalhadora rural pede aposentadoria por idade como segurada especial. O sistema cruza bases — CNIS, CadÚnico, dados fiscais — e infere que ela não comprova atividade rural.</p>
+
+      <div class="blackbox reveal">
+        <div class="flow" role="img" aria-label="Fluxo: dados pessoais entram em uma caixa-preta algorítmica e sai apenas uma negativa, sem explicação.">
+          <div class="node"><div class="lab">entra</div><div class="val">CNIS · CadÚnico · dados fiscais · vínculos</div></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node box"><div class="lab">decisão automatizada</div><div class="val">caixa-preta</div></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="node"><div class="lab">sai</div><div class="val">“Não comprovada a qualidade de segurado especial”</div></div>
+        </div>
+        <p>Sem dizer quais dados pesaram, qual critério foi usado, qual contradição ela deveria corrigir. A pessoa não consegue contestar porque não sabe o que, exatamente, foi decidido contra ela.</p>
+        <p class="punch">O próprio INSS edita a <b>IN 128/2022</b>, que exige análise e contraditório. Mas o órgão que faz a regra é o que automatiza a negativa — <b>do poder-dever ao dever-poder</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ESPELHOS ══ -->
+  <section aria-labelledby="esp-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" style="background:var(--vc-pink)"></span>espelhos internacionais</p>
+      <h2 id="esp-h">O debate <em>não</em> é abstrato</h2>
+      <p class="lede">Casos internacionais e nacionais mostram o que está em jogo — e o que acontece (ou não) quando alguém contém a opacidade algorítmica do Estado.</p>
+      <div class="mirror-grid">
+        <div class="mirror reveal">
+          <span class="flag">🇳🇱 Holanda · 2020</span>
+          <h3>SyRI — o algoritmo proibido em Haia</h3>
+          <p>O Sistema de Indicadores de Risco cruzava bases governamentais para detectar fraude em benefícios sociais, concentrando impacto em bairros pobres e de imigrantes. O Tribunal de Haia o declarou ilegal por violar o Art. 8º da Convenção Europeia de Direitos Humanos. Um Judiciário conteve o Executivo.</p>
+        </div>
+        <div class="mirror reveal" style="border-left-color:var(--vc-pink)">
+          <span class="flag">🇦🇺 Austrália · 2023</span>
+          <h3>Robodebt — cobrança automatizada que deu errado</h3>
+          <p>O cruzamento algorítmico gerou cobranças de dívidas sociais em massa, muitas indevidas, com dano social gravíssimo. Resultou em uma Comissão Real e virou referência mundial em dano algorítmico estatal — eficiência sem governança humana.</p>
+        </div>
+        <div class="mirror reveal" style="border-left-color:var(--vc-blue)">
+          <span class="flag">🇪🇺 União Europeia · 2024–2026</span>
+          <h3>AI Act — benefícios sociais são “alto risco”</h3>
+          <p>O regulamento europeu de IA classifica como alto risco justamente os algoritmos que decidem elegibilidade a benefícios sociais (Anexo III). A comparação é analítica: a regulação europeia não se aplica diretamente ao INSS brasileiro. A classificação e seu calendário devem ser consultados na <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">Comissão Europeia</a>, pois houve alterações posteriores ao seminário.</p>
+        </div>
+        <div class="mirror reveal" style="border-left-color:var(--vc-red)">
+          <span class="flag">🇧🇷 Brasil · 2025</span>
+          <h3>Descontos do INSS — o Estado contra o próprio segurado</h3>
+          <p>Em 2025, vieram a público descontos associativos investigados no INSS. O governo disponibilizou consulta e contestação pelo Meu INSS, pela Central 135 e pelos Correios (<a href="https://www.gov.br/agu/pt-br/comunicacao/noticias/vitimas-de-fraudes-no-inss-deverao-ser-reembolsadas-em-parcela-unica-ate-o-fim-do-ano/LiveINSSPerguntaseRespostas.pdf">perguntas e respostas oficiais, 18/06/2025</a>). O episódio permite discutir governança e acesso à contestação; não demonstra, por si, viés de um algoritmo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTRIBUIÇÃO AUTORAL ══ -->
+  <section aria-labelledby="contrib-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" style="background:var(--vc-pink)"></span>contribuição autoral · o que vem antes do contraditório</p>
+      <h2 id="contrib-h">Dois degraus <em>anteriores</em></h2>
+      <p class="lede">Antes de contestar, a pessoa precisa compreender — e precisa ser tratada como pessoa.</p>
+      <div class="contrib">
+        <div class="c reveal">
+          <span class="num">degrau i</span>
+          <h3>Literacia algorítmica</h3>
+          <p>A pessoa muitas vezes nem sabe que foi uma máquina que decidiu. Não conhece inferência, viés de proxy, cruzamento de bases. Transparência não basta: um portal pode publicar tudo e ainda ser incompreensível. O que falta é inteligibilidade.</p>
+          <blockquote>Não se contesta o que não se compreende.</blockquote>
+        </div>
+        <div class="c reveal">
+          <span class="num">degrau ii</span>
+          <h3>Notícia humana</h3>
+          <p>Certas decisões podem até ser automatizadas, mas a comunicação de uma decisão adversa a alguém vulnerável deveria ser feita por uma pessoa, não por uma máquina. A negativa de uma aposentadoria não deveria chegar como uma frase fria num aplicativo.</p>
+          <blockquote>A dignidade do administrado também está em como ele é avisado.</blockquote>
+        </div>
+      </div>
+      <div class="datapoint reveal">
+        <div class="big">22%</div>
+        <p>Apenas 22% da população (10+) alcança o nível mais alto de conectividade significativa — 73% na classe A, 3% nas classes D-E (<a href="https://cetic.br/media/docs/publicacoes/2/pt-br/20251027170648/tic_domicilios_2024_livro_eletronico.pdf">TIC Domicílios 2024, p.58–59</a>). Um serviço “100% digital” pode ser formalmente disponível e materialmente inacessível. A exclusão digital não pode virar exclusão de direitos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 4 COLUNAS ══ -->
+  <section id="colunas" aria-labelledby="col-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" style="background:var(--vc-green)"></span>framework · a resolução</p>
+      <h2 id="col-h">As quatro colunas da <em>Administração 4.0 democrática</em></h2>
+      <p class="lede">A Administração 4.0 não fica democrática só por ser digital. Ela é legítima quando a decisão pode ser:</p>
+      <div class="pillars">
+        <div class="pillar reveal"><div class="rn">i.</div><div class="lbl">Explicável</div><p class="desc">Toda decisão automatizada deve poder ser explicada em linguagem que o cidadão compreenda. Transparência não basta — é preciso inteligibilidade.</p></div>
+        <div class="pillar reveal"><div class="rn">ii.</div><div class="lbl">Contestável</div><p class="desc">O contraditório deve ser prévio à decisão, não suprido por recurso posterior. A pessoa precisa influenciar o resultado antes que ele produza efeitos.</p></div>
+        <div class="pillar reveal"><div class="rn">iii.</div><div class="lbl">Inclusiva</div><p class="desc">Canais físicos e digitais de contestação acessíveis a quem não tem letramento digital. A exclusão digital não pode ser exclusão de direitos.</p></div>
+        <div class="pillar reveal"><div class="rn">iv.</div><div class="lbl">Controlável</div><p class="desc">Quem regula a tecnologia é quem a opera. Por isso o controle precisa ser externo: auditoria independente, LAI, DPU, Judiciário.</p></div>
+      </div>
+      <div class="datapoint reveal">
+        <div class="big">PL 2338</div>
+        <p>As quatro colunas estão deixando de ser proposta acadêmica. O <strong>Marco Legal da IA</strong> (PL 2338/2023), aprovado no Senado em dez/2024 e em votação final na Câmara, garante a quem sofre uma decisão automatizada o direito à <strong>informação, explicação e contestação</strong>. Detalhe que confirma a tese: apontou-se vício de iniciativa no trecho sobre competências da ANPD — até a lei da IA esbarra na tensão de quem regula quem.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ O CONSELHO (APP) ══ -->
+  <section id="conselho" aria-labelledby="cons-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" style="background:var(--vc-pink)"></span>protótipo interativo</p>
+      <h2 id="cons-h">O <em>Conselho</em> de Contestação Algorítmica</h2>
+      <p class="lede">Uma maquete acadêmica: o caso da negativa automática passa por quatro perspectivas, cada uma traduzindo a tensão de um artigo. O sistema não decide pela pessoa — ele devolve o contraditório que o Estado suprimiu.</p>
+      <div class="council reveal">
+        <div class="personas">
+          <div class="persona"><div class="pe" aria-hidden="true">⚖️</div><div class="pn">Defensoria</div><div class="pd">Contraditório prévio e ampla defesa.</div></div>
+          <div class="persona"><div class="pe" aria-hidden="true">📊</div><div class="pn">Cientista de Dados</div><div class="pd">Explicabilidade, viés de proxy, qualidade da inferência.</div></div>
+          <div class="persona"><div class="pe" aria-hidden="true">🏛️</div><div class="pn">Administrador</div><div class="pd">Governança, motivação, dever de justificar.</div></div>
+          <div class="persona"><div class="pe" aria-hidden="true">👤</div><div class="pn">Cidadão</div><div class="pd">Exclusão digital, linguagem clara, notícia humana.</div></div>
+        </div>
+        <div class="phases">
+          <span class="phase"><b>Fase 1</b> · pareceres independentes</span>
+          <span class="phase"><b>Fase 2</b> · avaliações cruzadas</span>
+          <span class="phase"><b>Fase 3</b> · parecer final do relator</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="/prot-tipo/" target="_blank" rel="noopener">Explorar a demonstração do Conselho <span aria-hidden="true">↗</span></a>
+          <a class="btn ghost" href="Conselho.html">Versão offline (Plan B) <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GLOSSÁRIO ══ -->
+  <section aria-labelledby="gloss-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>vocabulário mínimo</p>
+      <h2 id="gloss-h">Glossário para <em>chegar pronto</em></h2>
+      <dl class="gloss">
+        <div class="term"><dt>Inferência</dt><dd>Conclusão que o sistema deduz a partir de dados (ex.: “é urbano, logo não é rural”). Inferência não é prova.</dd></div>
+        <div class="term"><dt>Viés de proxy</dt><dd>Quando uma variável substituta (CEP, escola, endereço) carrega, na prática, raça ou classe — e o modelo discrimina por tabela.</dd></div>
+        <div class="term"><dt>Caixa-preta</dt><dd>Sistema cujos critérios internos não são acessíveis: dados entram, decisão sai, sem explicação verificável.</dd></div>
+        <div class="term"><dt>Contraditório prévio</dt><dd>Direito de se manifestar <em>antes</em> da decisão produzir efeitos — não apenas recorrer depois.</dd></div>
+        <div class="term"><dt>Explicabilidade</dt><dd>Capacidade de justificar uma decisão automatizada de forma compreensível para o afetado.</dd></div>
+        <div class="term"><dt>Minimização</dt><dd>Princípio da LGPD: tratar apenas os dados estritamente necessários à finalidade. Tensionado pelo big data.</dd></div>
+        <div class="term"><dt>Decisão automatizada (Art. 20, LGPD)</dt><dd>Garante ao titular o direito de solicitar revisão de decisões tomadas unicamente por tratamento automatizado.</dd></div>
+        <div class="term"><dt>Cruzamento de bases</dt><dd>Combinação de cadastros distintos (CNIS, CadÚnico, Receita). Um erro em uma base propaga em cascata para as demais.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══ PERGUNTAS ══ -->
+  <section aria-labelledby="q-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>para levar ao debate</p>
+      <h2 id="q-h">Perguntas que ficam <em>em aberto</em></h2>
+      <div class="questions">
+        <div class="q"><span class="qn">01</span><p>A eficiência administrativa é um valor neutro — ou uma linguagem política que desloca a discricionariedade para código opaco e fornecedores privados?</p></div>
+        <div class="q"><span class="qn">02</span><p>Se a transparência (publicar dados) não garante inteligibilidade (compreender a decisão), o que a Administração precisa fazer além de “abrir” os dados?</p></div>
+        <div class="q"><span class="qn">03</span><p>Quando o regulador e o regulado são o mesmo Estado, qual controle é capaz de contê-lo — auditoria independente, LAI, DPU, Judiciário?</p></div>
+        <div class="q"><span class="qn">04</span><p>Dos riscos da Administração 4.0 (opacidade, discriminação, motivação superficial, exclusão por autosserviço forçado), qual ameaça mais a legitimidade democrática?</p></div>
+      </div>
+      <div class="final-q reveal">
+        <div class="lab">a pergunta-síntese</div>
+        <p>A Administração Pública digital está decidindo <em>melhor</em> — ou apenas decidindo mais rápido, com menos chance de compreensão, contestação e participação?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ O KIT ══ -->
+  <section id="kit" aria-labelledby="kit-h">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>material completo · tudo em um lugar</p>
+      <h2 id="kit-h">O <em>kit</em> do seminário</h2>
+      <p class="lede">Todas as peças que o seminário produziu, para você revisitar, anotar e continuar o debate.</p>
+      <div class="kit">
+        <a class="kc main" href="Seminario8.html">
+          <span class="kk">peça principal</span>
+          <h3>Os <em>slides</em> — deck completo</h3>
+          <p>35 lâminas em arco dramático. Navegação por ← →. O Conselho está integrado no slide 33.</p>
+          <span class="go">abrir o deck <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="kc live" href="/prot-tipo/" target="_blank" rel="noopener">
+          <span class="kk">demonstração · simulação local</span>
+          <h3>O <em>Conselho</em> de Contestação</h3>
+          <p>6 casos, 4 personas, 3 fases de deliberação. Cenários e pareceres preparados, sem chamadas de IA; a versão original usa uma chamada Gemini para quatro perspectivas.</p>
+          <span class="go">abrir o app <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="kc" href="Seminario8-print.html">
+          <span class="kk">para imprimir</span>
+          <h3>Versão para <em>impressão</em></h3>
+          <p>O deck reflowed em A4, sem fundos escuros. Use Ctrl+P e salve como PDF para anotar.</p>
+          <span class="go">abrir versão A4 <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="kc" href="colegas.pdf">
+          <span class="kk">download · pdf</span>
+          <h3>Este guia em <em>PDF</em></h3>
+          <p>A versão impressa deste guia de estudo, para baixar, imprimir e anotar offline.</p>
+          <span class="go">baixar PDF <span aria-hidden="true">↓</span></span>
+        </a>
+        <a class="kc" href="flyer.pdf">
+          <span class="kk">divulgação · a4</span>
+          <h3>Flyer de <em>uma página</em></h3>
+          <p>Resumo visual em A4 — Janus, arco em quatro tempos, caso INSS e a pergunta-síntese, com QR para este guia. Para imprimir ou postar.</p>
+          <span class="go">baixar flyer <span aria-hidden="true">↓</span></span>
+        </a>
+      </div>
+
+      <div class="share reveal">
+        <img src="assets/qr-guia.png" alt="QR code que aponta para anavanzin.com/seminario8-dever-poder/colegas.html" width="116" height="116">
+        <div>
+          <h3>Compartilhe este guia</h3>
+          <p>Escaneie o QR code para abrir o material completo em qualquer dispositivo.</p>
+          <div class="url">anavanzin.com/seminario8-dever-poder/colegas.html</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Ana Vitória Vanzin &amp; Vinícius Oliveira</b> · PPGD/UFSC · Maio 2026</p>
+    <p>Seminário VIII — Do Poder-Dever ao Dever-Poder · Administração Pública orientada por dados, LGPD e decisão algorítmica</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  function showAll(){ els.forEach(function(el){ el.classList.add('in'); }); }
+  if (!('IntersectionObserver' in window)){ showAll(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+  els.forEach(function(el){ io.observe(el); });
+  // Safety net: if anything is still hidden after a few seconds (e.g. an
+  // anchor jump skipped it), reveal it so content is never stuck invisible.
+  setTimeout(function(){
+    els.forEach(function(el){ if (getComputedStyle(el).opacity === '0') el.classList.add('in'); });
+  }, 2600);
+})();
+</script>
+
+</body>
+</html>

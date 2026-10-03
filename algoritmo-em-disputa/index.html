@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algoritmo em Disputa · Ana Vanzin</title>
+  <meta name="description" content="Adaptação jurídica brasileira do llm-council de Andrej Karpathy por Ana Vanzin: quatro perspectivas, crítica cruzada e contestabilidade de decisões automatizadas.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ana vanzin">
+  <meta property="og:title" content="Algoritmo em Disputa · Ana Vanzin">
+  <meta property="og:description" content="Quatro perspectivas sobre a contestação de decisões automatizadas. Estudo de caso e demonstração didática com situações fictícias.">
+  <meta property="og:url" content="https://anavanzin.com/algoritmo-em-disputa/">
+  <meta property="og:image" content="https://anavanzin.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F5F0E6">
+  <link rel="icon" href="/assets/favicon-32.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./work.css">
+  <script src="./demo.js" defer></script>
+<link rel="canonical" href="https://anavanzin.com/algoritmo-em-disputa/">
+<meta name="robots" content="index,follow">
+</head>
+<body class="work-page">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="work-header">
+    <a class="work-brand" href="/">ana vanzin</a>
+    <nav aria-label="Navegação do trabalho">
+      <a href="/trabalhos">← Trabalhos</a>
+      <a href="#demonstracao">Demonstração</a>
+      <a href="#origem">Origem e créditos</a>
+    </nav>
+  </header>
+  <main id="conteudo" class="work-main">
+    <section class="work-hero" aria-labelledby="titulo">
+      <div>
+        <p class="work-kicker">Direito digital · Protótipo acadêmico · 2026</p>
+        <h1 id="titulo">Algoritmo<br>em Disputa</h1>
+        <p class="work-dek">Como tornar uma decisão automatizada compreensível e contestável?</p>
+        <p class="work-summary">Uma adaptação jurídica brasileira do <a href="https://github.com/karpathy/llm-council">llm-council, de Andrej Karpathy</a>, por Ana Vanzin. Quatro perspectivas examinam a decisão; a crítica cruzada expõe limites dos pareceres; um relator reúne consensos e dissensos.</p>
+        <div class="work-actions">
+          <a class="work-primary" href="#demonstracao">Explorar a demonstração <span aria-hidden="true">↓</span></a>
+          <a href="https://github.com/anavvanzin/algoritmo-em-disputa">Ver o repositório <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="work-outline" aria-label="Percurso do conselho">
+        <p class="work-outline-title">Uma decisão, leituras em disputa</p>
+        <ol>
+          <li><span class="work-number">01</span><div><strong>Quatro perspectivas</strong><p>Direitos, dados, governança e experiência do cidadão.</p></div></li>
+          <li><span class="work-number">02</span><div><strong>Crítica cruzada</strong><p>Fundamentação, proteção de direitos, viabilidade e clareza.</p></div></li>
+          <li><span class="work-number">03</span><div><strong>Síntese com dissenso</strong><p>O que converge, o que permanece em aberto e o que precisa de revisão.</p></div></li>
+        </ol>
+        <p class="work-outline-note">O conselho propõe um modo de discutir a decisão. A pluralidade de vozes não garante a correção do resultado.</p>
+      </aside>
+    </section>
+
+    <section id="demonstracao" class="work-section work-demo" aria-labelledby="demo-title">
+      <div class="work-section-heading"><h2 id="demo-title">Percorra um caso fictício</h2><p>Demonstração estática</p></div>
+      <p class="work-reading">Os textos abaixo foram preparados para ilustrar as três fases. Ao mudar de caso ou de fase, você navega por esses exemplos: não há geração de respostas por IA, envio de relatos, nem armazenamento de conversas.</p>
+      <div class="work-case-controls" hidden>
+        <label for="case-select">Escolha a situação</label>
+        <select id="case-select">
+          <option value="rural">Benefício rural indeferido</option>
+          <option value="cadastro">Cadastro de renda divergente</option>
+          <option value="imovel">Classificação de imóvel alterada</option>
+        </select>
+      </div>
+      <article class="work-case" aria-labelledby="case-title">
+        <p class="work-small">Situação fictícia · Textos preparados para esta publicação</p>
+        <h3 id="case-title">Benefício rural indeferido</h3>
+        <p id="case-description">Uma trabalhadora rural recebe uma negativa de benefício em um serviço público digital. A mensagem informa apenas que os requisitos não foram comprovados. Ela não consegue identificar quais dados foram considerados, se houve análise automatizada ou como corrigir uma possível divergência cadastral.</p>
+        <p id="case-question" class="work-case-question">O que precisa ser esclarecido antes de discutir o mérito do pedido?</p>
+      </article>
+      <div class="work-tabs" role="tablist" aria-label="Fases da demonstração" hidden>
+        <button type="button" id="tab-1" role="tab" aria-controls="phase-1" aria-selected="true" tabindex="0" data-phase="1"><span>01</span> Perspectivas</button>
+        <button type="button" id="tab-2" role="tab" aria-controls="phase-2" aria-selected="false" tabindex="-1" data-phase="2"><span>02</span> Crítica cruzada</button>
+        <button type="button" id="tab-3" role="tab" aria-controls="phase-3" aria-selected="false" tabindex="-1" data-phase="3"><span>03</span> Síntese</button>
+      </div>
+      <div id="phase-1" class="work-phase" aria-labelledby="phase-title-1">
+        <h3 id="phase-title-1">Fase 1 · Quatro perspectivas</h3>
+        <p class="work-phase-intro">Papéis didáticos, sem representação institucional. As quatro leituras partem da mesma situação e podem discordar.</p>
+        <div class="work-voices" id="voices">
+          <article><span class="work-voice-label">A</span><div><h4>Defensoria Pública · Direitos</h4><p>Uma negativa genérica dificulta contestar o fundamento da decisão. O primeiro passo do exercício é pedir acesso às razões e aos dados considerados, distinguindo erro cadastral de falta de prova. O exemplo não permite concluir que a requerente tem direito ao benefício.</p></div></article>
+          <article><span class="work-voice-label">B</span><div><h4>Cientista de Dados · Explicabilidade</h4><p>Não sabemos se houve modelo estatístico, uma regra administrativa ou participação humana. É preciso identificar a origem e a atualização dos dados e o procedimento que produziu a negativa. Uma lista de variáveis, sozinha, não explica por que o pedido foi indeferido.</p></div></article>
+          <article><span class="work-voice-label">C</span><div><h4>Administrador Público · Governança</h4><p>O serviço deve permitir localizar a decisão, entender sua motivação e alcançar o canal responsável pela revisão. A proposta do protótipo é preservar uma trilha verificável e possibilitar intervenção humana, sem confundir essa proposta de governança com uma obrigação literal de toda a legislação.</p></div></article>
+          <article><span class="work-voice-label">D</span><div><h4>Cidadão · Direitos digitais</h4><p>Um portal pode divulgar informações e ainda ser incompreensível. A explicação deve dizer, em linguagem comum, o que faltou, onde verificar os dados e como pedir revisão. O desenho também precisa considerar quem não tem internet e quem precisa de ajuda para compreender a negativa.</p></div></article>
+        </div>
+      </div>
+      <div id="phase-2" class="work-phase" aria-labelledby="phase-title-2">
+        <h3 id="phase-title-2">Fase 2 · Crítica cruzada</h3>
+        <p class="work-phase-intro">No código de origem, os pareceres recebem rótulos e são avaliados por outros modelos, com ranking. Aqui, a crítica é um roteiro previamente escrito, sem pontuação gerada. Ocultar a autoria do parecer não anonimiza dados pessoais.</p>
+        <dl class="work-review" id="reviews">
+          <div><dt>Parecer A</dt><dd>Protege o direito de contestar, mas precisa separar o acesso à fundamentação da conclusão sobre o benefício. Uma falha na explicação não prova, por si só, o direito material.</dd></div>
+          <div><dt>Parecer B</dt><dd>Evita presumir a tecnologia usada. Precisa traduzir a investigação técnica em perguntas que a requerente consiga fazer e que o órgão consiga responder.</dd></div>
+          <div><dt>Parecer C</dt><dd>Identifica responsabilidades e caminhos de revisão. Deve evitar transformar a supervisão humana defendida pelo projeto em um comando legal genérico.</dd></div>
+          <div><dt>Parecer D</dt><dd>Expõe a barreira de compreensão e acesso. Uma comunicação acolhedora precisa vir acompanhada de meios efetivos de corrigir dados e contestar a decisão.</dd></div>
+        </dl>
+        <details class="work-key"><summary>Ver a correspondência entre rótulos e perspectivas</summary><p>A — Defensoria Pública; B — Cientista de Dados; C — Administrador Público; D — Cidadão.</p></details>
+      </div>
+      <div id="phase-3" class="work-phase" aria-labelledby="phase-title-3">
+        <h3 id="phase-title-3">Fase 3 · Síntese com dissenso</h3>
+        <p class="work-phase-intro">Síntese preparada para o exercício. Um relator organiza o debate; não substitui a autoridade competente nem decide um requerimento real.</p>
+        <div class="work-synthesis" id="synthesis">
+          <h4>Consenso</h4><p>O ponto de convergência é tornar a negativa identificável, explicável e revisável. Falta informação para avaliar o mérito do benefício ou afirmar que a decisão foi exclusivamente automatizada.</p>
+          <h4>Roteiro de esclarecimento</h4><ol><li>Identificar a decisão e solicitar sua fundamentação.</li><li>Verificar quais dados e procedimentos foram usados, sua origem e possíveis divergências.</li><li>Localizar o canal de correção e revisão, com explicação acessível e alternativa de atendimento.</li></ol>
+          <h4>Dissenso e limite</h4><p>As perspectivas dão pesos diferentes à urgência, à investigação técnica e à organização do serviço. A intervenção humana é uma proposta do projeto. Nenhum dos pareceres preparados comprova o direito ao benefício ou a adequação de uma medida em um caso concreto.</p>
+        </div>
+      </div>
+      <div class="work-step-navigation" hidden>
+        <button type="button" id="previous-phase">← Fase anterior</button>
+        <span id="phase-position">Fase 1 de 3</span>
+        <button type="button" id="next-phase">Próxima fase →</button>
+      </div>
+      <p id="demo-status" class="work-sr-only" role="status" aria-live="polite"></p>
+      <noscript><p class="work-noscript">JavaScript está desativado. O caso de benefício rural e as três fases permanecem disponíveis para leitura acima.</p></noscript>
+    </section>
+
+    <section id="origem" class="work-section" aria-labelledby="origem-title">
+      <div class="work-section-heading"><h2 id="origem-title">Origem, arquitetura e versões</h2></div>
+      <div class="work-reading">
+        <p>O repositório registra a adaptação de Ana Vanzin em maio de 2026 sobre o <a href="https://github.com/karpathy/llm-council">llm-council de Andrej Karpathy</a>. A contribuição desloca o conselho para a contestação de decisões automatizadas na administração pública brasileira, com atenção à literacia algorítmica e à comunicação humana com pessoas em situação de vulnerabilidade.</p>
+        <p>A implementação do repositório usa React/Vite e FastAPI. Ela associa quatro personas a modelos diferentes, consultados via OpenRouter; depois promove avaliação cruzada e uma síntese por um modelo relator. As personas são construídas pelos prompts. A independência dos modelos não elimina erros, vieses ou a necessidade de conferir referências.</p>
+        <p>Esta página oferece uma demonstração didática original em HTML, CSS e JavaScript. A implementação com modelos está disponível para estudo no repositório. O início de uma migração para Cloudflare Workers, em julho de 2026, ainda não constitui uma aplicação completa.</p>
+      </div>
+      <ol class="work-related">
+        <li><span class="work-number">01</span><div><h3><a href="/seminario8-dever-poder/">Do Poder-Dever ao Dever-Poder</a></h3><p>Apresentação de Ana Vitória Vanzin e Vinícius Oliveira. É o contexto acadêmico compartilhado de discussão sobre administração pública, tecnologia e direitos.</p></div></li>
+        <li><span class="work-number">02</span><div><h3><a href="/prot-tipo/">Conselho de Contestação · prot-tipo</a></h3><p>Outra realização experimental do conselho. O código desse protótipo utiliza uma única chamada Gemini para simular quatro vozes; elas não são quatro modelos independentes.</p></div></li>
+        <li><span class="work-number">03</span><div><h3>Algoritmo em Disputa</h3><p>Adaptação do llm-council, com modelos distintos, crítica cruzada e relator. As versões exploram uma mesma questão acadêmica por implementações diferentes; não representam adoção por um órgão público.</p></div></li>
+      </ol>
+      <p class="work-credit">Projeto de origem: Andrej Karpathy · Adaptação jurídica: Ana Vanzin.<br>O crédito ao projeto de origem é preservado. A licença de redistribuição não está explicitada nos repositórios consultados; o código herdado permanece em seu <a href="https://github.com/anavvanzin/algoritmo-em-disputa">repositório de origem</a>.</p>
+    </section>
+
+    <section id="referencias" class="work-section" aria-labelledby="referencias-title">
+      <div class="work-section-heading"><h2 id="referencias-title">Lei vigente e proposta do projeto</h2></div>
+      <div class="work-reading work-legal">
+        <p>O projeto defende explicabilidade, possibilidade de contestação e participação humana. Essa é sua proposta acadêmica de governança; ela deve ser distinguida da redação de cada dispositivo legal.</p>
+        <p><strong>LGPD, art. 20.</strong> O titular pode solicitar revisão de decisões tomadas unicamente com base no tratamento automatizado de dados pessoais que afetem seus interesses. O texto vigente não exige expressamente revisão por pessoa natural. O § 1º trata das informações sobre critérios e procedimentos; o § 2º prevê a possibilidade de auditoria pela ANPD quando essas informações são negadas com fundamento em segredo comercial e industrial. <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">Consultar a Lei nº 13.709/2018 no Planalto</a>.</p>
+        <p><strong>Lei do Governo Digital.</strong> O art. 6º da Lei nº 14.129/2021 trata da realização eletrônica de atos processuais e contém parágrafo único, não § 2º. O art. 19 trata da Base Nacional de Serviços Públicos. Esses dispositivos não constituem uma autorização geral para decisões algorítmicas nem estabelecem, por si, supervisão humana obrigatória. <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14129.htm">Consultar a Lei nº 14.129/2021 no Planalto</a>.</p>
+      </div>
+    </section>
+    <footer class="work-footer"><a href="/trabalhos">← Voltar aos trabalhos</a><a href="https://github.com/anavvanzin/algoritmo-em-disputa">Código e histórico ↗</a><span>ana vanzin · 2026</span></footer>
+  </main>
+</body>
+</html>
