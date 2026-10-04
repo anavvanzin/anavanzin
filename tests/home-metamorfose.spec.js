@@ -130,8 +130,7 @@ async function assertReducedMotionPortrait(page) {
   await expect(video).not.toHaveClass(/has-frame/);
   expect(await video.getAttribute('src')).toBeNull();
   expect(await video.evaluate(element => element.paused)).toBe(true);
-  await expect(page.locator('.portrait-control')).toHaveCount(1);
-  await expect(page.locator('.portrait-control')).toBeVisible();
+  await expect(page.locator('.portrait-control')).toHaveCount(0);
   await expect(page.locator('.mm-switch, .mm-play')).toHaveCount(0);
   expect(await page.locator('.hero-portrait').evaluate(portrait => portrait.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
 }
