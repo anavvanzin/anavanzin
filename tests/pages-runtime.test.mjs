@@ -110,6 +110,6 @@ test('Pages keeps legacy redirects, 404 and tooling exclusion', async () => {
     assert.equal((await request(route)).status,404,route);
   }
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(output,'_routes.json'),'utf8')),{
-    version:1,include:['/_state','/iconocracia/corpus/*','/corpus/*'],exclude:[]
+    version:1,include:['/trabalhos/iconocracia*','/_state','/iconocracia/corpus/*','/corpus/*'],exclude:[]
   });
 });

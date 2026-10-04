@@ -123,6 +123,17 @@ test('touch reading remains scrollable and uses stable plates', async ({ browser
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Nation as a Woman');
   await page.locator('.object-card').last().scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(2000);
+  await page.getByRole('button', { name: 'Explore', exact: true }).tap();
+  const figure = page.locator('.draggable-figure');
+  await figure.scrollIntoViewIfNeeded();
+  await figure.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 240));
+  const box = await figure.boundingBox();
+  const session = await context.newCDPSession(page);
+  const point = { x: box.x + box.width / 2, y: box.y + 20 };
+  await session.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] });
+  await session.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ ...point, x: point.x - 30 }] });
+  await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await expect.poll(async () => (await figure.boundingBox()).x).toBeLessThan(box.x);
   await context.close();
 });
 
