@@ -5,20 +5,24 @@ const languages = ['pt', 'en'];
 const topicIds = ['comecar', 'metodos', 'ferramentas', 'acervos'];
 const network = new WeakMap();
 
-test.beforeEach(async ({ page, baseURL }) => {
+test.use({ serviceWorkers: 'block' });
+
+test.beforeEach(async ({ page, context, baseURL }) => {
   const origin = new URL(baseURL).origin;
-  const activity = { stateOrAPI: [], writes: [], mp4: [] };
+  const activity = { stateOrAPI: [], writes: [], mp4: [], fontCDN: [] };
   network.set(page, activity);
   page.on('request', request => {
     const url = new URL(request.url());
     if (/\/(?:api|_state)(?:\/|$)/.test(url.pathname)) activity.stateOrAPI.push(request.url());
     if (url.origin === origin && !['GET', 'HEAD'].includes(request.method())) activity.writes.push(request.url());
     if (/\.mp4(?:$|\/)/i.test(url.pathname)) activity.mp4.push(request.url());
+    if (['fonts.googleapis.com', 'fonts.gstatic.com'].includes(url.hostname)) activity.fontCDN.push(request.url());
   });
-  await page.route('**/*', route => {
+  await context.route('**/*', route => {
     const request = route.request();
     const url = new URL(request.url());
     if (/\/(?:api|_state)(?:\/|$)/.test(url.pathname)
+        || /\.mp4(?:$|\/)/i.test(url.pathname)
         || (url.origin === origin && !['GET', 'HEAD'].includes(request.method()))) return route.abort();
     if (url.origin !== origin) return route.fulfill({ status: 204, body: '' });
     return route.continue();
@@ -30,6 +34,7 @@ test.afterEach(async ({ page }) => {
   expect(activity.stateOrAPI, 'Home tests must never contact API or KV state routes').toEqual([]);
   expect(activity.writes, 'Home tests must never write through the local server').toEqual([]);
   expect(activity.mp4, 'The static portrait must never request an MP4').toEqual([]);
+  expect(activity.fontCDN, 'Home uses self-hosted fonts rather than a Google Fonts download').toEqual([]);
 });
 
 async function openHome(page, lang = 'pt') {
@@ -66,15 +71,26 @@ async function assertNavigation(page) {
   await expect(page.locator('.quotes-entry a')).toHaveAttribute('href', '/quotes/');
 }
 
+async function assertResponsiveNavigation(page, width) {
+  const links = page.locator('.nav > nav > a');
+  if (width <= 1000) {
+    await expect(page.locator('.mm-trigger')).toBeVisible();
+    await expect(page.locator('.mm-trigger')).toHaveAttribute('aria-expanded', 'false');
+    for (const link of await links.all()) await expect(link).toBeHidden();
+  } else {
+    await expect(page.locator('.mm-trigger')).toBeHidden();
+    for (const link of await links.all()) await expect(link).toBeVisible();
+  }
+}
+
 async function assertPortrait(page, width) {
   await expect(page.locator('.hero-portrait picture')).toHaveCount(1);
   const image = page.locator('.hero-portrait picture img');
   await expect(image).toHaveAttribute('alt', 'Ana Vanzin');
   await expect(image).toBeVisible();
   await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
-  const expected = width <= 1000 ? 'ana-poster-refined-v2.jpg' : 'ana-poster-editorial-v2.jpg';
-  expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toBe(`/assets/redesign/${expected}`);
-  await expect(page.locator('.portrait-control, video')).toHaveCount(0);
+  expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toBe('/assets/redesign/ana-metamorfose.png');
+  await expect(page.locator('.portrait-control, video, .mm-switch, .mm-play')).toHaveCount(0);
 }
 
 async function assertNoClippingOrOverflow(page) {
@@ -84,10 +100,10 @@ async function assertNoClippingOrOverflow(page) {
     if (document.documentElement.scrollWidth > viewport + 1 || document.body.scrollWidth > viewport + 1) {
       problems.push(`horizontal overflow: html=${document.documentElement.scrollWidth}, body=${document.body.scrollWidth}, viewport=${viewport}`);
     }
-    const elements = document.querySelectorAll('.nav > nav > a, .lang button, h1, h2, .methodology-feature p, .methodology-feature a');
+    const elements = document.querySelectorAll('.home-brand, .mm-trigger, .mm-index-toggle, .nav > nav > a, .lang button, h1, h2, .methodology-feature p, .methodology-feature a');
     for (const element of elements) {
       const rect = element.getBoundingClientRect();
-      if (!rect.width || !rect.height) continue;
+      if (!rect.width || !rect.height || !element.checkVisibility({ checkVisibilityCSS: true, checkOpacity: true })) continue;
       const label = `${element.tagName} ${element.id || element.className || element.textContent.trim().slice(0, 45)}`;
       if (rect.left < -1 || rect.right > viewport + 1) problems.push(`${label}: element outside horizontal viewport`);
       // Text ranges reveal overflow even if an ancestor masks document scrollWidth.
@@ -131,6 +147,7 @@ for (const width of widths) {
     for (const lang of languages) {
       await openHome(page, lang);
       await assertNavigation(page);
+      await assertResponsiveNavigation(page, width);
       await assertPortrait(page, width);
       expect(await page.locator('.methodology-intro').evaluate(element => parseFloat(getComputedStyle(element).fontSize)), 'Methodology body text remains at least18px').toBeGreaterThanOrEqual(18);
       await expect(page.locator('.methodology-topics a').first()).toHaveCSS('font-family', /DM Sans/);
@@ -205,6 +222,12 @@ test('keyboard reaches methodology and its sections in PT/EN, mobile/desktop', a
         expect((await page.goto('/')).status()).toBe(200);
         await expect(page.locator('html')).not.toHaveClass(/av-loading/);
         await assertLanguage(page, lang);
+        if (width <= 1000 && target.selector === '.methodology-nav') {
+          await focusByTab(page, page.locator('.mm-trigger'));
+          await page.keyboard.press('Enter');
+          await expect(page.locator('.mm-trigger')).toHaveAttribute('aria-expanded', 'true');
+          await expect(page.locator('#mm-nav')).toBeVisible();
+        }
         await focusByTab(page, page.locator(target.selector));
         const navigation = page.waitForResponse(response => response.request().isNavigationRequest() && new URL(response.url()).pathname === '/metodologia/');
         await page.keyboard.press('Enter');
