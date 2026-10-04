@@ -1,5 +1,37 @@
 # Preparação para Cloudflare Pages
 
+## Estado da migração em 04/10/2026, 08:35 UTC
+
+O projeto existente foi relido antes da tentativa de publicação autorizada.
+Produção está habilitada para `main`, o apex está associado ao Pages e ainda
+não existe deployment canônico de produção. Esses valores substituem o snapshot
+histórico abaixo, que mostrava produção pausada e somente domínios `pages.dev`.
+
+A correção local `50d4757b422ca88a85e5f3387276956fb06c299a` preserva MESAS de
+produção `f68b5eef312746c794e86c37be7bf7e1`, mantém preview separado em
+`6ea9865c03d640e1846cabda3d2194ec` e conserva o binding D1 `corpus` existente
+somente em produção. O config remoto de produção ainda precisa ser reconciliado.
+Veja o [procedimento de rollback](ROLLBACK.md).
+
+O plano autorizado isola os dois Workers Builds legados por filtros de branch
+para `main` e `codex/pages-preflight` e pausa previews do vínculo órfão. Ele
+substitui a proposta histórica de desconexão abaixo. Preservar os Workers,
+deployments e a conexão GitHub compartilhada.
+
+A primeira tentativa de PATCH retornou `10000: Authentication error`; GETs
+posteriores confirmaram que os três campos permanecem inalterados. Push, merge
+e publicação continuam suspensos até o isolamento ser aplicado e comprovado.
+A API Builds exige token de usuário com `Workers Builds Configuration: Edit`;
+o token usado para chamar a API é diferente do token usado pelo build para deploy.
+[Referência oficial](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/).
+
+O restante deste documento registra a auditoria anterior. Os filtros, domínios
+e condições de autorização descritos nela são históricos; releia o estado
+remoto antes de retomar. O helper antigo que exige produção pausada não deve
+ser usado nem ter suas verificações removidas para contornar esse pré-requisito.
+
+## Registro histórico da auditoria anterior
+
 A preparação original de Pages, até o head `bb32f831effd3fd0f9c603b630dfcec0bd8bc7b2`, adaptou a publicação existente sem alterar suas páginas. A base é `5252587455443c8433cd82d391f0c30bd1a59cbe`. Durante esta auditoria o branch recebeu também `26799abb7cfc5a3f0ef8a9fc17c1f149c7b83541`, com alterações de homepage preservadas por esta revisão documental. Manter o PR #151 em draft. O preview remoto observado está descrito abaixo; produção continua fora desta etapa.
 
 ## Artefato
@@ -59,13 +91,13 @@ Preview observado: [deployment imutável](https://6ae3eec9.anavanzin.pages.dev) 
 
 Antes da gravação desta documentação, o head avançou para `26799abb7cfc5a3f0ef8a9fc17c1f149c7b83541` (`home.css`, `index.html` e `tests/home-refinement.spec.js`). O `wrangler.jsonc` continua com o mesmo blob `f3045c743fc8ff9cb35c067e2d0e2579a728de98`. Esse head teve outro [preview Pages bem-sucedido](https://862a8266.anavanzin.pages.dev) às 06:27:27 UTC, deployment `862a8266-fd48-4119-9738-68a105a74d1b`, com o mesmo KV isolado, e novamente dois checks Workers falhos. Esta auditoria não altera nem valida funcionalmente as mudanças de homepage. As comparações de identidade do conteúdo e os testes locais anteriores se referem ao head original, não devem ser estendidos ao novo head.
 
-### Ajuste externo necessário — documentado, não executado
+### Proposta histórica de desconexão — substituída pelo isolamento
 
 1. Na conta `06e1749b0b658c7dd17dd9807bbd5b97`, abrir **Workers & Pages → ius-gentium → Settings → Builds → Disconnect** para remover o vínculo deste Worker com o repositório `1221191459`. Preservar o Worker, seus deployments, bindings, routes e domínios. Não substituir o comando por `wrangler deploy` ou por um deploy Pages dentro dessa integração.
 2. Desconectar também o vínculo órfão de Builds de `anavvanzin-github-io`. Se o Worker ausente impedir o acesso pelo painel, a API documenta `DELETE /accounts/{account_id}/builds/workers/{script_tag}`, que remove configuração/triggers de Builds e cancela builds inacabados **sem excluir o Worker**. Os tags acima identificam os dois vínculos; qualquer execução fica para ação externa autorizada. Não apagar a conexão GitHub global/compartilhada nem revogar acesso do Pages.
 3. Preservar o Pages existente com a configuração abaixo. Após corrigir os vínculos, observar um novo head: deve haver um check **Cloudflare Pages** com preview e nenhum novo check desses dois Workers. Checks históricos dos heads anteriores continuarão registrados.
 
-| Campo Pages | Valor confirmado a preservar |
+| Campo Pages | Valor observado no snapshot histórico |
 | --- | --- |
 | Projeto / repositório | `anavanzin` / `anavvanzin/anavanzin` (`1221191459`) |
 | Branch de produção | `main` |
@@ -80,7 +112,7 @@ Antes da gravação desta documentação, o head avançou para `26799abb7cfc5a3f
 
 Não é necessário criar projeto/namespace adicional nem alterar `wrangler.jsonc` para corrigir essas falhas Workers. Esta revisão altera apenas documentação excluída do artefato por `.gitattributes`. Não executa comandos de deploy, testes com escrita remota, merge, mudanças de DNS/domínio ou mudanças de configuração Cloudflare. Um push documental neste branch pode disparar as integrações automáticas já existentes; produção Pages permanece desativada.
 
-## Próximas etapas
+## Plano histórico daquela auditoria
 
 1. Aplicar e verificar a desconexão dos dois vínculos Workers descrita acima, em ação externa autorizada. Manter o PR draft e o deploy automático de produção Pages desativado.
 2. Usar o preview Pages existente para a validação funcional remota pendente: desktop e celular, dados fictícios de mesa apenas no KV isolado, 60 URLs `.html` de corpus, trabalhos, exports, redirects, headers e exclusões. O build verde não substitui essa validação.
