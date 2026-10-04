@@ -55,7 +55,9 @@ README.md export-ignore
 package.json export-ignore
 package-lock.json export-ignore
 playwright.config.js export-ignore
+playwright.pages.config.js export-ignore
 wrangler.jsonc export-ignore
+.node-version export-ignore
 worker.js export-ignore
 worker-configuration.d.ts export-ignore
 vercel.json export-ignore
@@ -67,6 +69,8 @@ scripts export-ignore
 scripts/** export-ignore
 future? export-ignore
 future?/** export-ignore
+apps export-ignore
+apps/** export-ignore
 
 # Superseded sources and one-off review artifacts. Runtime equivalents remain:
 # window-contents.js, WPoster.js and mesa/index.html.

@@ -6,6 +6,18 @@ for (const width of [1440, 390, 320]) {
   test(`works and related pieces remain navigable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/trabalhos.html');
+    for (const lang of ['en', 'pt']) {
+      await page.locator(`#langtog button[data-lang="${lang}"]`).click();
+      await expect(page.locator('#title')).toHaveText(lang === 'pt' ? 'Trabalhos & Seminários' : 'Works & Seminars');
+      const clipped = await page.locator('.bar a, .bar button, .entry .lk').evaluateAll(elements => {
+        const width = document.documentElement.clientWidth;
+        return elements.filter(element => {
+          const bounds = element.getBoundingClientRect();
+          return bounds.left < -1 || bounds.right > width + 1 || element.scrollWidth > element.clientWidth + 1;
+        }).map(element => element.textContent.trim());
+      });
+      expect(clipped, 'Navigation, PT/EN and work links fit the viewport').toEqual([]);
+    }
     const seminar = page.locator('.entry').filter({ hasText: 'Do Poder-Dever ao Dever-Poder' });
     await expect(seminar).toContainText('Ana Vanzin & Vinícius Oliveira');
     for (const path of paths) await expect(seminar.locator(`a[href="${path}"]`)).toBeVisible();
@@ -48,10 +60,14 @@ test('seminar deck navigation and local council preserve slide position', async 
   await expect(active()).toHaveAttribute('data-label', /32/);
 });
 
-test('prepared demonstrations issue no API or external requests', async ({ page }) => {
+test('prepared demonstrations issue no API or external requests', async ({ page, baseURL }) => {
   const requests = [];
   const errors = [];
-  page.on('request', r => { if (!r.url().startsWith('http://localhost:8080') && !r.url().startsWith('http://127.0.0.1:8097')) requests.push(r.url()); });
+  const origin = new URL(baseURL).origin;
+  page.on('request', r => {
+    const url = new URL(r.url());
+    if (url.origin !== origin || r.method() !== 'GET' || /^\/(?:api|_state)(?:\/|$)/.test(url.pathname)) requests.push(r.url());
+  });
   page.on('pageerror', e => errors.push(e.message));
   for (const path of ['/seminario8-dever-poder/Conselho.html', '/prot-tipo/', '/algoritmo-em-disputa/']) {
     await page.goto(path);

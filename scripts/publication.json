@@ -104,6 +104,12 @@
       "reason": "Texto provisório ou dossiê com curadoria/fontes pendentes."
     },
     {
+      "file": "atlas/nacao-como-mulher/index.html",
+      "canonical": "https://anavanzin.com/atlas/nacao-como-mulher/",
+      "category": "ready",
+      "reason": "Exposição temática com fontes, direitos, escopo documental e estatuto derivativo explicitados por objeto."
+    },
+    {
       "file": "atlas/republica.html",
       "canonical": "https://anavanzin.com/atlas/republica",
       "category": "draft",
@@ -672,6 +678,12 @@
       "canonical": "https://anavanzin.com/publicacoes/vrouwe-justitia",
       "category": "draft",
       "reason": "Texto provisório ou dossiê com curadoria/fontes pendentes."
+    },
+    {
+      "file": "quotes/admin.html",
+      "canonical": "https://anavanzin.com/quotes/admin",
+      "category": "utility",
+      "reason": "Ficha auxiliar de rascunho local, sem publicação no catálogo e excluída dos mecanismos de busca."
     },
     {
       "file": "quotes/index.html",

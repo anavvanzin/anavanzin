@@ -374,9 +374,10 @@ body.ed .ed-bar{min-height:82px;padding:16px var(--page-pad);gap:22px;border-bot
 body.ed .ed-bar .brand b{font-size:34px;font-weight:400;letter-spacing:-.02em;color:var(--rubric)}
 body.ed .ed-bar .brand img{width:24px;height:24px}
 body.ed .ed-bar .brand .lbl{font-family:var(--font-body);font-size:12px;font-weight:400;letter-spacing:.04em}
-body.ed .avnav{gap:16px}body.ed .avnav a{font-size:14px;padding:8px 0}
+body.ed .avnav{gap:16px}body.ed .avnav a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;padding:8px 0}
 html.js body.ed .langtog{border:0;border-radius:0;gap:12px;overflow:visible}
-body.ed .langtog button{font-family:var(--font-body);font-weight:400;font-size:13px;background:transparent;padding:6px 0;border-bottom:2px solid transparent}
+body.ed .langtog{flex:none}
+body.ed .langtog button{min-width:44px;min-height:44px;font-family:var(--font-body);font-weight:400;font-size:13px;background:transparent;padding:6px 0;border-bottom:2px solid transparent}
 body.ed .langtog button[aria-pressed=true]{color:var(--rubric);background:transparent;border-bottom-color:var(--rubric)}
 body.ed .ed-title{font-size:clamp(62px,7.5vw,110px);font-weight:400;color:var(--rubric);line-height:.98;letter-spacing:-.025em}
 body.ed .ed-page{padding-top:clamp(36px,6vw,76px)}body.ed .ed-head{max-width:850px}

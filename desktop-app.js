@@ -900,6 +900,22 @@ function Desktop({
   React.useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+  React.useEffect(() => {
+    const restoreLanguage = () => {
+      try {
+        setLang(localStorage.getItem('av_lang') === 'en' ? 'en' : 'pt');
+      } catch (e) {}
+    };
+    const onStorage = event => {
+      if (event.key === 'av_lang' || event.key === null) restoreLanguage();
+    };
+    window.addEventListener('pageshow', restoreLanguage);
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener('pageshow', restoreLanguage);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
   // Restaura a mesa salva (apenas desktop, após boot, uma única vez).
   // Escolha local de idioma (localStorage) vence o KV; janelas validadas contra REG.
   React.useEffect(() => {
@@ -1197,11 +1213,17 @@ function Desktop({
       padding: isMobile ? '0 12px' : '0 16px',
       zIndex: isMobile ? 20000 : 9000
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "/",
+    "aria-label": lang === 'en' ? 'Ana Vanzin · home' : 'Ana Vanzin · início',
     style: {
       display: 'flex',
       alignItems: 'center',
-      gap: 8
+      gap: 8,
+      minHeight: 44,
+      minWidth: 44,
+      color: 'inherit',
+      textDecoration: 'none'
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: "/assets/avatar-pixel.png",

@@ -13,9 +13,10 @@ service — a static file server — plus a Playwright E2E test suite.
 | Static site (dev) | `npx http-server . -p 8080` | Serves the repo root at `http://localhost:8080`. Entry pages: `/` (cover), `/poster.html`, `/mesa/`, `/atlas/`. This is the "run the app" command — there is no separate build/prod command needed for development. |
 | E2E tests | `npx playwright test` | Config in `playwright.config.js`. Playwright auto-starts its own `http-server` on port 8080 (`reuseExistingServer` is on when not in CI), so you do **not** need to start the server first for tests. |
 
-There is **no lint script** and **no build step** — the site is served as-is. `npm run test`
-maps to `playwright test`. Deployment is via Cloudflare Workers (`wrangler.jsonc`), which is
-not needed for local development.
+There is **no lint script** or frontend bundler for local development. `npm run test`
+maps to `playwright test`. Cloudflare Pages publication runs `npm run build:pages`
+to prepare the tracked asset tree and Functions adapter. `wrangler.jsonc` separates
+preview and production bindings; it is not needed for the static local server.
 
 ### Non-obvious caveats
 
