@@ -1,4 +1,5 @@
 @import url('/fonts/fonts.css');
+@import url('/cursor-bronze.css');
 :root {
   --paper:#F5F0E6; --ink:#171412; --burgundy:#750D20; --rule:#b8a48f; --night:#15110e; --gold:#decba4;
   --gutter:clamp(1.25rem,4vw,4.5rem); --display:'Instrument Serif',Georgia,serif; --body:'DM Sans',Arial,sans-serif;

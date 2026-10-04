@@ -1,0 +1,28 @@
+/* Supplied Windows XP Bronze pixels: Come2Back / RIDDLER.
+   Personal noncommercial use; see assets/cursors/xp-bronze/source-readme.txt.
+   Native CSS only. CUR frame -> identical PNG -> semantic platform fallback. */
+@media (hover: hover) and (pointer: fine) and (forced-colors: none) {
+  body.cursor-bronze, :is(.ed-bar, .quotes-shell) {
+    cursor: url('/assets/cursors/xp-bronze/normal.cur') 0 0,
+            url('/assets/cursors/xp-bronze/normal.png') 0 0, auto;
+  }
+  body.cursor-bronze :is(p, h1, h2, h3, h4, h5, h6, blockquote, figcaption, dt, dd, li, small):not(a *, button *, summary *) {
+    cursor: url('/assets/cursors/xp-bronze/text.cur') 16 16,
+            url('/assets/cursors/xp-bronze/text.png') 16 16, text;
+  }
+  body.cursor-bronze :is(a[href], button:enabled, summary):not([aria-disabled='true']),
+  :is(.ed-bar, .quotes-shell) :is(a[href], button:enabled, summary):not([aria-disabled='true']) {
+    cursor: url('/assets/cursors/xp-bronze/link.cur') 6 1,
+            url('/assets/cursors/xp-bronze/link.png') 6 1, pointer;
+  }
+  /* Browser media controls and specialized controls keep their own semantics. */
+  body.cursor-bronze :is(video, audio, iframe, embed, object, input, select) {
+    cursor: auto;
+  }
+  body.cursor-bronze :is(input:not([type]), input[type='text'], input[type='email'],
+    input[type='search'], input[type='url'], input[type='tel'], input[type='password'],
+    textarea, [contenteditable='true']):not(:disabled) {
+    cursor: url('/assets/cursors/xp-bronze/text.cur') 16 16,
+            url('/assets/cursors/xp-bronze/text.png') 16 16, text;
+  }
+}

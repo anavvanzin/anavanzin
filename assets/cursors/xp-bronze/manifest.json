@@ -1,0 +1,61 @@
+{
+  "name": "Windows XP Bronze",
+  "author": "Come2Back",
+  "distributor": "RIDDLER",
+  "source": "https://www.rw-designer.com/cursor-set/windows-xp-bronze",
+  "license": "Personal noncommercial use only; original terms in source-readme.txt.",
+  "extraction": "Original 32 px frame, original CUR payload and hotspot, identical RGBA PNG fallback.",
+  "frames": [
+    {
+      "role": "normal",
+      "sourceFile": "Normal Select.cur",
+      "sourceSHA256": "566a82003e842d836606e5b52f7b0d9129b6cce4de1b34dd2988584d7a040283",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        0,
+        0
+      ],
+      "payloadSHA256": "352d238490e4bfcd458d983e36839225a39ddcfbe6756b54f171d2345ef9f438",
+      "rgbaSHA256": "36aa47e49ccd26c3901fa6d9a3378f2cec31c3a9a0c29b5f43938d5aeb53cd1d",
+      "cur": "normal.cur",
+      "png": "normal.png"
+    },
+    {
+      "role": "link",
+      "sourceFile": "Link Select.cur",
+      "sourceSHA256": "83c9b8c5f7288175051e62be7da339152a5712e31ee0dc2f99b68151f51abd42",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        6,
+        1
+      ],
+      "payloadSHA256": "52c1f2f4d7844685d8c97890a87608013e6af104e830dcb8f186ce9fb409a5c3",
+      "rgbaSHA256": "9efe84d7773b6d83f56cb42e40cbc4c14b12983e14a9dc8311ba3fa2131b4cfd",
+      "cur": "link.cur",
+      "png": "link.png"
+    },
+    {
+      "role": "text",
+      "sourceFile": "Text Select.cur",
+      "sourceSHA256": "3cce40fba83b70b6560313cca701e129d49c1af344d861fd1ac770f5282c2432",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        16,
+        16
+      ],
+      "payloadSHA256": "a711951b7af553557514e854a463984c9075ce88f27a8d6f944cfd55d2204a94",
+      "rgbaSHA256": "c0351d39c8ebe4e2ebffbf78f23b36cc1654c24535de1e983582231c45728ab7",
+      "cur": "text.cur",
+      "png": "text.png"
+    }
+  ]
+}
