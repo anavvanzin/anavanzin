@@ -317,7 +317,7 @@ export default function TabDeliberacao({
                             </span>
                           )}
                           <span className="text-[8px] text-slate-500 font-mono uppercase tracking-wider block text-right select-none">
-                            CHAVE CRIPTOGRÁFICA ASSINADA ELETRONICAMENTE VIA CONSELHO EXTRAORDINÁRIO-2026
+                            ASSINATURA FICTÍCIA · RECURSO GRÁFICO DO EXERCÍCIO
                           </span>
                         </div>
                       </div>
