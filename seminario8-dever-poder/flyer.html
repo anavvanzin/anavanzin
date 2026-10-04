@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminário 8 — Flyer · Do Poder-Dever ao Dever-Poder</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --black:#171717; --white:#fff; --g600:#4d4d4d; --g500:#666; --g400:#808080; --g100:#ebebeb; --g50:#fafafa;
+    --blue:#0a72ef; --pink:#de1d8d; --red:#ff5b4f; --green:#0a8f5b;
+    --font:'Geist',-apple-system,system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#e9e9ec}
+  body{font-family:var(--font);color:var(--g600);line-height:1.45;-webkit-font-smoothing:antialiased}
+  .page{
+    width:210mm;min-height:297mm;margin:0 auto;background:var(--white);
+    padding:11mm 15mm 9mm;display:flex;flex-direction:column;
+  }
+  /* header */
+  .top{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid var(--black);padding-bottom:8px}
+  .top .b{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--black);font-weight:600}
+  .top .m{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--g400)}
+  /* hero */
+  .hero{margin-top:10px}
+  .kick{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+  h1{font-size:42px;line-height:.95;font-weight:300;letter-spacing:-.035em;color:var(--black)}
+  h1 b{font-weight:600}
+  .sub{font-size:14px;color:var(--g500);margin-top:8px;max-width:64ch}
+  .hook{font-size:14px;color:var(--black);margin-top:8px;font-weight:400;max-width:62ch;line-height:1.38}
+  .hook b{background:linear-gradient(transparent 60%,rgba(222,29,141,.22) 60%);font-weight:500}
+  /* janus */
+  .janus{display:grid;grid-template-columns:1fr 34px 1fr;margin-top:11px;border:1px solid var(--g100);border-radius:10px;overflow:hidden}
+  .face{padding:12px 14px}
+  .face.reg{background:var(--g50)}
+  .face.rdo{background:var(--black);color:#fff}
+  .face .t{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+  .face.reg .t{color:var(--blue)} .face.rdo .t{color:var(--pink)}
+  .face h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:3px}
+  .face.reg h3{color:var(--black)}
+  .face p{font-size:11px;line-height:1.4}
+  .face.reg p{color:var(--g500)} .face.rdo p{color:#d6d6d6}
+  .pivot{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--g50),var(--black));color:var(--pink);font-size:22px;font-family:var(--mono)}
+  .thesis{font-size:13.5px;color:var(--black);margin-top:8px;font-weight:300;line-height:1.32}
+  .thesis b{font-weight:600}
+  /* arc */
+  .arclbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--g400);margin:11px 0 6px}
+  .arc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .step{border:1px solid var(--g100);border-radius:8px;padding:9px 10px}
+  .step .n{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--g400)}
+  .step .t{display:block;font-size:12.5px;font-weight:600;color:var(--black);margin:3px 0 3px}
+  .step .d{font-size:9.5px;line-height:1.35;color:var(--g500)}
+  .s1{box-shadow:inset 0 3px 0 var(--blue)} .s2{box-shadow:inset 0 3px 0 var(--pink)}
+  .s3{box-shadow:inset 0 3px 0 var(--red)} .s4{box-shadow:inset 0 3px 0 var(--green)}
+  /* punch row */
+  .punch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+  .pcard{border-radius:9px;padding:12px 14px}
+  .pcard.dark{background:var(--black);color:#fff}
+  .pcard.light{border:1px solid var(--g100);background:var(--g50)}
+  .pcard .h{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+  .pcard.dark .h{color:var(--pink)} .pcard.light .h{color:var(--green)}
+  .pcard h4{font-size:14px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+  .pcard.light h4{color:var(--black)}
+  .pcard p{font-size:11px;line-height:1.4}
+  .pcard.dark p{color:#d6d6d6} .pcard.light p{color:var(--g500)}
+  /* question */
+  .q{margin-top:10px;border-left:3px solid var(--pink);padding:5px 0 5px 14px}
+  .q .l{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g400);margin-bottom:4px}
+  .q p{font-size:16px;line-height:1.3;color:var(--black);font-weight:300}
+  .q p em{font-style:italic;color:var(--pink)}
+  /* footer / cta */
+  .foot{margin-top:auto;padding-top:10px;border-top:1.5px solid var(--black);display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+  .cta .l{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--g400);margin-bottom:5px}
+  .cta .url{font-family:var(--mono);font-size:13px;color:var(--blue);font-weight:500;word-break:break-all}
+  .cta .extra{font-size:10.5px;color:var(--g500);margin-top:6px;max-width:52ch;line-height:1.4}
+  .cta .extra b{color:var(--black);font-weight:600}
+  .qr{text-align:center;flex-shrink:0}
+  .qr img{width:104px;height:104px;border:1px solid var(--g100);border-radius:8px;padding:5px;background:#fff;display:block}
+  .qr span{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--g400);margin-top:4px;display:block}
+  .authors{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--g400);margin-top:10px}
+  .authors b{color:var(--g600);font-weight:500}
+  @media screen{ body{padding:18px 0} .page{box-shadow:0 8px 40px rgba(0,0,0,.15)} }
+  @media print{ html,body{background:#fff} .page{box-shadow:none;margin:0} }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="integration.css">
+<link rel="canonical" href="https://anavanzin.com/seminario8-dever-poder/flyer.html">
+<meta name="robots" content="noindex,follow">
+</head>
+<body>
+<nav class="work-nav" aria-label="Navegação dos trabalhos"><a href="/trabalhos">← trabalhos</a><a href="/seminario8-dever-poder/">seminário</a><a href="/prot-tipo/">Conselho · demonstração</a><a href="/algoritmo-em-disputa/">adaptação do LLM Council</a></nav>
+<div class="page">
+
+  <div class="top">
+    <span class="b">Seminário VIII</span>
+    <span class="m">PPGD/UFSC · Direito Administrativo · 25 maio 2026</span>
+  </div>
+
+  <div class="hero">
+    <div class="kick">do poder-dever ao</div>
+    <h1><b>Dever-Poder</b></h1>
+    <p class="sub">Administração Pública orientada por dados, LGPD e decisão algorítmica — quatro artigos lidos como um só argumento.</p>
+    <p class="hook">A Administração digital promete eficiência. Mas quando o Estado decide por algoritmo, <b>quem perde o direito de compreender, contestar e participar?</b></p>
+  </div>
+
+  <div class="janus">
+    <div class="face reg">
+      <div class="t">a face que regula</div>
+      <h3>Regulador</h3>
+      <p>Edita LAI e LGPD, cria a ANPD, publica as regras de governança. Tem o <em>poder-dever</em> de disciplinar a tecnologia.</p>
+    </div>
+    <div class="pivot">⇄</div>
+    <div class="face rdo">
+      <div class="t">a face que descumpre</div>
+      <h3>Regulado</h3>
+      <p>Maior controlador de dados do país e maior usuário de decisões automatizadas. Vira destinatário da norma e a administra em benefício próprio — o <em>dever-poder</em>.</p>
+    </div>
+  </div>
+  <p class="thesis">A tese: o Estado opera como <b>regulador ⇄ regulado</b> — quem edita a regra é, com frequência, quem mais a descumpre contra o cidadão.</p>
+
+  <div class="arclbl">o argumento em quatro tempos</div>
+  <div class="arc">
+    <div class="step s1"><span class="n">i · promessa</span><span class="t">Defesa</span><span class="d">Mesmo com LGPD, o cidadão ainda precisa ser defendido do próprio Estado.</span></div>
+    <div class="step s2"><span class="n">ii · promessa</span><span class="t">Abertura</span><span class="d">Governo aberto é dever — mas quem decide o que abre e o que fecha é o Estado.</span></div>
+    <div class="step s3"><span class="n">iii–iv · choque</span><span class="t">Escala &amp; opacidade</span><span class="d">Big data tensiona a LGPD; a decisão automatizada vira caixa-preta.</span></div>
+    <div class="step s4"><span class="n">resolução</span><span class="t">Contraditório</span><span class="d">Explicável, contestável, inclusiva e controlável: as quatro colunas.</span></div>
+  </div>
+
+  <div class="punch">
+    <div class="pcard dark">
+      <div class="h">caso-âncora · INSS</div>
+      <h4>A caixa-preta da aposentadoria rural</h4>
+      <p>O sistema cruza bases e <em>infere</em> que a trabalhadora não comprova atividade rural. A negativa chega como fórmula, sem dizer quais dados pesaram. Inferência não é prova — e o próprio INSS descumpre a IN 128/2022.</p>
+    </div>
+    <div class="pcard light">
+      <div class="h">protótipo · demo ao vivo</div>
+      <h4>Conselho de Contestação Algorítmica</h4>
+      <p>Maquete acadêmica: a negativa passa por quatro perspectivas — Defensoria, Cientista de Dados, Administrador e Cidadão. O sistema não decide pela pessoa: devolve a ela o contraditório que o Estado suprimiu.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="l">a pergunta-síntese</div>
+    <p>A Administração Pública digital está decidindo <em>melhor</em> — ou apenas decidindo mais rápido, com menos compreensão, contestação e participação?</p>
+  </div>
+
+  <div class="foot">
+    <div class="cta">
+      <div class="l">guia de estudo completo · slides · guia · demonstração</div>
+      <div class="url">anavanzin.com/seminario8-dever-poder/colegas.html</div>
+      <p class="extra">Escaneie o QR para o <b>guia de estudo</b>: os quatro artigos em linguagem direta, o caso INSS, os espelhos internacionais (SyRI, Robodebt), as quatro colunas e o Conselho ao vivo.</p>
+      <div class="authors"><b>Ana Vitória Vanzin</b> &amp; <b>Vinícius Oliveira</b> · PPGD/UFSC · 2026</div>
+    </div>
+    <div class="qr">
+      <img src="assets/qr-guia.png" alt="QR code para anavanzin.com/seminario8-dever-poder/colegas.html">
+      <span>aponte a câmera</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

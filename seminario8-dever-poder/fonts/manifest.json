@@ -1,0 +1,525 @@
+{
+  "fetched_at_utc": "2026-10-03T23:23:13.751897+00:00",
+  "generator": "scripts/work-demos/seminario-fonts/fetch_fonts.py",
+  "css_sources": [
+    {
+      "family": "Geist",
+      "url": "https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap",
+      "sha256": "9068119433e3e2d6556a53822d45fc0e247d0d8be3b3baeff697c47aeaa5711e"
+    },
+    {
+      "family": "Geist Mono",
+      "url": "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..500&display=swap",
+      "sha256": "5be70fa1143f13b33d076a0fe04f87a9c8408127b8f86967a86fe615282a8d11"
+    },
+    {
+      "family": "EB Garamond",
+      "url": "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..700&display=swap",
+      "sha256": "cb0886c4bf094dbf4a7a9baf056c3ace928a96e6776da6502ce46bb9b8246252"
+    },
+    {
+      "family": "Spectral",
+      "url": "https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap",
+      "sha256": "c9b68249468eb178fabe183ea7b591e4e90a71c777fd775e9a4ed3602f5aa13a"
+    },
+    {
+      "family": "Caveat",
+      "url": "https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&display=swap",
+      "sha256": "7f6df8ddaaa5b76ee9cfece3b1322229721ffbc57cda598a0ca9b2cc1dbb04ae"
+    },
+    {
+      "family": "Source Serif 4",
+      "url": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap",
+      "sha256": "ddea69b1010d15ab29b6a554943aaeadd1a9abb141a9834187f8e8c47cf116ca"
+    },
+    {
+      "family": "Space Grotesk",
+      "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap",
+      "sha256": "796af8eaf0cad4fd4cc446873dd995b312cbe7c624fa926c8240027e289a3d45"
+    },
+    {
+      "family": "JetBrains Mono",
+      "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap",
+      "sha256": "442f048a8caafc8947e13d9677adfb3ba604df614bc2f9f95faa48980fbeaeb9"
+    }
+  ],
+  "faces": [
+    {
+      "family": "Geist",
+      "style": "normal",
+      "weight": "300 600",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwSGFWNOITddY4.woff2",
+      "local_url": "./geist-300-600-latinext.woff2",
+      "sha256": "58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
+      "bytes": 16540
+    },
+    {
+      "family": "Geist",
+      "style": "normal",
+      "weight": "300 600",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFWNOITd.woff2",
+      "local_url": "./geist-300-600-latin.woff2",
+      "sha256": "9b6f5ff45b278c744b5f379a2c4ecbaf858a842b8eaf82ac8d21b699ca16c608",
+      "bytes": 29288
+    },
+    {
+      "family": "Geist Mono",
+      "style": "normal",
+      "weight": "400 500",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmhHkjkotbA.woff2",
+      "local_url": "./geist-mono-400-500-latinext.woff2",
+      "sha256": "745994b5cd950ec201b66526375f057d540847cccfc70f4f24f5f571d26d3923",
+      "bytes": 14712
+    },
+    {
+      "family": "Geist Mono",
+      "style": "normal",
+      "weight": "400 500",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmhHkjko.woff2",
+      "local_url": "./geist-mono-400-500-latin.woff2",
+      "sha256": "5f3d6ad60f29d6cb708414ec6887163d63bf197377ef5417d2483ff31ace6c3b",
+      "bytes": 23108
+    },
+    {
+      "family": "EB Garamond",
+      "style": "italic",
+      "weight": "400 700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDU1ZyHKpWiGIg.woff2",
+      "local_url": "./eb-garamond-italic-400-700-latinext.woff2",
+      "sha256": "0077bd5045a699e2d26d1fc5a6071f865ec0698ba419cad62ce9465b59b6d47c",
+      "bytes": 88392
+    },
+    {
+      "family": "EB Garamond",
+      "style": "italic",
+      "weight": "400 700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDs1ZyHKpWg.woff2",
+      "local_url": "./eb-garamond-italic-400-700-latin.woff2",
+      "sha256": "d2761541b314509e02df3539cd35fc712954a48a50f4e0ab424dde817c699c2a",
+      "bytes": 47824
+    },
+    {
+      "family": "EB Garamond",
+      "style": "normal",
+      "weight": "400 800",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR7SDk_YAPIlWk.woff2",
+      "local_url": "./eb-garamond-400-800-latinext.woff2",
+      "sha256": "c2fa6862b03629214873944b171b0df1189420be52aabd82142d45f96fdce588",
+      "bytes": 113756
+    },
+    {
+      "family": "EB Garamond",
+      "style": "normal",
+      "weight": "400 800",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2",
+      "local_url": "./eb-garamond-400-800-latin.woff2",
+      "sha256": "68fd4b247dde89984ee835d99953d235e4927be2b1b732ad81173b519869cee8",
+      "bytes": 44172
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "300",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCu-xNNww_2s0amA9M8qtHEWfqFXVAKArdqqQ.woff2",
+      "local_url": "./spectral-italic-300-latinext.woff2",
+      "sha256": "212f23d7839a7fc5c0c904d3b0d25f3f2901868cea6b91620c467e7e25790cce",
+      "bytes": 14252
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "300",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCu-xNNww_2s0amA9M8qtHEWfSFXVAKArc.woff2",
+      "local_url": "./spectral-italic-300-latin.woff2",
+      "sha256": "17fe12dbf24a41e3eee9c3426e5c7226041539b9149118596bb0d4bdf9125e05",
+      "bytes": 15724
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "400",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCt-xNNww_2s0amA9M8onTmTNmnUHowCw.woff2",
+      "local_url": "./spectral-italic-400-latinext.woff2",
+      "sha256": "537c651195b85f73d4a434a72af3b328081e1a544395946d374fb9a957494a21",
+      "bytes": 13528
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "400",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCt-xNNww_2s0amA9M8onrmTNmnUHo.woff2",
+      "local_url": "./spectral-italic-400-latin.woff2",
+      "sha256": "7cfafd3583aecfe216f860d7a1c5689e86f7f92681946ca582d042c1c96b37d7",
+      "bytes": 14988
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "500",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCu-xNNww_2s0amA9M8qonFWfqFXVAKArdqqQ.woff2",
+      "local_url": "./spectral-italic-500-latinext.woff2",
+      "sha256": "922782e9e17703b9bd3ebbce3538552d5cc0ce849c5ac218bb040dbf215b0d80",
+      "bytes": 14180
+    },
+    {
+      "family": "Spectral",
+      "style": "italic",
+      "weight": "500",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCu-xNNww_2s0amA9M8qonFWfSFXVAKArc.woff2",
+      "local_url": "./spectral-italic-500-latin.woff2",
+      "sha256": "a0533b33ddd6bedf5dd9fc6762b44cc536cff6f408a115146f5f003c2c7edd96",
+      "bytes": 16212
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "300",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9uSsG3PafaPWnIIMrY.woff2",
+      "local_url": "./spectral-300-latinext.woff2",
+      "sha256": "a285ff771f79cb75675c139d5c7a2e2e6d1bd1941fc9e10b57478f75f212b4d8",
+      "bytes": 13120
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "300",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9uSsG3BafaPWnII.woff2",
+      "local_url": "./spectral-300-latin.woff2",
+      "sha256": "3a318b69ad8c6e194679e2828e6cb16ead1ae4df1f3e56c3fe96d01ab64037b9",
+      "bytes": 14872
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "400",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCr-xNNww_2s0amA9M3knjsS_ulYHs.woff2",
+      "local_url": "./spectral-400-latinext.woff2",
+      "sha256": "a62b9bdf669d8fb395c8685321cbf86c2f2bc324e0b28ecf867a036095383d49",
+      "bytes": 12660
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "400",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCr-xNNww_2s0amA9M5knjsS_ul.woff2",
+      "local_url": "./spectral-400-latin.woff2",
+      "sha256": "bcb83e9c56d40c5111a2bdbc3d8bdabf66bd31337e968f1c223b61879b8d3cad",
+      "bytes": 14028
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "500",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9vKsW3PafaPWnIIMrY.woff2",
+      "local_url": "./spectral-500-latinext.woff2",
+      "sha256": "38331492f5916e46a39699c66a1d76294b6f7b56f8a702f09cfb35fd9fd3043c",
+      "bytes": 13216
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "500",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9vKsW3BafaPWnII.woff2",
+      "local_url": "./spectral-500-latin.woff2",
+      "sha256": "79ce505722da87b9a2fa21a16cd0d7f426f1624fd16413e11be377bc9e922a3b",
+      "bytes": 15084
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9uCt23PafaPWnIIMrY.woff2",
+      "local_url": "./spectral-700-latinext.woff2",
+      "sha256": "e06de276e6b69b3501de2ff0e45a7f159ba71bcca576f401098e09c0355e1ced",
+      "bytes": 13312
+    },
+    {
+      "family": "Spectral",
+      "style": "normal",
+      "weight": "700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spectral/v15/rnCs-xNNww_2s0amA9uCt23BafaPWnII.woff2",
+      "local_url": "./spectral-700-latin.woff2",
+      "sha256": "1125ec621f11c8669efc3a86cc05d9e9e221853d2b1c9658d9e30de9d3b90bba",
+      "bytes": 15180
+    },
+    {
+      "family": "Caveat",
+      "style": "normal",
+      "weight": "500 700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/caveat/v23/Wnz6HAc5bAfYB2Q7aDYYiAzcPDKo.woff2",
+      "local_url": "./caveat-500-700-latinext.woff2",
+      "sha256": "93b3fdd6ded70837e67eb686a5ed3a896b03d0cd5f7e4be62f07a4efeaebfcfd",
+      "bytes": 29528
+    },
+    {
+      "family": "Caveat",
+      "style": "normal",
+      "weight": "500 700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/caveat/v23/Wnz6HAc5bAfYB2Q7ZjYYiAzcPA.woff2",
+      "local_url": "./caveat-500-700-latin.woff2",
+      "sha256": "7a0049db01fdd8fc7af7ef36675862a72a5c76d0cb45ae63c9f5b6f1b769dac7",
+      "bytes": 74572
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "italic",
+      "weight": "400",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXq2ZbF8zBfb98SUr0aX2SzxEjst4.woff2",
+      "local_url": "./source-serif-4-italic-400-latinext.woff2",
+      "sha256": "63f99476be6039ee5ce9ddf7358389a4246269dfe88632649a87ca7a26a51833",
+      "bytes": 43912
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "italic",
+      "weight": "400",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXq2ZbF8zBfb98SUr6aX2SzxEj.woff2",
+      "local_url": "./source-serif-4-italic-400-latin.woff2",
+      "sha256": "1ad786b3b94ab4366af8fdafba8018649df906567e720ad6bbaa71c465e5e438",
+      "bytes": 50560
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFI2_tTDB4M7-auWDN0ahZJW1gV8te1Xb7GlMo.woff2",
+      "local_url": "./source-serif-4-400-700-latinext.woff2",
+      "sha256": "c9299a71605a28de5733eca4a2fe18b6c94dd816bf932716a4f042e48c9b3071",
+      "bytes": 100752
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFI2_tTDB4M7-auWDN0ahZJW1gb8te1Xb7G.woff2",
+      "local_url": "./source-serif-4-400-700-latin.woff2",
+      "sha256": "2a24bad466f09b88b8e9cbc488bf774117c912e66374c57bf4716855849143f8",
+      "bytes": 122168
+    },
+    {
+      "family": "Space Grotesk",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPb94C_k3HqUtEw.woff2",
+      "local_url": "./space-grotesk-400-700-latinext.woff2",
+      "sha256": "054c266fbb441ee059365dba0885d206f67ca05b375de869b88e02ebfccc9b9d",
+      "bytes": 18924
+    },
+    {
+      "family": "Space Grotesk",
+      "style": "normal",
+      "weight": "400 700",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2",
+      "local_url": "./space-grotesk-400-700-latin.woff2",
+      "sha256": "a0d054c4af557de20afd6ca59f47ab353bcaec49c63ff04b6c9d39d0f8910557",
+      "bytes": 22320
+    },
+    {
+      "family": "JetBrains Mono",
+      "style": "normal",
+      "weight": "300",
+      "subset": "latin-ext",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "source_url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8lqxTNFOVk6OThhvAWV8.woff2",
+      "local_url": "./jetbrains-mono-300-latinext.woff2",
+      "sha256": "67b4ada2d7a62e57263b13d2fc0e9febad0eeb250c25806104f2d17f18b9ce6a",
+      "bytes": 7572
+    },
+    {
+      "family": "JetBrains Mono",
+      "style": "normal",
+      "weight": "300",
+      "subset": "latin",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "source_url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8lqxTOlOVk6OThhvA.woff2",
+      "local_url": "./jetbrains-mono-300-latin.woff2",
+      "sha256": "7807164b733f3033ef95713d85fb7cc299192a820f820bc66f9b6807ee2d4f16",
+      "bytes": 22044
+    },
+    {
+      "family": "Playfair Display",
+      "style": "italic",
+      "weight": "400 600",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "local_url": "../../fonts/playfair-display-italic-latinext.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "4d6a56168573c731f483ecfbaa468d38a674be49335160476bfa1eaf7c399fbb",
+      "bytes": 23332
+    },
+    {
+      "family": "Playfair Display",
+      "style": "italic",
+      "weight": "400 600",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "local_url": "../../fonts/playfair-display-italic-latin.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "c68530044e7c4ce6cd3c1c239d0a93be71af53821574714f83e1380d8b393d14",
+      "bytes": 38888
+    },
+    {
+      "family": "Playfair Display",
+      "style": "normal",
+      "weight": "400 800",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "local_url": "../../fonts/playfair-display-latinext.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "5628567856d60d714e7a35bcac9e3de08b336d63b12138f61b970990a1ee9547",
+      "bytes": 20980
+    },
+    {
+      "family": "Playfair Display",
+      "style": "normal",
+      "weight": "400 800",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "local_url": "../../fonts/playfair-display-latin.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "5d91eb5d522a03081946c44c8ca17c902230dfed5f0f9b5014262135d47b15b2",
+      "bytes": 38460
+    },
+    {
+      "family": "JetBrains Mono",
+      "style": "normal",
+      "weight": "400 700",
+      "unicode_range": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+      "local_url": "../../fonts/jetbrains-mono-latinext.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "9c38cb2d0d2d93c1ee6e21fa78db76f13ea7e15e15cc64214c7ca89b6aaa35c4",
+      "bytes": 11596
+    },
+    {
+      "family": "JetBrains Mono",
+      "style": "normal",
+      "weight": "400 700",
+      "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+      "local_url": "../../fonts/jetbrains-mono-latin.woff2",
+      "source": "existing global self-hosted font",
+      "sha256": "2c32b9b3ee358c119e210f6f5195f9bd34894d78a785ff2e95d60e718e400af4",
+      "bytes": 31340
+    }
+  ],
+  "licenses": [
+    {
+      "family": "Geist",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-geist.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/geist/OFL.txt",
+      "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+    },
+    {
+      "family": "Geist Mono",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-geistmono.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/geistmono/OFL.txt",
+      "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+    },
+    {
+      "family": "EB Garamond",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-ebgaramond.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/OFL.txt",
+      "sha256": "0985066662eb755ed3683ae5482a81a9195b49ce3f7e165cc2388b3dbece7dd7"
+    },
+    {
+      "family": "Spectral",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-spectral.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spectral/OFL.txt",
+      "sha256": "501d6ceca8e552630fe3aa9442b9a818565680a1a2f79f3fb8c13d6f309a9e98"
+    },
+    {
+      "family": "Caveat",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-caveat.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/OFL.txt",
+      "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+    },
+    {
+      "family": "Source Serif 4",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-sourceserif4.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/OFL.txt",
+      "sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9"
+    },
+    {
+      "family": "Space Grotesk",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-spacegrotesk.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "family": "JetBrains Mono",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-jetbrainsmono.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/OFL.txt",
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "family": "Playfair Display",
+      "license": "SIL Open Font License 1.1",
+      "file": "OFL-playfairdisplay.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/playfairdisplay/OFL.txt",
+      "sha256": "566be814f8e96e93dfa16101331557eb6b5467e9e03f627c0910fe93ca12300e"
+    }
+  ]
+}

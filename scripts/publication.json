@@ -714,6 +714,60 @@
       "canonical": "https://anavanzin.com/video/",
       "category": "ready",
       "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
+    },
+    {
+      "file": "seminario8-dever-poder/index.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/",
+      "category": "ready",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/colegas.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/colegas",
+      "category": "ready",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/Seminario8.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/Seminario8-print.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8-print.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/Conselho.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/Conselho.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/conselho-architecture.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/conselho-architecture.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "seminario8-dever-poder/flyer.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/flyer.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
+    },
+    {
+      "file": "algoritmo-em-disputa/index.html",
+      "canonical": "https://anavanzin.com/algoritmo-em-disputa/",
+      "category": "ready",
+      "reason": "Apresentação autoral da adaptação jurídica do LLM Council, com créditos e demonstração estática própria."
+    },
+    {
+      "file": "prot-tipo/index.html",
+      "canonical": "https://anavanzin.com/prot-tipo/",
+      "category": "utility",
+      "reason": "Demonstração acadêmica React com cenários fictícios, pareceres preparados e índices didáticos, sem backend ou dados pessoais."
     }
   ]
 }
