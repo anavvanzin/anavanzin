@@ -95,7 +95,10 @@ async function enterFromHomeIndex(page, width, withoutJS = false) {
   await page.setViewportSize({ width, height: 900 });
   expect((await page.goto('/', { waitUntil: 'load' })).status()).toBe(200);
   if (withoutJS) await enter(page, page.locator('.mm-index-fallback summary'));
-  else await enter(page, page.locator('.mm-index-toggle'));
+  else {
+    await expect(page.locator('html')).not.toHaveClass(/av-loading/);
+    await enter(page, page.locator('.mm-index-toggle'));
+  }
   const link = page.locator(withoutJS ? '.mm-index-fallback a[href="/mover-se.html"]' : '#mm-index a[href="/mover-se.html"]');
   await tabTo(page, link);
   const alias = page.waitForResponse(response => response.request().isNavigationRequest() && new URL(response.url()).pathname === '/mover-se.html');
