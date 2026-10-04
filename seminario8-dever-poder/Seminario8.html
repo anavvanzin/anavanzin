@@ -1,0 +1,3008 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminário 8 — Do Poder-Dever ao Dever-Poder</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="deck-stage.js"></script>
+<!-- ════════════ SVG DEFS — engraving patterns, decorative atoms ════════════ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- diagonal cross-hatch (light) -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+      <line x1="0" y="0" x2="0" y2="5" stroke="#16140f" stroke-width=".5" opacity=".6"/>
+    </pattern>
+    <pattern id="hatch-dense" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(45)">
+      <line x1="0" y="0" x2="0" y2="3" stroke="#16140f" stroke-width=".6"/>
+    </pattern>
+    <pattern id="hatch-cross" patternUnits="userSpaceOnUse" width="6" height="6">
+      <path d="M0,6 L6,0 M-1,1 L1,-1 M5,7 L7,5" stroke="#16140f" stroke-width=".7" fill="none"/>
+      <path d="M0,0 L6,6 M-1,5 L1,7 M5,-1 L7,1" stroke="#16140f" stroke-width=".7" fill="none"/>
+    </pattern>
+    <pattern id="hatch-red" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)">
+      <line x1="0" y="0" x2="0" y2="5" stroke="#8b1a1a" stroke-width=".7"/>
+    </pattern>
+    <pattern id="dots" patternUnits="userSpaceOnUse" width="6" height="6">
+      <circle cx="3" cy="3" r=".6" fill="#16140f" opacity=".5"/>
+    </pattern>
+    <pattern id="grid-fine" patternUnits="userSpaceOnUse" width="20" height="20">
+      <path d="M0,0 L20,0 M0,0 L0,20" stroke="#16140f" stroke-width=".25" fill="none" opacity=".4"/>
+    </pattern>
+
+    <!-- ornamental fleur -->
+    <symbol id="fleur" viewBox="0 0 40 40">
+      <path d="M20 4 C 22 12, 28 14, 36 16 C 28 18, 22 20, 20 28 C 18 20, 12 18, 4 16 C 12 14, 18 12, 20 4 Z" fill="#8b1a1a"/>
+      <circle cx="20" cy="36" r="1.5" fill="#8b1a1a"/>
+    </symbol>
+
+    <!-- corner flourish -->
+    <symbol id="corner" viewBox="0 0 60 60">
+      <path d="M2 58 L2 30 Q 2 2, 30 2 L 58 2" stroke="#16140f" stroke-width="1" fill="none"/>
+      <path d="M8 58 L8 30 Q 8 8, 30 8 L 58 8" stroke="#16140f" stroke-width=".5" fill="none" opacity=".6"/>
+      <circle cx="12" cy="12" r="2" fill="#8b1a1a"/>
+    </symbol>
+  </defs>
+</svg>
+
+<style>
+  /* ───────── TOKENS ───────── */
+  :root{
+    /* palette: editorial */
+    --paper:#fbfaf5;
+    --paper-warm:#f5f1e6;
+    --paper-dark:#ebe6d8;
+    --ink:#16140f;
+    --ink-2:#3a3733;
+    --ink-3:#6a665e;
+    --rule:rgba(22,20,15,.18);
+    --rule-strong:rgba(22,20,15,.4);
+    --accent:#8b1a1a;
+    --accent-2:#6a1212;
+    --gold:#a67a2c;
+
+    /* terminal accents */
+    --term-bg:#0c1318;
+    --term-bg-2:#0e1820;
+    --term-line:#173029;
+    --term-neon:#3fe0a0;
+    --term-neon-2:#9af5cf;
+    --term-dim:#6a8a80;
+    --term-text:#cfe9dd;
+    --term-cit:#9ad5f5;
+    --term-err:#f08070;
+    --term-warn:#f5b961;
+
+    /* type scale (slide-appropriate) */
+    --t-display: 132px;
+    --t-title: 92px;
+    --t-h2: 64px;
+    --t-h3: 44px;
+    --t-lead: 36px;
+    --t-body: 28px;
+    --t-small: 24px;
+    --t-tiny: 20px; /* used only for folios/marginalia where allowed */
+    --t-mono: 26px;
+    --t-mono-sm: 22px;
+
+    /* spacing */
+    --pad-x: 140px;
+    --pad-top: 88px;
+    --pad-bottom: 80px;
+    --gap-title: 44px;
+    --gap-item: 26px;
+
+    --serif-display: "EB Garamond", Georgia, serif;
+    --serif-body: "Spectral", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  /* ───────── deck-stage frame ───────── */
+  deck-stage{ background:#0e0e0d; }
+  deck-stage > section{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif-body);
+    font-size:var(--t-body);
+    line-height:1.45;
+    position:relative;
+    overflow:hidden;
+  }
+  /* paper grain */
+  deck-stage > section.paper::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(1200px 800px at 10% -10%, rgba(166,122,44,.05), transparent 60%),
+      radial-gradient(900px 700px at 110% 110%, rgba(139,26,26,.04), transparent 60%);
+  }
+
+  /* ───────── reusable atoms ───────── */
+  *{box-sizing:border-box}
+  h1,h2,h3{font-family:var(--serif-display);font-weight:500;line-height:1.02;letter-spacing:-.005em}
+  em{font-style:italic}
+  .ital{font-style:italic;font-family:var(--serif-display)}
+  .accent{color:var(--accent)}
+  .muted{color:var(--ink-3)}
+  .ink2{color:var(--ink-2)}
+
+  /* small-caps eyebrow */
+  .sc{
+    font-family:var(--serif-display);
+    text-transform:uppercase;letter-spacing:.22em;
+    font-weight:500;font-size:var(--t-small);
+  }
+  .sc.red{color:var(--accent)}
+  .sc.gold{color:var(--gold)}
+
+  /* top + bottom rules + folio */
+  .top-rule, .bot-rule{
+    position:absolute;left:var(--pad-x);right:var(--pad-x);
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--serif-display);font-style:italic;font-size:var(--t-tiny);
+    color:var(--ink-3);
+    text-transform:none;letter-spacing:.04em;
+  }
+  .top-rule{top:48px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+  .bot-rule{bottom:36px;border-top:1px solid var(--rule);padding-top:12px;color:var(--ink-3)}
+  .top-rule .l, .bot-rule .l{font-family:var(--serif-display);font-style:italic}
+  .top-rule .r, .bot-rule .r{font-family:var(--serif-display);font-style:italic}
+  .top-rule .center{flex:1;text-align:center;letter-spacing:.18em;font-style:normal;font-size:18px;color:var(--ink-3);text-transform:uppercase}
+
+  /* slide frame (default editorial) */
+  .ed{
+    padding: 124px var(--pad-x) var(--pad-bottom);
+  }
+
+  /* drop cap */
+  .drop::first-letter{
+    font-family:var(--serif-display);
+    font-size: 5em;
+    float:left;line-height:.85;padding:8px 14px 0 0;
+    color:var(--accent);
+    font-weight:500;
+  }
+
+  /* marginal note */
+  .marg{
+    position:absolute;
+    width:240px;
+    font-family:var(--serif-display);font-style:italic;
+    font-size:var(--t-small);line-height:1.35;
+    color:var(--accent-2);
+    padding-left:14px;border-left:1px solid var(--accent);
+  }
+  .marg .cite{display:block;margin-top:10px;font-style:normal;text-transform:uppercase;letter-spacing:.16em;font-size:18px;color:var(--ink-3)}
+
+  /* pull quote */
+  .pull{
+    font-family:var(--serif-display);font-style:italic;font-weight:500;
+    font-size:var(--t-h3);line-height:1.18;color:var(--ink);
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:30px 0;
+  }
+  .pull .src{display:block;margin-top:16px;font-style:normal;font-size:var(--t-small);text-transform:uppercase;letter-spacing:.16em;color:var(--ink-3)}
+
+  /* footnote bar at bottom */
+  .footnotes{
+    position:absolute;left:var(--pad-x);right:var(--pad-x);bottom:84px;
+    border-top:1px solid var(--rule);padding-top:16px;
+    font-family:var(--serif-display);font-style:italic;
+    font-size:var(--t-small);color:var(--ink-3);line-height:1.45;
+    column-count:2;column-gap:60px;
+  }
+
+  /* ───────── TERMINAL ATOMS ───────── */
+  .term{
+    background:var(--term-bg);
+    color:var(--term-text);
+    font-family:var(--mono);
+    font-size:var(--t-mono-sm);
+    line-height:1.55;
+    padding:30px 34px;
+    position:relative;
+    border:1px solid var(--term-line);
+  }
+  .term::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(63,224,160,.025) 3px 4px);
+  }
+  .term .chrome{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:18px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--term-neon);
+    border-bottom:1px solid var(--term-line);padding-bottom:10px;margin-bottom:18px;
+    position:relative;z-index:1;
+  }
+  .term .chrome .dots{display:inline-flex;gap:6px}
+  .term .chrome .dots span{width:10px;height:10px;border-radius:50%;background:#1a2c25;border:1px solid #2a4a3e}
+  .term .chrome .dots .live{background:var(--term-neon);box-shadow:0 0 8px var(--term-neon)}
+  .term .prompt{color:var(--term-neon);position:relative;z-index:1}
+  .term .prompt::before{content:"$ ";opacity:.7}
+  .term .err{color:var(--term-err)}
+  .term .warn{color:var(--term-warn)}
+  .term .cit{color:var(--term-cit)}
+  .term .neon{color:var(--term-neon)}
+  .term .neon2{color:var(--term-neon-2)}
+  .term .dim{color:var(--term-dim)}
+  .term h3{color:#eafff6;font-family:var(--serif-display);font-style:italic}
+  .term-label{
+    font-family:var(--mono);font-size:18px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--term-neon);
+  }
+
+  /* ───────── slide-specific styles ───────── */
+
+  /* ── 01 Capa ── */
+  .s-capa{
+    padding: 110px var(--pad-x) 90px;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .s-capa .head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:2px solid var(--ink);padding-bottom:20px;
+    font-family:var(--serif-display);font-style:italic;font-size:var(--t-small);color:var(--ink-2);
+  }
+  .s-capa .head .vol{letter-spacing:.04em}
+  .s-capa .head .date{font-style:normal;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .s-capa .center{flex:1;display:flex;flex-direction:column;justify-content:center;padding:30px 0}
+  .s-capa .eyebrow{
+    font-family:var(--serif-display);font-style:italic;font-size:30px;color:var(--accent);
+    margin-bottom:30px;
+  }
+  .s-capa h1{
+    font-family:var(--serif-display);font-weight:500;
+    font-size: 168px;line-height:.92;letter-spacing:-.02em;
+    max-width:1450px;
+  }
+  .s-capa h1 em{color:var(--accent);font-style:italic;font-weight:600}
+  .s-capa .sub{
+    font-family:var(--serif-body);font-style:italic;
+    font-size:var(--t-lead);color:var(--ink-2);
+    margin-top:42px;max-width:1200px;line-height:1.35;
+  }
+  .s-capa .foot{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-top:1px solid var(--ink);padding-top:20px;
+    font-family:var(--serif-display);font-size:24px;
+  }
+  .s-capa .foot .by b{font-weight:600;font-style:italic}
+  .s-capa .foot .by .x{margin:0 16px;color:var(--ink-3)}
+  .s-capa .foot .where{font-style:italic;color:var(--ink-3);text-align:right}
+
+  /* ── 02 Pergunta ── */
+  .s-perg{padding: 110px var(--pad-x) 110px;display:grid;grid-template-columns: 1fr 1fr;gap:60px;align-items:center}
+  .s-perg .qmark{
+    font-family:var(--serif-display);font-style:italic;
+    font-size:560px;line-height:.78;color:var(--accent);
+    margin-top:-40px;
+  }
+  .s-perg .right .ey{font-family:var(--serif-display);font-style:italic;color:var(--accent);font-size:26px;margin-bottom:14px}
+  .s-perg .right .q{font-family:var(--serif-display);font-weight:500;font-size:62px;line-height:1.05;font-style:italic;letter-spacing:-.005em}
+  .s-perg .right .q em{color:var(--accent);font-style:italic;font-weight:600}
+  .s-perg .right .a{
+    margin-top:36px;border-top:1px solid var(--ink);padding-top:18px;
+    font-family:var(--serif-display);font-weight:600;font-size:96px;line-height:.95;color:var(--accent);
+  }
+  .s-perg .right .note{font-family:var(--serif-body);font-style:italic;font-size:24px;color:var(--ink-2);margin-top:24px;max-width:680px;line-height:1.4}
+
+  /* ── 03 Chave de leitura — Regulador⇄Regulado ── */
+  .s-chave{padding: 134px var(--pad-x) 100px}
+  .s-chave .head{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:14px;margin-bottom:36px}
+  .s-chave h2{font-size:var(--t-h2);font-style:italic;max-width:1500px;line-height:1.05}
+  .s-chave h2 em{color:var(--accent);font-style:italic;font-weight:600}
+  .s-chave .dia{display:grid;grid-template-columns: 1fr 140px 1fr;gap:30px;margin-top:50px;align-items:stretch}
+  .s-chave .box{padding:36px 36px;background:var(--paper-warm);border:1px solid var(--ink);position:relative}
+  .s-chave .box.dark{background:var(--term-bg);color:var(--term-text);border-color:var(--term-bg);font-family:var(--mono);font-size:var(--t-mono-sm)}
+  .s-chave .box.dark::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(63,224,160,.025) 3px 4px);pointer-events:none}
+  .s-chave .box .lbl{font-family:var(--mono);font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .s-chave .box.dark .lbl{color:var(--term-neon)}
+  .s-chave .box h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:54px;line-height:1.02;margin-bottom:6px}
+  .s-chave .box.dark h3{color:#eafff6}
+  .s-chave .box .role{font-family:var(--serif-display);font-style:italic;font-size:24px;color:var(--ink-3);margin-bottom:22px}
+  .s-chave .box.dark .role{color:var(--term-dim);font-family:var(--mono);font-style:normal;text-transform:uppercase;letter-spacing:.18em;font-size:18px}
+  .s-chave .box ul{list-style:none;padding:0;margin:0}
+  .s-chave .box li{font-size:24px;line-height:1.55;padding:6px 0;border-bottom:1px dotted var(--rule)}
+  .s-chave .box li:last-child{border:0}
+  .s-chave .box li::before{content:"§ ";color:var(--gold)}
+  .s-chave .box.dark li{color:var(--term-text);border-bottom-color:var(--term-line);font-size:22px}
+  .s-chave .box.dark li::before{content:"› ";color:var(--term-neon)}
+  .s-chave .box.dark li .v{color:var(--term-err)}
+  .s-chave .arr{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:var(--serif-display);font-style:italic;font-size:160px;color:var(--accent);line-height:.9;
+  }
+  .s-chave .arr .l{font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-top:14px;text-align:center;max-width:140px;line-height:1.25}
+
+  /* ── divisor ── */
+  .s-div{padding: 0; display:flex;flex-direction:column;justify-content:center;padding-left: 220px;padding-right:160px;position:relative}
+  .s-div::before{content:"";position:absolute;left:140px;top:160px;bottom:160px;width:2px;background:var(--accent)}
+  .s-div .pt{font-family:var(--serif-display);font-style:italic;font-size:30px;color:var(--accent);letter-spacing:.04em}
+  .s-div h1{font-family:var(--serif-display);font-weight:500;font-style:italic;font-size:170px;line-height:.96;margin-top:24px;letter-spacing:-.01em}
+  .s-div h1 em{color:var(--accent);font-style:italic}
+  .s-div .arts{margin-top:38px;display:flex;flex-direction:column;gap:14px;max-width:1200px}
+  .s-div .arts .a{display:flex;align-items:baseline;gap:24px;font-family:var(--serif-body);font-style:italic;font-size:30px;color:var(--ink-2)}
+  .s-div .arts .a .n{font-family:var(--serif-display);font-style:italic;font-weight:600;color:var(--accent);font-size:34px;min-width:90px}
+  .s-div .num-big{position:absolute;right:160px;top:120px;font-family:var(--serif-display);font-style:italic;font-size:380px;color:var(--accent);opacity:.07;line-height:.8;font-weight:600;letter-spacing:-.05em}
+
+  /* ── expositivo genérico — dois layouts ── */
+  .s-art{padding: 130px var(--pad-x) 100px}
+  .s-art .kicker-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:14px;margin-bottom:30px}
+  .s-art h2{font-size:var(--t-h2);max-width:1500px;line-height:1.05}
+  .s-art h2 em{color:var(--accent);font-style:italic;font-weight:600}
+  .s-art .lead{font-family:var(--serif-display);font-style:italic;font-size:var(--t-lead);max-width:1500px;line-height:1.25;margin-top:24px;color:var(--ink-2)}
+  .s-art .body{
+    margin-top:36px;column-count:2;column-gap:80px;
+    font-size:var(--t-body);line-height:1.5;text-align:justify;hyphens:auto;
+  }
+  .s-art .body p{margin-bottom:14px}
+  .s-art .body p.lead-p{text-indent:0}
+  .s-art .body em{color:var(--accent);font-style:italic}
+  .s-art .body b{font-weight:600;color:var(--ink)}
+  .s-art .marg{right:80px;top:200px;width:340px}
+
+  /* expositivo com painel lateral */
+  .s-art.layout-panel .grid{display:grid;grid-template-columns: 1.25fr 1fr;gap:60px;margin-top:30px}
+  .s-art.layout-panel .grid .col p{margin-bottom:16px}
+  .s-art.layout-panel .grid .col.body{font-size:26px;line-height:1.55;text-align:justify}
+  .s-art.layout-panel .grid .col.body em{color:var(--accent)}
+  .s-art.layout-panel .grid .col.body b{font-weight:600;color:var(--ink)}
+
+  /* ── nossa leitura (★) ── */
+  .s-aut{
+    padding:90px 200px 90px;
+    background:var(--paper-warm);
+    position:relative;
+  }
+  .s-aut::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--accent);
+  }
+  .s-aut .star{
+    font-family:var(--serif-display);font-style:italic;font-size:28px;color:var(--accent);
+    text-align:center;letter-spacing:.04em;
+  }
+  .s-aut .star::before, .s-aut .star::after{content:"❦";margin:0 18px;opacity:.55}
+  .s-aut h2{
+    font-family:var(--serif-display);font-style:italic;font-weight:500;
+    font-size:64px;line-height:1.06;text-align:center;
+    margin:18px auto 26px;max-width:1500px;
+  }
+  .s-aut h2 b{font-weight:600;color:var(--accent);font-style:italic}
+  .s-aut .grid{display:grid;grid-template-columns: 1.15fr .9fr;gap:80px;align-items:start;margin-top:18px}
+  .s-aut .essay{
+    font-size:26px;line-height:1.5;text-align:justify;hyphens:auto;
+  }
+  .s-aut .essay em{color:var(--accent);font-style:italic}
+  .s-aut .essay b{font-weight:600;color:var(--ink)}
+  .s-aut .essay p{margin-bottom:14px}
+  .s-aut .essay p.lead-p{text-indent:0}
+  .s-aut .essay p.lead-p::first-letter{
+    font-family:var(--serif-display);font-size:5em;float:left;line-height:.85;
+    padding:8px 14px 0 0;color:var(--accent);font-weight:600;
+  }
+  .s-aut .cite{
+    margin-top:24px;border-top:1px solid var(--ink);padding-top:12px;
+    font-family:var(--serif-display);font-style:italic;text-align:center;font-size:22px;color:var(--ink-3);
+  }
+  .s-aut .cite b{color:var(--accent);font-weight:600}
+
+  /* persona card on autoral */
+  .persona{
+    border:1px solid var(--ink);padding:30px 30px;background:rgba(255,253,247,.7);
+  }
+  .persona .lbl{font-family:var(--mono);font-size:18px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+  .persona h4{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:36px;line-height:1.05;margin-bottom:14px}
+  .persona p{font-size:24px;line-height:1.5;color:var(--ink-2)}
+  .persona p em{color:var(--accent);font-style:italic}
+
+  /* ── timeline 3 tempos ── */
+  .s-time .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:60px;position:relative}
+  .s-time .step{padding:0 40px;position:relative}
+  .s-time .step:not(:last-child)::after{
+    content:"→";position:absolute;right:-28px;top:30px;
+    font-family:var(--serif-display);font-style:italic;font-size:90px;color:var(--accent);line-height:.6;
+  }
+  .s-time .step .n{font-family:var(--serif-display);font-style:italic;font-size:48px;color:var(--accent);font-weight:600}
+  .s-time .step .when{font-family:var(--mono);font-size:18px;color:var(--ink-3);letter-spacing:.18em;text-transform:uppercase;margin-top:10px}
+  .s-time .step h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:44px;margin:14px 0 12px}
+  .s-time .step p{font-size:24px;line-height:1.45;color:var(--ink-2)}
+  .s-time .step .ex{margin-top:18px;font-family:var(--mono);font-size:18px;color:var(--gold);letter-spacing:.04em}
+
+  /* ── caso INSS + black box ── */
+  .s-caso .grid{display:grid;grid-template-columns: 1.05fr 1fr;gap:60px;margin-top:24px;align-items:stretch}
+  .s-caso .narr p{font-size:26px;line-height:1.5;margin-bottom:14px;text-align:justify}
+  .s-caso .narr em{color:var(--accent);font-style:italic}
+  .s-caso .narr b{font-weight:600;color:var(--ink)}
+  .s-caso .narr p.lead-p::first-letter{
+    font-family:var(--serif-display);font-size:5em;float:left;line-height:.85;
+    padding:8px 14px 0 0;color:var(--accent);font-weight:600;
+  }
+  .s-caso .doc{
+    background:var(--ink);color:var(--paper);
+    font-family:var(--serif-display);font-style:italic;font-size:24px;line-height:1.5;
+    padding:30px 32px;position:relative;
+  }
+  .s-caso .doc::after{
+    content:"INDEFERIDO";position:absolute;top:30px;right:-30px;
+    background:var(--accent);color:var(--paper);
+    font-family:var(--mono);font-style:normal;font-size:18px;letter-spacing:.24em;
+    padding:8px 40px;transform:rotate(8deg);font-weight:700;
+  }
+  .s-caso .doc .h{font-family:var(--mono);font-style:normal;font-size:18px;letter-spacing:.18em;color:#c8a87a;text-transform:uppercase;margin-bottom:14px}
+  .s-caso .doc .opa{opacity:.7}
+
+  /* ── black box terminal panel ── */
+  .s-bb{padding: 110px var(--pad-x) 60px}
+  .s-bb .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;margin-top:36px;align-items:stretch}
+  .s-bb .left .lbl{font-family:var(--serif-display);font-style:italic;color:var(--accent);font-size:24px;margin-bottom:14px}
+  .s-bb .left h3{font-family:var(--serif-display);font-style:italic;font-size:44px;line-height:1.05;margin-bottom:24px}
+  .s-bb .left p{font-size:24px;line-height:1.5;color:var(--ink-2);margin-bottom:14px}
+  .s-bb .left p em{color:var(--accent);font-style:italic}
+  .s-bb .left .quote{
+    margin-top:24px;font-family:var(--serif-display);font-style:italic;
+    font-size:30px;line-height:1.25;color:var(--ink);
+    border-left:3px solid var(--accent);padding-left:24px;
+  }
+  .s-bb .term{padding:28px 32px;font-size:24px;line-height:1.55}
+  .s-bb .term .chrome{font-size:18px}
+  .s-bb .term .resp{margin-top:10px}
+  .s-bb .term .kv{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin-top:18px}
+  .s-bb .term .kv .k{color:var(--term-neon);letter-spacing:.06em}
+  .s-bb .term .kv .v{color:var(--term-text)}
+  .s-bb .term .kv .v.err{color:var(--term-err)}
+  .s-bb .term .kv .v.warn{color:var(--term-warn)}
+  .s-bb .term .kv .v.cit{color:var(--term-cit)}
+
+  /* ── espelho internacional ── */
+  .s-mirror .grid{display:grid;grid-template-columns:1fr 100px 1fr;gap:40px;margin-top:40px;align-items:stretch}
+  .s-mirror .col{padding:36px 36px;background:var(--paper-warm);border:1px solid var(--ink)}
+  .s-mirror .col .flag{font-family:var(--mono);font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .s-mirror .col h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:48px;line-height:1.02;margin-bottom:14px}
+  .s-mirror .col .place{font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:16px}
+  .s-mirror .col ul{list-style:none;padding:0}
+  .s-mirror .col li{font-size:22px;line-height:1.5;padding:8px 0;border-bottom:1px dotted var(--rule)}
+  .s-mirror .col li:last-child{border:0}
+  .s-mirror .col li::before{content:"—";color:var(--accent);margin-right:8px}
+  .s-mirror .vs{display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--serif-display);font-style:italic;font-size:90px;color:var(--accent)}
+  .s-mirror .vs .l{font-size:18px;color:var(--ink-3);font-style:italic;margin-top:8px;text-align:center;max-width:100px;line-height:1.25}
+
+  /* ── tabela ── */
+  .s-tab .legend{font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:16px}
+  .s-tab table{width:100%;border-collapse:collapse;margin-top:18px;font-size:22px}
+  .s-tab th{
+    font-family:var(--serif-display);text-transform:uppercase;letter-spacing:.18em;
+    font-size:18px;font-weight:500;color:var(--ink);
+    border-bottom:2px solid var(--ink);padding:12px 14px;text-align:left;
+  }
+  .s-tab td{padding:14px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.4}
+  .s-tab td.year{font-family:var(--serif-display);font-style:italic;color:var(--accent);font-size:26px;font-weight:600}
+  .s-tab td.case{font-weight:500;color:var(--ink)}
+  .s-tab td.status{font-family:var(--mono);font-size:18px;letter-spacing:.06em;color:var(--accent);text-transform:uppercase;background:rgba(139,26,26,.06)}
+  .s-tab td.cit{font-family:var(--serif-display);font-style:italic;color:var(--ink-3);font-size:20px}
+  .s-tab .caption{caption-side:bottom;font-family:var(--serif-display);font-style:italic;font-size:20px;color:var(--ink-3);text-align:left;margin-top:14px}
+
+  /* ── proto fluxo ── */
+  .s-proto .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:46px}
+  .s-proto .step{
+    padding:24px 18px 28px;border:1px solid var(--ink);background:var(--paper);position:relative;
+  }
+  .s-proto .step+.step{border-left:0}
+  .s-proto .step .n{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:42px;color:var(--accent);line-height:1}
+  .s-proto .step .lab{font-family:var(--mono);font-size:16px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-top:6px}
+  .s-proto .step h4{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:30px;line-height:1.05;margin:8px 0 10px}
+  .s-proto .step p{font-size:20px;line-height:1.4;color:var(--ink-2)}
+  .s-proto .personas{margin-top:30px}
+  .s-proto .personas .h{font-family:var(--serif-display);font-style:italic;font-size:26px;color:var(--ink);margin-bottom:10px}
+  .s-proto .personas table{width:100%;border-collapse:collapse;font-size:20px}
+  .s-proto .personas th, .s-proto .personas td{padding:7px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.3}
+  .s-proto .personas th{font-family:var(--serif-display);text-transform:uppercase;letter-spacing:.18em;font-size:16px;font-weight:500;border-bottom:1.5px solid var(--ink)}
+  .s-proto .personas td.persona{font-family:var(--serif-display);font-style:italic;font-weight:600;color:var(--accent);font-size:22px}
+  .s-proto .personas td.art{font-family:var(--serif-display);font-style:italic;color:var(--ink-2)}
+
+  /* ── propedêutica 2 cards ── */
+  .s-prop .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:36px}
+  .s-prop .card{border:1px solid var(--ink);padding:40px 40px;background:var(--paper)}
+  .s-prop .card.warm{background:var(--paper-warm)}
+  .s-prop .card .n{font-family:var(--serif-display);font-style:italic;color:var(--accent);font-size:36px;font-weight:600}
+  .s-prop .card h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:52px;line-height:1.04;margin:10px 0 18px}
+  .s-prop .card p{font-size:26px;line-height:1.5;color:var(--ink-2)}
+  .s-prop .card p em{color:var(--accent);font-style:italic}
+  .s-prop .card p b{font-weight:600;color:var(--ink)}
+  .s-prop .card .ex{
+    margin-top:24px;border-top:1px solid var(--rule);padding-top:16px;
+    font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);
+  }
+
+  /* ── tese final ── */
+
+  /* ── síntese parte I ── */
+  .s-synth .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .s-synth .triad .col{padding:36px 36px;border-right:1px solid var(--rule)}
+  .s-synth .triad .col:last-child{border-right:0}
+  .s-synth .triad .lbl{font-family:var(--mono);font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .s-synth .triad h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:46px;line-height:1.05;margin:8px 0 16px}
+  .s-synth .triad p{font-size:24px;line-height:1.5;color:var(--ink-2)}
+  .s-synth .triad p em{color:var(--accent);font-style:italic}
+
+  /* ── demo bridge (within proto slide row) ── */
+  .s-demo{padding: 0;display:flex;flex-direction:column;justify-content:center;background:var(--term-bg);color:var(--term-text);font-family:var(--mono)}
+  .s-demo::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(63,224,160,.025) 3px 4px)}
+  .s-demo .inner{padding:120px var(--pad-x);position:relative;z-index:1}
+  .s-demo .ey{font-family:var(--mono);font-size:24px;letter-spacing:.22em;color:var(--term-neon);text-transform:uppercase}
+  .s-demo h1{font-family:var(--serif-display);font-style:italic;font-weight:500;font-size:130px;color:#eafff6;line-height:1;margin:26px 0 30px}
+  .s-demo h1 em{color:var(--term-neon)}
+  .s-demo .cmd{font-family:var(--mono);font-size:38px;color:var(--term-neon);margin-bottom:10px}
+  .s-demo .cmd::before{content:"$ ";opacity:.6}
+  .s-demo .sub{font-family:var(--serif-display);font-style:italic;font-size:34px;color:var(--term-dim);max-width:1500px;line-height:1.35;margin-top:18px}
+  .s-demo .blink{display:inline-block;width:18px;height:36px;background:var(--term-neon);vertical-align:-4px;margin-left:8px;animation:bl 1s steps(2) infinite}
+  @keyframes bl{50%{opacity:0}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+  /* ═══════════════════ visual upgrades ═══════════════════ */
+
+  /* ── capa engraving block ── */
+  .s-capa.has-engraving{display:grid;grid-template-rows:auto 1fr auto;padding:56px var(--pad-x) 56px}
+  .s-capa.has-engraving .midgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center;padding:20px 0}
+  .s-capa.has-engraving .midgrid .engraving{aspect-ratio:1;max-width:540px;justify-self:end;align-self:center}
+  .s-capa.has-engraving h1{font-size:118px;line-height:1.04}
+  .s-capa.has-engraving .sub{font-size:28px}
+  .s-capa.has-engraving .midgrid{grid-template-columns:1.3fr .7fr}
+
+  /* ── janus diagram (regulador⇄regulado) ── */
+  .janus-stage{position:relative;margin:40px auto 0;max-width:1640px}
+  .janus-stage .ribbon{
+    position:absolute;left:50%;top:-22px;transform:translateX(-50%);
+    background:var(--ink);color:var(--paper);padding:8px 28px;
+    font-family:var(--serif-display);font-style:italic;font-size:22px;letter-spacing:.04em;
+    border:2px solid var(--ink);z-index:5;
+  }
+  .janus-grid{display:grid;grid-template-columns:1fr 360px 1fr;gap:0;align-items:stretch;border:2px solid var(--ink)}
+  .janus-grid .side{padding:46px 46px;position:relative}
+  .janus-grid .side.left{background:var(--paper-warm);border-right:1px solid var(--ink)}
+  .janus-grid .side.right{background:var(--term-bg);color:var(--term-text);border-left:1px solid var(--ink);font-family:var(--mono);font-size:22px;line-height:1.6}
+  .janus-grid .side.right::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(63,224,160,.025) 3px 4px)}
+  .janus-grid .side .lbl{font-family:var(--mono);font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .janus-grid .side.right .lbl{color:var(--term-neon)}
+  .janus-grid .side h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:54px;line-height:1.02;margin-bottom:4px}
+  .janus-grid .side.right h3{color:#eafff6;font-family:var(--serif-display);font-style:italic}
+  .janus-grid .side .role{font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:20px}
+  .janus-grid .side.right .role{color:var(--term-dim);font-family:var(--mono);font-style:normal;text-transform:uppercase;letter-spacing:.18em;font-size:17px}
+  .janus-grid .side ul{list-style:none;padding:0;margin:0}
+  .janus-grid .side li{font-family:var(--serif-body);font-size:22px;line-height:1.5;padding:7px 0;border-bottom:1px dotted var(--rule);position:relative;padding-left:18px}
+  .janus-grid .side li:last-child{border:0}
+  .janus-grid .side li::before{content:"§";position:absolute;left:0;color:var(--gold);font-family:var(--serif-display);font-style:italic}
+  .janus-grid .side.right li{font-family:var(--mono);font-size:20px;color:var(--term-text);border-bottom-color:var(--term-line);padding-left:18px}
+  .janus-grid .side.right li::before{content:"›";color:var(--term-neon);font-family:var(--mono);font-style:normal}
+  .janus-grid .side.right li .v{color:var(--term-err)}
+  .janus-grid .janus-mid{
+    background:var(--paper);border-left:1px solid var(--ink);border-right:1px solid var(--ink);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:30px 0;position:relative;
+  }
+  .janus-grid .janus-mid svg{width:100%;height:auto;max-height:380px}
+  .janus-grid .janus-mid .caption{
+    font-family:var(--serif-display);font-style:italic;font-size:18px;color:var(--ink-3);
+    text-align:center;margin-top:14px;line-height:1.3;padding:0 20px;
+  }
+  .janus-grid .janus-mid .arr-lbl{
+    position:absolute;left:50%;top:auto;bottom:8px;transform:translateX(-50%);
+    font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+    background:var(--paper);padding:3px 10px;border:1px solid var(--accent);white-space:nowrap;
+  }
+
+  /* ── phone mockup (caso INSS) ── */
+  .s-caso.has-phone{padding: 100px var(--pad-x) 72px}
+  .s-caso.has-phone .grid{grid-template-columns: 1fr 340px;gap:50px;align-items:start}
+  .s-caso.has-phone .narr p{font-size:24px}
+  .phone-frame{
+    width:340px;height:660px;
+    border-radius:46px;background:#0a0a0a;
+    padding:12px;position:relative;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.4), 0 0 0 2px #2a2a28;
+    margin:0 auto;
+  }
+  .phone-frame::before{
+    content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);
+    width:130px;height:28px;background:#0a0a0a;border-radius:0 0 16px 16px;z-index:5;
+  }
+  .phone-screen{
+    width:100%;height:100%;background:#fff;border-radius:40px;overflow:hidden;
+    display:flex;flex-direction:column;font-family: -apple-system, "Inter", "Segoe UI", sans-serif;
+  }
+  .phone-statusbar{
+    height:46px;padding:10px 30px 0;display:flex;justify-content:space-between;align-items:center;
+    font-size:15px;font-weight:600;color:#000;
+  }
+  .phone-statusbar .right{display:flex;gap:6px;align-items:center}
+  .phone-statusbar .signal{display:inline-flex;gap:2px;align-items:flex-end}
+  .phone-statusbar .signal i{width:3.5px;background:#000;display:block}
+  .phone-statusbar .signal i:nth-child(1){height:4px}.phone-statusbar .signal i:nth-child(2){height:6px}
+  .phone-statusbar .signal i:nth-child(3){height:8px}.phone-statusbar .signal i:nth-child(4){height:10px}
+  .phone-statusbar .batt{width:26px;height:13px;border:1.2px solid #000;border-radius:3px;position:relative;padding:1.5px}
+  .phone-statusbar .batt::after{content:"";position:absolute;right:-3.5px;top:3.5px;width:2.5px;height:6px;background:#000;border-radius:0 2px 2px 0}
+  .phone-statusbar .batt i{display:block;width:60%;height:100%;background:#000;border-radius:1px}
+  .phone-appbar{
+    background:#1351b4;color:#fff;padding:20px 24px 18px;display:flex;align-items:center;gap:14px;
+  }
+  .phone-appbar .back{font-size:22px}
+  .phone-appbar .title{font-weight:700;font-size:18px}
+  .phone-appbar .sub{font-size:12px;opacity:.8;margin-top:2px}
+  .phone-body{flex:1;padding:18px 18px;background:#f6f6f7;overflow:hidden}
+  .phone-body .pill{
+    display:inline-block;background:#ffe2e0;color:#a00d0d;font-size:11px;font-weight:700;
+    padding:6px 12px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .phone-body h2.pt{
+    font-family: -apple-system, "Inter", sans-serif;
+    color:#1d1d1f;font-size:22px;font-weight:700;margin-top:10px;line-height:1.15;letter-spacing:-.01em;font-style:normal;
+  }
+  .phone-body .pnum{font-size:13px;color:#6e6e73;margin-top:6px}
+  .phone-body .card{
+    margin-top:12px;background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  .phone-body .card .lbl{font-size:11px;color:#6e6e73;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  .phone-body .card .val{font-size:14px;color:#1d1d1f;margin-top:6px;font-weight:500;line-height:1.4}
+  .phone-body .card .val.empty{color:#bbb;font-style:italic;font-weight:400}
+  .phone-body .card .val.empty::before{content:"— "}
+  .phone-body .row2{display:flex;gap:8px;margin-top:8px}
+  .phone-body .row2 .card{flex:1;margin-top:0;padding:14px}
+  .phone-body .reason{
+    margin-top:14px;background:#fff;border-radius:14px;padding:18px;border-left:4px solid #a00d0d;
+  }
+  .phone-body .reason .lbl{font-size:11px;color:#a00d0d;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .phone-body .reason p{font-size:14px;color:#1d1d1f;margin-top:6px;line-height:1.5}
+  .phone-body .btn{
+    margin-top:16px;background:#1351b4;color:#fff;padding:14px;border-radius:12px;text-align:center;
+    font-size:15px;font-weight:600;
+  }
+  .phone-body .btn .sub{font-size:11px;font-weight:400;margin-top:2px;opacity:.85}
+
+  /* ── caso INSS: annotation arrows ── */
+  .caso-annots{margin-top:30px}
+  .caso-annots .a{display:flex;gap:14px;align-items:flex-start;font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--accent);line-height:1.35;padding:6px 0;border-bottom:1px dotted var(--rule)}
+  .caso-annots .a .arr{font-style:normal;font-family:var(--mono);color:var(--accent);font-size:16px;flex-shrink:0;padding-top:3px;letter-spacing:.04em}
+  .caso-annots .a b{color:var(--ink);font-weight:600;font-style:italic}
+
+  /* ── black box visual diagram ── */
+  .bbox-stage{
+    position:relative;margin-top:20px;background:var(--paper-warm);border:1px solid var(--ink);
+    aspect-ratio:16/6.4;padding:20px;
+  }
+  .bbox-stage svg{width:100%;height:100%;display:block}
+
+  /* ── timeline horizontal ── */
+  .htl{position:relative;margin:40px 0 20px;padding:80px 0 60px}
+  .htl .axis{position:absolute;left:30px;right:30px;top:200px;height:2px;background:var(--ink)}
+  .htl .axis::before,.htl .axis::after{
+    content:"";position:absolute;top:-7px;width:16px;height:16px;border:2px solid var(--ink);background:var(--paper);transform:rotate(45deg);
+  }
+  .htl .axis::before{left:-8px}.htl .axis::after{right:-8px}
+  .htl .row-tl{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative}
+  .htl .ev{display:flex;flex-direction:column;align-items:center}
+  .htl .ev .yr{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:48px;color:var(--accent);margin-bottom:14px}
+  .htl .ev .marker{width:22px;height:22px;background:var(--accent);border:3px solid var(--paper);border-radius:50%;box-shadow:0 0 0 2px var(--ink);margin-bottom:14px;position:relative;z-index:2}
+  .htl .ev .card{
+    background:var(--paper-warm);border:1px solid var(--ink);padding:16px 18px;margin-top:0;width:100%;
+  }
+  .htl .ev .card .ttl{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:24px;line-height:1.1;color:var(--ink);margin-bottom:6px}
+  .htl .ev .card .norm{font-size:16px;color:var(--ink-2);line-height:1.4}
+  .htl .ev .card .status{margin-top:8px;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--rule);padding-top:6px}
+
+  /* ── tese final · colunata ── */
+  .s-tese{padding:0;display:grid;grid-template-rows: auto 1fr auto;background:var(--paper)}
+  .s-tese .tt-top{padding: 60px var(--pad-x) 0;text-align:center}
+  .s-tese .tt-top .pt{font-family:var(--serif-display);font-style:italic;font-size:30px;color:var(--accent);letter-spacing:.06em}
+  .s-tese .tt-top h1{font-family:var(--serif-display);font-weight:500;font-size:74px;line-height:1.04;margin:14px auto 0;max-width:1500px;letter-spacing:-.005em}
+  .s-tese .tt-top h1 em{font-style:italic;color:var(--accent);font-weight:600}
+  .colonnade{position:relative;height:480px;margin:18px 80px 0}
+  .colonnade .arch{
+    position:absolute;left:0;right:0;top:0;height:64px;background:var(--ink);
+    display:flex;align-items:center;justify-content:center;color:var(--paper);
+    font-family:var(--serif-display);font-style:italic;font-size:26px;letter-spacing:.12em;
+  }
+  .colonnade .arch::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:var(--ink);clip-path:polygon(0 0,100% 0,calc(100% - 16px) 100%,16px 100%)}
+  .colonnade .floor{position:absolute;left:-40px;right:-40px;bottom:0;height:30px;background:var(--ink)}
+  .colonnade .floor::after{content:"";position:absolute;left:40px;right:40px;top:-10px;height:10px;background:var(--ink);clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 100%,0 100%)}
+  .colonnade .row-cols{position:absolute;left:0;right:0;top:80px;bottom:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .colonnade .col{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+  .colonnade .col img{height:100%;width:auto;max-width:140px;object-fit:contain;align-self:flex-end;display:block}
+  .colonnade .col .lbl{position:absolute;left:50%;top:54%;transform:translateX(-50%) translateY(-50%);font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:34px;color:var(--accent);white-space:nowrap;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.04em;text-shadow:0 0 12px var(--paper),0 0 4px var(--paper)}
+  .colonnade .col .num{position:absolute;left:50%;top:34px;transform:translateX(-50%);font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);z-index:2}
+
+  /* engraving image atoms */
+  .laurel-ornament{display:flex;justify-content:center;margin:0 0 18px}
+  .laurel-ornament img{height:38px;width:auto;opacity:.75;filter:contrast(1.2) saturate(.8)}
+  .icon-block{display:flex;justify-content:center;align-items:center}
+  .icon-block img{max-width:100%;max-height:100%;filter:contrast(1.1) saturate(.85)}
+  .s-tese .bot{padding: 0 var(--pad-x) 30px;text-align:center}
+  .s-tese .bot .ask{font-family:var(--serif-display);font-style:italic;font-size:24px;line-height:1.35;max-width:1400px;margin:14px auto 0;color:var(--ink-2)}
+  .s-tese .bot .ask em{color:var(--accent);font-style:italic}
+  .s-tese .bot .by{margin-top:18px;font-family:var(--serif-display);font-style:italic;font-size:20px;color:var(--ink-3)}
+  .s-tese .bot .ask em{color:var(--accent);font-style:italic}
+  .s-tese .bot .by{margin-top:14px;font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3)}
+
+  /* ── multifunc triangle (slide 06 enhancement) ── */
+  .tri-stage{position:relative;width:100%;aspect-ratio:1/.85;max-width:520px;margin:0 auto}
+  .tri-stage svg{width:100%;height:auto}
+
+  /* ── LGPD generations timeline ── */
+  .gen-time{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .gen-time .gn{padding:24px 24px;border-right:1px solid var(--rule);position:relative}
+  .gen-time .gn:last-child{border-right:0;background:var(--paper-warm)}
+  .gen-time .gn .ord{font-family:var(--serif-display);font-style:italic;color:var(--accent);font-size:30px;font-weight:600}
+  .gen-time .gn .yr{font-family:var(--mono);font-size:14px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-top:4px}
+  .gen-time .gn h4{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:30px;line-height:1.05;margin:10px 0 10px;color:var(--ink)}
+  .gen-time .gn p{font-size:20px;line-height:1.45;color:var(--ink-2)}
+  .gen-time .gn .where{margin-top:10px;font-family:var(--serif-display);font-style:italic;font-size:18px;color:var(--ink-3)}
+  .gen-time .gn.cur::after{
+    content:"BR · LGPD";position:absolute;top:-2px;right:24px;
+    background:var(--accent);color:var(--paper);
+    font-family:var(--mono);font-size:13px;letter-spacing:.18em;padding:3px 10px;
+  }
+
+  /* ── tweaks panel ── */
+  #tweaks-panel{
+    position:fixed;right:24px;bottom:24px;
+    background:var(--paper);color:var(--ink);
+    border:1px solid var(--ink);box-shadow:0 20px 60px -10px rgba(0,0,0,.4);
+    font-family:var(--serif-display);
+    width:300px;padding:18px 18px 16px;
+    z-index:1000;display:none;
+  }
+  #tweaks-panel.open{display:block}
+  #tweaks-panel header{
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:14px;
+  }
+  #tweaks-panel header h3{font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:22px}
+  #tweaks-panel header .x{cursor:pointer;font-size:20px;color:var(--ink-3);background:none;border:none;font-family:var(--mono);padding:0;line-height:1}
+  #tweaks-panel .row-t{margin-bottom:14px}
+  #tweaks-panel .row-t .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+  #tweaks-panel .swatches{display:flex;gap:8px}
+  #tweaks-panel .swatches button{
+    width:38px;height:38px;border:1px solid var(--ink);cursor:pointer;
+    position:relative;padding:0;
+  }
+  #tweaks-panel .swatches button.sel{outline:2px solid var(--ink);outline-offset:2px}
+  #tweaks-panel .seg{display:flex;border:1px solid var(--ink)}
+  #tweaks-panel .seg button{
+    flex:1;background:none;border:0;padding:7px;font-family:var(--serif-display);font-style:italic;font-size:14px;cursor:pointer;
+  }
+  #tweaks-panel .seg button.sel{background:var(--ink);color:var(--paper)}
+  #tweaks-panel .seg button+button{border-left:1px solid var(--ink)}
+  #tweaks-panel .tg{display:flex;align-items:center;gap:10px;font-size:15px;cursor:pointer;font-style:italic}
+  #tweaks-panel .tg input{appearance:none;width:38px;height:22px;background:#ccc;border-radius:11px;position:relative;cursor:pointer;transition:background .2s;margin:0;flex-shrink:0}
+  #tweaks-panel .tg input:checked{background:var(--accent)}
+  #tweaks-panel .tg input::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:left .2s}
+  #tweaks-panel .tg input:checked::after{left:18px}
+
+  /* ── accent overrides via attribute ── */
+  body[data-accent="ink"]{ --accent:#16140f; --accent-2:#000; }
+  body[data-accent="forest"]{ --accent:#2a5d3a; --accent-2:#1c3f27; }
+  body[data-accent="midnight"]{ --accent:#1c3a6e; --accent-2:#12274a; }
+
+  body[data-density="airy"] { --t-body:32px; --t-small:26px; }
+  body[data-density="airy"] .s-art .body{line-height:1.6;column-gap:100px}
+  body[data-density="compact"] { --t-body:24px; --t-small:21px; }
+
+  body[data-terminal="off"] .term,
+  body[data-terminal="off"] .janus-grid .side.right{
+    background:var(--paper-warm) !important;color:var(--ink) !important;font-family:var(--serif-body) !important;
+  }
+  body[data-terminal="off"] .term *,
+  body[data-terminal="off"] .janus-grid .side.right *{color:var(--ink) !important;background:transparent !important}
+  body[data-terminal="off"] .term::before,
+  body[data-terminal="off"] .janus-grid .side.right::before{display:none}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="integration.css">
+<link rel="canonical" href="https://anavanzin.com/seminario8-dever-poder/Seminario8.html">
+<meta name="robots" content="noindex,follow">
+</head>
+<body class="integrated-deck">
+<nav class="work-nav" aria-label="Navegação dos trabalhos"><a href="/trabalhos">← trabalhos</a><a href="/seminario8-dever-poder/">seminário</a><a href="/prot-tipo/">Conselho · demonstração</a><a href="/algoritmo-em-disputa/">adaptação do LLM Council</a></nav>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ════════ 00 · ABERTURA ════════ -->
+  <section class="paper" data-label="00 Abertura" style="position:relative;overflow:hidden;background:#0c1318;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:40px;padding:60px">
+    <div style="font-family:'EB Garamond',Georgia,serif;font-size:102px;font-weight:500;color:#fbfaf5;font-style:italic;letter-spacing:-.015em;text-align:center;line-height:1.05">Do Poder-Dever<br><span style="color:#8b1a1a">ao Dever-Poder</span></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#6a665e;letter-spacing:.22em;text-transform:uppercase;text-align:center">Seminário 8 · Vanzin &amp; Oliveira · PPGD/UFSC · 2026</div>
+    <div style="position:absolute;bottom:28px;right:80px;display:flex;align-items:center;gap:14px;background:#fbfaf5;padding:10px 16px;border:1.5px solid #16140f;border-radius:6px">
+      <img src="assets/qr.png" alt="QR Code" width="64" height="64" fetchpriority="high" style="width:64px;height:64px;border:1px solid #ccc;border-radius:3px;padding:2px">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b1a1a;letter-spacing:.1em;text-transform:uppercase">Acesse o material</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#6a665e;margin-top:2px">anavanzin.com/seminario8-dever-poder/</div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:24px;left:80px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#3a3733;letter-spacing:.32em;text-transform:uppercase">slide 00 · abertura</div>
+  </section>
+
+  <!-- ════════ 01 · CAPA ════════ -->
+  <section class="paper s-capa" data-label="01 Capa" style="display:grid;grid-template-columns: 760px 1fr;padding:0">
+    <div class="capa-hero" style="position:relative;background:#e6e0d2;overflow:hidden">
+      <img src="assets/img-republic.jpg" alt="Efígie da República — gravura" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:contrast(1.05) saturate(.9)">
+      <div style="position:absolute;left:36px;right:36px;top:32px;display:flex;justify-content:space-between;font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:#16140f;letter-spacing:.06em">
+        <span style="background:#fbfaf5;padding:6px 12px;border:1px solid #16140f;white-space:nowrap">SEMINÁRIO &middot; <em>VIII</em></span>
+        <span style="background:#fbfaf5;padding:6px 12px;border:1px solid #16140f;white-space:nowrap">PPGD &middot; UFSC</span>
+      </div>
+      <div style="position:absolute;left:36px;right:36px;bottom:32px;font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:#16140f;text-align:center">
+        <span style="background:#fbfaf5;padding:6px 16px;border:1px solid #16140f;display:inline-block;letter-spacing:.12em">25 &middot; v &middot; 2026 &nbsp;·&nbsp; FLORIANÓPOLIS</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;justify-content:space-between;padding:96px 100px 80px;background:var(--paper)">
+      <div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:24px;color:var(--accent);letter-spacing:.04em">
+</div>
+        <div style="width:80px;height:2px;background:var(--accent);margin:14px 0 32px"></div>
+        <h1 style="font-family:var(--serif-display);font-weight:500;font-size:104px;line-height:.96;letter-spacing:-.02em;color:var(--ink)">
+          Administração<br>Pública orientada<br>por <em style="color:var(--accent);font-style:italic;font-weight:600">dados.</em>
+        </h1>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:26px;color:var(--ink-2);margin-top:32px;line-height:1.4;max-width:520px">
+          Governo aberto &middot; LGPD &middot; processo administrativo digital &middot; decisão algorítmica.
+        </p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:22px;color:var(--ink-3);margin-top:20px;line-height:1.45;max-width:520px">
+          Quatro artigos &mdash; uma releitura crítica: <em style="color:var(--accent)">o Estado que edita a regra é o que mais a descumpre contra o cidadão.</em>
+        </p>
+      </div>
+      <div style="border-top:1px solid var(--ink);padding-top:20px">
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:22px;color:var(--ink);font-weight:600">
+          Ana Vitória Vanzin &middot; Vinícius Oliveira
+        </div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--ink-3);margin-top:6px">
+          Programa de Pós-Graduação em Direito &middot; Universidade Federal de Santa Catarina
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ════════ 02 · PERGUNTA ORIENTADORA ════════ -->
+  <section class="paper s-perg" data-label="02 Pergunta">
+    <div class="top-rule">
+      <span class="l">— pergunta orientadora —</span>
+      <span class="r">fl. 002 / 034</span>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;padding:60px 30px">
+      <img src="assets/img-eye-tri.png" alt="olho do Estado em triângulo" width="320" height="280" fetchpriority="high" style="max-height:700px;max-width:100%;width:auto;height:auto;filter:contrast(1.1)">
+    </div>
+
+    <div class="right" style="padding:60px 110px 0;text-align:left">
+      <div class="ey">i. a pergunta deste seminário</div>
+      <div class="q">Quando a Administração Pública se torna <em>digital</em>, ela se torna automaticamente <em>mais democrática</em>?</div>
+      <div class="a">Não.</div>
+      <div class="note">A digitalização pode ampliar acesso, eficiência e transparência — mas também cria novas formas de opacidade administrativa, desloca decisões públicas para sistemas opacos e produz cidadania digital de duas velocidades.</div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8 · Vanzin &amp; Oliveira</span>
+      <span class="r">cf. CRISTÓVAM, MEZZAROBA, PEREIRA · IJDL · 2021</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 03 · CHAVE DE LEITURA — JANUS ════════ -->
+  <section class="paper s-chave" data-label="03 Chave de leitura">
+    <div class="top-rule">
+      <span class="l">— chave de leitura · plantada antes dos artigos —</span>
+      <span class="r">fl. 003 / 034</span>
+    </div>
+
+    <div class="head">
+      <span class="sc red">★ tese central</span>
+      <span class="sc">do poder-dever ao dever-poder</span>
+    </div>
+
+    <h2 style="font-size:54px">O Poder Público aparece, no mesmo gesto, em <em>duas posições simultâneas</em>.</h2>
+
+    <div class="janus-stage">
+      <div class="ribbon">— status unus · officia duo —</div>
+      <div class="janus-grid">
+        <div class="side left">
+          <div class="lbl">i · Regulador</div>
+          <h3>Edita a regra.</h3>
+          <div class="role">— o "poder-dever" —</div>
+          <ul>
+            <li>LAI · Lei 12.527 / 2011</li>
+            <li>LGPD · Lei 13.709 / 2018</li>
+            <li>L. 14.129/21 · gov. digital</li>
+            <li>IN INSS 128 / 2022</li>
+            <li>CNJ · Res. 615 / 2025</li>
+          </ul>
+        </div>
+
+        <div class="janus-mid">
+          <div class="arr-lbl">a mesma pessoa jurídica</div>
+          <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg" aria-label="Janus — duas faces">
+            <!-- medallion frame -->
+            <circle cx="180" cy="240" r="172" fill="url(#hatch)" opacity=".4"/>
+            <circle cx="180" cy="240" r="170" fill="none" stroke="#16140f" stroke-width="2"/>
+            <circle cx="180" cy="240" r="158" fill="none" stroke="#16140f" stroke-width=".6"/>
+            <circle cx="180" cy="240" r="150" fill="#fbfaf5"/>
+
+            <!-- left profile (faces left) -->
+            <g>
+              <path d="M 180 130
+                       L 180 360
+                       C 175 360, 165 358, 158 350
+                       C 152 342, 148 330, 145 318
+                       C 142 306, 138 298, 130 290
+                       C 122 282, 110 278, 105 268
+                       C 100 258, 102 248, 100 240
+                       C 98 230, 94 220, 96 210
+                       C 98 200, 105 192, 110 184
+                       C 115 176, 118 168, 122 160
+                       C 126 152, 130 145, 138 140
+                       C 146 135, 158 132, 170 130
+                       C 175 129, 178 129, 180 130 Z"
+                 fill="#16140f"/>
+              <!-- hatching highlights on cheek -->
+              <path d="M 145 200 Q 130 215 122 235" stroke="#fbfaf5" stroke-width=".8" fill="none" opacity=".4"/>
+              <path d="M 142 215 Q 128 228 120 248" stroke="#fbfaf5" stroke-width=".8" fill="none" opacity=".4"/>
+              <!-- eye hint -->
+              <circle cx="138" cy="200" r="2.5" fill="#fbfaf5"/>
+              <!-- crown laurel ornament -->
+              <path d="M 170 130 Q 168 118 175 110 Q 170 112 168 105 Q 170 100 178 102 Q 178 95 184 96" fill="none" stroke="#16140f" stroke-width="1.2"/>
+            </g>
+
+            <!-- right profile (faces right) — mirror -->
+            <g transform="translate(360 0) scale(-1 1)">
+              <path d="M 180 130
+                       L 180 360
+                       C 175 360, 165 358, 158 350
+                       C 152 342, 148 330, 145 318
+                       C 142 306, 138 298, 130 290
+                       C 122 282, 110 278, 105 268
+                       C 100 258, 102 248, 100 240
+                       C 98 230, 94 220, 96 210
+                       C 98 200, 105 192, 110 184
+                       C 115 176, 118 168, 122 160
+                       C 126 152, 130 145, 138 140
+                       C 146 135, 158 132, 170 130
+                       C 175 129, 178 129, 180 130 Z"
+                 fill="#16140f"/>
+              <path d="M 145 200 Q 130 215 122 235" stroke="#fbfaf5" stroke-width=".8" fill="none" opacity=".4"/>
+              <path d="M 142 215 Q 128 228 120 248" stroke="#fbfaf5" stroke-width=".8" fill="none" opacity=".4"/>
+              <circle cx="138" cy="200" r="2.5" fill="#fbfaf5"/>
+              <path d="M 170 130 Q 168 118 175 110 Q 170 112 168 105 Q 170 100 178 102 Q 178 95 184 96" fill="none" stroke="#16140f" stroke-width="1.2"/>
+            </g>
+
+            <!-- center seam -->
+            <line x1="180" y1="100" x2="180" y2="380" stroke="#8b1a1a" stroke-width="1" stroke-dasharray="4 4"/>
+
+            <!-- scroll banner -->
+            <rect x="60" y="410" width="240" height="40" fill="#16140f"/>
+            <path d="M 60 410 L 48 422 L 60 432 L 60 430 L 60 412 Z" fill="#16140f"/>
+            <path d="M 300 410 L 312 422 L 300 432 L 300 430 L 300 412 Z" fill="#16140f"/>
+            <text x="180" y="436" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-size="18" fill="#fbfaf5" letter-spacing="2">IANVS · ESTADO</text>
+
+            <!-- left label -->
+            <text x="70" y="472" font-family="EB Garamond" font-style="italic" font-size="17" fill="#8b1a1a">REGVLATOR</text>
+            <!-- right label -->
+            <text x="290" y="472" text-anchor="end" font-family="EB Garamond" font-style="italic" font-size="17" fill="#8b1a1a">REGVLATVS</text>
+          </svg>
+          <div class="caption">Janus bifrons —<br>a mesma pessoa jurídica,<br>a olhar simultaneamente para dentro e para fora.</div>
+        </div>
+
+        <div class="side right">
+          <div class="lbl">ii · Regulado</div>
+          <h3>Descumpre a regra.</h3>
+          <div class="role">— o "dever-poder" —</div>
+          <ul>
+            <li>vazamento Gov.br · <span class="v">251M CPFs</span></li>
+            <li>INSS · indef. <span class="v">sem motivação</span></li>
+            <li>TJ-MA · IA · <span class="v">80 → 969</span></li>
+            <li>MP 954 · <span class="v">STF ADI 6.387</span></li>
+            <li>LAI art. 23 · <span class="v">sigilo seletivo</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Vanzin &amp; Oliveira · 2026</span>
+      <span class="r">desenvolvido no slide 25</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 04 · DIVISOR PARTE I ════════ -->
+  <section class="paper s-div" data-label="04 Parte I divisor">
+    <div class="num-big">i</div>
+    <div class="pt">Parte primeira · IJDL · RDAGP · 2020</div>
+    <h1>Proteção <em>de dados</em><br>&amp; governo <em>aberto.</em></h1>
+    <div class="arts">
+      <div class="a"><span class="n">art. i</span><span>Salgado &amp; Saito — privacidade e a multifuncionalidade do direito fundamental.</span></div>
+      <div class="a"><span class="n">art. ii</span><span>Cristóvam &amp; Hahn — governo aberto, INDA e infraestrutura nacional de dados.</span></div>
+    </div>
+    <img src="assets/img-book.png" alt="" aria-hidden="true" width="233" height="160" loading="lazy" style="position:absolute;right:120px;bottom:120px;height:160px;width:auto;opacity:.85;filter:contrast(1.1)">
+  </section>
+
+
+  <!-- ════════ 05 · ARTIGO I · privacidade ════════ -->
+  <section class="paper s-art" data-label="05 Privacidade complexa">
+    <div class="top-rule">
+      <span class="l">art. i · Salgado &amp; Saito</span>
+      <span class="center">IJDL · v. 1 · n. 3 · 2020</span>
+      <span class="r">fl. 005 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. i · §1 — referencial</span>
+      <span class="sc">privacidade como direito fundamental</span>
+    </div>
+
+    <h2>A privacidade como direito fundamental <em>complexo</em>.</h2>
+
+    <p class="lead">Não há mais como reduzir a privacidade a uma esfera de retraimento contra o Estado: ela é um feixe de pretensões, posições e deveres que se irradiam pela ordem constitucional.</p>
+
+    <div class="body">
+      <p class="lead-p drop">Salgado e Saito mobilizam a noção de <em>multifuncionalidade</em> dos direitos fundamentais para sustentar que a proteção de dados pessoais não se esgota na clássica função de defesa contra ingerências do poder público. Ela carrega, simultaneamente, uma função de prestação normativa — exigir do Estado a edição de leis protetivas, como a LGPD — e uma função de prestação fática, exigindo políticas, autoridades e instituições.</p>
+      <p>O argumento desloca a discussão técnica para o terreno constitucional: a privacidade vincula <b>todos os Poderes</b>, e o legislador não cumpre a Constituição apenas se abstendo, mas também produzindo o arcabouço protetivo que dá densidade ao direito.</p>
+      <p>Ao desenhar essa moldura, os autores criam o vocabulário que vai amparar a leitura dos artigos seguintes — e que será determinante quando a discussão chegar à decisão automatizada.</p>
+    </div>
+
+    <div class="marg" style="right:80px;top:300px">"A proteção de dados é, ao mesmo tempo, um direito de defesa e um direito a prestações."<span class="cite">— Salgado &amp; Saito, 2020, p. 124</span></div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8 · Vanzin &amp; Oliveira</span>
+      <span class="r">cf. SARLET · teoria geral dos direitos fundamentais</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 06 · multifuncionalidade — três funções ════════ -->
+  <section class="paper s-art layout-panel" data-label="06 Três funções">
+    <div class="top-rule">
+      <span class="l">art. i · Salgado &amp; Saito</span>
+      <span class="center">multifuncionalidade</span>
+      <span class="r">fl. 006 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. i · §2 — decomposição</span>
+      <span class="sc">três funções, simultâneas e irredutíveis</span>
+    </div>
+
+    <h2>Três funções <em>simultâneas</em> — e nenhuma delas exclui as outras.</h2>
+
+    <div class="grid">
+      <div class="col body">
+        <p><b>i. Defesa.</b> <em>Contra ingerências do Estado</em> — vigilância, retenção, compartilhamento sem finalidade. Esta é a função clássica, a que a LGPD <em>não</em> abandona.</p>
+        <p><b>ii. Prestação normativa.</b> Dever de o legislador produzir o arcabouço protetivo: a própria LGPD, o regulamento da ANPD, instrumentos de tutela coletiva. <em>O silêncio legislativo é, ele próprio, inconstitucional.</em></p>
+        <p><b>iii. Prestação fática.</b> Estrutura administrativa para tornar o direito efetivo: ANPD, encarregados, canais de exercício de direitos, fiscalização. <em>Sem instituição, a norma é decorativa.</em></p>
+        <p style="margin-top:18px">A leitura é decisiva: <em>regular não substitui defender</em>. Quem trata os dados — o Estado, em larga medida — segue sendo aquele de quem o cidadão precisa ser defendido.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>privacidade.functions</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">decompose(privacy)</div>
+          <div class="resp" style="margin-top:14px">
+            <span class="neon">[1]</span> defesa <span class="dim">→</span> <span class="neon2">contra ingerências</span><br>
+            <span class="neon">[2]</span> prest_normativa <span class="dim">→</span> <span class="neon2">LGPD · ANPD</span><br>
+            <span class="neon">[3]</span> prest_fatica <span class="dim">→</span> <span class="neon2">políticas, instituições</span>
+          </div>
+          <div style="margin-top:22px;color:var(--term-warn)">// nota: as três coexistem.</div>
+          <div style="margin-top:6px">a função [1] <span class="err">não é</span> revogada<br>quando [2] e [3] aparecem.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8 · Vanzin &amp; Oliveira</span>
+      <span class="r">cf. ALEXY · teoria dos direitos fundamentais</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 07 · LGPD em quatro gerações ════════ -->
+  <section class="paper s-art" data-label="07 LGPD gerações">
+    <div class="top-rule">
+      <span class="l">art. i · Salgado &amp; Saito</span>
+      <span class="center">LGPD · 13.709 / 2018</span>
+      <span class="r">fl. 007 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. i · §3 — diacronia</span>
+      <span class="sc">quatro gerações da proteção de dados</span>
+    </div>
+
+    <h2>A LGPD, lida em <em>quatro ondas</em> da história europeia.</h2>
+
+    <div class="gen-time">
+      <div class="gn">
+        <div class="ord">i.</div>
+        <div class="yr">1970 — 1978</div>
+        <h4>Arquivos do Estado.</h4>
+        <p>Hesse (1970), Suécia (1973), <em>Privacy Act</em> EUA (1974). Foco em bancos de dados estatais — contenção do <em>regulador-coletor</em>.</p>
+        <div class="where">— Hesse · Sw · EUA —</div>
+      </div>
+      <div class="gn">
+        <div class="ord">ii.</div>
+        <div class="yr">1978 — 1990s</div>
+        <h4>Liberdade negativa.</h4>
+        <p>Modelo francês (1978). Ainda baseada na privacidade como <em>liberdade negativa</em> — dever de abstenção do poder público.</p>
+        <div class="where">— França • modelo clássico —</div>
+      </div>
+      <div class="gn">
+        <div class="ord">iii.</div>
+        <div class="yr">1990s — 2010s</div>
+        <h4>Autodeterminação.</h4>
+        <p>Reconhece a <em>vulnerabilidade do usuário</em>. Princípios europeus — finalidade, qualidade, segurança — ganham densidade institucional.</p>
+        <div class="where">— Diretiva 95/46 · CE —</div>
+      </div>
+      <div class="gn cur">
+        <div class="ord">iv.</div>
+        <div class="yr">2016 — atual</div>
+        <h4>Compliance &amp; sanções.</h4>
+        <p>GDPR (2016) e LGPD (2018). Direitos do titular, <em>ANPD</em>, compliance e sanções do regulador.</p>
+        <div class="where">— RGPD · LGPD 13.709/18 —</div>
+      </div>
+    </div>
+
+    <p style="margin-top:40px;font-family:var(--serif-display);font-style:italic;font-size:28px;color:var(--ink-2);max-width:1500px;line-height:1.35">
+      A LGPD brasileira é geneticamente <em>híbrida</em>: terceira-quarta geração — mas inscrita num Estado que ainda exibe traços da <em>primeira</em>. O regulador-coletor segue sendo a maior fonte de risco.
+    </p>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">cf. MAYER-SCHÖNBERGER · generations of data protection</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 08 · ANPD & limites da prestação normativa ════════ -->
+  <section class="paper s-art layout-panel" data-label="08 ANPD limites">
+    <div class="top-rule">
+      <span class="l">art. i · Salgado &amp; Saito</span>
+      <span class="center">a ANPD e seus limites</span>
+      <span class="r">fl. 008 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. i · §4 — instituições</span>
+      <span class="sc">do papel para a estrutura</span>
+    </div>
+
+    <h2>A <em>ANPD</em> e o limite da <em>prestação normativa.</em></h2>
+
+    <div class="grid">
+      <div class="col body">
+        <p>A ANPD nasce, em 2018, sem autonomia, sem orçamento próprio, vinculada à Presidência. <em>Estrutura mínima para uma tarefa máxima.</em></p>
+        <p>A criação tardia da autoridade — e a fragilidade institucional persistente — confirma o argumento central de Salgado e Saito: a <b>prestação normativa</b> sem <b>prestação fática</b> é insuficiente.</p>
+        <p>Sem a ANPD operante, a função de defesa volta a depender do <em>controle externo</em> — STF, Ministério Público, Defensoria — e do próprio cidadão, em uma assimetria que a LGPD se propunha a corrigir.</p>
+        <p>O retrato é, portanto, ambíguo: temos <em>um direito robusto no papel</em> que esbarra em uma estrutura administrativa frágil para concretizá-lo.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>anpd.status</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">check anpd --autonomy</div>
+          <div class="resp" style="margin-top:14px">
+            <span class="dim">[autonomia administrativa] </span><span class="warn">parcial</span><br>
+            <span class="dim">[autonomia orçamentária] </span><span class="err">limitada</span><br>
+            <span class="dim">[poder sancionatório] </span><span class="neon2">previsto</span><br>
+            <span class="dim">[capacidade de fiscalização] </span><span class="warn">a construir</span>
+          </div>
+          <div style="margin-top:18px"><span class="neon">// conclusão</span></div>
+          <div>prestação normativa <span class="err">incompleta</span><br>sem prestação fática.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">L. 13.709/2018 · arts. 55-A a 55-L</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 09 · ★ NOSSA LEITURA — defesa persiste ════════ -->
+  <section class="paper s-aut" data-label="09 ★ Nossa leitura I">
+    <div class="top-rule" style="left:200px;right:200px;border-bottom-color:var(--accent)">
+      <span class="l">— nossa leitura · § entre artigos —</span>
+      <span class="center">★ pós art. i</span>
+      <span class="r">fl. 009 / 034</span>
+    </div>
+
+    <div class="laurel-ornament" style="margin-top:18px"><img src="assets/img-laurel.png" alt="" aria-hidden="true" width="127" height="38" loading="lazy"></div>
+    <div class="star" style="margin-top:8px">Nossa leitura — pós Salgado &amp; Saito</div>
+    <h2>A função de defesa <b>persiste</b> — e o caso brasileiro acaba de provar.</h2>
+
+    <div class="grid">
+      <div class="essay">
+        <p class="lead-p">O coração da tese deste seminário já está em Salgado &amp; Saito, em uma única ressalva: a regulação <em>não anula</em> a função de defesa do direito fundamental. O Estado segue sendo, nas palavras dos autores, "um poderoso agente de tratamento" — e a LGPD, longe de neutralizar essa dimensão, a confirma.</p>
+        <p>A prova prática chegou rápido. <b>Snowden</b> mostrou que o aparato estatal é, por definição, o maior coletor. A <b>MP 954/2020</b>, no Brasil, transferiu dados de telecom para o IBGE <em>sem finalidade clara</em> — e foi preciso o STF, na <b>ADI 6.387</b>, conter o regulador-coletor.</p>
+        <p>O regulador não se autodefende. <em>Foi necessário outro Poder.</em></p>
+      </div>
+      <div class="persona">
+        <div class="lbl">★ persona do protótipo</div>
+        <h4>Cidadão</h4>
+        <p>É o sujeito que precisa, <em>ainda hoje</em>, ser protegido contra o aparato que escreve a norma. No nosso Conselho de Contestação Algorítmica, esta voz carrega Salgado &amp; Saito — a autodeterminação informativa do administrado em face do regulador-coletor.</p>
+        <p style="margin-top:16px;font-style:italic">Voz do art. i · Mapeada 1:1 com o Conselho.</p>
+      </div>
+    </div>
+
+    <div class="cite">cit. STF · ADI 6.387 · Min. Rosa Weber · maio de 2020 — <b>"O Estado, ao tratar dados, não deixa de ser destinatário do direito fundamental."</b></div>
+  </section>
+
+
+  <!-- ════════ 10 · ARTIGO II · referencial — Moore / Dunleavy / OCDE ════════ -->
+  <section class="paper s-art" data-label="10 Governo aberto">
+    <div class="top-rule">
+      <span class="l">art. ii · Cristóvam &amp; Hahn</span>
+      <span class="center">RDAGP · v. 6 · n. 1 · 2020</span>
+      <span class="r">fl. 010 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. ii · §1 — referencial teórico</span>
+      <span class="sc">três marcos que sustentam a APD orientada por dados</span>
+    </div>
+
+    <h2>Três marcos articulados num <em>único ciclo</em>.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 280px;gap:36px;margin-top:30px;align-items:start">
+      <div style="border-top:2px solid var(--ink);padding-top:18px">
+        <div class="sc red" style="font-size:18px;letter-spacing:.22em">i.</div>
+        <h3 style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:34px;line-height:1.05;margin-top:6px;color:var(--ink)">Mark Moore.</h3>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-3);margin-bottom:14px">Creating Public Value · 1995</div>
+        <p style="font-size:22px;line-height:1.5;color:var(--ink-2)">Valor público como critério de desempenho: gestores devem maximizar benefícios para a coletividade. Revisitado em <em>Recognizing Public Value</em> (2013).</p>
+      </div>
+      <div style="border-top:2px solid var(--ink);padding-top:18px">
+        <div class="sc red" style="font-size:18px;letter-spacing:.22em">ii.</div>
+        <h3 style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:34px;line-height:1.05;margin-top:6px;color:var(--ink)">Dunleavy.</h3>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-3);margin-bottom:14px">Digital-Era Governance · DEG</div>
+        <p style="font-size:22px;line-height:1.5;color:var(--ink-2)">Sucede a <em>New Public Management</em>. Duas ondas: (i) reintegração de serviços e digitalização; (ii) web social, cloud, apps. Fluxo de informação como elo Estado–cidadão.</p>
+      </div>
+      <div style="border-top:2px solid var(--ink);padding-top:18px">
+        <div class="sc red" style="font-size:18px;letter-spacing:.22em">iii.</div>
+        <h3 style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:34px;line-height:1.05;margin-top:6px;color:var(--ink)">OCDE.</h3>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-3);margin-bottom:14px">Relatório 2019</div>
+        <p style="font-size:22px;line-height:1.5;color:var(--ink-2)">Três áreas: governo <em>de</em> dados, dados <em>para</em> valor público, dados <em>para</em> confiança. Meta: serviços públicos melhores com salvaguardas éticas.</p>
+      </div>
+      <div class="icon-block" style="aspect-ratio:1;border:1px solid var(--ink);padding:20px;background:var(--paper-warm)">
+        <img src="assets/img-sphere.png" alt="esfera armilar — governança global" width="280" height="280" loading="lazy">
+      </div>
+    </div>
+
+    <p style="margin-top:36px;font-family:var(--serif-display);font-style:italic;font-size:26px;color:var(--ink);line-height:1.4;max-width:1500px;border-top:1px solid var(--rule);padding-top:18px">
+      A pergunta deixa de ser <em>"o Estado é transparente?"</em> — e passa a ser <em>"quem consegue ler os dados que ele abriu?"</em>
+    </p>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">MOORE 1995 · DUNLEAVY 2006 · OCDE 2019</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 11 · INDA + 4 princípios ════════ -->
+  <section class="paper s-art layout-panel" data-label="11 INDA 4 princípios">
+    <div class="top-rule">
+      <span class="l">art. ii · Cristóvam &amp; Hahn</span>
+      <span class="center">INDA — Infraestrutura Nacional de Dados Abertos</span>
+      <span class="r">fl. 011 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. ii · §2 — princípios</span>
+      <span class="sc">quatro fundamentos da abertura</span>
+    </div>
+
+    <h2>Os <em>quatro princípios</em> que orientam a abertura.</h2>
+
+    <div class="grid">
+      <div class="col body">
+        <p><b>i. Transparência.</b> Publicidade ativa de informações, formatos abertos, atualização sistemática.</p>
+        <p><b>ii. Accountability.</b> Possibilidade efetiva de pedir contas — não apenas <em>ver</em>, mas <em>responsabilizar</em>.</p>
+        <p><b>iii. Participação.</b> Canais para que o dado virado público alimente deliberação, e não só consulta.</p>
+        <p><b>iv. Tecnologia.</b> Padrões, APIs e interoperabilidade — sem os quais a abertura é apenas <em>publicação inerte</em>.</p>
+        <p style="margin-top:16px">A INDA, criada em 2012, ainda hoje é pedra de toque. Mas sua implementação convive com <em>vazios de governança</em> que reaparecem nas barreiras estruturais do slide seguinte.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>inda.principles</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">list --principles</div>
+          <div class="kv" style="display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin-top:14px;font-size:22px">
+            <span class="neon">[i]</span><span>transparência</span>
+            <span class="neon">[ii]</span><span>accountability</span>
+            <span class="neon">[iii]</span><span>participação</span>
+            <span class="neon">[iv]</span><span>tecnologia</span>
+          </div>
+          <div style="margin-top:22px"><span class="neon">// gov.br/dados</span></div>
+          <div><span class="dim">datasets:</span> <span class="neon2">11.842</span></div>
+          <div><span class="dim">órgãos:</span> <span class="neon2">274</span></div>
+          <div><span class="dim">atualização:</span> <span class="warn">irregular</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">Decreto 8.777/2016 · Política de Dados Abertos do Executivo Federal</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 12 · marco normativo da abertura ════════ -->
+  <section class="paper s-art" data-label="12 Marco normativo">
+    <div class="top-rule">
+      <span class="l">art. ii · Cristóvam &amp; Hahn</span>
+      <span class="center">marco normativo</span>
+      <span class="r">fl. 012 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. ii · §3 — arcabouço</span>
+      <span class="sc">do princípio à norma</span>
+    </div>
+
+    <h2>Da <em>Constituição</em> à <em>Lei do Governo Digital</em> — um arcabouço normativo, agora completo.</h2>
+
+    <div class="body">
+      <p class="lead-p drop">A Constituição de 1988 inscreveu publicidade como princípio da Administração (art. 37) e habeas data como instrumento (art. 5º, LXXII). De lá para cá, o legislador foi adensando o vocabulário.</p>
+
+      <p>A <b>Lei de Responsabilidade Fiscal</b> (LC 101/2000) introduz a transparência ativa de finanças públicas. A <b>Lei de Acesso à Informação</b> (12.527/2011) generaliza a transparência passiva e ativa — e, simultaneamente, regulamenta o sigilo (art. 23).</p>
+
+      <p>A <b>Lei do Marco Civil</b> (12.965/2014) traz a neutralidade e a proteção de dados como princípios da internet. A <b>LGPD</b> (13.709/2018) define o regime geral. A <b>Lei do Governo Digital</b> (14.129/2021) consolida — e cria o federalismo de adesão.</p>
+
+      <p>Vinte anos, sete leis-chave: um <em>arcabouço completo</em> no papel. A pergunta seguinte, dos próprios autores, é o que se faz com ele.</p>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">CF 1988 · LRF 2000 · LAI 2011 · MCI 2014 · LGPD 2018 · LGD 2021</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 13 · boas práticas ════════ -->
+  <section class="paper s-art" data-label="13 Boas práticas">
+    <div class="top-rule">
+      <span class="l">art. ii · Cristóvam &amp; Hahn</span>
+      <span class="center">três portais em foco · leitura comparativa</span>
+      <span class="r">fl. 013 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">leitura municipal · após Cristóvam &amp; Hahn</span>
+      <span class="sc">recife · são paulo · florianópolis</span>
+    </div>
+
+    <h2>Portais municipais — e o <em>limite da transparência.</em></h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:36px">
+      <!-- Recife -->
+      <div style="border:1px solid var(--ink);background:var(--paper-warm);padding:28px 28px;position:relative">
+        <div style="position:absolute;top:-14px;left:24px;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:14px;letter-spacing:.22em;padding:4px 14px">RECIFE · PE</div>
+        <div style="margin-top:14px;font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:14px">estratégia formalizada · Selo Ouro</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:22px;line-height:1.5">
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)"><b>Decreto 2021</b> — Estratégia de Transformação Digital da PCR</li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)"><b>Conecta Recife</b> — serviços e informações</li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)">Portal da Transparência — <em style="color:var(--accent)">publicidade de dados</em></li>
+          <li style="padding:6px 0">3 Selos Ouro consecutivos</li>
+        </ul>
+        <div style="margin-top:18px;border-top:2px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:var(--mono);font-size:14px;letter-spacing:.18em;color:var(--ink-3)">PNTP 2025</span>
+          <span style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:48px;color:var(--accent);line-height:1">92,90%</span>
+        </div>
+      </div>
+
+      <!-- São Paulo -->
+      <div style="border:1px solid var(--ink);background:var(--paper-warm);padding:28px 28px;position:relative">
+        <div style="position:absolute;top:-14px;left:24px;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:14px;letter-spacing:.22em;padding:4px 14px">SÃO PAULO · SP</div>
+        <div style="margin-top:14px;font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:14px">escala &amp; institucionalização</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:22px;line-height:1.5">
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)"><b>SMIT</b> · Dec. 57.653/2017</li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)"><b>SP156</b> — serviços digitais</li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)">Atendimento digital <em style="color:var(--accent)">e assistido</em></li>
+          <li style="padding:6px 0">Descomplica Digital — atendimento assistido</li>
+        </ul>
+        <div style="margin-top:18px;border-top:2px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:var(--mono);font-size:14px;letter-spacing:.18em;color:var(--ink-3)">PNTP 2025</span>
+          <span style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:48px;color:var(--accent);line-height:1">70,10%</span>
+        </div>
+      </div>
+
+      <!-- Florianópolis -->
+      <div style="border:1px solid var(--ink);background:var(--paper-warm);padding:28px 28px;position:relative">
+        <div style="position:absolute;top:-14px;left:24px;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:14px;letter-spacing:.22em;padding:4px 14px">FLORIANÓPOLIS · SC</div>
+        <div style="margin-top:14px;font-family:var(--serif-display);font-style:italic;font-size:22px;color:var(--ink-3);margin-bottom:14px">geoportal &amp; fragmentação</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:22px;line-height:1.5">
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)"><b>GeoPortal</b> — camadas e downloads vetoriais</li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)">Viabilidades urbanísticas <em style="color:var(--accent)">automatizadas</em></li>
+          <li style="padding:6px 0;border-bottom:1px dotted var(--rule)">ISS &amp; alvará sanitário — online setoriais</li>
+          <li style="padding:6px 0">Questão de leitura · integração de jornadas</li>
+        </ul>
+        <div style="margin-top:18px;border-top:2px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:var(--mono);font-size:14px;letter-spacing:.18em;color:var(--ink-3)">PNTP 2025</span>
+          <span style="font-family:var(--serif-display);font-style:italic;font-weight:600;font-size:48px;color:var(--accent);line-height:1">87,51%</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;background:var(--ink);color:var(--paper);padding:24px 36px;display:flex;align-items:center;gap:36px">
+      <span style="font-family:var(--mono);font-size:14px;letter-spacing:.24em;color:#c8a87a;text-transform:uppercase;flex-shrink:0">★ síntese transversal</span>
+      <span style="font-family:var(--serif-display);font-style:italic;font-size:26px;line-height:1.35">
+        Os índices do PNTP medem transparência pública. Não demonstram, por si, a existência de <em style="color:#c8a87a">explicabilidade algorítmica</em> ou de <em style="color:#c8a87a">auditoria de decisões automatizadas</em>. <b style="font-weight:600">Essa verificação requer examinar os ritos de cada serviço.</b>
+      </span>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8 · leitura municipal (Vinícius)</span>
+      <span class="r"><a href="https://radardatransparencia.atricon.org.br/downloads.html" style="color:inherit">PNTP 2025 · Atricon · base consultada em 03/10/2026</a></span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 14 · ★ NOSSA LEITURA — opacidade seletiva ════════ -->
+  <section class="paper s-aut" data-label="14 ★ Nossa leitura II">
+    <div class="top-rule" style="left:200px;right:200px;border-bottom-color:var(--accent)">
+      <span class="l">— nossa leitura · § entre artigos —</span>
+      <span class="center">★ pós art. ii</span>
+      <span class="r">fl. 014 / 034</span>
+    </div>
+
+    <div class="laurel-ornament" style="margin-top:18px"><img src="assets/img-laurel.png" alt="" aria-hidden="true" width="127" height="38" loading="lazy"></div>
+    <div class="star" style="margin-top:8px">Nossa leitura — pós Cristóvam &amp; Hahn</div>
+    <h2>A <b>mesma LAI</b> que abre, <em>fecha</em> — o Estado decide o que abre de si mesmo.</h2>
+
+    <div class="grid">
+      <div class="essay">
+        <p class="lead-p">Cristóvam e Hahn tratam abertura, transparência, proteção e regulação como ciclo único. Mas existe uma assimetria estrutural que merece nome: a abertura é um <em>dever jurídico</em> do Estado e, ao mesmo tempo, é <em>o próprio Estado</em> quem decide o que abre.</p>
+        <p>A LAI, no <b>art. 23</b>, autoriza a classificação como reservado, secreto ou ultrassecreto. Recife, SP, Florianópolis são boas práticas; <em>a opacidade seletiva</em> é a prática corrente. O regulador da transparência também é o operador do sigilo.</p>
+        <p>É a tensão que define a persona <b>Administrador Público</b>: governança que <em>promete abertura</em> e <em>controla as chaves do sigilo</em>.</p>
+      </div>
+      <div class="persona">
+        <div class="lbl">★ persona do protótipo</div>
+        <h4>Administrador Público</h4>
+        <p>Voz da governança: capacidade técnica, dever de transparência ativa, fundamentação. Mas também: <em>discricionariedade na classificação do sigilo</em>, na seleção do que se publica, na arquitetura do portal.</p>
+        <p style="margin-top:16px;font-style:italic">Voz do art. ii · Mapeada 1:1 com o Conselho.</p>
+      </div>
+    </div>
+
+    <div class="cite">cit. LAI · art. 23 — informações classificadas em três graus de sigilo. <b>O Estado escreve o que pode ser ocultado dele mesmo.</b></div>
+  </section>
+
+
+  <!-- ════════ 15 · SÍNTESE PARTE I ════════ -->
+  <section class="paper s-art s-synth" data-label="15 Síntese Parte I">
+    <div class="top-rule">
+      <span class="l">— síntese · parte i —</span>
+      <span class="center">proteção + abertura como ciclo</span>
+      <span class="r">fl. 015 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">síntese · parte i</span>
+      <span class="sc">do que está em jogo até aqui</span>
+    </div>
+
+    <h2>O <em>ciclo</em> proteção ↔ abertura — e seu ponto cego.</h2>
+
+    <div class="triad">
+      <div class="col">
+        <div class="lbl">i · proteção</div>
+        <h3>Defesa que persiste.</h3>
+        <p>Salgado &amp; Saito: o direito fundamental complexo não se reduz à LGPD; <em>a função de defesa segue ativa</em>. O Estado é o maior agente de tratamento.</p>
+      </div>
+      <div class="col">
+        <div class="lbl">ii · abertura</div>
+        <h3>Transparência seletiva.</h3>
+        <p>Cristóvam &amp; Hahn: ciclo único de transparência, dados, participação, regulação. Mas o regulador também é <em>operador do sigilo</em> (LAI art. 23).</p>
+      </div>
+      <div class="col">
+        <div class="lbl">iii · ponto cego</div>
+        <h3>A decisão automatizada.</h3>
+        <p>Nenhum dos dois artigos chega à <em>decisão algorítmica concreta</em>. O cidadão pode <em>ver</em> e <em>ser protegido</em> — mas a decisão que o afeta pode permanecer opaca.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:50px;font-family:var(--serif-display);font-style:italic;font-size:32px;line-height:1.3;text-align:center;color:var(--ink-2)">A Parte II atravessa este ponto cego — saúde, big data e explicabilidade.</p>
+  </section>
+
+
+  <!-- ════════ 16 · DIVISOR PARTE II ════════ -->
+  <section class="paper s-div" data-label="16 Parte II divisor">
+    <div class="num-big">ii</div>
+    <div class="pt">Parte segunda · Dir. Fund. &amp; Justiça · 2019 · Diké · 2024</div>
+    <h1>Saúde, <em>big data</em><br>&amp; <em>explicabilidade.</em></h1>
+    <div class="arts">
+      <div class="a"><span class="n">art. iii</span><span>Sarlet &amp; Molinaro — big data na saúde e proteção de dados pessoais.</span></div>
+      <div class="a"><span class="n">art. iv</span><span>Tavares, Bitencourt &amp; Cristóvam — explicabilidade e contraditório algorítmico.</span></div>
+    </div>
+    <img src="assets/img-caduceus.png" alt="" aria-hidden="true" width="150" height="240" loading="lazy" style="position:absolute;right:140px;bottom:130px;height:240px;width:auto;opacity:.85">
+  </section>
+
+
+  <!-- ════════ 17 · big data na saúde ════════ -->
+  <section class="paper s-art" data-label="17 Big data saúde">
+    <div class="top-rule">
+      <span class="l">art. iii · Sarlet &amp; Molinaro</span>
+      <span class="center">Dir. Fund. &amp; Justiça · ano 13 · n. 41 · 2019</span>
+      <span class="r">fl. 017 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iii · §1 — escala</span>
+      <span class="sc">a saúde como laboratório-limite</span>
+    </div>
+
+    <h2>Big data na <em>saúde</em> — o lugar onde a proteção de dados encontra seu maior estresse.</h2>
+
+    <p class="lead">Dados sensíveis, populações inteiras, decisões clínicas e administrativas entrelaçadas: a saúde digital expõe os limites de uma LGPD desenhada num paradigma <em>pré-big-data</em>.</p>
+
+    <div style="display:grid;grid-template-columns:1.4fr .6fr;gap:50px;margin-top:24px;align-items:start">
+      <div style="font-size:24px;line-height:1.5;text-align:justify;hyphens:auto">
+        <p style="margin-bottom:14px"><b>Cinco campos</b> em que big data, IA e governança de saúde se sobrepõem: pesquisa clínica, prontuário eletrônico nacional, telemedicina, vigilância epidemiológica e financiamento. Em todos, o Estado é, simultaneamente, regulador e principal coletor.</p>
+        <p style="margin-bottom:14px"><b>Soberania de dados</b> — não como nacionalismo digital, mas como capacidade institucional de <em style="color:var(--accent)">manter governança</em> sobre fluxos transfronteiriços.</p>
+        <p>Princípios clássicos da LGPD <em style="color:var(--accent)">entram em tensão</em> com a lógica do big data, que opera <em style="color:var(--accent)">agregando, recombinando e inferindo</em>.</p>
+      </div>
+      <div class="icon-block" style="aspect-ratio:.9;border:1px solid var(--ink);padding:24px;background:var(--paper-warm)">
+        <img src="assets/img-stetho.png" alt="estetoscópio — gravura" width="120" height="120" loading="lazy">
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">RGPD art. 9 · dados sensíveis · LGPD art. 11</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 18 · cinco campos + LGPD pré-big-data ════════ -->
+  <section class="paper s-art layout-panel" data-label="18 Cinco campos">
+    <div class="top-rule">
+      <span class="l">art. iii · Sarlet &amp; Molinaro</span>
+      <span class="center">cinco campos de aplicação</span>
+      <span class="r">fl. 018 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iii · §2 — mapa</span>
+      <span class="sc">onde o estresse aparece</span>
+    </div>
+
+    <h2>Cinco campos onde a LGPD <em>já chega tarde</em>.</h2>
+
+    <div class="grid">
+      <div class="col body">
+        <p><b>i. Pesquisa clínica</b> — consentimento granular versus reanálise futura de coortes.</p>
+        <p><b>ii. Prontuário eletrônico nacional</b> — integração entre níveis de atenção; risco de inferência identificadora a partir de quase-identificadores.</p>
+        <p><b>iii. Telemedicina</b> — captação de dados biométricos contínuos; assimetria entre paciente, plataforma e operadora.</p>
+        <p><b>iv. Vigilância epidemiológica</b> — uso emergencial vira regime permanente (lição da pandemia).</p>
+        <p><b>v. Financiamento e regulação</b> — bases administrativas (SUS, SIH, SIA) alimentando modelos preditivos pelo próprio gestor.</p>
+        <p style="margin-top:16px">Em todos, <em>finalidade, minimização e anonimização</em> ficam frágeis justamente quando o Estado é o grande coletor.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>health.bigdata</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">map fields --health</div>
+          <div class="kv" style="display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin-top:14px;font-size:21px">
+            <span class="neon">[1]</span><span>pesquisa clínica</span>
+            <span class="neon">[2]</span><span>prontuário nacional</span>
+            <span class="neon">[3]</span><span>telemedicina</span>
+            <span class="neon">[4]</span><span>vigilância epidemiológica</span>
+            <span class="neon">[5]</span><span>financiamento</span>
+          </div>
+          <div style="margin-top:18px"><span class="neon">// princípios LGPD</span></div>
+          <div><span class="dim">finalidade:</span> <span class="warn">tensionado</span></div>
+          <div><span class="dim">minimização:</span> <span class="err">frágil</span></div>
+          <div><span class="dim">consentimento:</span> <span class="warn">granularidade limitada</span></div>
+          <div><span class="dim">anonimização:</span> <span class="err">reversível</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">SARLET · MOLINARO · Dir. Fund. &amp; Justiça 13(41), 2019</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 19 · soberania de dados + by design ════════ -->
+  <section class="paper s-art" data-label="19 Soberania by design">
+    <div class="top-rule">
+      <span class="l">art. iii · Sarlet &amp; Molinaro</span>
+      <span class="center">resposta jurídica e técnica</span>
+      <span class="r">fl. 019 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iii · §3 — respostas</span>
+      <span class="sc">soberania de dados &amp; privacy by design</span>
+    </div>
+
+    <h2>Soberania de dados e <em>privacy by design</em> — o que a tradição europeia oferece.</h2>
+
+    <div class="body">
+      <p class="lead-p drop">Sarlet e Molinaro mobilizam o conceito alemão-europeu de <b>soberania informacional</b> não no registro geopolítico, mas no registro institucional: capacidade do Estado de manter governança e arbitragem sobre fluxos de dados que, por natureza, são transfronteiriços.</p>
+
+      <p>A categoria importa porque o big data em saúde envolve, quase sempre, <em>processadores estrangeiros</em>, <em>infraestruturas em nuvem</em> e <em>modelos treinados em outros contextos</em>. A pergunta não é se devemos abrir mão — é como manter <em>autoridade decisória</em>.</p>
+
+      <p>No plano técnico, <b>privacy by design</b> (Cavoukian) — princípios incorporados na arquitetura do sistema, e não acoplados a posteriori — aparece como condição mínima. Para os autores, é <em>ele</em>, não a anonimização posterior, que faz a LGPD funcionar em ambiente big data.</p>
+    </div>
+
+    <div class="marg" style="right:80px;top:300px">"By design ou by default — não há terceira via em ambiente big data."<span class="cite">— Cavoukian, 2009</span></div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">RGPD art. 25 · privacy by design and by default</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 20 · ★ NOSSA LEITURA — Gov.br 251M ════════ -->
+  <section class="paper s-aut" data-label="20 ★ Nossa leitura III">
+    <div class="top-rule" style="left:200px;right:200px;border-bottom-color:var(--accent)">
+      <span class="l">— nossa leitura · § entre artigos —</span>
+      <span class="center">★ pós art. iii</span>
+      <span class="r">fl. 020 / 034</span>
+    </div>
+
+    <div class="laurel-ornament" style="margin-top:18px"><img src="assets/img-laurel.png" alt="" aria-hidden="true" width="127" height="38" loading="lazy"></div>
+    <div class="star" style="margin-top:8px">Nossa leitura — pós Sarlet &amp; Molinaro</div>
+    <h2>Quando o <b>coletor</b> é o <b>regulador</b> — a minimização vira letra morta.</h2>
+
+    <div class="grid">
+      <div class="essay">
+        <p class="lead-p">Sarlet e Molinaro mostram que a LGPD foi concebida em um paradigma pré-big-data. <em>Finalidade, minimização e anonimização</em> ficam frágeis quando o Estado é o grande coletor. O seminário põe essa tensão em diálogo com bases públicas de saúde, assistência, educação e serviços digitais, sem tomar seu volume como prova de uso preditivo.</p>
+        <p>A concentração de bases públicas suscita riscos de acesso indevido e exige fiscalização. Alegações de vazamento precisam identificar base, responsável e fonte verificável; não as usamos aqui como fato comprovado sobre o Gov.br. Nossa pergunta permanece: <em>quem controla o controlador?</em></p>
+      </div>
+      <div>
+        <div class="term">
+          <div class="chrome"><span>public-data.risk</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">debate dados-publicos --didatico</div>
+          <div class="kv" style="display:grid;grid-template-columns:auto 1fr;gap:12px 18px;margin-top:14px;font-size:22px">
+            <span class="dim">incident:</span><span class="err">hypothetical risk</span>
+            <span class="dim">scale:</span><span class="warn">risco ilustrativo</span>
+            <span class="dim">controller:</span><span class="cit">atores públicos</span>
+            <span class="dim">regulator:</span><span class="cit">atores públicos</span>
+            <span class="dim">data_minimized:</span><span class="warn">em debate</span>
+            <span class="dim">by_design:</span><span class="warn">em debate</span>
+          </div>
+          <div style="margin-top:20px;color:var(--term-warn)">// relação regulador ⇄ regulado</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cite">leitura autoral · cenário de risco — <b>o controlador e o regulador coincidem.</b></div>
+  </section>
+
+
+  <!-- ════════ 21 · ARTIGO IV · algoritmo simples × IA ════════ -->
+  <section class="paper s-art" data-label="21 Algoritmo × IA">
+    <div class="top-rule">
+      <span class="l">art. iv · Tavares, Bitencourt &amp; Cristóvam</span>
+      <span class="center">Diké · Rev. Jurídica · v. 23 · n. 27 · 2024</span>
+      <span class="r">fl. 021 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iv · §1 — distinção</span>
+      <span class="sc">algoritmo simples × inteligência artificial</span>
+    </div>
+
+    <h2>Algoritmo <em>simples</em>, modelo <em>preditivo</em>, IA <em>generativa</em>: três coisas distintas.</h2>
+
+    <p class="lead">Sob o mesmo guarda-chuva — "decisão por algoritmo" — convivem ferramentas técnica e juridicamente distintas. A precisão dessa distinção é o que torna a discussão sobre <em>explicabilidade</em> possível.</p>
+
+    <div class="body">
+      <p class="lead-p drop"><b>O algoritmo simples</b> é determinístico — uma regra explícita, auditável linha a linha. Decisões tomadas por ele são, em princípio, <em>plenamente reconstituíveis</em>. A explicabilidade é, no limite, o próprio código.</p>
+
+      <p><b>O modelo preditivo estatístico</b> (regressões, árvores, gradient boosting) já opera em terreno probabilístico. Há explicabilidade — mas em <em>importância de variáveis</em>, em <em>graus de contribuição</em>, e não em "porquê" no sentido jurídico.</p>
+
+      <p><b>A IA contemporânea</b> — redes neurais profundas, modelos de linguagem — apresenta um <em>gap explicativo</em> estrutural: o sistema responde, mas a justificativa não é endogenamente recuperável. <em>Tratar uma rede neural como planilha é o que cria a opacidade administrativa.</em></p>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">RUDIN · stop explaining black-box ml · 2019</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 22 · três tipologias ════════ -->
+  <section class="paper s-art layout-panel" data-label="22 Três tipologias">
+    <div class="top-rule">
+      <span class="l">art. iv · Tavares et al.</span>
+      <span class="center">tipologias de decisão</span>
+      <span class="r">fl. 022 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iv · §2 — tipologia</span>
+      <span class="sc">três modos de decidir no Estado</span>
+    </div>
+
+    <h2>Três modos: <em>humana</em>, <em>híbrida</em>, <em>algorítmica</em>.</h2>
+
+    <div class="grid">
+      <div class="col body">
+        <p><b>Humana.</b> O agente público analisa, decide e fundamenta. Pode usar ferramentas, mas a decisão é dele — e o ônus argumentativo permanece humano.</p>
+        <p><b>Híbrida.</b> O sistema sugere, classifica, prioriza; o agente decide. <em>Aqui mora o risco da "humanização decorativa"</em> — a decisão real é da máquina, o carimbo é humano.</p>
+        <p><b>Algorítmica pura.</b> A decisão é tomada e comunicada sem interveniente humano. A tipologia é uma leitura doutrinária. A LGPD garante pedido de revisão (art. 20); o art. 19 da Lei do Governo Digital trata da Base Nacional de Serviços Públicos.</p>
+        <p style="margin-top:14px">Para Tavares e coautores, cada tipologia exige <em>arquitetura própria</em> de explicabilidade e contraditório. A diferença é constitucional, não cosmética.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>decision.modes</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">classify decision_modes</div>
+          <div style="margin-top:14px">
+            <span class="neon">[A]</span> human<br>
+            <span class="dim">  decide:</span> human · <span class="dim">justify:</span> human<br><br>
+            <span class="neon">[B]</span> hybrid<br>
+            <span class="dim">  decide:</span> <span class="warn">human (or system?)</span><br>
+            <span class="dim">  justify:</span> <span class="warn">human (rubber-stamp?)</span><br><br>
+            <span class="neon">[C]</span> algorithmic_pure<br>
+            <span class="dim">  decide:</span> <span class="err">system</span><br>
+            <span class="dim">  review:</span> <span class="cit">LGPD art. 20</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">LGPD · art. 20 · tipologia doutrinária</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 23 · explicabilidade em 3 tempos ════════ -->
+  <section class="paper s-art s-time" data-label="23 Explicabilidade 3 tempos">
+    <div class="top-rule">
+      <span class="l">art. iv · Tavares et al.</span>
+      <span class="center">explicabilidade — três momentos</span>
+      <span class="r">fl. 023 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iv · §3 — temporalidade</span>
+      <span class="sc">ex ante · concomitante · ex post</span>
+    </div>
+
+    <h2>A explicabilidade tem <em>três tempos</em>.</h2>
+
+    <div class="tl">
+      <div class="step">
+        <div class="n">i.</div>
+        <div class="when">ex ante · prévia</div>
+        <h3>Antes da decisão.</h3>
+        <p>Avaliação de impacto algorítmico, transparência ativa sobre critérios, prazos, parâmetros. <em>Não é &laquo;publicação do código&raquo;</em>; é compreensibilidade pública dos pressupostos.</p>
+        <div class="ex">// publicação dos critérios</div>
+      </div>
+      <div class="step">
+        <div class="n">ii.</div>
+        <div class="when">concomitante</div>
+        <h3>Durante a decisão.</h3>
+        <p>Logging, trilhas de auditoria, identificação dos dados efetivamente usados e do modelo em execução. Esta é a camada que possibilita o <em>contraditório posterior</em>.</p>
+        <div class="ex">// trilha de auditoria</div>
+      </div>
+      <div class="step">
+        <div class="n">iii.</div>
+        <div class="when">ex post · posterior</div>
+        <h3>Depois da decisão.</h3>
+        <p>Motivação ao destinatário em linguagem inteligível, indicação dos dados, base legal, modelo usado e <em>canal direto</em> de contestação. Aqui a explicabilidade vira <em>devido processo</em>.</p>
+        <div class="ex">// notícia humana + recurso</div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">TAVARES et al. · Diké 23(27) · 2024</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 24 · contraditório algorítmico ════════ -->
+  <section class="paper s-art layout-panel" data-label="24 Contraditório algorítmico">
+    <div class="top-rule">
+      <span class="l">art. iv · Tavares et al.</span>
+      <span class="center">contraditório algorítmico — art. 5º, LV, CF</span>
+      <span class="r">fl. 024 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">art. iv · §4 — releitura</span>
+      <span class="sc">o contraditório no ambiente digital</span>
+    </div>
+
+    <h2>O contraditório tem que ser <em>prévio</em> — recurso depois não sana a nulidade.</h2>
+    <img src="assets/img-scales.png" alt="" aria-hidden="true" width="131" height="140" loading="lazy" style="position:absolute;right:140px;top:120px;height:140px;width:auto;opacity:.85;filter:contrast(1.1)">
+
+    <div class="grid">
+      <div class="col body">
+        <p>A leitura constitucional do art. 5º, LV, é direta: o devido processo administrativo exige <em>contraditório prévio</em>. Adiar para o recurso é, na prática, suprimir o instituto — porque a decisão já produziu efeitos sobre o destinatário.</p>
+        <p>Tavares e coautores fazem a translação para a decisão automatizada: <em>direito à explicação antes</em>, <em>direito a manifestar-se antes</em>, <em>direito à revisão por agente competente</em>. Sem os três, não há contraditório — há comunicação de resultado.</p>
+        <p>Essa releitura é o que <em>vira software</em> no nosso protótipo. O Conselho de Contestação Algorítmica é uma materialização desse esquema: explicar, abrir, deliberar, recorrer.</p>
+        <p style="margin-top:14px"><em>Aqui é onde o Estado-regulador mais descumpre o Estado-norma.</em> A próxima parte do seminário mostra como.</p>
+      </div>
+      <div class="col">
+        <div class="term">
+          <div class="chrome"><span>devido_processo · CF 5º LV</span><span class="dots"><span></span><span></span><span class="live"></span></span></div>
+          <div class="prompt">assert contradictory(decision)</div>
+          <div style="margin-top:14px">
+            <span class="neon">// requisitos mínimos</span><br>
+            <span class="dim">[1]</span> explicação <em style="color:#9af5cf">prévia</em> dos critérios<br>
+            <span class="dim">[2]</span> oportunidade de <em style="color:#9af5cf">manifestar-se</em><br>
+            <span class="dim">[3]</span> revisão por <em style="color:#9af5cf">agente competente</em>
+          </div>
+          <div style="margin-top:22px">
+            <span class="dim">status atual no INSS:</span><br>
+            <span class="err">[1] missing</span><br>
+            <span class="err">[2] missing</span><br>
+            <span class="err">[3] missing</span>
+          </div>
+          <div style="margin-top:18px;color:var(--term-warn)">→ <span class="err">nulidade estrutural</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">CF/88 · art. 5º LV · LGPD · art. 20 · L. 14.129/2021 · art. 3º IV/VII</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 25 · ★ TESE DESENVOLVIDA ════════ -->
+  <section class="paper s-chave" data-label="25 ★ Tese desenvolvida">
+    <div class="top-rule">
+      <span class="l">— ato autoral · núcleo crítico —</span>
+      <span class="center">★ tese central, desenvolvida</span>
+      <span class="r">fl. 025 / 034</span>
+    </div>
+
+    <div class="head">
+      <span class="sc red">do poder-dever ao dever-poder</span>
+      <span class="sc">a tese, agora com tudo o que veio antes</span>
+    </div>
+
+    <h2>O regulador é o <em>maior infrator</em>. <br>Quem edita a regra é o que mais a descumpre <em>contra o cidadão</em>.</h2>
+
+    <div class="dia">
+      <div class="box">
+        <div class="lbl">i · regulador</div>
+        <h3>Quem edita a regra.</h3>
+        <div class="role">— poder-dever —</div>
+        <ul>
+          <li>LAI · transparência</li>
+          <li>LGPD · proteção</li>
+          <li>L. 14.129/21 · gov. digital</li>
+          <li>CF art. 5º LV · contraditório</li>
+          <li>IN 128/22 INSS · motivação</li>
+          <li>CNJ Res. 615/25 · IA judicial</li>
+        </ul>
+      </div>
+
+      <div class="arr">⇄<span class="l">a mesma pessoa jurídica</span></div>
+
+      <div class="box dark">
+        <div class="lbl">ii · regulado</div>
+        <h3>Quem descumpre.</h3>
+        <div class="role">— dever-poder —</div>
+        <ul>
+          <li>LAI art. 23 · <span class="v">sigilo seletivo</span></li>
+          <li>Gov.br · <span class="v">risco de exposição</span></li>
+          <li>MP 954 · <span class="v">STF a conteve</span></li>
+          <li>INSS · <span class="v">sem contraditório</span></li>
+          <li>INSS · <span class="v">viola própria IN</span></li>
+          <li>TJ-MA · <span class="v">80 → 969 sentenças por IA</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Vanzin &amp; Oliveira · 2026</span>
+      <span class="r">próximos slides — o caso-âncora</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 26 · CASO INSS — phone mockup ════════ -->
+  <section class="paper s-art s-caso has-phone" data-label="26 Cenário didático INSS">
+    <div class="top-rule">
+      <span class="l">— caso-âncora —</span>
+      <span class="center">INSS · aposentadoria rural · IN 128/2022</span>
+      <span class="r">fl. 026 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">caso brasileiro · 2025–26</span>
+      <span class="sc">a tese, no concreto</span>
+    </div>
+
+    <h2 style="font-size:54px;max-width:1100px">A trabalhadora rural <em>recebe</em> isto, no celular.</h2>
+
+    <div class="grid">
+      <div>
+        <p style="font-family:var(--serif-display);font-style:italic;font-size:30px;line-height:1.3;color:var(--ink);max-width:780px">
+          Uma mulher de <b>62 anos</b>, aposentadoria por idade rural negada por <em>inferência</em> entre CadÚnico, RAIS e CNIS. O sistema decide. O aplicativo comunica. Não há motivação, não há contraditório, não há rosto.
+        </p>
+
+        <div class="caso-annots">
+          <div class="a"><span class="arr">→</span>O ato não diz <b>quais dados</b> foram cruzados.</div>
+          <div class="a"><span class="arr">→</span>Não cita <b>base legal</b> alguma — e ainda assim produz efeito patrimonial.</div>
+          <div class="a"><span class="arr">→</span>Não registra <b>revisão humana</b> — apenas um carimbo automatizado.</div>
+          <div class="a"><span class="arr">→</span>O canal de recurso é <b>genérico</b>, condicionado a 30 dias e ao próprio app.</div>
+          <div class="a"><span class="arr">→</span>Em desacordo com a <b>IN 128/2022</b> da própria autarquia.</div>
+        </div>
+
+        <p style="margin-top:24px;font-family:var(--serif-display);font-style:italic;font-size:26px;color:var(--accent);border-top:1px solid var(--accent);padding-top:14px;max-width:780px">
+          <b>O regulador-do-recurso é quem suprime o recurso.</b>
+        </p>
+      </div>
+
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-statusbar">
+            <span>09:47</span>
+            <div class="right">
+              <span class="signal"><i></i><i></i><i></i><i></i></span>
+              <span style="font-size:13px;font-weight:600">5G</span>
+              <span class="batt"><i></i></span>
+            </div>
+          </div>
+          <div class="phone-appbar">
+            <span class="back">‹</span>
+            <div>
+              <div class="title">Meu INSS</div>
+              <div class="sub">Pedidos · acompanhar</div>
+            </div>
+          </div>
+          <div class="phone-body">
+            <span class="pill">Indeferido</span>
+            <h2 class="pt">Aposentadoria por idade rural</h2>
+            <div class="pnum">Protocolo NB 2026.XXX.XXXXX-X</div>
+
+            <div class="card">
+              <div class="lbl">Decisão</div>
+              <div class="val">Pedido indeferido</div>
+            </div>
+            <div class="row2">
+              <div class="card">
+                <div class="lbl">Dados utilizados</div>
+                <div class="val empty">não informado</div>
+              </div>
+              <div class="card">
+                <div class="lbl">Revisão humana</div>
+                <div class="val empty">não informado</div>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="lbl">Motivo do indeferimento</div>
+              <p>Inconsistência cadastral e risco elevado de inelegibilidade detectado em modelo automatizado.</p>
+            </div>
+            <div class="btn">Apresentar recurso<div class="sub">prazo · 30 dias · pelo app</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8 · caso-âncora</span>
+      <span class="r">IN INSS 128/2022 · CF/88 art. 5º LV · LGPD art. 20</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 27 · BLACK BOX — visual diagram ════════ -->
+  <section class="paper s-bb" data-label="27 Black box INSS">
+    <div class="top-rule">
+      <span class="l">— caixa-preta —</span>
+      <span class="center">a decisão lida como sistema</span>
+      <span class="r">fl. 027 / 034</span>
+    </div>
+
+    <div class="kicker-row" style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:14px">
+      <span class="sc red">o ato administrativo, virado por dentro</span>
+      <span class="sc">cada hook ausente é uma nulidade</span>
+    </div>
+
+    <h2 style="font-size:54px;max-width:1400px;margin-top:14px">Os dados entram. A decisão sai. <em>Tudo no meio</em> está oculto.</h2>
+
+    <div class="bbox-stage">
+      <svg viewBox="0 0 1600 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="Caixa-preta do INSS">
+        <!-- INPUT BOXES (left) -->
+        <g font-family="Spectral, serif" font-size="22">
+          <g>
+            <rect x="50" y="80" width="240" height="80" fill="#fbfaf5" stroke="#16140f" stroke-width="1.5"/>
+            <text x="170" y="116" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="600" fill="#16140f">CadÚnico</text>
+            <text x="170" y="142" text-anchor="middle" font-size="16" fill="#6a665e">renda · família · domicílio</text>
+          </g>
+          <g>
+            <rect x="50" y="190" width="240" height="80" fill="#fbfaf5" stroke="#16140f" stroke-width="1.5"/>
+            <text x="170" y="226" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="600" fill="#16140f">RAIS</text>
+            <text x="170" y="252" text-anchor="middle" font-size="16" fill="#6a665e">vínculos formais · CNPJ</text>
+          </g>
+          <g>
+            <rect x="50" y="300" width="240" height="80" fill="#fbfaf5" stroke="#16140f" stroke-width="1.5"/>
+            <text x="170" y="336" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="600" fill="#16140f">CNIS</text>
+            <text x="170" y="362" text-anchor="middle" font-size="16" fill="#6a665e">contribuições · tempo</text>
+          </g>
+          <g>
+            <rect x="50" y="410" width="240" height="80" fill="#fbfaf5" stroke="#16140f" stroke-width="1.5"/>
+            <text x="170" y="446" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="600" fill="#16140f">SiBE · histórico</text>
+            <text x="170" y="472" text-anchor="middle" font-size="16" fill="#6a665e">pedidos · indeferimentos</text>
+          </g>
+          <g>
+            <rect x="50" y="520" width="240" height="80" fill="#fbfaf5" stroke="#16140f" stroke-width="1.5"/>
+            <text x="170" y="556" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="600" fill="#16140f">geolocalização</text>
+            <text x="170" y="582" text-anchor="middle" font-size="16" fill="#6a665e">município · zona rural?</text>
+          </g>
+        </g>
+
+        <!-- INPUT ARROWS -->
+        <g stroke="#16140f" stroke-width="1.5" fill="none">
+          <path d="M 290 120 Q 420 120, 550 280" marker-end="url(#arr-ink)"/>
+          <path d="M 290 230 Q 420 230, 550 310" marker-end="url(#arr-ink)"/>
+          <path d="M 290 340 L 550 340" marker-end="url(#arr-ink)"/>
+          <path d="M 290 450 Q 420 450, 550 380" marker-end="url(#arr-ink)"/>
+          <path d="M 290 560 Q 420 560, 550 410" marker-end="url(#arr-ink)"/>
+        </g>
+
+        <!-- BLACK BOX -->
+        <g>
+          <rect x="560" y="220" width="500" height="280" fill="#0a0a0a"/>
+          <!-- dense hatching for "depth" -->
+          <pattern id="bb-hatch" patternUnits="userSpaceOnUse" width="4" height="4">
+            <line x1="0" y1="0" x2="0" y2="4" stroke="#1c1c1c" stroke-width="1"/>
+          </pattern>
+          <rect x="560" y="220" width="500" height="280" fill="url(#bb-hatch)" opacity=".8"/>
+          <!-- giant ? -->
+          <text x="810" y="400" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="700" font-size="220" fill="#2a2a2a">?</text>
+          <!-- label on box -->
+          <rect x="560" y="190" width="500" height="32" fill="#0a0a0a"/>
+          <text x="810" y="212" text-anchor="middle" font-family="JetBrains Mono" font-size="16" fill="#3fe0a0" letter-spacing="3">MODELO · INDISCLOSED</text>
+          <!-- footer label -->
+          <rect x="560" y="500" width="500" height="32" fill="#0a0a0a"/>
+          <text x="810" y="522" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#6a8a80" letter-spacing="2">no audit log · no model card · no opt-out</text>
+        </g>
+
+        <!-- OUTPUT (right) -->
+        <g>
+          <path d="M 1060 360 L 1260 360" stroke="#16140f" stroke-width="2" fill="none" marker-end="url(#arr-ink)"/>
+          <rect x="1280" y="290" width="280" height="140" fill="#8b1a1a"/>
+          <text x="1420" y="345" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#fbfaf5" letter-spacing="3" opacity=".7">DECISÃO</text>
+          <text x="1420" y="385" text-anchor="middle" font-family="EB Garamond" font-style="italic" font-weight="700" font-size="42" fill="#fbfaf5">INDEFERIDO</text>
+          <text x="1420" y="410" text-anchor="middle" font-family="Spectral" font-style="italic" font-size="14" fill="#fbfaf5" opacity=".75">sem motivação personalizada</text>
+        </g>
+
+        <!-- MISSING HOOKS (around the box) -->
+        <g font-family="EB Garamond" font-style="italic">
+          <!-- top missing items -->
+          <g>
+            <rect x="560" y="100" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="640" y="128" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">explicação</text>
+            <text x="640" y="148" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="640" y1="160" x2="640" y2="220" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+          <g>
+            <rect x="740" y="100" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="820" y="128" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">base legal</text>
+            <text x="820" y="148" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="820" y1="160" x2="820" y2="220" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+          <g>
+            <rect x="920" y="100" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="1000" y="128" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">revisão humana</text>
+            <text x="1000" y="148" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="1000" y1="160" x2="1000" y2="220" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+
+          <!-- bottom missing items -->
+          <g>
+            <rect x="560" y="560" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="640" y="588" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">contraditório</text>
+            <text x="640" y="608" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="640" y1="560" x2="640" y2="500" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+          <g>
+            <rect x="740" y="560" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="820" y="588" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">audit log</text>
+            <text x="820" y="608" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="820" y1="560" x2="820" y2="500" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+          <g>
+            <rect x="920" y="560" width="160" height="60" fill="none" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="1000" y="588" text-anchor="middle" font-size="18" fill="#8b1a1a" font-weight="600">canal direto</text>
+            <text x="1000" y="608" text-anchor="middle" font-size="14" fill="#8b1a1a">— missing —</text>
+            <line x1="1000" y1="560" x2="1000" y2="500" stroke="#8b1a1a" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </g>
+        </g>
+
+        <!-- arrowhead marker -->
+        <defs>
+          <marker id="arr-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#16140f"/>
+          </marker>
+        </defs>
+
+        <!-- legends -->
+        <text x="170" y="55" text-anchor="middle" font-family="JetBrains Mono" font-size="14" letter-spacing="3" fill="#8b1a1a">ENTRADAS</text>
+        <text x="810" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="14" letter-spacing="3" fill="#8b1a1a">CAIXA-PRETA</text>
+        <text x="1420" y="270" text-anchor="middle" font-family="JetBrains Mono" font-size="14" letter-spacing="3" fill="#8b1a1a">SAÍDA</text>
+      </svg>
+    </div>
+
+    <p style="margin-top:18px;text-align:center;font-family:var(--serif-display);font-style:italic;font-size:24px;color:var(--ink-2);max-width:1600px;margin-left:auto;margin-right:auto;line-height:1.3">
+      Cada caixa pontilhada é um <em>hook</em> que o devido processo administrativo prevê — e que o INSS não cumpre. <b>Sete nulidades em um único ato.</b>
+    </p>
+  </section>
+
+
+  <!-- ════════ 28 · SyRI × INSS — espelho ════════ -->
+  <section class="paper s-art s-mirror" data-label="28 SyRI × INSS espelho">
+    <div class="top-rule">
+      <span class="l">— espelho internacional —</span>
+      <span class="center">SyRI · Haia · 2020</span>
+      <span class="r">fl. 028 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">o precedente que falta no Brasil</span>
+      <span class="sc">dois sistemas, duas respostas judiciais</span>
+    </div>
+
+    <h2>Holanda já <em>conteve</em>. Brasil ainda está no estágio da <em>denúncia</em>.</h2>
+
+    <div class="grid">
+      <div class="col">
+        <div class="flag">🇳🇱 · Haia, fev. 2020</div>
+        <h3>SyRI <span style="font-weight:400;color:var(--ink-3)">— Systeem Risico Indicatie</span></h3>
+        <div class="place">Sistema holandês de detecção de fraude em bairros pobres, turcos e marroquinos.</div>
+        <ul>
+          <li>Direcionamento territorial e racial</li>
+          <li>Cruzamento de bases sem finalidade clara</li>
+          <li>Opacidade sobre critérios e pesos</li>
+          <li><b>Tribunal de Haia · proibido</b> por violar privacidade, finalidade, minimização e devido processo</li>
+        </ul>
+      </div>
+
+      <div class="vs">×<span class="l">mesma estrutura · respostas opostas</span></div>
+
+      <div class="col" style="background:var(--ink);color:var(--paper);border-color:var(--ink)">
+        <div class="flag" style="color:#c8a87a">🇧🇷 · INSS, 2025</div>
+        <h3 style="color:var(--paper)">INSS · aposentadoria rural</h3>
+        <div class="place" style="color:#bfb59f">Indeferimento automático em bases populacionalmente vulneráveis.</div>
+        <ul style="color:#bfb59f">
+          <li style="border-bottom-color:#3a3733">Direcionamento por inferência cadastral</li>
+          <li style="border-bottom-color:#3a3733">Cruzamento opaco entre CadÚnico, RAIS, CNIS</li>
+          <li style="border-bottom-color:#3a3733">Sem motivação personalizada</li>
+          <li style="border-bottom-color:#3a3733"><b style="color:#f5b961">Sem decisão judicial estruturante</b> — ainda no estágio de denúncia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">Seminário 8</span>
+      <span class="r">Rb. Den Haag · C-09-550982 · 5.II.2020 · NJCM v. Estado holandês</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 29 · TIMELINE — Estado contra si mesmo ════════ -->
+  <section class="paper s-art" data-label="29 Tabela Estado contra si">
+    <div class="top-rule">
+      <span class="l">— compilação 2020–2026 —</span>
+      <span class="center">o Estado contra si mesmo</span>
+      <span class="r">fl. 029 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">tabela · caixa de munição</span>
+      <span class="sc">episódios documentados e cenários didáticos</span>
+    </div>
+
+    <h2>Episódios e cenários: <em>o Estado diante das próprias regras</em>.</h2>
+
+    <div class="htl">
+      <div class="axis"></div>
+      <div class="row-tl">
+        <div class="ev">
+          <div class="yr">2020</div>
+          <div class="marker"></div>
+          <div class="card">
+            <div class="ttl">MP 954</div>
+            <div class="norm">telecom &gt; IBGE · LGPD em vacatio · finalidade</div>
+            <div class="status">STF · ADI 6.387</div>
+          </div>
+        </div>
+        <div class="ev">
+          <div class="yr">2020</div>
+          <div class="marker"></div>
+          <div class="card">
+            <div class="ttl">SyRI · Haia</div>
+            <div class="norm">espelho internacional · CEDH art. 8</div>
+            <div class="status">SUSPENSO · trib. Haia</div>
+          </div>
+        </div>
+        <div class="ev">
+          <div class="yr">2021</div>
+          <div class="marker"></div>
+          <div class="card">
+            <div class="ttl">Bases públicas · segurança</div>
+            <div class="norm">risco ilustrativo · LGPD art. 46 · segurança</div>
+            <div class="status">RISCO EM DISCUSSÃO</div>
+          </div>
+        </div>
+        <div class="ev">
+          <div class="yr">2025</div>
+          <div class="marker"></div>
+          <div class="card">
+            <div class="ttl">INSS · cenário didático</div>
+            <div class="norm">IN 128/2022 · CF 5º LV · LGPD art. 20</div>
+            <div class="status">EXEMPLO DIDÁTICO</div>
+          </div>
+        </div>
+        <div class="ev">
+          <div class="yr">2025</div>
+          <div class="marker"></div>
+          <div class="card">
+            <div class="ttl">TJ-MA · correição e IA</div>
+            <div class="norm">80/mês → 969 em agosto/2024 · sindicância em 2025</div>
+            <div class="status">CORREGEDORIA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:30px;font-family:var(--serif-display);font-style:italic;font-size:26px;color:var(--ink-2);text-align:center;max-width:1500px;margin-left:auto;margin-right:auto;line-height:1.35">
+      A comparação pergunta como o Estado controla os próprios sistemas. Os cenários didáticos não comprovam ocorrências históricas; no TJ-MA, a correição apontou uso inadequado de IA e determinou sindicância em 2025. <a href="https://www.migalhas.com.br/arquivos/2025/5/4C11A97FBB9F21_0000482-30.2024.2.00.0810_5781.pdf">Decisão de 07/04/2025, p. 1–2</a>.
+    </p>
+
+    <div class="bot-rule">
+      <span class="l">tabela 1 · compilação dos autores</span>
+      <span class="r">fontes públicas · 2026</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 30 · CAMADA PROPEDÊUTICA — literacia ════════ -->
+  <section class="paper s-art s-prop" data-label="30 Propedêutica literacia">
+    <div class="top-rule">
+      <span class="l">— camada propedêutica · autoral —</span>
+      <span class="center">a contribuição da Ana — i</span>
+      <span class="r">fl. 030 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">★ duas camadas antes do contraditório</span>
+      <span class="sc">literacia · notícia humana</span>
+    </div>
+
+    <h2>Duas camadas que precisam vir <em>antes</em> da contestação.</h2>
+
+    <div class="grid">
+      <div class="card">
+        <div class="n">i.</div>
+        <h3>Literacia algorítmica.</h3>
+        <p>O cidadão muitas vezes <em>nem sabe</em> que foi uma máquina que decidiu — e não faz ideia do que é &laquo;inteligência artificial&raquo; ou &laquo;decisão algorítmica&raquo;.</p>
+        <p style="margin-top:14px"><b>Não se contesta o que não se compreende.</b> Empoderar não é só abrir um canal de recurso: é <em>traduzir</em> a decisão em linguagem que a pessoa entenda. Transparência não basta — falta <em>inteligibilidade</em>.</p>
+        <div class="ex">"Um portal pode ser transparente e ainda assim incompreensível."</div>
+      </div>
+      <div class="card warm">
+        <div class="n">ii.</div>
+        <h3>Notícia humana.</h3>
+        <p>Tese normativa: certas decisões podem ser automatizadas — mas a <em>comunicação</em> de uma decisão adversa a alguém em situação de <em>vulnerabilidade</em> deveria ser feita por uma pessoa, não por uma máquina.</p>
+        <p style="margin-top:14px"><b>Humano no circuito não apenas na decisão — também no cuidado da comunicação.</b> Notificar um indeferimento por um app frio, a quem depende do benefício para comer, é violência burocrática silenciosa.</p>
+        <div class="ex">"A dignidade do administrado também está em <em>como</em> ele é avisado."</div>
+      </div>
+    </div>
+
+    <div class="bot-rule">
+      <span class="l">camada autoral · Vanzin · 2026</span>
+      <span class="r">acréscimo aos arts. iv e iii — antes do contraditório</span>
+    </div>
+  </section>
+
+
+  <!-- ════════ 31 · PROTÓTIPO — GovLens & Conselho ════════ -->
+  <section class="paper s-art s-proto" data-label="31 Protótipo Conselho">
+    <div class="top-rule">
+      <span class="l">— proposta complementar · "uma ideia a mais" —</span>
+      <span class="center">Conselho de Contestação Algorítmica</span>
+      <span class="r">fl. 031 / 034</span>
+    </div>
+
+    <div class="kicker-row">
+      <span class="sc red">protótipo · fluxo de contestabilidade</span>
+      <span class="sc">cinco passos — quatro vozes</span>
+    </div>
+
+    <h2>Protótipo: <em>devolver à pessoa</em> o contraditório que o Estado suprimiu.</h2>
+
+    <div class="flow">
+      <div class="step">
+        <div class="n">i.</div>
+        <div class="lab">upload</div>
+        <h4>Decisão.</h4>
+        <p>A pessoa submete o ato. O sistema lê o documento bruto.</p>
+      </div>
+      <div class="step">
+        <div class="n">ii.</div>
+        <div class="lab">explicabilidade</div>
+        <h4>Motivação ou caixa-preta?</h4>
+        <p>Diagnóstico do que <em>falta</em> à decisão.</p>
+      </div>
+      <div class="step">
+        <div class="n">iii.</div>
+        <div class="lab">mapa de dados</div>
+        <h4>De onde vem.</h4>
+        <p>Bases possíveis; quase-identificadores; risco de inferência.</p>
+      </div>
+      <div class="step">
+        <div class="n">iv.</div>
+        <div class="lab">conselho</div>
+        <h4>Quatro vozes.</h4>
+        <p>Defensoria · Cientista · Administrador · Cidadão. As 4 leituras do seminário, virando software.</p>
+      </div>
+      <div class="step">
+        <div class="n">v.</div>
+        <div class="lab">estratégia</div>
+        <h4>Saídas jurídicas.</h4>
+        <p>LAI, LGPD, recurso administrativo — em linguagem da pessoa.</p>
+      </div>
+    </div>
+
+    <div class="personas">
+      <div class="h">— mapeamento persona → artigo —</div>
+      <table>
+        <thead><tr><th>persona</th><th>artigo</th><th>o que ela carrega</th></tr></thead>
+        <tbody>
+          <tr><td class="persona">Defensoria Pública</td><td class="art">Tavares et al.</td><td>contraditório prévio · art. 5º LV · LGPD art. 20</td></tr>
+          <tr><td class="persona">Cientista de Dados</td><td class="art">— transversal —</td><td>explicabilidade · viés de proxy · auditabilidade</td></tr>
+          <tr><td class="persona">Administrador Público</td><td class="art">Cristóvam &amp; Hahn</td><td>governança · IN 128/2022 · L. 14.129/2021</td></tr>
+          <tr><td class="persona">Cidadão</td><td class="art">Salgado &amp; Saito · Sarlet &amp; Molinaro</td><td>autodeterminação informativa · exclusão digital</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ════════ 32 · DEMO BRIDGE ════════ -->
+  <section class="s-demo" data-label="32 Demo ao vivo">
+    <div class="inner">
+      <div class="ey">// ato seguinte — demonstração ao vivo</div>
+      <h1>Agora, em <em>simulação</em>.</h1>
+      <div class="cmd">load caso.INSS &gt; conselho</div>
+      <p class="sub">A trabalhadora rural, indeferida automaticamente, leva seu caso ao <em style="color:#9af5cf">Conselho de Contestação Algorítmica</em>. Quatro perspectivas jurídicas — as quatro leituras do seminário — deliberam em três fases. No fim, o sistema não decide pela pessoa: ele <em style="color:#9af5cf">devolve a ela o contraditório que o Estado suprimiu.</em><span class="blink"></span></p>
+      <div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:18px">
+        <button type="button" id="c-trigger" onclick="cShow()" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#3fe0a0;color:#0c1318;font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid #3fe0a0;transition:background-color .2s, color .2s;cursor:pointer" onmouseover="this.style.background='transparent';this.style.color='#3fe0a0'" onmouseout="this.style.background='#3fe0a0';this.style.color='#0c1318'">
+          ▶ Iniciar a Deliberação
+          <span style="font-size:14px;opacity:.7;font-weight:400">→ 3 fases · 4 personas</span>
+        </button>
+        <a href="/prot-tipo/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:transparent;color:#9af5cf;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:2px solid #9af5cf;transition:background-color .2s, color .2s" onmouseover="this.style.background='#9af5cf';this.style.color='#0c1318'" onmouseout="this.style.background='transparent';this.style.color='#9af5cf'">
+          ↗ demonstração acadêmica
+          <span style="font-size:14px;opacity:.7;font-weight:400">→ casos didáticos</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════ 33 · VERSÃO EM PRODUÇÃO ════════════════ -->
+  <section class="s-demo" data-label="33 Demonstração acadêmica" style="background:#0c1318">
+    <div class="inner" style="padding:80px var(--pad-x) 70px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--term-line);padding-bottom:14px;margin-bottom:30px">
+        <span style="font-family:var(--mono);font-size:18px;letter-spacing:.22em;color:var(--term-neon);text-transform:uppercase">// demonstração acadêmica</span>
+        <span style="font-family:var(--mono);font-size:18px;letter-spacing:.18em;color:var(--term-dim);text-transform:uppercase">fl. 033 / 034 · protótipo</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns: 1.05fr 1fr;gap:60px;align-items:start">
+        <div>
+          <div class="ey" style="margin-bottom:14px">// versões / estudo acadêmico</div>
+          <h1 style="font-size:88px;line-height:1;margin-bottom:24px">O Conselho,<br>publicado.<span class="blink"></span></h1>
+          <p style="font-family:var(--serif-display);font-style:italic;font-size:28px;color:var(--term-text);max-width:680px;line-height:1.4;margin-bottom:30px">
+            Esta demonstração foi pensada para o seminário. A interface React/Gemini apresenta quatro perspectivas em uma única chamada no projeto original. Aqui, usamos <em style="color:#9af5cf">casos e pareceres preparados</em>, sem chamada de IA e sem dados pessoais.
+          </p>
+
+          <div style="background:#0a0a0a;border:1px solid var(--term-line);padding:24px 28px;margin-bottom:30px;font-family:var(--mono);font-size:18px;line-height:1.8">
+            <span style="color:var(--term-neon)">$</span> <span style="color:var(--term-text)">conselho --demonstracao</span><br>
+            <span style="color:var(--term-dim)">› region: </span><span style="color:#9af5cf">navegador</span><br>
+            <span style="color:var(--term-dim)">› build: </span><span style="color:#9af5cf">estático</span><br>
+            <span style="color:var(--term-dim)">› status: </span><span style="color:var(--term-neon)">✓ serving</span><br>
+            <span style="color:var(--term-dim)">› ssl: </span><span style="color:var(--term-neon)">✓ active</span>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:18px">
+            <a href="/prot-tipo/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:#3fe0a0;color:#0c1318;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid #3fe0a0" onmouseover="this.style.background='transparent';this.style.color='#3fe0a0'" onmouseout="this.style.background='#3fe0a0';this.style.color='#0c1318'">
+              ↗ abrir demonstração
+              <span style="font-size:12px;opacity:.7;font-weight:400">→ casos didáticos</span>
+            </a>
+            <a href="Conselho.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:18px 28px;background:transparent;color:#9af5cf;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:2px solid #9af5cf" onmouseover="this.style.background='#9af5cf';this.style.color='#0c1318'" onmouseout="this.style.background='transparent';this.style.color='#9af5cf'">
+              ◀ voltar à demo local
+            </a>
+          </div>
+        </div>
+
+        <!-- preview window -->
+        <div style="border:1px solid var(--term-line);background:#fff;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)">
+          <div style="background:#1a1a1a;padding:12px 18px;display:flex;align-items:center;gap:14px;border-bottom:1px solid #333">
+            <div style="display:flex;gap:6px">
+              <span style="width:12px;height:12px;border-radius:50%;background:#ff5f56;display:inline-block"></span>
+              <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;display:inline-block"></span>
+              <span style="width:12px;height:12px;border-radius:50%;background:#27c93f;display:inline-block"></span>
+            </div>
+            <div style="flex:1;background:#0a0a0a;color:#9af5cf;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:13px;border-radius:4px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+              anavanzin.com/prot-tipo/
+            </div>
+          </div>
+          <iframe src="/prot-tipo/" style="width:100%;aspect-ratio:16/10;border:0;display:block" loading="lazy" title="Conselho de Contestação Algorítmica — demonstração estática"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="paper s-tese" data-label="33 Tese final">
+    <div class="top-rule" style="border-bottom-color:var(--accent)">
+      <span class="l">— in fine —</span>
+      <span class="center">fecho</span>
+      <span class="r">fl. 033 / 034</span>
+    </div>
+
+    <div class="tt-top">
+      <div class="pt">— in fine —</div>
+      <h1>Não há Administração Pública 4.0 <em>democrática</em><br>sem quatro colunas.</h1>
+    </div>
+
+    <div class="colonnade">
+      <div class="arch">ADMINISTRAÇÃO PÚBLICA 4.0 · DEMOCRÁTICA</div>
+      <div class="row-cols">
+        <div class="col">
+          <img src="assets/img-column.png" alt="" aria-hidden="true" width="100" height="360" loading="lazy" style="height:100%;width:auto;object-fit:contain;align-self:flex-end">
+          <div class="num">i.</div>
+          <div class="lbl">explicável</div>
+        </div>
+        <div class="col">
+          <img src="assets/img-column.png" alt="" aria-hidden="true" width="100" height="360" loading="lazy" style="height:100%;width:auto;object-fit:contain;align-self:flex-end">
+          <div class="num">ii.</div>
+          <div class="lbl">contestável</div>
+        </div>
+        <div class="col">
+          <img src="assets/img-column.png" alt="" aria-hidden="true" width="100" height="360" loading="lazy" style="height:100%;width:auto;object-fit:contain;align-self:flex-end">
+          <div class="num">iii.</div>
+          <div class="lbl">inclusiva</div>
+        </div>
+        <div class="col">
+          <img src="assets/img-column.png" alt="" aria-hidden="true" width="100" height="360" loading="lazy" style="height:100%;width:auto;object-fit:contain;align-self:flex-end">
+          <div class="num">iv.</div>
+          <div class="lbl">controlável</div>
+        </div>
+      </div>
+      <div class="floor"></div>
+    </div>
+
+    <div class="bot" style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div style="flex:1;padding-right:40px">
+        <p class="ask" style="margin-bottom:12px">A Administração Pública digital está decidindo <em>melhor</em> — ou apenas decidindo <em>mais rápido</em>, com menos chance de compreensão, contestação e participação?</p>
+        <p class="by">Ana Vitória Vanzin &amp; Vinícius Oliveira · PPGD/UFSC · 2026</p>
+      </div>
+      <div style="text-align:center;flex-shrink:0;margin-bottom:10px">
+        <img src="assets/qr.png" alt="QR Code" width="110" height="110" loading="lazy" style="width:110px;height:110px;border:1.5px solid var(--ink);border-radius:4px;padding:4px;background:#fff;display:block;margin:0 auto 6px">
+        <span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:1px;text-transform:uppercase">Acessar Material</span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<style>
+  /* ═══ Consejo Overlay ═══ */
+  #consejo-overlay {
+    display: none; position: fixed; z-index: 99999; inset: 0;
+    background: var(--paper); font-family: var(--serif-body); color: var(--ink);
+    overflow: hidden; animation: cIn .3s ease-out;
+  }
+  @keyframes cIn { from { opacity:0; } to { opacity:1; } }
+  #consejo-overlay .c-bar {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 28px; background:var(--paper-warm); border-bottom:2px solid var(--ink);
+  }
+  #consejo-overlay .c-bar h3 {
+    font-family:var(--serif-display); font-size:20px; font-weight:500; color:var(--ink); margin:0;
+  }
+  #consejo-overlay .c-bar h3 em { font-style:italic; color:var(--accent); }
+  #consejo-overlay .c-bar .c-return {
+    padding:8px 20px; background:var(--accent); color:#fff; border:none; border-radius:6px;
+    font-family:var(--mono); font-size:12px; cursor:pointer; letter-spacing:.08em;
+    transition:background-color .2s;
+  }
+  #consejo-overlay .c-bar .c-return:hover { background:var(--accent-2); }
+  #consejo-overlay .c-phases {
+    display:flex; gap:8px; padding:12px 28px; background:var(--paper); border-bottom:1px solid var(--rule-strong);
+  }
+  #consejo-overlay .c-phases button {
+    padding:8px 16px; background:var(--paper-dark); border:1px solid var(--rule-strong); border-radius:6px;
+    cursor:pointer; font-family:var(--serif-display); font-size:14px; font-weight:500;
+    color:var(--ink-3); transition:background-color .2s, color .2s, border-color .2s;
+  }
+  #consejo-overlay .c-phases button.cp-active {
+    background:var(--accent); color:#fff; border-color:var(--accent);
+  }
+  #consejo-overlay .c-status {
+    font-family:var(--mono); font-size:11px; padding:8px 28px; color:var(--ink-4);
+    border-bottom:1px solid var(--rule);
+  }
+  #consejo-overlay .c-status .online { color:var(--term-neon); }
+  #consejo-overlay .c-status .offline { color:var(--term-err); }
+  #consejo-overlay .c-main {
+    padding:20px 32px; overflow-y:auto; height:calc(100vh - 170px);
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  #consejo-overlay .c-full { grid-column:1/-1; }
+  #consejo-overlay .c-ctx {
+    grid-column:1/-1; background:var(--paper-warm); border:1px solid var(--rule-strong);
+    border-radius:8px; padding:20px; font-size:14px; line-height:1.6; color:var(--ink-2);
+  }
+  #consejo-overlay .c-ctx strong { font-family:var(--serif-display); font-size:18px; }
+  #consejo-overlay .c-card {
+    background:#fff; border:1px solid var(--rule-strong); border-radius:8px;
+    padding:18px; border-top:3px solid var(--accent);
+  }
+  #consejo-overlay .c-card-h {
+    display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:10px;
+    border-bottom:1px solid var(--rule);
+  }
+  #consejo-overlay .c-ico {
+    width:36px; height:36px; border-radius:50%; display:grid; place-items:center;
+    font-size:16px; color:#fff;
+  }
+  #consejo-overlay .c-ico.def { background:var(--accent); }
+  #consejo-overlay .c-ico.cie { background:var(--accent2); }
+  #consejo-overlay .c-ico.adm { background:var(--gold); }
+  #consejo-overlay .c-ico.cid { background:var(--ink); }
+  #consejo-overlay .c-card h4 { font-family:var(--serif-display); font-size:15px; margin:0; color:var(--ink); }
+  #consejo-overlay .c-card h4 + span { font-size:10px; color:var(--ink-4); }
+  #consejo-overlay .c-body { font-size:13px; line-height:1.65; color:var(--ink-2); }
+  #consejo-overlay .c-body strong { color:var(--accent); }
+  #consejo-overlay .c-body em { color:var(--ink-3); font-style:italic; }
+  #consejo-overlay .c-rank {
+    background:var(--paper-warm); border:1px solid var(--ink); border-radius:8px; padding:18px;
+  }
+  #consejo-overlay .c-rank h3 { font-family:var(--serif-display); font-size:17px; margin-bottom:12px; color:var(--accent); }
+  #consejo-overlay .c-ri {
+    display:flex; align-items:center; gap:12px; padding:10px; background:#fff;
+    border:1px solid var(--rule); border-radius:6px; margin-bottom:8px;
+  }
+  #consejo-overlay .c-rp { font-size:18px; font-weight:700; color:var(--accent); min-width:40px; font-family:var(--serif-display); }
+  #consejo-overlay .c-final {
+    background:#fff; border:2px solid var(--accent); border-radius:10px; padding:24px; margin-top:10px;
+  }
+  #consejo-overlay .c-final h3 { font-family:var(--serif-display); font-size:19px; color:var(--accent); margin-bottom:14px; }
+  #consejo-overlay .c-final .s { margin-bottom:12px; }
+  #consejo-overlay .c-final .s h4 { font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--ink-3); text-transform:uppercase; margin-bottom:5px; }
+  #consejo-overlay .c-final .s p { font-size:13px; line-height:1.65; color:var(--ink-2); }
+  #consejo-overlay .c-final .s ul { padding-left:20px; }
+  #consejo-overlay .c-final .al { background:rgba(139,26,26,.08); border-left:3px solid var(--accent); padding:12px; border-radius:0 6px 6px 0; margin-top:12px; }
+  #consejo-overlay .c-final .al p { font-size:13px; color:var(--accent); margin:0; }
+</style>
+
+<div id="consejo-overlay" role="dialog" aria-modal="true" aria-label="Conselho de Contestação Algorítmica">
+  <div class="c-bar">
+    <div style="display:flex;align-items:center;gap:14px">
+      <h3 style="margin-right:20px"><em>Conselho de Contestação</em></h3>
+      <select id="c-case-select" onchange="cChangeCase(this.value)" style="padding:6px 12px;font-family:var(--serif-display);font-size:15px;background:var(--paper-warm);border:1px solid var(--ink);border-radius:4px;color:var(--ink);cursor:pointer">
+        <option value="4">INSS — Aposentadoria Rural</option>
+        <option value="1">Bolsa Família — Cancelamento</option>
+        <option value="2">IPTU SP — Reclassificação</option>
+        <option value="3">Auxílio Emergencial — Registro Fantasma</option>
+        <option value="5">Reconhecimento Facial — Falso Positivo</option>
+        <option value="6">Pente-Fino INSS — Suspensão de BPC</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span id="c-status-text" style="font-family:var(--mono);font-size:11px;color:var(--ink-4)">verificando…</span>
+      <button class="c-return" onclick="cHide()">← Voltar à tese</button>
+    </div>
+  </div>
+  <div class="c-phases" id="c-phases" aria-live="polite"></div>
+  <div class="c-main" id="c-main" aria-live="polite"></div>
+</div>
+
+<script>
+const cases = [
+  {
+    id: 1,
+    title: "Bolsa Família Cancelado",
+    desc: "Benefício cancelado automaticamente por inconsistência de dados. Sem explicação do critério.",
+    tag: "Cadastro Único",
+    context: "Uma família de baixa renda teve o Bolsa Família cancelado automaticamente após um cruzamento de dados entre Receita Federal, CNIS e Cadastro Único. A notificação apenas dizia: INCONSISTENCIA DE DADOS. Nenhuma explicação sobre qual dado, qual critério, ou como contestar.",
+    personas: {
+      defensoria: `<strong>Problema jurídico:</strong> Violação do contraditório e da ampla defesa (art. 5, LV, CF). A decisão foi tomada unilateralmente sem dar a família chance de se manifestar previamente.<br><br><strong>Leis aplicáveis:</strong> Art. 20, LGPD (revisão de decisão automatizada). Art. 3, IV e VII, Lei 14.129/2021 (transparência e linguagem clara).<br><br><strong>Recomendação:</strong> Contestação junto ao Ministério da Cidadania + pedido LAI na Dataprev exigindo o critério exato do algoritmo. Se não responder em 20 dias, acionar Defensoria Pública para mandado de segurança.`,
+      cientista: `<strong>Problema técnico:</strong> O sistema cruzou CPF, renda declarada e composição familiar, mas não revelou qual variável disparou o cancelamento. É uma caixa-preta.<br><br><strong>Explicabilidade:</strong> Se fosse um modelo de machine learning, precisaríamos do SHAP ou feature importance para saber qual campo (renda per capita? idade do responsável? endereço?) foi determinante.<br><br><strong>Alerta:</strong> Cruzamentos automatizados entre bases governamentais geram erros em cascata. Um erro no CNIS (ex: registro de emprego fantasma) propaga para o CadÚnico e gera exclusão automática.`,
+      admin: `<strong>Problema de governança:</strong> Propomos supervisão humana antes do cancelamento de direitos sociais. É uma tese de governança do seminário: o art. 20 da LGPD prevê pedido de revisão e seu §2 trata de auditoria pela ANPD quando informações são negadas por segredo comercial ou industrial.<br><br><strong>Lei 14.129/2021:</strong> Art. 3, IV e VII, estabelece transparência e linguagem clara; o art. 6 trata de atos processuais eletrônicos. A notificação INCONSISTENCIA DE DADOS viola o princípio da transparência.<br><br><strong>Recomendação administrativa:</strong> O órgão gestor deve publicar portaria com os critérios de cancelamento e criar canal de contestação direta, sem necessidade de DPU.`,
+      cidadao: `<strong>Impacto no cenário didático:</strong> Esta família depende do Bolsa Família para comprar alimentos. Cancelamento automático = fome imediata. A tecnologia não mede isso.<br><br><strong>Exclusão digital:</strong> A família não tem internet em casa. Como vai acessar o gov.br para contestar? Como vai ler o tal critério se ele for publicado apenas online?<br><br><strong>Questão de classe:</strong> Quem tem renda informal, mora em área rural, ou não tem CPF regularizado é sempre o primeiro excluído por cruzamentos de dados. O algoritmo reproduz desigualdades.`
+    },
+    rankings: [
+      { pos: 1, name: "Defensoria Pública", score: "1.25", votes: 4 },
+      { pos: 2, name: "Cidadão", score: "2.00", votes: 4 },
+      { pos: 3, name: "Cientista de Dados", score: "3.00", votes: 4 },
+      { pos: 4, name: "Administrador Público", score: "3.75", votes: 4 }
+    ],
+    final: {
+      síntese: "Cancelamento automático do Bolsa Família sem explicação do critério algorítmico, violando o contraditório, a LGPD art. 20 e a Lei 14.129/2021.",
+      consenso: "Todos os conselheiros concordam: (1) a decisão carece de motivação; (2) falta canal de contestação acessível; (3) a supervisão humana prévia é a proposta de governança defendida nesta simulação.",
+      dissenso: "O Administrador Público defende que a ineficiência do sistema é um problema de infraestrutura, não de direitos. Os demais rejeitam essa leitura: direitos sociais não podem ser sacrificados por problemas técnicos do Estado.",
+      fundamentação: "Art. 5, LV (contraditório); Art. 6, CF (direitos sociais); Art. 20, LGPD (revisão de decisões automatizadas); Art. 3, IV e VII, Lei 14.129/2021 (transparência e linguagem clara); Art. 37, CF (princípios da administração pública); Lei 9.784/1999, art. 50, I e §1 (motivação na esfera federal).",
+      recomendação: "1) Pedido LAI à Dataprev exigindo critério do algoritmo; 2) Contestação no Fala.BR; 3) Se indeferido, mandado de segurança na Vara Federal com pedido de liminar. 4) Pressionar gestor municipal para atualizar CadÚnico.",
+      alerta: "O cruzamento automatizado entre CNIS e CadÚnico está sendo usado como atalho burocrático para reduzir filas de beneficiários, mascarando uma decisão política de austeridade como decisão técnica."
+    }
+  },
+  {
+    id: 2,
+    title: "IPTU Triplicado Automaticamente",
+    desc: "IPTU subiu 200% após atualização automatizada do cadastro imobiliário. Sem notificação prévia.",
+    tag: "Município",
+    context: "Um proprietário residencial teve o IPTU triplicado em 2025 após a Prefeitura atualizar o cadastro imobiliário via algoritmo que cruza dados de IPTU, carteira de trabalho, matrícula escolar dos filhos e registro de comércio. O sistema reclassificou automaticamente o imóvel de residencial para misto (residencial/comercial) sem inspeção presencial.",
+    personas: {
+      defensoria: `<strong>Problema jurídico:</strong> Ofensa ao princípio da legalidade tributária (art. 150, CF). A nova classificação não tem fundamento em lei municipal nem em vistoria técnica. É um aumento de tributo por algoritmo.<br><br><strong>LGPD art. 20:</strong> A decisão foi tomada unicamente por tratamento automatizado e afeta interesse patrimonial. O contribuinte tem direito à revisão.<br><br><strong>Recomendação:</strong> Impugnação ao IPTU + pedido de anulação do lançamento. Pedir LAI na Secretaria de Fazenda sobre o critério de reclassificação.`,
+      cientista: `<strong>Problema técnico:</strong> O algoritmo usou dados correlacionais como se fossem causais: ter filhos em escola particular e registro de MEI no mesmo endereço não prova uso comercial do imóvel.<br><br><strong>Viés:</strong> O modelo provavelmente foi treinado com dados de bairros comerciais ricos, gerando falso positivo para residências de classe média em transição.<br><br><strong>Transparência:</strong> A prefeitura deve publicar: features usadas, pesos, threshold de reclassificação, e taxa de erro do modelo. Nada foi publicado.`,
+      admin: `<strong>Problema de governança:</strong> Neste cenário fictício, a reclassificação exige exame da legislação municipal aplicável e da motivação do lançamento. A LRF fornece parâmetros de transparência fiscal, sem estabelecer essa regra geral de comunicação prévia.<br><br><strong>Lei 14.129/2021:</strong> Art. 3, IV e VII, prevê transparência e linguagem clara nos serviços públicos. A reclassificação não foi explicada.<br><br><strong>Recomendação:</strong> A prefeitura deve instituir revisão humana obrigatória antes de qualquer reclassificação cadastral com efeito tributário.`,
+      cidadao: `<strong>Impacto no cenário didático:</strong> IPTU triplicado = R$ 3.600/ano em vez de R$ 1.200. Para uma família com renda de R$ 4.000, isso é 7,5% da renda. O algoritmo não calcula isso.<br><br><strong>Acesso:</strong> A prefeitura publicou a reclassificação apenas no site. Quem não acessa internet não soube até receber o carnê.<br><br><strong>Território:</strong> Bairros periféricos com moradia mista (lojinha no térreo, casa em cima) são os mais atingidos. O algoritmo não distingue loja de sala de estar.`
+    },
+    rankings: [
+      { pos: 1, name: "Defensoria Pública", score: "1.00", votes: 4 },
+      { pos: 2, name: "Cientista de Dados", score: "2.25", votes: 4 },
+      { pos: 3, name: "Cidadão", score: "2.75", votes: 4 },
+      { pos: 4, name: "Administrador Público", score: "4.00", votes: 4 }
+    ],
+    final: {
+      síntese: "Reclassificação tributária automatizada de imóvel residencial para misto, sem vistoria, sem notificação e sem fundamento legal claro, caracterizando violação dos princípios da legalidade, anterioridade e da motivação.",
+      consenso: "Todos concordam que: (1) a reclassificação carece de vistoria presencial; (2) correlação entre dados não é causalidade; (3) o contribuinte deve ser notificado antes do aumento.",
+      dissenso: "O Administrador Público defende que a atualização cadastral automatizada é necessária para combater sonegação. Os demais respondem: a eficiência da arrecadação não justifica o sacrifício da legalidade.",
+      fundamentação: "Art. 150, CF (princípios tributários); Art. 20, LGPD; Art. 3, IV e VII, Lei 14.129/2021; Art. 37, CF (princípios administrativos); Lei 9.784/1999, art. 50, I e §1 (motivação na esfera federal); LC 101/2000 (LRF, transparência fiscal).",
+      recomendação: "1) Impugnação ao lançamento do IPTU; 2) LAI na Secretaria de Fazenda exigindo o algoritmo; 3) Mandado de segurança se indeferido; 4) Requerer vistoria técnica gratuita.",
+      alerta: "A prefeitura está usando o algoritmo para aumentar a arrecadação sem aumentar a carga tributária via lei -- um mecanismo de delegação indevida do poder de tributar para uma ferramenta técnica."
+    }
+  },
+  {
+    id: 3,
+    title: "Auxílio Emergencial Negado",
+    desc: "Cidadão considerado inelegível automaticamente por cruzamento de dados do CNIS, sem chance de corrigir.",
+    tag: "Benefício",
+    context: "Um trabalhador autônomo teve o pedido do Auxílio Emergencial negado automaticamente após cruzamento de dados entre PIS/Pasep, CNIS e Receita Federal. O sistema indicou inelegibilidade por vínculo empregatício ativo. O cidadão nunca teve carteira assinada. O erro veio de um registro fantasma no CNIS.",
+    personas: {
+      defensoria: `<strong>Problema jurídico:</strong> Ofensa ao direito ao mínimo existencial (art. 6, CF) e ao devido processo legal. A negativa foi automática, sem contraditório prévio.<br><br><strong>LGPD art. 6, V:</strong> O princípio da qualidade dos dados exige exatidão, clareza, relevância e atualização para a finalidade do tratamento. Um erro no CNIS não pode ser usado contra o cidadão sem chance de correção.<br><br><strong>Recomendação:</strong> Contestação extrajudicial via Dataprev + pedido de correção no CNIS via INSS. Se persistir, mandado de segurança com pedido de liminar.`,
+      cientista: `<strong>Problema técnico:</strong> O cruzamento de bases (PIS, CNIS, CPF) usa fuzzy matching que gera falsos positivos quando há homônimos ou digitação errada.<br><br><strong>Qualidade de dados:</strong> O exercício supõe um registro cadastral incorreto. Usar uma base como verdade incontestável, sem checar sua qualidade, pode propagar o erro.<br><br><strong>Recomendação técnica:</strong> O sistema deve exigir match exato (CPF + data de nascimento + nome da mãe) antes de declarar inelegibilidade. Fuzzy matching só para aprovação, nunca para negativa.`,
+      admin: `<strong>Problema:</strong> Neste cenário fictício, há negativa por cruzamento de dados e dificuldade para solicitar revisão. O art. 20 da LGPD garante pedido de revisão; supervisão humana prévia é a proposta defendida no exercício.<br><br><strong>Governança:</strong> O Ministério da Cidadania (órgão gestor) deve validar cada negativa antes de enviar à Caixa. O exercício simula a ausência de validação acessível ao interessado.<br><br><strong>Recomendação:</strong> Como proposta de governança, instituir avaliação humana e canal acessível para contestar negativas automatizadas.`,
+      cidadao: `<strong>Impacto:</strong> Trabalhador autônomo sem renda durante pandemia. Negativa automática = inscrição no Serasa por conta de luz, aluguel e água atrasados.<br><br><strong>Sem acesso:</strong> Neste cenário, o canal de contestação é apenas digital. Quem não tem internet ou não sabe usar o site fica excluído.<br><br><strong>Raça e classe:</strong> O exercício pergunta como instabilidade cadastral e barreiras de acesso podem agravar desigualdades raciais e sociais; não estima a incidência desses erros.`
+    },
+    rankings: [
+      { pos: 1, name: "Defensoria Pública", score: "1.50", votes: 4 },
+      { pos: 2, name: "Cientista de Dados", score: "2.00", votes: 4 },
+      { pos: 3, name: "Cidadão", score: "2.50", votes: 4 },
+      { pos: 4, name: "Administrador Público", score: "4.00", votes: 4 }
+    ],
+    final: {
+      síntese: "Negativa automática de benefício social baseada em dado fantasma do CNIS, sem revisão humana, sem contraditório e sem canal acessível de correção.",
+      consenso: "Todos concordam: (1) a negativa automática de benefício requer revisão humana; (2) dados de baixa qualidade não podem ser base para exclusão; (3) o cidadão precisa de canal físico e digital de contestação.",
+      dissenso: "O Administrador Público argumenta que o volume de um grande volume de pedidos inviabiliza revisão humana individual. Os demais respondem: o volume justifica mais investimento em qualidade de dados e supervisão, não justifica automatização sem contrapeso.",
+      fundamentação: "Art. 6, CF (direitos sociais); Art. 20, LGPD; Art. 6, V, LGPD (qualidade dos dados); Art. 5, LV, CF (contraditório); Lei 13.982/2020 (Auxílio Emergencial).",
+      recomendação: "1) Contestação via portal Dataprev; 2) Requerimento de correção no CNIS via INSS; 3) Pedido LAI sobre critério de cruzamento; 4) Se indeferido, DPU para mandado de segurança com liminar.",
+      alerta: "O governo está usando alegação de escala (um grande volume de pedidos) para justificar ausência de direitos fundamentais. Escala não anula o contraditório."
+    }
+  },
+  {
+    id: 4,
+    title: "INSS — Aposentadoria Rural Negada",
+    desc: "Aposentadoria rural por idade indeferida automaticamente, sem contraditório prévio, por inferência equivocada e com barreiras para esclarecer e contestar a inferência.",
+    tag: "Previdência",
+    context: "Uma trabalhadora rural (segurada especial) teve a aposentadoria por idade rural indeferida automaticamente. O sistema cruzou CNIS, CadÚnico, dados do ITR/CAR e geolocalização e INFERIU que ela exercia atividade urbana, desconsiderando a autodeclaração rural. A notificação do Meu INSS dizia apenas: NAO COMPROVADA A QUALIDADE DE SEGURADO ESPECIAL. Nenhuma explicação sobre quais dados, qual peso, ou como o sistema concluiu pela atividade urbana. O exercício supõe indeferimento sem oportunidade de esclarecer os dados e examina a proposta de contraditório prévio. A IN INSS 128/2022 integra o contexto normativo do segurado especial; não é prova deste caso fictício.",
+    personas: {
+      defensoria: `<strong>Problema jurídico:</strong> Violação frontal do contraditório e da ampla defesa (art. 5, LV, CF), que devem ser <em>prévios</em> à decisão -- e não supridos por recurso posterior. A negativa automática retira da segurada a chance de influenciar o resultado antes que ele produza efeitos.<br><br><strong>Norma descumprida pelo próprio órgão:</strong> A IN INSS 128/2022 disciplina o processo de benefícios e a autodeclaração do segurado especial. Neste caso fictício, a análise questiona a substituição da apreciação dos documentos por uma inferência opaca.<br><br><strong>Leis aplicáveis:</strong> Art. 20, LGPD (revisão de decisão automatizada); art. 194 e 201, CF (previdência como direito).<br><br><strong>Recomendação:</strong> Recurso ao Conselho de Recursos da Previdência Social (CRPS) arguindo nulidade por ausência de contraditório prévio + pedido LAI/Dataprev sobre o critério de inferência.`,
+      cientista: `<strong>Problema técnico:</strong> O sistema inferiu "atividade urbana" a partir de <em>proxies</em> (lacunas no CNIS, endereço geocodificado, registros correlatos) e tratou inferência como prova. Inferência não é fato.<br><br><strong>Viés de proxy:</strong> Trabalho rural informal e sazonal produz CNIS fragmentado por natureza -- exatamente o padrão que o modelo leu como "urbano". O modelo penaliza a informalidade que deveria proteger.<br><br><strong>Explicabilidade:</strong> Sem SHAP/feature importance publicado, ninguém sabe se foi o endereço, a lacuna contributiva ou o cruzamento com o ITR que disparou a negativa. A autodeclaração -- dado primário -- foi ignorada em favor de inferência secundária.`,
+      admin: `<strong>Problema de governança:</strong> Propomos supervisão humana antes do indeferimento de direitos sociais. O art. 20 da LGPD prevê pedido de revisão, sem exigir expressamente pessoa natural; seu §2 trata de auditoria pela ANPD quando informações são negadas por segredo comercial ou industrial.<br><br><strong>Regulador que se descumpre:</strong> A IN 128/2022 é norma do próprio INSS; a opacidade do indeferimento no exercício permite discutir a relação entre o Estado que edita regras e o Estado que as aplica.<br><br><strong>Lei 14.129/2021:</strong> Art. 3, IV e VII, estabelece transparência e linguagem clara; o art. 6 trata de atos processuais eletrônicos. "Nao comprovada a qualidade de segurado especial" não é motivação -- é fórmula vazia.<br><br><strong>Recomendação:</strong> Revisão humana obrigatória em toda negativa automática e publicação do critério de inferência rural/urbano.`,
+      cidadao: `<strong>Impacto no cenário didático:</strong> Trabalhadora rural idosa sem renda. Indeferimento automático = mais meses sem o benefício que já deveria estar recebendo, enquanto recorre.<br><br><strong>Literacia algorítmica:</strong> A pessoa muitas vezes nem sabe que foi uma máquina que decidiu -- nem o que é "inteligência artificial". Sem compreender que houve uma decisão algorítmica, ela não tem como contestar. Empoderar não é só abrir um canal: é traduzir a decisão em linguagem que ela entenda. Transparência não basta -- precisa ser inteligível.<br><br><strong>Notícia humana, não de máquina:</strong> A negativa de um benefício a quem está em situação de vulnerabilidade deveria, em tese, ser comunicada por um ser humano -- não por uma notificação automática e fria no app. O humano no circuito não só na decisão, mas no cuidado da comunicação.<br><br><strong>Exclusão digital, gênero e território:</strong> A negativa chega pelo Meu INSS. Quem vive no campo, sem internet estável e sem letramento digital, precisa viajar até a agência ou a Defensoria só para entender o que houve. É a segurada especial rural -- muitas vezes mulher, cuja atividade nem sempre gera registro próprio -- é a mais penalizada por sistemas que leem ausência de registro como ausência de trabalho. O algoritmo apaga o trabalho invisível.`
+    },
+    rankings: [
+      { pos: 1, name: "Defensoria Pública", score: "1.25", votes: 4 },
+      { pos: 2, name: "Cidadão", score: "2.25", votes: 4 },
+      { pos: 3, name: "Cientista de Dados", score: "2.50", votes: 4 },
+      { pos: 4, name: "Administrador Público", score: "4.00", votes: 4 }
+    ],
+    final: {
+      síntese: "Indeferimento automático de aposentadoria rural por inferência equivocada de atividade urbana, sem oportunidade de esclarecer previamente os dados, segundo a hipótese do exercício, sem motivação adequada e sem revisão humana -- com a agravante de o órgão violar a própria norma que editou.",
+      consenso: "Todos os conselheiros concordam: (1) o contraditório deve ser PRÉVIO à decisão, e recurso posterior não sana a nulidade; (2) autodeclaração (dado primário) não pode ser sobreposta por inferência (dado secundário) sem análise humana; (3) a motivação 'não comprovada a qualidade de segurado especial' é insuficiente; (4) a contestação pressupõe COMPREENSÃO -- a pessoa precisa saber que houve decisão algorítmica e entendê-la (inteligibilidade, não só transparência); e (5) a comunicação de negativa à pessoa vulnerável deveria ser feita por um humano, não por notificação automática.",
+      dissenso: "O Administrador Público pondera que o volume de requerimentos pressiona pela automação. Os demais respondem: quando o próprio regulador (INSS) aplica critérios de modo opaco no cenário fictício, o problema não é de escala, mas de subaplicação deliberada da norma contra o administrado.",
+      fundamentação: "Art. 5, LV, CF (contraditório e ampla defesa prévios); art. 194 e 201, CF (previdência social); art. 20, LGPD (pedido de revisão e informações sobre decisões automatizadas); art. 3, IV e VII, Lei 14.129/2021 (transparência e linguagem clara); IN INSS 128/2022 (rito do segurado especial). Cf. Tavares, Bitencourt e Cristóvam (2024) sobre explicabilidade e contraditório algorítmico.",
+      recomendação: "1) Recurso ao CRPS por nulidade (ausência de contraditório prévio); 2) Pedido LAI/Dataprev exigindo o critério de inferência rural/urbano; 3) Requerimento LGPD art. 20 de revisão da decisão automatizada; 4) Se mantido, acionar a Defensoria/DPU para mandado de segurança com pedido de liminar.",
+      alerta: "Este é o caso-síntese do seminário: o mesmo Estado que, como REGULADOR, edita a IN 128/2022 e a explicabilidade da Lei 14.129/2021 é, como REGULADO, o operador que automatiza o indeferimento e suprime o contraditório que ele próprio exige. Do poder-dever ao dever-poder: quem faz a regra é quem mais a descumpre."
+    }
+  }
+,
+  {
+    id: 5,
+    title: "Segurança Pública — Falso Positivo em Reconhecimento Facial (Salvador/RJ)",
+    desc: "Detenção indevida e constrangedora de cidadão inocente em Salvador devido a viés racial de algoritmo de vigilância.",
+    tag: "Segurança",
+    context: "Um jovem trabalhador negro foi abordado e cercado de forma coercitiva por policiais militares ao sair do metrô em Salvador, sob alegação de possuir mandado de prisão em aberto. O alerta de semelhança biométrica partiu das câmeras inteligentes de monitoramento urbano. O sistema de reconhecimento facial operava com threshold (limiar de precisão) perigosamente relaxado, gerando um 'fuzzy match' errôneo motivado pelo enviesamento de cor intrínseco aos bases estrangeiras de treino da solução.",
+    personas: {
+      defensoria: `Argumento do exercício: uma abordagem coercitiva exige fundamento jurídico verificável. Um alerta de similaridade, isoladamente, não demonstra identidade nem culpa; a presunção de inocência e a liberdade orientam a análise.`,
+      cientista: `Hipótese técnica do cenário: o falso positivo exige investigar dados de avaliação, limiares, taxas de erro e diferenças entre grupos. O exercício não identifica a causa do erro nem mede o desempenho de um sistema real.`,
+      admin: `Proposta de governança: documentar a triagem dos alertas, a verificação por pessoa responsável e os mecanismos de correção. O cenário não quantifica custos ou indenizações; as quatro leituras fundamentam a discussão geral de governança.`,
+      cidadao: `Perspectiva construída para o exercício: uma pessoa abordada precisa receber explicação compreensível, tratamento digno e um caminho para corrigir o registro. A proposta de comunicação humana é do seminário.`
+    },
+    rankings: [
+      { pos: 1, name: "Perspectiva da Defensoria", score: "1.08", votes: 4 },
+      { pos: 2, name: "Perspectiva de Dados", score: "2.12", votes: 4 },
+      { pos: 3, name: "Perspectiva do Cidadão", score: "2.65", votes: 4 },
+      { pos: 4, name: "Perspectiva de Gestão", score: "3.90", votes: 4 }
+    ],
+    final: {
+      síntese: "Restrição indevida do direito de ir e vir decorrente de cruzamento biométrico equivocado gerado por algoritmo de inteligência de videomonitoramento sem controle prévio de homônimos.",
+      consenso: "Convergência integral de que: 1) Alarmes de similaridade facial de IA não produzem presunção fundada de culpa para busca policial; 2) Limiares matemáticos configurados por entes privados para monitoramento de segurança pública ferem a reserva jurídica de soberania; 3) O cidadão tem direito à retratação humana digna imediata.",
+      dissenso: "Dissenso procedimental: o orientador em gestão julga que a câmera é insubstituível para localização de foragidos de extrema gravidade, embora reconheça de pronto que no presente caso a ausência do devido processo e a falha de triagem fulminaram o ato administrativo criminal.",
+      fundamentação: "Análise didática à luz da dignidade (CF, art. 1º, III), liberdade de locomoção (art. 5º, XV), presunção de inocência (art. 5º, LVII) e garantias da prisão (art. 5º, LXI). Não se apresenta precedente judicial ou limiar técnico como fundamento comprovado deste cenário fictício.",
+      recomendação: "Propostas do exercício: esclarecer e corrigir o alerta, documentar a verificação humana e avaliar o desempenho e o impacto do sistema antes de continuar seu uso. Não há limiar numérico validado nesta demonstração.",
+      alerta: "Softwares de policiamento preditivo e repressão biométrica adquiridos sem homologação e auditoria prévia de impacto aos direitos fundamentais reproduzem a herança do racismo estrutural computorizado."
+    }
+  },
+  {
+    id: 6,
+    title: "Pente-Fino em Lote do INSS — Suspensão de BPC sem Perícia",
+    desc: "Corte automático de Benefício de Prestação Continuada (LOAS) de deficiente físico fundamentado em cruzamento de bases cadastrais frias.",
+    tag: "Previdenciário",
+    context: "Uma cidadã cadeirante de baixa renda teve o pagamento de seu Benefício de Prestação Continuada (BPC/LOAS) sumariamente cortado por um algoritmo do INSS que realizou análise de cruzamento em lote. O eSocial indicou que sua filha, habitante de uma moradia de quintal de fundos do terreno, obteve emprego temporário. O algoritmo procedeu ao cálculo de renda per capita em lote de forma seca, presumindo renda familiar unificada contra o cadastro de coabitação informal, cancelando o mantimento físico sem perícia social.",
+    personas: {
+      defensoria: `Argumento do exercício: a revisão do benefício deve permitir que a pessoa conheça a razão do ato e apresente informações sobre sua situação familiar. O cenário analisa devido processo e proteção social; não reproduz um processo judicial.`,
+      cientista: `Hipótese técnica: proximidade territorial não prova, por si, compartilhamento de renda. O exercício propõe validar a composição familiar e a finalidade dos dados antes de transformar uma inferência em decisão.`,
+      admin: `Proposta de governança: comparar a economia alegada com os custos da revisão e as consequências da suspensão. Não há neste exercício cálculo de economia, condenações judiciais ou definição de competência de uma vara.`,
+      cidadao: `Perspectiva construída para o exercício: um aviso de cessação incompreensível e barreiras digitais podem dificultar a defesa de quem depende do benefício. Linguagem clara, atendimento acessível e comunicação cuidadosa são propostas do seminário.`
+    },
+    rankings: [
+      { pos: 1, name: "Perspectiva da Defensoria", score: "1.20", votes: 4 },
+      { pos: 2, name: "Perspectiva do Cidadão", score: "1.92", votes: 4 },
+      { pos: 3, name: "Perspectiva de Dados", score: "2.68", votes: 4 },
+      { pos: 4, name: "Perspectiva de Gestão", score: "3.95", votes: 4 }
+    ],
+    final: {
+      síntese: "Suspensão de benefício assistencial BPC motivada por inferência unilateral de renda familiar, suprimindo o rito do contraditório processual e laudo social biopsicossocial.",
+      consenso: "Convergência integral estabelecida pelo tribunal de que: 1) O auxílio do BPC constitui mínimo de dignidade e não sofre cortes automáticos por cruzamento cego de bases cadastrais; 2) Núcleos habitacionais de fundo de terreno não presumem contabilidade unificada; 3) A perícia socioassistencial humana é etapa insubstituível do ato legal.",
+      dissenso: "Incongruência mínima sobre as exigências de contrapartidas cadastrais do beneficiário, minorada pelo reconhecimento de todos de que a falência no fluxo de triagem e a falta de rito prévio inquinam o ato de impermanência constitucional.",
+      fundamentação: "Análise didática à luz do benefício assistencial previsto na CF, art. 203, V, do devido processo (art. 5º, LIV e LV) e do direito de solicitar revisão do art. 20 da LGPD. A demonstração não reproduz decisão judicial nem estabelece requisito médico-social geral para toda revisão.",
+      recomendação: "Propostas do exercício: explicar a razão da suspensão, permitir apresentação de documentos sobre a composição familiar e disponibilizar revisão acessível antes de efeitos irreversíveis. Prazos e medidas processuais dependem da situação concreta; não são determinados por esta simulação.",
+      alerta: "Sistemas federais de controle previdenciário que automatizam o cancelamento de direitos fundamentais sem callback de revisão humana institucionalizam a exclusão civil dos hipossuficientes."
+    }
+  }
+];
+
+let cPhase = 1;
+let cOnline = false;
+let cActiveCase = 4;
+
+function cChangeCase(val) {
+  cActiveCase = parseInt(val);
+  cPhase = 1;
+  cRender();
+}
+
+function cCheckOnline() {
+  cOnline = false;
+  document.getElementById("c-status-text").textContent = "● simulação local · casos fictícios e pareceres preparados";
+}
+
+let cTriggerEl = null;
+
+function cOverlayKeydown(e) {
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    cHide();
+  } else if (e.key === 'Tab') {
+    const overlay = document.getElementById('consejo-overlay');
+    const controls = [...overlay.querySelectorAll('button,select,a[href]')].filter(el => !el.disabled && el.getClientRects().length);
+    const first = controls[0], last = controls.at(-1);
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+  }
+}
+
+function cShow() {
+  cPhase = 1;
+  cActiveCase = 4;
+  const sel = document.getElementById('c-case-select');
+  if (sel) sel.value = "4";
+  cTriggerEl = document.activeElement;
+  const overlay = document.getElementById('consejo-overlay');
+  overlay.style.display = 'block';
+  cRender();
+  cCheckOnline();
+  // Phase rendering can replace the focused button; intercept dialog keys
+  // even when focus temporarily returns to the document body.
+  window.addEventListener('keydown', cOverlayKeydown, true);
+  // move focus into the dialog for keyboard / screen-reader users
+  if (sel) sel.focus();
+}
+
+function cHide() {
+  const overlay = document.getElementById('consejo-overlay');
+  window.removeEventListener('keydown', cOverlayKeydown, true);
+  overlay.style.display = 'none';
+  // restore focus to the element that opened the dialog
+  if (cTriggerEl && typeof cTriggerEl.focus === 'function') {
+    cTriggerEl.focus();
+  }
+}
+
+function cSetPhase(p) {
+  cPhase = p;
+  cRender();
+  document.querySelectorAll('#c-phases button')[p - 1]?.focus();
+}
+
+function cRender() {
+  const c = cases.find(x => x.id === cActiveCase);
+  if (!c) return;
+
+  // Phases bar
+  document.getElementById('c-phases').innerHTML =
+    ['Fase 1 · Pareceres','Fase 2 · Avaliações','Fase 3 · Parecer Final']
+      .map((l,i) => `<button class="${ i+1===cPhase?'cp-active':'' }" onclick="cSetPhase(${i+1})">${l}</button>`)
+      .join('');
+
+  const m = document.getElementById('c-main');
+
+  if (cPhase === 1) {
+    m.innerHTML = `
+      <div class="c-ctx"><strong>Caso: ${ c.title }</strong><br><em>${ c.context }</em></div>
+      <div class="c-card">
+        <div class="c-card-h"><div class="c-ico def">⚖</div><div><h4>Defensoria Pública</h4><span>Tavares, Bitencourt & Cristóvam</span></div></div>
+        <div class="c-body">${ c.personas.defensoria }</div>
+      </div>
+      <div class="c-card">
+        <div class="c-card-h"><div class="c-ico cie">📊</div><div><h4>Cientista de Dados</h4><span>Salgado & Saito</span></div></div>
+        <div class="c-body">${ c.personas.cientista }</div>
+      </div>
+      <div class="c-card">
+        <div class="c-card-h"><div class="c-ico adm">🏛</div><div><h4>Administrador Público</h4><span>Cristóvam & Hahn</span></div></div>
+        <div class="c-body">${ c.personas.admin }</div>
+      </div>
+      <div class="c-card">
+        <div class="c-card-h"><div class="c-ico cid">👤</div><div><h4>Cidadão</h4><span>Sarlet & Molinaro</span></div></div>
+        <div class="c-body">${ c.personas.cidadao }</div>
+      </div>
+    `;
+  } else if (cPhase === 2) {
+    const it = c.rankings.map(r =>
+      `<div class="c-ri"><span class="c-rp">#${r.pos}</span><span>${r.name}</span><span style="color:var(--ink-4);font-size:11px;margin-left:auto">Média: ${r.score} (${r.votes} avaliações)</span></div>`
+    ).join('');
+    m.innerHTML = `
+      <div class="c-full c-rank">
+        <h3>Ranking · Melhor Proteção ao Cidadão</h3>
+        <p style="font-size:12px;color:var(--ink-4);margin-bottom:14px">Avaliação cruzada anônima. Menor pontuação = maior prioridade aos direitos.</p>
+        ${ it }
+      </div>
+    `;
+  } else {
+    const recs = c.final.recomendação ? c.final.recomendação.split(/[;\n]/).filter(Boolean).map(x => `<li>${x.trim()}</li>`).join('') : '';
+    m.innerHTML = `
+      <div class="c-full c-final">
+        <h3>Parecer Final do Relator</h3>
+        <div class="s"><h4>Síntese</h4><p>${c.final.síntese}</p></div>
+        <div class="s"><h4>Consenso</h4><p>${c.final.consenso}</p></div>
+        <div class="s"><h4>Dissenso</h4><p>${c.final.dissenso}</p></div>
+        <div class="s"><h4>Fundamentação</h4><p>${c.final.fundamentação}</p></div>
+        <div class="s"><h4>Recomendação</h4><ul>${recs}</ul></div>
+        <div class="al"><p><strong>ALERTA:</strong> ${c.final.alerta}</p></div>
+      </div>
+    `;
+  }
+}
+</script>
+
+
+  <!-- ═════════════════ TWEAKS PANEL ═════════════════ -->
+  <div id="tweaks-panel">
+    <header>
+      <h3>Tweaks</h3>
+      <button class="x" id="tw-close" aria-label="fechar">✕</button>
+    </header>
+
+    <div class="row-t">
+      <div class="lab">Acento</div>
+      <div class="swatches" id="tw-accent">
+        <button data-v="bordeau" style="background:#8b1a1a" title="bordô"></button>
+        <button data-v="ink" style="background:#16140f" title="tinta"></button>
+        <button data-v="forest" style="background:#2a5d3a" title="folha"></button>
+        <button data-v="midnight" style="background:#1c3a6e" title="meia-noite"></button>
+      </div>
+    </div>
+
+    <div class="row-t">
+      <div class="lab">Densidade</div>
+      <div class="seg" id="tw-density">
+        <button data-v="compact">denso</button>
+        <button data-v="default">médio</button>
+        <button data-v="airy">aerado</button>
+      </div>
+    </div>
+
+    <div class="row-t">
+      <label class="tg">
+        <input type="checkbox" id="tw-terminal" checked>
+        <span>Acentos terminal</span>
+      </label>
+    </div>
+
+    <div class="row-t">
+      <label class="tg">
+        <input type="checkbox" id="tw-ornaments" checked>
+        <span>Ornamentos editoriais</span>
+      </label>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accent": "bordeau",
+      "density": "airy",
+      "terminal": true,
+      "ornaments": true
+    }/*EDITMODE-END*/;
+
+    const state = Object.assign({}, TWEAK_DEFAULTS);
+
+    function apply(){
+      document.body.dataset.accent = state.accent;
+      document.body.dataset.density = state.density;
+      document.body.dataset.terminal = state.terminal ? "on" : "off";
+      document.body.dataset.ornaments = state.ornaments ? "on" : "off";
+
+      document.querySelectorAll('#tw-accent button').forEach(b=>{
+        b.classList.toggle('sel', b.dataset.v === state.accent);
+      });
+      document.querySelectorAll('#tw-density button').forEach(b=>{
+        b.classList.toggle('sel', b.dataset.v === state.density);
+      });
+      document.getElementById('tw-terminal').checked = state.terminal;
+      document.getElementById('tw-ornaments').checked = state.ornaments;
+    }
+    function persist(){
+      try{ window.parent.postMessage({type:'__edit_mode_set_keys', edits:state}, '*'); }catch(e){}
+    }
+    function set(k,v){ state[k]=v; apply(); persist(); }
+
+    document.querySelectorAll('#tw-accent button').forEach(b=>{
+      b.addEventListener('click', ()=> set('accent', b.dataset.v));
+    });
+    document.querySelectorAll('#tw-density button').forEach(b=>{
+      b.addEventListener('click', ()=> set('density', b.dataset.v));
+    });
+    document.getElementById('tw-terminal').addEventListener('change', e=> set('terminal', e.target.checked));
+    document.getElementById('tw-ornaments').addEventListener('change', e=> set('ornaments', e.target.checked));
+
+    const panel = document.getElementById('tweaks-panel');
+    document.getElementById('tw-close').addEventListener('click', ()=>{
+      panel.classList.remove('open');
+      try{ window.parent.postMessage({type:'__edit_mode_dismissed'}, '*'); }catch(e){}
+    });
+
+    window.addEventListener('message', (ev)=>{
+      const d = ev.data || {};
+      if(d.type === '__activate_edit_mode'){ panel.classList.add('open'); }
+      if(d.type === '__deactivate_edit_mode'){ panel.classList.remove('open'); }
+    });
+
+    apply();
+    try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+  })();
+  </script>
+
+<template id="__bundler_thumbnail" data-bg-color="#fbfaf5">
+  <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="400,80 720,520 80,520" fill="none" stroke="#16140f" stroke-width="6"/>
+    <ellipse cx="400" cy="340" rx="180" ry="90" fill="#fbfaf5" stroke="#16140f" stroke-width="5"/>
+    <circle cx="400" cy="340" r="55" fill="#8b1a1a"/>
+    <rect x="378" y="318" width="44" height="44" fill="#0a0a0a"/>
+    <text x="400" y="200" text-anchor="middle" font-family="EB Garamond, Georgia, serif" font-style="italic" font-size="34" fill="#8b1a1a">SEMINÁRIO &middot; VIII</text>
+  </svg>
+</template>
+
+</body>
+</html>

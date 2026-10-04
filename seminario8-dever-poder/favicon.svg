@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Seminário 8 — Regulador ⇄ Regulado">
+  <rect width="32" height="32" rx="7" fill="#171717"/>
+  <g stroke-linecap="round">
+    <line x1="7.5" y1="12.5" x2="20.5" y2="12.5" stroke="#2b8cff" stroke-width="2.6"/>
+    <path d="M19.4 8.7 L24.8 12.5 L19.4 16.3 Z" fill="#2b8cff"/>
+    <line x1="24.5" y1="19.5" x2="11.5" y2="19.5" stroke="#de1d8d" stroke-width="2.6"/>
+    <path d="M12.6 15.7 L7.2 19.5 L12.6 23.3 Z" fill="#de1d8d"/>
+  </g>
+</svg>

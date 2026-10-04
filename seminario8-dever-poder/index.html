@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Seminário 8 — Índice · Vanzin & Oliveira</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Do Poder-Dever ao Dever-Poder: seminário de Ana Vitória Vanzin e Vinícius Oliveira, PPGD/UFSC. Slides, guia e demonstrações didáticas de contestabilidade algorítmica.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="integration.css">
+<link rel="canonical" href="https://anavanzin.com/seminario8-dever-poder/">
+<meta name="robots" content="index,follow">
+</head>
+
+<style>
+html{color-scheme:light}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+:root{
+  /* Vercel palette — achromatic precision */
+  --vc-black:#171717;
+  --vc-white:#ffffff;
+  --vc-gray900:#171717;
+  --vc-gray600:#4d4d4d;
+  --vc-gray500:#666666;
+  --vc-gray400:#808080;
+  --vc-gray100:#ebebeb;
+  --vc-gray50:#fafafa;
+
+  /* Workflow accents */
+  --vc-develop-blue:#0a72ef;
+  --vc-preview-pink:#de1d8d;
+  --vc-ship-red:#ff5b4f;
+
+  /* Shadow-as-border philosophy */
+  --vc-border-shadow:rgba(0,0,0,0.08) 0px 0px 0px 1px;
+  --vc-card-shadow:rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px, #fafafa 0px 0px 0px 1px;
+  --vc-focus-ring:2px solid hsla(212, 100%, 48%, 1);
+
+  /* Typography — Geist with aggressive negative tracking */
+  --vc-font-primary:'Geist', Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --vc-font-mono:'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing system (base unit: 8px) */
+  --vc-space-1:1px;
+  --vc-space-2:2px;
+  --vc-space-3:3px;
+  --vc-space-4:4px;
+  --vc-space-5:5px;
+  --vc-space-6:6px;
+  --vc-space-8:8px;
+  --vc-space-10:10px;
+  --vc-space-12:12px;
+  --vc-space-16:16px;
+  --vc-space-20:20px;
+  --vc-space-22:22px;
+  --vc-space-24:24px;
+  --vc-space-32:32px;
+  --vc-space-40:40px;
+  --vc-space-48:48px;
+  --vc-space-80:80px;
+  --vc-space-120:120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html,body{
+  background:var(--vc-white);
+  font-family:var(--vc-font-primary);
+  color:var(--vc-gray600);
+  line-height:1.56;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ─── SHEET: gallery emptiness, max-width 1200px ─── */
+.sheet{
+  max-width:1200px;
+  margin:0 auto;
+  padding:var(--vc-space-80) var(--vc-space-24);
+  position:relative;
+}
+
+@media(max-width:900px){
+  .sheet{padding:var(--vc-space-48) var(--vc-space-16)}
+}
+
+/* ─── TOP BAR: sticky shadow-border ─── */
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:var(--vc-space-12) 0;
+  box-shadow:0 1px 0 0 rgba(0,0,0,0.08);
+  margin-bottom:var(--vc-space-48);
+  position:sticky;
+  top:0;
+  background:var(--vc-white);
+  z-index:100;
+}
+
+.top-bar .brand{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+}
+
+.top-bar .meta{
+  font-family:var(--vc-font-primary);
+  font-size:14px;
+  font-weight:500;
+  color:var(--vc-gray900);
+}
+
+/* ─── HERO SECTION: compressed text, vast whitespace ─── */
+.hero{
+  margin-bottom:var(--vc-space-80);
+  text-align:left;
+}
+
+.hero-label{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+  margin-bottom:var(--vc-space-12);
+}
+
+.hero-title{
+  font-size:48px;
+  font-weight:600;
+  line-height:1.00;
+  letter-spacing:-2.4px;
+  color:var(--vc-gray900);
+  max-width:920px;
+  text-wrap:balance;
+  margin-bottom:var(--vc-space-24);
+}
+
+@media(max-width:768px){
+  .hero-title{font-size:36px;letter-spacing:-1.2px}
+}
+
+.hero-subtitle{
+  font-size:20px;
+  font-weight:400;
+  line-height:1.80;
+  color:var(--vc-gray600);
+  max-width:640px;
+}
+
+/* ─── THESIS BAND: accent workflow blue ─── */
+.thesis-band{
+  background:linear-gradient(90deg,#ebf5ff 0%,#fafafa 100%);
+  box-shadow:0 -1px 0 0 rgba(0,0,0,0.08), 0 1px 0 0 rgba(0,0,0,0.08);
+  padding:var(--vc-space-32);
+  margin:var(--vc-space-48) calc(var(--vc-space-24)*-1);
+  position:relative;
+}
+
+.thesis-band::before{
+  content:"§";
+  position:absolute;
+  left:calc(var(--vc-space-24)*-24);
+  top:50%;
+  transform:translateY(-50%);
+  background:linear-gradient(90deg,#ebf5ff 0%,#fafafa 100%);
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  font-family:var(--vc-font-primary);
+  font-size:24px;
+  color:var(--vc-develop-blue);
+  box-shadow:var(--vc-border-shadow);
+  border-radius:50%;
+}
+
+.thesis-label{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--vc-develop-blue);
+  margin-bottom:var(--vc-space-12);
+}
+
+.thesis-text{
+  font-size:24px;
+  font-weight:500;
+  line-height:1.25;
+  color:var(--vc-gray900);
+  text-wrap:balance;
+  max-width:960px;
+}
+
+.thesis-text .emphasis{
+  color:var(--vc-develop-blue);
+  font-style:italic;
+}
+
+.thesis-source{
+  display:block;
+  margin-top:var(--vc-space-16);
+  font-size:14px;
+  font-weight:400;
+  color:var(--vc-gray500);
+  font-style:italic;
+}
+
+/* ─── TABLE OF CONTENTS HEADER ─── */
+.toc-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:var(--vc-space-24);
+}
+
+.toc-header h2{
+  font-size:32px;
+  font-weight:500;
+  color:var(--vc-gray900);
+  letter-spacing:-1.28px;
+}
+
+.toc-count{
+  font-family:var(--vc-font-mono);
+  font-size:12px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+}
+
+/* ─── ENTRY CARDS: multi-layer shadows ─── */
+.toc-list{
+  display:flex;
+  flex-direction:column;
+  gap:var(--vc-space-16);
+  margin-bottom:var(--vc-space-80);
+}
+
+.entry-card{
+  background:var(--vc-white);
+  box-shadow:var(--vc-card-shadow);
+  border-radius:8px;
+  padding:var(--vc-space-24);
+  text-decoration:none;
+  color:inherit;
+  transition:transform 0.18s ease, box-shadow 0.18s ease;
+  position:relative;
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  gap:var(--vc-space-24);
+  align-items:start;
+}
+
+@media(max-width:900px){
+  .entry-card{grid-template-columns:1fr}
+}
+
+.entry-card:hover{
+  transform:translateY(-2px);
+  box-shadow:rgba(0,0,0,0.12) 0px 0px 0px 1px, rgba(0,0,0,0.08) 0px 4px 4px, rgba(0,0,0,0.04) 0px 12px 12px -6px;
+}
+
+.entry-card.primary{
+  background:linear-gradient(90deg,#fff7f2 0%,transparent 70%);
+}
+
+.entry-card.featured{
+  background:linear-gradient(90deg,#fdf2f8 0%,transparent 70%);
+}
+
+.entry-card.primary::before{
+  content:"";
+  position:absolute;
+  left:var(--vc-space-24);
+  top:var(--vc-space-20);
+  bottom:var(--vc-space-22);
+  width:3px;
+  background:var(--vc-ship-red);
+  border-radius:3px;
+}
+
+.entry-num{
+  font-family:var(--vc-font-mono);
+  font-size:36px;
+  font-weight:400;
+  color:var(--vc-gray900);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  line-height:1.0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.entry-num span{
+  font-size:11px;
+  color:var(--vc-gray500);
+  margin-top:6px;
+}
+
+.entry-content{
+  display:flex;
+  flex-direction:column;
+  gap:var(--vc-space-12);
+}
+
+.entry-kicker{
+  font-family:var(--vc-font-mono);
+  font-size:10.5px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--vc-develop-blue);
+}
+
+@media(max-width:900px){
+  .entry-kicker{font-size:9.5px;letter-spacing:0.20em}
+}
+
+.entry-title{
+  font-size:24px;
+  font-weight:500;
+  color:var(--vc-gray900);
+  letter-spacing:-0.96px;
+  line-height:1.25;
+}
+
+.entry-desc{
+  font-size:16px;
+  font-weight:400;
+  line-height:1.625;
+  color:var(--vc-gray600);
+  max-width:720px;
+}
+
+.entry-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tag-pill{
+  font-family:var(--vc-font-mono);
+  font-size:10.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  padding:3px 10px;
+  border-radius:9999px;
+  color:var(--vc-gray500);
+  background:var(--vc-gray50);
+  box-shadow:var(--vc-border-shadow);
+}
+
+.tag-pill.hot{
+  color:var(--vc-ship-red);
+  background:#fef2f2;
+}
+
+.tag-pill.new{
+  color:var(--vc-preview-pink);
+  background:#fdf4fb;
+}
+
+.tag-pill.author{
+  color:var(--vc-develop-blue);
+  background:#ebf5ff;
+}
+
+.entry-meta{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:var(--vc-space-8);
+}
+
+@media(max-width:900px){
+  .entry-meta{flex-direction:row;align-items:center;gap:var(--vc-space-12)}
+}
+
+.entry-stats{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+  text-align:right;
+}
+
+.entry-stats b{
+  color:var(--vc-gray900);
+}
+
+.entry-arrow{
+  font-family:var(--vc-font-primary);
+  font-size:24px;
+  color:var(--vc-gray400);
+  transition:transform 0.18s ease, color 0.18s ease;
+}
+
+.entry-card:hover .entry-arrow{
+  transform:translateX(4px);
+  color:var(--vc-gray900);
+}
+
+/* ─── ARC PREVIEW GRID ─── */
+.arc-section{
+  margin-bottom:var(--vc-space-80);
+}
+
+.arc-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:var(--vc-space-24);
+}
+
+.arc-header h3{
+  font-size:24px;
+  font-weight:500;
+  color:var(--vc-gray900);
+}
+
+.arc-byline{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+}
+
+.arc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--vc-space-2);
+  box-shadow:var(--vc-border-shadow);
+  border-radius:8px;
+  overflow:hidden;
+}
+
+@media(max-width:768px){
+  .arc-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+.arc-cell{
+  background:var(--vc-white);
+  padding:var(--vc-space-24);
+  border-right:1px solid rgba(0,0,0,0.08);
+  position:relative;
+  transition:background 0.18s ease;
+}
+
+.arc-cell:last-child{border-right:none}
+.arc-cell:hover{background:var(--vc-gray50)}
+
+@media(max-width:768px){
+  .arc-cell:nth-child(2){border-right:none;border-bottom:1px solid rgba(0,0,0,0.08);}
+  .arc-cell:nth-child(1),.arc-cell:nth-child(2){border-right:none;}
+}
+
+.arc-slidenumber{
+  font-family:var(--vc-font-mono);
+  font-size:10.5px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--vc-gray400);
+  margin-bottom:var(--vc-space-8);
+}
+
+.arc-act{
+  font-family:var(--vc-font-mono);
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--vc-develop-blue);
+  margin-bottom:var(--vc-space-8);
+}
+
+.arc-title{
+  font-size:18px;
+  font-weight:500;
+  color:var(--vc-gray900);
+  letter-spacing:-0.48px;
+  line-height:1.33;
+  margin-bottom:var(--vc-space-8);
+  text-wrap:balance;
+}
+
+.arc-description{
+  font-size:14px;
+  font-weight:400;
+  line-height:1.57;
+  color:var(--vc-gray600);
+  text-wrap:balance;
+}
+
+.arc-cell.peak{
+  background:linear-gradient(180deg,#fdf4ff 0%,#ffffff 100%);
+}
+
+.arc-cell.peak::after{
+  content:"★";
+  position:absolute;
+  right:var(--vc-space-16);
+  top:var(--vc-space-12);
+  color:var(--vc-preview-pink);
+  font-size:14px;
+}
+
+/* ─── COLOPHON ─── */
+.colophon{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--vc-space-48);
+  padding-top:var(--vc-space-32);
+  box-shadow:0 -1px 0 0 rgba(0,0,0,0.08);
+  margin-bottom:var(--vc-space-48);
+}
+
+@media(max-width:768px){
+  .colophon{grid-template-columns:1fr}
+}
+
+.colophon h4{
+  font-family:var(--vc-font-mono);
+  font-size:11px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+  margin-bottom:var(--vc-space-16);
+}
+
+.colophon p{
+  font-size:16px;
+  line-height:1.625;
+  color:var(--vc-gray600);
+  margin-bottom:var(--vc-space-12);
+}
+
+.colophon p .glyph{
+  display:inline-block;
+  width:20px;
+  text-align:center;
+  color:var(--vc-gray900);
+  margin-right:8px;
+}
+
+.qr-section{
+  text-align:center;
+  margin-top:var(--vc-space-20);
+}
+
+.qr-section img{
+  box-shadow:var(--vc-border-shadow);
+  border-radius:4px;
+  margin-bottom:var(--vc-space-8);
+}
+
+.qr-label{
+  font-family:var(--vc-font-mono);
+  font-size:9px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--vc-gray500);
+}
+
+/* ─── FOLIO ─── */
+.folio{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  color:var(--vc-gray500);
+  padding-top:var(--vc-space-24);
+  box-shadow:0 -1px 0 0 rgba(0,0,0,0.08);
+}
+
+.folia-left,.folio-right{
+  font-family:var(--vc-font-mono);
+  font-size:10.5px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+}
+
+/* ─── ACCESSIBILITY ─── */
+a:focus-visible{
+  outline:var(--vc-focus-ring);
+  outline-offset:2px;
+}
+
+</style>
+
+<body>
+<nav class="work-nav" aria-label="Navegação dos trabalhos"><a href="/trabalhos">← trabalhos</a><a href="/seminario8-dever-poder/">seminário</a><a href="/prot-tipo/">Conselho · demonstração</a><a href="/algoritmo-em-disputa/">adaptação do LLM Council</a></nav>
+
+<aside class="publication-context"><b>Um projeto acadêmico, três peças relacionadas.</b> Seminário de Ana Vitória Vanzin e Vinícius Oliveira; demonstração React do Conselho; adaptação jurídica de Ana a partir do LLM Council de Andrej Karpathy. As demonstrações usam cenários didáticos para explorar uma proposta de devido processo digital.<p><a href="/prot-tipo/">Explorar o Conselho</a> · <a href="/algoritmo-em-disputa/">Conhecer a adaptação</a> · <a href="https://github.com/anavvanzin/seminario8-dever-poder">Fonte do seminário</a></p></aside>
+<article class="sheet">
+
+  <!-- ──────────── TOP BAR ──────────── -->
+  <div class="top-bar">
+    <span class="brand">PPGD / UFSC · Seminário VIII</span>
+    <span class="meta">2026 · 25 mai</span>
+  </div>
+
+  <!-- ──────────── HERO ──────────── -->
+  <section class="hero">
+    <div class="hero-label">Volume único · dossiê de entrega</div>
+
+    <h1 class="hero-title">
+      Do <em>poder-dever</em> ao <em>dever-poder</em><br>
+      <span style="color:var(--vc-gray400)">um arcabouço para o contraditório algorítmico</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Quatro artigos lidos como um único arco: a privacidade que não cabe na regra, o governo aberto que falta cumprir, o big data que escapa do consentimento e a decisão algorítmica que precisa de contraditório.
+    </p>
+  </section>
+
+  <!-- ──────────── THESIS BAND ──────────── -->
+  <div class="thesis-band">
+    <div class="thesis-label">— tese · núcleo crítico —</div>
+    <p class="thesis-text">
+      O Estado opera como <span class="emphasis">regulador ⇄ regulado</span>: quem edita a regra é, com frequência, quem mais a descumpre contra o cidadão.
+    </p>
+    <span class="thesis-source">Cenário didático: aposentadoria rural negada pelo INSS sem contraditório · espelho internacional: SyRI, Haia, 2020.</span>
+  </div>
+
+  <!-- ──────────── TABLE OF CONTENTS ──────────── -->
+  <section class="toc-section">
+    <div class="toc-header">
+      <h2>Sumário da entrega</h2>
+      <span class="toc-count">04 · peças</span>
+    </div>
+
+    <nav class="toc-list">
+
+      <a class="entry-card primary" href="Seminario8.html">
+        <div class="entry-num">I<span>caput</span></div>
+        <div class="entry-content">
+          <div class="entry-kicker">peça principal · apresentação ao vivo</div>
+          <h3 class="entry-title">A <em>apresentação</em> — 35 lâminas em arco</h3>
+          <p class="entry-desc">
+            O deck completo, arco de tensão em quatro atos: <em>promessa</em> (LGPD e governo aberto) → <em>choque</em> (big data e IA) → <em>conflito</em> (tese Regulador⇄Regulado, INSS, SyRI) → <em>resolução</em> (proposta e protótipo). Sistema visual editorial — papel envelhecido, EB Garamond, marginália itálica, terminais neon para os ganchos contemporâneos.
+          </p>
+          <div class="entry-tags">
+            <span class="tag-pill hot">★ canônico</span>
+            <span class="tag-pill">35 slides</span>
+            <span class="tag-pill">1920 × 1080</span>
+            <span class="tag-pill">navegação ← →</span>
+            <span class="tag-pill">quatro artigos</span>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-stats"><b>35</b> · slides · <b>~45</b> · min</div>
+          <span class="entry-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="entry-card" href="Seminario8-print.html">
+        <div class="entry-num">II<span>impressa</span></div>
+        <div class="entry-content">
+          <div class="entry-kicker">para distribuição · pdf-ready</div>
+          <h3 class="entry-title">Versão para <em>impressão</em></h3>
+          <p class="entry-desc">
+            Mesmo conteúdo do deck, reflowed para folhas: sem chrome de slide, sem animação, sem fundos escuros que consomem toner. Para revisar página a página, anotar ou imprimir para o orientador. Use <em>Ctrl/Cmd + P</em> e salve como PDF.
+          </p>
+          <div class="entry-tags">
+            <span class="tag-pill">fluxo de papel</span>
+            <span class="tag-pill">print-friendly</span>
+            <span class="tag-pill">sem animação</span>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-stats"><b>A4</b> · paper</div>
+          <span class="entry-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="entry-card" href="Conselho.html">
+        <div class="entry-num">III<span>protótipo</span></div>
+        <div class="entry-content">
+          <div class="entry-kicker">demo ao vivo · ato seguinte ao slide 32</div>
+          <h3 class="entry-title">O <em>Conselho</em> de Contestação Algorítmica</h3>
+          <p class="entry-desc">
+            Demo enlatada (offline) do Conselho de Contestação Algorítmica: quatro vozes — administrativista, processualista, técnica e cidadã — deliberam sobre o caso INSS. Mostra como o contraditório algorítmico do art. IV (Tavares et al.) pode ser <em>encarnado em interface</em>, não só discutido em doutrina. Abre direto no navegador.
+          </p>
+          <div class="entry-tags">
+            <span class="tag-pill author">★ autoral</span>
+            <span class="tag-pill">caso INSS</span>
+            <span class="tag-pill">4 personas</span>
+            <span class="tag-pill">offline-ready</span>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-stats"><b>4</b> · cases · <b>4</b> · voices</div>
+          <span class="entry-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="entry-card featured" href="/seminario8-dever-poder/colegas">
+        <div class="entry-num">IV<span>kit</span></div>
+        <div class="entry-content">
+          <div class="entry-kicker">para os colegas · tudo em um lugar</div>
+          <h3 class="entry-title">Kit <em>Digital</em> completo</h3>
+          <p class="entry-desc">
+            Página de entrega para os colegas: slides, demonstrações do Conselho, artigos de referência, sugestões de leitura complementar, as 4 colunas da Administração 4.0 democrática e QR Code para compartilhamento. Tudo que o seminário produziu, num só lugar.
+          </p>
+          <div class="entry-tags">
+            <span class="tag-pill hot">★ novo</span>
+            <span class="tag-pill">slides + app</span>
+            <span class="tag-pill">artigos</span>
+            <span class="tag-pill">QR code</span>
+          </div>
+        </div>
+        <div class="entry-meta">
+          <span class="entry-arrow">→</span>
+        </div>
+      </a>
+
+    </nav>
+  </section>
+
+  <!-- ──────────── ARC PREVIEW ──────────── -->
+  <section class="arc-section">
+    <div class="arc-header">
+      <h3>Como o deck se desdobra — quatro atos</h3>
+      <span class="arc-byline">arco de tensão · 35 slides</span>
+    </div>
+
+    <div class="arc-grid">
+      <div class="arc-cell">
+        <div class="arc-slidenumber">01–09</div>
+        <div class="arc-act">ato i · promessa</div>
+        <h4 class="arc-title">A LGPD <em>quase</em> dá conta</h4>
+        <p class="arc-description">Salgado & Saito leem privacidade como direito complexo e situam a ANPD no limite da prestação normativa.</p>
+      </div>
+
+      <div class="arc-cell">
+        <div class="arc-slidenumber">10–15</div>
+        <div class="arc-act">ato ii · promessa²</div>
+        <h4 class="arc-title">Governo aberto, <em>se</em> fizermos</h4>
+        <p class="arc-description">Cristóvam & Hahn: dado aberto como valor público; INDA, marco normativo e boas práticas pendentes.</p>
+      </div>
+
+      <div class="arc-cell peak">
+        <div class="arc-slidenumber">16–24</div>
+        <div class="arc-act">ato iii · choque</div>
+        <h4 class="arc-title">O big data <em>já</em> chegou</h4>
+        <p class="arc-description">Sarlet & Molinaro e Tavares et al.: cinco campos, soberania de dados, IA & contraditório algorítmico em três tempos.</p>
+      </div>
+
+      <div class="arc-cell peak">
+        <div class="arc-slidenumber">25–34</div>
+        <div class="arc-act">ato iv · ato autoral</div>
+        <h4 class="arc-title">Regulador <em>contra</em> regulado</h4>
+        <p class="arc-description">A tese, o caso INSS, o espelho SyRI, a tabela 2020–26 e a passagem para o protótipo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── COLOPHON ──────────── -->
+  <section class="colophon">
+    <div>
+      <h4>Contribuição autoral</h4>
+      <p><span class="glyph">¶</span> Antes de cada contestação, um <em>pressuposto</em>: que se possa compreender o que se contesta. O contraditório algorítmico, sem isso, vira ornamento de manual.</p>
+    </div>
+
+    <div>
+      <h4>Método</h4>
+      <p><span class="glyph">§</span> Quatro artigos, uma única tese, dois casos espelhados. Cada artigo gera duas leituras canônicas e uma <em>nossa leitura</em>, em itálico, marginada, antes de avançar.</p>
+    </div>
+
+    <div>
+      <h4>Como navegar</h4>
+      <p><span class="glyph">→</span> Comece em <em>I. apresentação</em>. Imprima <em>II.</em> para anotar. Mostre <em>III.</em> ao vivo no slide 32. <em>IV.</em> reúne o guia e as leituras para continuar o debate.</p>
+
+      <div class="qr-section">
+        <img src="assets/qr.png" alt="QR code para https://anavanzin.com/seminario8-dever-poder/" width="120" height="120">
+        <div class="qr-label">QR · acesse o dossiê</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── FOLIO ──────────── -->
+  <footer class="folio">
+    <span class="folio-left">Vanzin & Oliveira · PPGD / UFSC</span>
+    <span class="folio-center">— ÍNDICE · I —</span>
+    <span class="folio-right">Seminário VIII · 2026</span>
+  </footer>
+
+</article>
+
+</body>
+</html>

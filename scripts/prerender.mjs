@@ -13,9 +13,12 @@ const targets = {
   'trabalhos.html': ['intro', 'sections'], 'perfil.html': ['intro', 'lines', 'more'],
   'manifesto/index.html': ['root'], 'quotes/index.html': ['quotesGrid', 'authorTags'],
 };
+// Restore one section without rewriting unrelated generated pages.
+const only = process.argv.slice(3);
+for (const file of only) if (!Object.hasOwn(targets, file)) throw new Error('Unknown prerender target: ' + file);
 const browser = await chromium.launch();
 try {
-  for (const [file, ids] of Object.entries(targets)) {
+  for (const [file, ids] of Object.entries(targets).filter(([file]) => !only.length || only.includes(file))) {
     const page = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 1280, height: 900 } });
     await page.addInitScript(() => { window.AV_PRERENDER = true; localStorage.setItem('av-lang', 'pt'); });
     await page.goto(base + '/' + file);

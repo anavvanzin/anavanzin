@@ -114,3 +114,15 @@ h1 span+span{padding:0 0 20px;border-bottom:1px solid var(--burgundy)}
  .methodology-intro{font-size:17px}
  .methodology-topics a{font-size:26px}
 }
+
+/* A high-contrast research feature within the opening editorial composition. */
+.defense-feature{max-width:43ch;margin:0 0 28px;padding:18px 24px;background:var(--burgundy);color:var(--paper)}
+.defense-kicker{font-size:11px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px}
+.defense-feature h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,2.8vw,40px);font-weight:400;line-height:1.1;margin:0 0 10px}
+.defense-topic{font-size:15px;line-height:1.5;margin:0 0 14px}
+.defense-link{display:flex;align-items:center;gap:12px;min-height:44px;padding:8px 0;border-top:1px solid var(--paper);color:var(--paper);font-size:16px;text-decoration:none}
+.defense-play{font-size:13px;flex:none}
+.defense-duration{margin-left:auto;font-size:13px;white-space:nowrap}
+.defense-link:hover{color:var(--paper);text-decoration:underline}
+.defense-link:focus-visible{outline-color:var(--paper);outline-offset:4px}
+@media(max-width:400px){.defense-feature{padding:20px 18px}.defense-link{gap:8px;font-size:15px}}
