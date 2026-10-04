@@ -25,6 +25,8 @@ for (const item of data.items) {
   }
   try { new URL(item.source.url) } catch { errors.push(`${item.id}: invalid source URL`) }
   if (item.review.status !== 'verified' || !/^\d{4}-\d{2}-\d{2}$/.test(item.review.reviewedAt)) errors.push(`${item.id}: review gate incomplete`)
+  const audit = item.review.audit
+  if (audit && (!['confirmed', 'partial', 'unavailable'].includes(audit.status) || !/^\d{4}-\d{2}-\d{2}$/.test(audit.checkedAt) || !audit.note?.pt?.trim() || !audit.note?.en?.trim())) errors.push(`${item.id}: incomplete source audit`)
   for (const image of [item.images.figure, item.images.plate]) {
     if (!fs.existsSync(path.join(root, 'public', image))) errors.push(`${item.id}: missing image ${image}`)
   }

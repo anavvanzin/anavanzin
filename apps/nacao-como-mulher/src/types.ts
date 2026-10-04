@@ -29,6 +29,7 @@ export interface ExhibitionItem {
   review: {
     status: 'verified'
     reviewedAt: string
+    audit?: { checkedAt: string; status: 'confirmed' | 'partial' | 'unavailable'; note: Localized }
   }
 }
 

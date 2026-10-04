@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { CONTOURS, freeIntervalAt, widestGap } from './engine'
+import { CONTOURS, freeIntervalAt, freeIntervalForLine, widestGap } from './engine'
 
 describe('widestGap', () => {
   it('returns the full width when nothing is blocked', () => {
@@ -20,6 +20,11 @@ describe('widestGap', () => {
 })
 
 describe('freeIntervalAt', () => {
+  it('excludes the whole plate rectangle and a line crossing its upper edge', () => {
+    const plate = { id: '', x: 300, y: 72, w: 240, h: 500 }
+    expect(freeIntervalForLine(900, 50, 34, [plate])).toEqual({ left: 558, right: 900 })
+    expect(freeIntervalAt(900, 600, [plate])).toEqual({ left: 0, right: 900 })
+  })
   it('uses the figure contour instead of returning the full width', () => {
     const contour = CONTOURS['BR-005-republica']
     const obstacle = { id: 'BR-005-republica', x: 300, y: 0, w: 240, h: contour.h * (240 / contour.w) }

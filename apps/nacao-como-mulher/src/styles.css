@@ -61,6 +61,18 @@ main { width: min(1480px, 100%); margin: 0 auto; }
 .comparison-link { margin-left: auto; white-space: nowrap; color: var(--wine); font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; text-decoration: none; }
 
 .objects { padding: 0 clamp(20px, 5vw, 78px); }
+.back-links { display: flex; flex-wrap: wrap; align-items: center; }
+.back-links .back-link + .back-link { margin-left: 0; }
+.reading-index { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.reading-index a { color: var(--wine); font-size: .85rem; line-height: 1.7; text-underline-offset: 4px; }
+.object-card { scroll-margin-top: 190px; }
+.reading-spread { display: block !important; padding: 72px 0; }
+.reading-stage { border: 0; padding-top: 0; }
+.reading-stage .living-text { padding: 0; border: 0; background: transparent; box-shadow: none; }
+.reading-stage .explore-meta { margin-bottom: 42px; }
+.reading-stage .object-subtitle { grid-column: 1; }
+.spread-notes { max-width: 820px; margin: 24px 0 0 auto; }
+.spread-notes .scope-badge { margin-bottom: 0; }
 .object-card { position: relative; display: grid; grid-template-columns: minmax(280px, .9fr) minmax(340px, 1.1fr); gap: clamp(34px, 6vw, 94px); padding: clamp(70px, 10vw, 142px) 0; border-bottom: 1px solid var(--line); }
 .object-card:nth-child(even) .object-visual { order: 2; }
 .object-card:nth-child(even) .object-copy { order: 1; }
