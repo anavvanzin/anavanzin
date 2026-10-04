@@ -270,7 +270,7 @@ for (const width of [390, 1440]) {
         await page.locator(`.nav > nav > a[href="${path}"]`).click();
         expect((await navigation).status(), `Navigation document ${path}`).toBe(200);
         await expect(page).toHaveURL(url => url.pathname === path);
-        const internalBrand = path === '/quotes/' ? page.locator('.back-mesa[href="/"]') : page.locator('.ed-bar > a.brand[href="/"]');
+        const internalBrand = path === '/quotes/' ? page.locator('.quotes-brand[href="/"]') : page.locator('.ed-bar > a.brand[href="/"]');
         await expect(internalBrand).toBeVisible();
         await expect(internalBrand).toHaveAccessibleName(/ana vanzin/i);
         if (path !== '/quotes/') {
