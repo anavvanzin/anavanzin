@@ -120,6 +120,37 @@ async function tabTo(page, locator) {
   throw new Error('The native link could not be reached with Tab');
 }
 
+for (const width of [320, 390, 768, 900, 1440]) {
+  test(`Malleus source downloads remain readable and keyboard reachable at ${width}px`, async ({ page }) => {
+    await visit(page, '/malleus/', width);
+    await page.getByRole('button', { name: 'Galeria de Fontes' }).click();
+    const links = page.locator('#tab-fontes .download-wrapper a');
+    await expect(links).toHaveCount(5);
+    for (const link of await links.all()) {
+      await link.scrollIntoViewIfNeeded();
+      await expect(page.locator('.download-wrapper')).toHaveCSS('opacity', '1');
+      const bounds = await link.evaluate(element => {
+        const card = element.closest('.bento-card').getBoundingClientRect();
+        const link = element.getBoundingClientRect();
+        return { left: link.left, right: link.right, width: link.width,
+          cardLeft: card.left, cardRight: card.right, viewport: innerWidth };
+      });
+      expect(bounds.width).toBeGreaterThan(44);
+      expect(bounds.left).toBeGreaterThanOrEqual(Math.max(0, bounds.cardLeft) - 1);
+      expect(bounds.right).toBeLessThanOrEqual(Math.min(bounds.viewport, bounds.cardRight) + 1);
+    }
+    const pdf = links.filter({ hasText: 'Artigo em PDF' });
+    await tabTo(page, pdf);
+    await expect(pdf).toBeFocused();
+    const opened = page.waitForEvent('popup');
+    await page.keyboard.press('Enter');
+    const document = await opened;
+    await expect(document).toHaveURL(url => url.pathname === '/assets/malleus/Artigo_Malleus_Bruxaria_ABNT.pdf');
+    await document.close();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width + 1);
+  });
+}
+
 async function enterHome(page, link) {
   await expect(link).toHaveAttribute('href', '/');
   expect(await link.evaluate(element => element instanceof HTMLAnchorElement)).toBe(true);

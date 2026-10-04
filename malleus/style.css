@@ -793,6 +793,18 @@ footer {
 footer a { color: var(--gold); text-decoration: none; font-weight: 700 }
 footer a:hover { text-decoration: underline }
 
+@media(max-width:900px) {
+  .download-wrapper .bento-grid { grid-template-columns: minmax(0, 1fr); }
+  .download-wrapper .bento-card { min-width: 0; }
+  .download-wrapper .bento-card-large {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .download-wrapper .bento-card-footer { flex-wrap: wrap; }
+  .download-wrapper .btn-premium { max-width: 100%; }
+}
+
 @media(max-width:600px) {
   .menubar { flex-wrap: wrap; gap: 8px 16px; }
   .menubar nav { order: 2; flex-basis: 100%; }
