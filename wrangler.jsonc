@@ -20,6 +20,9 @@
       "compatibility_flags": [
         "nodejs_compat"
       ],
+      "vars": {
+        "NODE_VERSION": "22"
+      },
       "kv_namespaces": [
         {
           "binding": "MESAS",
