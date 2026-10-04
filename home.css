@@ -28,13 +28,15 @@ h1 span+span{padding:0 0 20px;border-bottom:1px solid var(--burgundy)}
 .hero-portrait{position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;max-width:none}
 .hero-portrait video{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;filter:none}
 .portrait-control{position:absolute;right:var(--gutter);bottom:22px;border:0;border-bottom:1px solid var(--burgundy);padding:7px 10px;color:var(--burgundy);background:var(--paper);cursor:pointer;font-size:12px}
-.entry-links{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 var(--gutter) 60px;gap:40px;padding-top:36px;border-top-color:var(--burgundy)}
+.entry-links{grid-template-columns:repeat(3,minmax(0,1fr));margin:0 var(--gutter) 60px;gap:40px;padding-top:36px;border-top-color:var(--burgundy)}
 .entry-links article{display:block;padding-right:30px}
 .entry-links article+article{padding-left:40px}
 .entry-links h2{font-size:clamp(40px,4vw,58px);margin:0 0 14px}
 .entry-links p{font-size:17px;line-height:1.5;max-width:46ch;margin-bottom:18px}
 .entry-links a{font-size:23px}
 @media(max-width:1000px) and (min-width:721px){
+ .entry-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .entry-links .quotes-entry{grid-column:1 / -1;border-left:0;border-top:1px solid var(--burgundy);padding:28px 0 0}
  .hero-copy{width:48%;padding-top:42px}
  .signature{font-size:15px;margin-bottom:26px;letter-spacing:.14em}
  .intro{font-size:17px;line-height:1.5}
@@ -85,6 +87,32 @@ h1 span+span{padding:0 0 20px;border-bottom:1px solid var(--burgundy)}
  .hero-portrait{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:4/3;margin:0}
  .hero-portrait video{width:100%;height:100%;object-fit:cover;object-position:55% center}
  .portrait-control{right:var(--gutter);bottom:16px}
+}
+
+/* Methodology is a primary entry into the research, directly after the hero. */
+.nav nav{gap:clamp(12px,1.25vw,18px)}
+@media(min-width:1001px){.nav nav a{font-size:clamp(16px,1.2vw,18px)}}
+.nav .methodology-nav{color:var(--burgundy);text-decoration:underline;text-underline-offset:6px}
+.methodology-feature{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:clamp(36px,6vw,88px);background:var(--burgundy);color:var(--paper);padding:clamp(36px,4.5vw,64px) var(--gutter);margin-bottom:40px}
+.methodology-feature .eyebrow{color:var(--paper);margin:0 0 18px}
+.methodology-copy{min-width:0}
+.methodology-feature h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(54px,6vw,88px);font-weight:400;line-height:1;margin:0 0 20px;letter-spacing:-.02em}
+.methodology-intro{font-size:clamp(17px,1.4vw,20px);line-height:1.6;max-width:48ch;margin:0 0 28px}
+.methodology-feature a{color:var(--paper)}
+.methodology-feature a:hover{color:var(--gold)}
+.methodology-feature a:focus-visible{outline-color:var(--paper)}
+.methodology-cta{display:inline-block;font-family:'Instrument Serif',Georgia,serif;font-size:28px;text-decoration:none;border-bottom:1px solid currentColor;padding:6px 0}
+.methodology-topics{display:block;min-width:0}
+.methodology-topics .eyebrow{font-size:11px;letter-spacing:.15em}
+.methodology-topics a{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:58px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--paper) 40%,transparent);font-size:clamp(23px,2.2vw,32px);line-height:1.25;letter-spacing:0;text-transform:none}
+.methodology-topics a:first-of-type{border-top:1px solid color-mix(in srgb,var(--paper) 40%,transparent)}
+.methodology-topics a span:last-child{flex:none}
+@media(max-width:720px){
+ .nav nav{gap:12px 18px}
+ .methodology-feature{grid-template-columns:1fr;gap:32px;margin-bottom:28px}
+ .methodology-feature h2{font-size:clamp(48px,12vw,72px)}
+ .methodology-intro{font-size:17px}
+ .methodology-topics a{font-size:26px}
 }
 
 /* A high-contrast research feature within the opening editorial composition. */

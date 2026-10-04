@@ -11,7 +11,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     const feature = page.getByRole('region', { name: 'Defesa da dissertação' });
     await expect(feature).toBeVisible();
     await expect(feature).toContainText('Mestrado');
-    await expect(page.locator('.nav nav a')).toHaveCount(6);
+    await expect(page.locator('.nav nav a')).toHaveCount(8);
     for (const lang of ['pt', 'en']) {
       await page.getByRole('button', { name: lang.toUpperCase(), exact: true }).click();
       await expect(page.locator('html')).toHaveAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
