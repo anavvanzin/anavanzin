@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F5F0E6">
+  <title>Registro · Trechos · Ana Vanzin</title>
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="admin.css">
+<link rel="canonical" href="https://anavanzin.com/quotes/admin">
+<meta name="robots" content="noindex,follow">
+</head>
+<body class="quotes-page quotes-register">
+  <a class="skip-link" href="#main">Pular para a ficha</a>
+  <header class="running-head quotes-shell">
+    <a class="quotes-brand" href="/" aria-label="Ana Vanzin · início">ana vanzin</a>
+    <nav class="quotes-nav" aria-label="Navegação de Trechos / Quotes navigation">
+      <a href="/quotes/">Acervo</a>
+      <a href="/metodologia/">Método</a>
+      <a href="/quotes/admin" aria-current="page">Registro</a>
+    </nav>
+  </header>
+
+  <main class="adm-main" id="main" tabindex="-1">
+    <section class="adm-form-col" aria-labelledby="formTitle">
+      <h1 class="adm-title" id="formTitle">Novo trecho</h1>
+      <p class="adm-sub">Uma ficha para preparar a próxima entrada do acervo.</p>
+      <p class="adm-local-note" id="formHelp">O rascunho fica neste navegador ou no arquivo baixado. Esta prévia não publica trechos no acervo.</p>
+
+      <form id="quoteForm" aria-describedby="formHelp">
+        <div class="field">
+          <label for="quoteInput">Trecho <span class="req" aria-hidden="true">*</span></label>
+          <p class="field-help" id="quoteHelp">Campo obrigatório. Preserve o texto como deve aparecer no fólio.</p>
+          <textarea id="quoteInput" rows="6" required aria-describedby="quoteHelp dupWarning"
+            placeholder="Cole ou escreva o trecho aqui…"></textarea>
+        </div>
+        <div class="field">
+          <label for="attrInput">Atribuição <span class="opt">(opcional)</span></label>
+          <input type="text" id="attrInput" placeholder="Autor, obra — como deve aparecer no catálogo">
+        </div>
+        <div class="field">
+          <label for="dateInput">Data de registro <span class="req" aria-hidden="true">*</span></label>
+          <input type="date" id="dateInput" required>
+        </div>
+
+        <p class="adm-assign">Nº sugerido: <output id="assignNum">—</output></p>
+        <p class="field-help" id="catalogStatus" role="status">Consultando o catálogo para conferir número e duplicatas…</p>
+        <div id="dupWarning" class="adm-dup" role="alert" hidden></div>
+        <p class="field-help">Preencha o trecho e a data para salvar ou baixar. O número é provisório; duplicatas indicadas precisam ser conferidas.</p>
+
+        <div class="adm-actions">
+          <button id="submitBtn" type="submit" class="btn-primary" disabled>Salvar rascunho neste navegador</button>
+          <button id="exportBtn" type="button" class="btn-ghost" disabled>Baixar rascunho (.json)</button>
+          <button id="clearBtn" type="button" class="btn-ghost">Limpar rascunho</button>
+        </div>
+      </form>
+      <div id="statusBox" class="adm-status" role="status" aria-live="polite" hidden></div>
+      <noscript><p class="adm-noscript">Salvar, baixar e conferir duplicatas requer JavaScript. Os links de navegação permanecem disponíveis.</p></noscript>
+    </section>
+
+    <aside class="adm-preview-col" aria-labelledby="previewTitle">
+      <h2 id="previewTitle" class="adm-section-title">Prévia no fólio</h2>
+      <article class="folio-preview" id="previewCard">
+        <p class="entry"><span class="pilcrow" aria-hidden="true">¶</span><span id="previewQuote">O trecho aparece aqui conforme você digita.</span>
+          <span class="entry-author" id="previewAttr" hidden></span><sup id="previewNum">—</sup>
+        </p>
+        <p class="ap-line" id="previewDate"></p>
+      </article>
+      <p class="adm-preview-note">A atribuição e a data acompanham o texto. O arquivo baixado guarda o rascunho para revisão posterior.</p>
+    </aside>
+  </main>
+  <script src="admin.js" defer></script>
+</body>
+</html>
