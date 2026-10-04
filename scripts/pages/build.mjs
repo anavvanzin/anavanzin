@@ -26,6 +26,10 @@ const adapter = `${source.replace('export default {', 'const originalHandler = {
 const globalHeaders = ${JSON.stringify(globalHeaders)};
 export default {
   async fetch(request, env, context) {
+    const pathname = new URL(request.url).pathname;
+    if (pathname === "/trabalhos/iconocracia" || pathname.startsWith("/trabalhos/iconocracia/")) {
+      return env.ICONOCRACIA_WORK.fetch(request);
+    }
     const response = await originalHandler.fetch(request, env, context);
     const headers = new Headers(response.headers);
     for (const [name, value] of globalHeaders) headers.set(name, value);
@@ -39,7 +43,7 @@ export default {
 fs.writeFileSync(path.join(output, '_worker.js'), adapter);
 fs.writeFileSync(path.join(output, '_routes.json'), JSON.stringify({
   version: 1,
-  include: ['/_state', '/iconocracia/corpus/*', '/corpus/*'],
+  include: ['/trabalhos/iconocracia*', '/_state', '/iconocracia/corpus/*', '/corpus/*'],
   exclude: []
 }, null, 2) + '\n');
 fs.appendFileSync(path.join(output, '_headers'), `

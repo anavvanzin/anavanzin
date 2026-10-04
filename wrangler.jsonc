@@ -16,6 +16,7 @@
   ],
   "env": {
     "production": {
+      "services": [{ "binding": "ICONOCRACIA_WORK", "service": "anavanzin-kimi" }],
       "compatibility_date": "2026-10-04",
       "compatibility_flags": [
         "nodejs_compat"
