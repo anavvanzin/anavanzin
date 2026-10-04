@@ -1,5 +1,5 @@
 // Local migration proposal; do not deploy before approved binding setup.
-// Preview KV intentionally unbound: assign a separate namespace after approval.
+// Preview uses the approved isolated test namespace; production stays separate.
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "anavanzin",
@@ -16,7 +16,12 @@
   ],
   "env": {
     "preview": {
-      "kv_namespaces": []
+      "kv_namespaces": [
+        {
+          "binding": "MESAS",
+          "id": "6ea9865c03d640e1846cabda3d2194ec"
+        }
+      ]
     }
   }
 }
