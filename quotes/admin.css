@@ -1,0 +1,131 @@
+/* Registro local de Trechos. Autocontido; não altera o estilo do acervo. */
+body.quotes-register {
+  --qp: #F5F0E6;
+  --qi: #171412;
+  --qr: #750D20;
+  --mut: #625C57;
+  --line: rgba(23, 20, 18, .2);
+  --f-label: 'Instrument Serif', Georgia, serif;
+  --f-text: 'Crimson Pro', Georgia, serif;
+  --f-ui: 'DM Sans', system-ui, sans-serif;
+  color-scheme: light;
+  margin: 0;
+  background: var(--qp);
+  color: var(--qi);
+  font: 400 1rem/1.65 var(--f-ui);
+  -webkit-font-smoothing: antialiased;
+}
+.quotes-register * { box-sizing: border-box; }
+.quotes-register [hidden] { display: none !important; }
+.quotes-register ::selection { color: var(--qp); background: var(--qr); }
+.quotes-register :is(a, button, input, textarea):focus-visible {
+  outline: 2px solid var(--qr);
+  outline-offset: 4px;
+}
+.quotes-register .skip-link {
+  position: fixed; top: 8px; left: 12px; z-index: 50;
+  padding: 8px 12px; color: var(--qp); background: var(--qr);
+  transform: translateY(-160%);
+}
+.quotes-register .skip-link:focus { transform: none; }
+.quotes-register .running-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px 28px; flex-wrap: wrap; min-height: 82px;
+  padding: 14px clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid var(--line);
+}
+.quotes-register .quotes-brand {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--qi); font: 400 2.125rem/1 var(--f-label);
+  letter-spacing: -.02em; text-decoration: none;
+}
+.quotes-register .quotes-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.quotes-register .quotes-nav a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: 4px 0; color: var(--qi); font: 500 .875rem/1.4 var(--f-ui);
+  text-decoration: none; border-bottom: 1px solid transparent;
+}
+.quotes-register .quotes-nav a:hover,
+.quotes-register .quotes-nav a[aria-current="page"] {
+  color: var(--qr); border-bottom-color: var(--qr);
+}
+.quotes-register .adm-main {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: clamp(32px, 6vw, 88px); max-width: 1120px; margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 48px) 80px;
+}
+.quotes-register .adm-main > * { min-width: 0; }
+.quotes-register .adm-title {
+  margin: 0 0 12px; color: var(--qi);
+  font: 400 clamp(2.5rem, 5vw, 3.5rem)/1.05 var(--f-label);
+  letter-spacing: -.02em;
+}
+.quotes-register .adm-sub { margin: 0 0 20px; max-width: 40ch; color: var(--mut); }
+.quotes-register .adm-local-note {
+  margin: 0 0 32px; padding-left: 16px; border-left: 2px solid var(--qr);
+  font-size: .875rem; max-width: 48ch;
+}
+.quotes-register .field { margin-bottom: 24px; }
+.quotes-register .field label { display: block; font-weight: 500; margin-bottom: 8px; }
+.quotes-register .req { color: var(--qr); }
+.quotes-register .opt { color: var(--mut); font-weight: 400; }
+.quotes-register .field-help {
+  margin: 0 0 10px; color: var(--mut); font-size: .8125rem; line-height: 1.6;
+}
+.quotes-register .field :is(input, textarea) {
+  display: block; width: 100%; min-width: 0; min-height: 44px;
+  padding: 12px; color: var(--qi); background: transparent;
+  border: 1px solid var(--line); border-radius: 0;
+  font: 400 1rem/1.65 var(--f-ui);
+}
+.quotes-register .field textarea { min-height: 180px; resize: vertical; }
+.quotes-register .field :is(input, textarea):focus { border-color: var(--qr); }
+.quotes-register .adm-assign { margin: 8px 0; font-size: .875rem; }
+.quotes-register .adm-assign output { color: var(--qr); font-variant-numeric: tabular-nums; }
+.quotes-register .adm-dup {
+  margin: 12px 0; padding: 12px 16px; border-left: 2px solid var(--qr);
+  color: var(--qr); font-size: .875rem;
+}
+.quotes-register .adm-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.quotes-register .adm-actions button {
+  min-height: 44px; max-width: 100%; padding: 12px 16px; border-radius: 0;
+  font: 500 .875rem/1.5 var(--f-ui); cursor: pointer;
+}
+.quotes-register .btn-primary { border: 1px solid var(--qr); background: var(--qr); color: var(--qp); }
+.quotes-register .btn-ghost { border: 1px solid var(--line); background: transparent; color: var(--qi); }
+.quotes-register .btn-primary:hover:not(:disabled) { background: var(--qi); border-color: var(--qi); }
+.quotes-register .btn-ghost:hover:not(:disabled) { border-color: var(--qr); color: var(--qr); }
+.quotes-register .adm-actions button:disabled { opacity: .5; cursor: not-allowed; }
+.quotes-register .adm-status {
+  margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: .875rem; overflow-wrap: anywhere;
+}
+.quotes-register .adm-status.is-error { color: var(--qr); }
+.quotes-register .adm-section-title {
+  margin: 8px 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line);
+  font: 400 1.75rem/1.15 var(--f-label); letter-spacing: -.01em;
+}
+.quotes-register .folio-preview { padding: 0; }
+.quotes-register .entry {
+  margin: 0; color: var(--qi); font: 400 1.375rem/1.65 var(--f-text);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.quotes-register .pilcrow { margin-right: .35em; color: var(--qr); }
+.quotes-register .entry-author { color: var(--qr); font-style: italic; }
+.quotes-register .entry-author::before { content: ' — '; }
+.quotes-register .entry sup { margin-left: .35em; color: var(--qr); font: 400 .6875rem var(--f-ui); }
+.quotes-register .ap-line,
+.quotes-register .adm-preview-note { color: var(--mut); font-size: .8125rem; line-height: 1.65; }
+.quotes-register .ap-line { margin-top: 16px; }
+.quotes-register .adm-preview-note { margin-top: 24px; max-width: 40ch; }
+.quotes-register .adm-noscript { color: var(--qr); margin-top: 24px; }
+@media (max-width: 760px) {
+  .quotes-register .adm-main { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .quotes-register .adm-preview-col { padding-top: 24px; border-top: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .quotes-register .running-head { gap: 4px; }
+  .quotes-register .quotes-brand { width: 100%; }
+  .quotes-register .quotes-nav { width: 100%; gap: 8px 24px; }
+  .quotes-register .adm-actions { flex-direction: column; align-items: stretch; }
+}

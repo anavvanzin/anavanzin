@@ -13,23 +13,33 @@ const targets = {
   'trabalhos.html': ['intro', 'sections'], 'perfil.html': ['intro', 'lines', 'more'],
   'manifesto/index.html': ['root'], 'quotes/index.html': ['quotesGrid', 'authorTags'],
 };
+const folioQuotes = fs.readFileSync('quotes/index.html', 'utf8').includes('id="folioText"');
+if (folioQuotes) targets['quotes/index.html'] = [
+  'hero', 'folioText', 'apparatus', 'rangeLabel', 'totalLabel',
+  'folPrev', 'folLabel', 'folNext', 'headFol', 'authorTags',
+  'railWords', 'railLetters', 'drawerWords', 'drawerAuthors', 'footMiddle',
+];
 // Restore one section without rewriting unrelated generated pages.
 const only = process.argv.slice(3);
 for (const file of only) if (!Object.hasOwn(targets, file)) throw new Error('Unknown prerender target: ' + file);
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PRERENDER_BROWSER_CHANNEL ? { channel: process.env.PRERENDER_BROWSER_CHANNEL } : {});
 try {
   for (const [file, ids] of Object.entries(targets).filter(([file]) => !only.length || only.includes(file))) {
     const page = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 1280, height: 900 } });
     await page.addInitScript(() => { window.AV_PRERENDER = true; localStorage.setItem('av-lang', 'pt'); });
     await page.goto(base + '/' + file);
     await page.waitForFunction(id => document.getElementById(id)?.textContent.trim().length > 10, ids[0]);
-    if (file.startsWith('quotes/')) await page.waitForFunction(() => document.querySelectorAll('.quote-card').length >= 40);
+    if (file.startsWith('quotes/')) {
+      await page.waitForFunction(isFolio => document.querySelectorAll(isFolio ? '#folioText .entry' : '.quote-card').length >= (isFolio ? 14 : 40), folioQuotes);
+    }
     let source = fs.readFileSync(file, 'utf8');
     for (const id of ids) {
       const value = await page.locator('#' + id).evaluate(el => {
         const copy = el.cloneNode(true);
         copy.querySelectorAll('.rise').forEach(n => { n.classList.remove('rise'); });
         copy.querySelectorAll('.quote-card').forEach(n => n.classList.add('visible'));
+        // Keep the static folio readable without offering inert opening controls.
+        copy.querySelectorAll('button.entry, button.hero-open').forEach(n => { n.disabled = true; });
         return copy.outerHTML;
       });
       const marker = `<!-- prerender:${id} -->`;
@@ -49,7 +59,7 @@ try {
       source = source.replace(/<title>.*?<\/title>/s, `<title>${escape(title)}</title>`)
         .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(description)}">`);
     }
-    if (file === 'quotes/index.html') {
+    if (file === 'quotes/index.html' && !folioQuotes) {
       const content = await page.locator('.hero-section').evaluate(el => el.outerHTML);
       const marker = '<!-- prerender:hero -->', end = '<!-- /prerender:hero -->';
       const fragment = marker + content + end;
