@@ -62,7 +62,9 @@ _LEIA.md
 package.json
 package-lock.json
 playwright.config.js
+playwright.pages.config.js
 wrangler.jsonc
+.node-version
 worker.js
 worker-configuration.d.ts
 vercel.json

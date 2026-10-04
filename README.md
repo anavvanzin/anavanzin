@@ -35,34 +35,41 @@ atlas-lab/        Atlas Lab (index.html · data.js · app.jsx)
 
 Domínio canônico: **anavanzin.com**.
 
-### O que serve o domínio hoje
+### Cloudflare Pages
 
-`anavanzin.com` aponta exclusivamente para **GitHub Pages** (atrás do proxy
-Cloudflare). Um push em `main` dispara
-[`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+A configuração do projeto `anavanzin` usa `main` para produção e
+`codex/pages-preflight` para prévia. O build é `npm run build:pages`, com saída
+em `.worker-assets`. O corte do domínio canônico para Pages depende de validar
+o deployment de produção e as rotas; `www` deve redirecionar ao domínio principal
+preservando caminho e query string.
 
-### Cloudflare Workers (`anavvanzin`)
+[`wrangler.jsonc`](wrangler.jsonc) é a fonte da configuração Functions. `MESAS`
+usa o namespace existente de produção; a prévia usa um namespace distinto.
+O binding D1 `corpus` existente é preservado somente em produção. O site não
+consulta nem modifica esse banco neste pipeline.
 
-Há também um Worker técnico com a mesma árvore estática (`wrangler.jsonc`), usado
-para validação e testes de assets; ele não é a origem pública de
-`anavanzin.com`. Workers Builds estava quebrado porque o diretório temporário
-`.worker-assets/` não existe em um checkout remoto limpo antes de `npx wrangler deploy`.
+O preparo do artifact usa arquivos rastreados do HEAD. Para validar mudanças
+locais destinadas à publicação, faça um commit na feature branch antes do build.
+Ferramentas, infraestrutura interna e mídia acima do limite ficam fora do artifact.
 
-O Worker serve a raiz do checkout e [`.assetsignore`](.assetsignore) exclui `.git/`,
-infraestrutura interna e mídia acima do limite de 25 MiB. Assim o comando padrão
-do Workers Builds e o deploy manual usam exatamente o mesmo caminho.
+### Caminho de retorno
 
-- **Deploy manual:** `npm run deploy:worker`
-- **Workers Builds:** comando padrão `npx wrangler deploy` (sem etapa prévia)
-- **GitHub Pages:** ainda usa `npm run stage:assets` para gerar o artifact do workflow
+O Worker `anavanzin` anterior e seus dados continuam preservados. Antes de
+publicar, é necessário isolar os dois Workers Builds legados ligados incorretamente
+a este repo de `main` e `codex/pages-preflight`, sem apagar os serviços nem revogar
+a conexão GitHub compartilhada. Veja o [procedimento de rollback](scripts/pages/ROLLBACK.md).
+
+O workflow [GitHub Pages](.github/workflows/deploy-pages.yml) continua publicando
+uma cópia a partir de `main`. Ele não é o mecanismo de publicação canônico do Pages.
 
 ### Vercel
 
 Vercel está desativado para deploys automáticos de Git neste repo. O arquivo
 [`vercel.json`](vercel.json) mantém `git.deploymentEnabled: false`; o domínio
-canônico continua em GitHub Pages/Cloudflare.
+canônico é `anavanzin.com`.
 
-Todos os caminhos são relativos — o site funciona em qualquer subdiretório, sem ajuste de caminho-base.
+O site usa caminhos a partir da raiz do domínio. As rotas dos trabalhos e os
+redirects históricos são preservados no artifact de publicação.
 
 ## Notas
 

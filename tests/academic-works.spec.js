@@ -48,10 +48,14 @@ test('seminar deck navigation and local council preserve slide position', async 
   await expect(active()).toHaveAttribute('data-label', /32/);
 });
 
-test('prepared demonstrations issue no API or external requests', async ({ page }) => {
+test('prepared demonstrations issue no API or external requests', async ({ page, baseURL }) => {
   const requests = [];
   const errors = [];
-  page.on('request', r => { if (!r.url().startsWith('http://localhost:8080') && !r.url().startsWith('http://127.0.0.1:8097')) requests.push(r.url()); });
+  const origin = new URL(baseURL).origin;
+  page.on('request', r => {
+    const url = new URL(r.url());
+    if (url.origin !== origin || r.method() !== 'GET' || /^\/(?:api|_state)(?:\/|$)/.test(url.pathname)) requests.push(r.url());
+  });
   page.on('pageerror', e => errors.push(e.message));
   for (const path of ['/seminario8-dever-poder/Conselho.html', '/prot-tipo/', '/algoritmo-em-disputa/']) {
     await page.goto(path);

@@ -55,7 +55,9 @@ README.md export-ignore
 package.json export-ignore
 package-lock.json export-ignore
 playwright.config.js export-ignore
+playwright.pages.config.js export-ignore
 wrangler.jsonc export-ignore
+.node-version export-ignore
 worker.js export-ignore
 worker-configuration.d.ts export-ignore
 vercel.json export-ignore

@@ -1,59 +1,46 @@
+// Pages deployment configuration. Preview and production use separate MESAS KV.
+// Preserve the existing production corpus binding without querying its data.
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "anavvanzin",
-  // Bump deliberately after a local dry-run and a successful Workers build:
-  // https://developers.cloudflare.com/workers/best-practices/workers-best-practices/
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "anavanzin",
+  "pages_build_output_dir": "./.worker-assets",
   "compatibility_date": "2026-09-06",
   "compatibility_flags": [
-    // Enables Node.js built-ins for any future Worker script / library use.
-    // Default for dates ≥ 2026-08-04; kept explicit for clarity.
     "nodejs_compat"
   ],
-  // Memória mínima da mesa: worker.js atende /_state e preserva URLs .html do corpus.
-  "main": "worker.js",
   "kv_namespaces": [
     {
       "binding": "MESAS",
-      // Namespace criado em 2026-08-20 via `npx wrangler kv namespace create MESAS`.
       "id": "f68b5eef312746c794e86c37be7bf7e1"
     }
   ],
-  // Logs + traces before production debugging is needed.
-  "observability": {
-    "enabled": true,
-    "logs": {
-      "enabled": true,
-      // Academic/static traffic is low — capture all logs.
-      "head_sampling_rate": 1,
-      "invocation_logs": true
+  "env": {
+    "production": {
+      "compatibility_date": "2026-10-04",
+      "compatibility_flags": [
+        "nodejs_compat"
+      ],
+      "kv_namespaces": [
+        {
+          "binding": "MESAS",
+          "id": "f68b5eef312746c794e86c37be7bf7e1"
+        }
+      ],
+      "d1_databases": [
+        {
+          "binding": "corpus",
+          "database_name": "iconocracy-corpus",
+          "database_id": "77c09df7-b510-48b3-8a39-94b39416aa2f"
+        }
+      ]
     },
-    "traces": {
-      "enabled": true,
-      // Sample traces lightly; raise if diagnosing latency.
-      "head_sampling_rate": 0.01
+    "preview": {
+      "kv_namespaces": [
+        {
+          "binding": "MESAS",
+          "id": "6ea9865c03d640e1846cabda3d2194ec"
+        }
+      ]
     }
-  },
-  "assets": {
-    // Workers Builds runs `npx wrangler deploy` in a clean checkout. Serving
-    // the checkout directly keeps that default command self-contained;
-    // .assetsignore is the publication boundary for tooling and large media.
-    "directory": ".",
-    // Required for env.ASSETS.fetch() in worker.js (404-page / html_handling).
-    "binding": "ASSETS",
-    // State and corpus compatibility routes run the Worker first; other routes stay asset-first.
-    // https://developers.cloudflare.com/workers/static-assets/routing/worker-script/
-    "run_worker_first": [
-      "/_state",
-      "/iconocracia/corpus/*",
-      "/corpus/*"
-    ],
-    // Serve directory pages (e.g. /iconocracia/index.html) at both /iconocracia
-    // and /iconocracia/ without forcing a redirect — matches the site's mix of
-    // /dir/ links and /file.html links. This is the Workers default, set
-    // explicitly so routing is not left implicit.
-    "html_handling": "auto-trailing-slash",
-    // Serve the custom 404.html on unknown routes. Without this the default is a
-    // bare 404 and 404.html (with its "← ana vanzin" backlink) is never reached.
-    "not_found_handling": "404-page"
   }
 }
