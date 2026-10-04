@@ -98,6 +98,7 @@ function SourcePanel({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
         <p className="citation">{t(item.source.citation, lang)}</p>
         <a href={item.source.url} target="_blank" rel="noreferrer">{item.source.institution} ↗</a>
         <small>{c.reviewed} {item.review.reviewedAt}</small>
+        {item.review.audit && <p className="citation"><span>{lang === 'pt' ? 'Revisão de fontes' : 'Source review'} · {item.review.audit.checkedAt}</span>{t(item.review.audit.note, lang)}</p>}
       </div>
     </details>
   )
@@ -135,7 +136,7 @@ function ReadingCard({ item, index, lang, selected, onCompare }: {
   )
 }
 
-function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
+function ExploreStage({ item, lang, reading = false }: { item: ExhibitionItem; lang: Lang; reading?: boolean }) {
   const c = copy[lang]
   const stageRef = useRef<HTMLDivElement>(null)
   const dragRef = useRef<{ pointerId: number; offsetX: number; offsetY: number } | null>(null)
@@ -143,7 +144,7 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
   const id = figureId(item)
   const contour = CONTOURS[id]
   const [width, setWidth] = useState(900)
-  const initialWidth = Math.min(290, width * 0.36)
+  const initialWidth = Math.min(reading ? 340 : 290, width * 0.36)
   const initial = useMemo<Obstacle>(() => ({
     id, x: Math.max(10, width - initialWidth - 28), y: 72, w: initialWidth,
     h: contour.h * (initialWidth / contour.w),
@@ -161,21 +162,25 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
   useEffect(() => setObstacle(initial), [initial])
 
   const blocks = useMemo(() => [
-    { text: t(item.title, lang), font: '600 32px Georgia', lineHeight: 40, heading: true, gapAfter: 18 },
-    { text: t(item.observed, lang), font: '18px Georgia', lineHeight: 30, gapAfter: 16 },
-    { text: t(item.context, lang), font: '18px Georgia', lineHeight: 30, gapAfter: 16 },
-    { text: t(item.interpretation, lang), font: '18px Georgia', lineHeight: 30, gapAfter: 0 },
-  ], [item, lang])
-  const layout = useMemo(() => flowText(width, blocks, obstacle, cache), [blocks, cache, obstacle, width])
+    ...(!reading ? [{ text: t(item.title, lang), font: '600 32px Georgia', lineHeight: 40, heading: true, gapAfter: 18 }] : []),
+    ...([['observed', c.observed], ['context', c.context], ['interpretation', c.interpretation]] as const).flatMap(([field, label]) => [
+      { text: label, font: 'bold 13px Georgia', lineHeight: 22, heading: true, gapAfter: 6 },
+      { text: t(item[field], lang), font: '20px Georgia', lineHeight: 34, gapAfter: 26 },
+    ]),
+  ], [item, lang, reading, c])
+  // Full plates occupy a rectangle; cut-outs use their measured contours.
+  const flowObstacle = useMemo(() => showPlate ? { ...obstacle, id: '' } : obstacle, [obstacle, showPlate])
+  const layout = useMemo(() => flowText(width, blocks, flowObstacle, cache), [blocks, cache, flowObstacle, width])
   // The bounds must not follow the figure as it moves down the stage.
-  const baseline = useMemo(() => flowText(width, blocks, { ...obstacle, y: 72 }, cache), [blocks, cache, obstacle.w, obstacle.h, obstacle.x, width])
-  const height = Math.max(560, baseline.height + 40, obstacle.h + 156)
+  const baseline = useMemo(() => flowText(width, blocks, { ...flowObstacle, y: 72 }, cache), [blocks, cache, flowObstacle.id, obstacle.w, obstacle.h, obstacle.x, width])
+  const boundsHeight = Math.max(560, baseline.height + 40, obstacle.h + 156)
+  const height = Math.max(boundsHeight, layout.height + 40)
 
   const clamp = useCallback((next: Obstacle): Obstacle => ({
     ...next,
     x: Math.min(Math.max(0, next.x), Math.max(0, width - next.w)),
-    y: Math.min(Math.max(0, next.y), Math.max(0, height - next.h - 42)),
-  }), [height, width])
+    y: Math.min(Math.max(0, next.y), Math.max(0, boundsHeight - next.h - 42)),
+  }), [boundsHeight, width])
 
   const resize = (delta: number) => setObstacle((current) => {
     const nextWidth = Math.min(Math.min(430, width * 0.9), Math.max(Math.min(150, width * 0.28), current.w + delta))
@@ -195,19 +200,22 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
   }
 
   return (
-    <section className="explore-section" aria-labelledby={`explore-${item.id}`}>
+    <section className={reading ? 'explore-section reading-stage' : 'explore-section'} aria-labelledby={`explore-${item.id}`}>
       <div className="explore-meta">
-        <p className="eyebrow">{t(item.territory, lang)} · {date(item, lang)}</p>
+        <p className="eyebrow">{t(item.territory, lang)} · {date(item, lang)} · {t(item.medium, lang)}</p>
         <h2 id={`explore-${item.id}`}>{t(item.title, lang)}</h2>
+        {reading && <p className="object-subtitle">{t(item.subtitle, lang)}</p>}
         <p id={`instructions-${item.id}`}>{c.instructions}</p>
         <div className="explore-actions">
           <button type="button" onClick={() => setShowPlate((value) => !value)}>{showPlate ? c.figure : c.original}</button>
           <button type="button" onClick={() => setObstacle(initial)}>{c.reset}</button>
+          <button type="button" onClick={() => resize(-18)} aria-label={lang === 'pt' ? 'Diminuir figura' : 'Shrink figure'}>−</button>
+          <button type="button" onClick={() => resize(18)} aria-label={lang === 'pt' ? 'Aumentar figura' : 'Enlarge figure'}>+</button>
         </div>
       </div>
       <div className="living-text" ref={stageRef} style={{ height }}>
         <div aria-hidden="true">{layout.lines.map((line, index) => (
-          <span key={`${line.y}-${index}`} className={line.heading ? 'living-line heading' : 'living-line'} style={{ left: line.x, top: line.y }}>{line.text}</span>
+          <span key={`${line.y}-${index}`} className={line.heading ? 'living-line heading' : 'living-line'} style={{ left: line.x, top: line.y, font: line.font, lineHeight: `${line.lineHeight}px` }}>{line.text}</span>
         ))}</div>
         <button
           type="button"
@@ -232,14 +240,14 @@ function ExploreStage({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
           onPointerUp={() => { dragRef.current = null }}
           onPointerCancel={() => { dragRef.current = null }}
         >
-          <img src={asset(showPlate ? item.images.plate : item.images.figure)} alt="" draggable={false} />
+          <img src={asset(showPlate ? item.images.plate : item.images.figure)} alt="" draggable={false} loading="lazy" />
         </button>
         <div className="sr-only">
           <h3>{t(item.title, lang)}</h3>
-          <p>{t(item.observed, lang)}</p><p>{t(item.context, lang)}</p><p>{t(item.interpretation, lang)}</p>
+          <dl><dt>{c.observed}</dt><dd>{t(item.observed, lang)}</dd><dt>{c.context}</dt><dd>{t(item.context, lang)}</dd><dt>{c.interpretation}</dt><dd>{t(item.interpretation, lang)}</dd></dl>
         </div>
       </div>
-      <SourcePanel item={item} lang={lang} />
+      {!reading && <SourcePanel item={item} lang={lang} />}
     </section>
   )
 }
@@ -276,6 +284,13 @@ export default function App() {
   const [theme, setTheme] = useState('all')
   const [activeExplore, setActiveExplore] = useState(data.items[0].id)
   const [comparison, setComparison] = useState<string[]>([])
+  const [compact, setCompact] = useState(() => window.matchMedia('(max-width: 620px)').matches)
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 620px)')
+    const update = () => setCompact(media.matches)
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
   const themes = useMemo(() => Array.from(new Set(data.items.flatMap((item) => item.themes))), [])
   const visible = theme === 'all' ? data.items : data.items.filter((item) => item.themes.includes(theme))
   const exploreItem = visible.find((item) => item.id === activeExplore) ?? visible[0]
@@ -298,7 +313,7 @@ export default function App() {
       </header>
 
       <main>
-        <a className="back-link" href="/atlas/">← {c.back}</a>
+        <div className="back-links"><a className="back-link" href="/atlas/">← {c.back}</a><a className="back-link" href="/trabalhos">{lang === 'pt' ? 'Trabalhos' : 'Works'} ↗</a></div>
         <header className="hero">
           <p className="hero-kicker">ICONOCRACIA · {c.exhibition} · 2026</p>
           <h1>{c.title}</h1>
@@ -325,7 +340,17 @@ export default function App() {
 
         {mode === 'reading' ? (
           <div className="objects">
-            {visible.map((item, index) => <ReadingCard key={item.id} item={item} index={data.items.indexOf(item)} lang={lang} selected={comparison.includes(item.id)} onCompare={() => toggleComparison(item.id)} />)}
+            <nav className="reading-index" aria-label={c.tabs}>{visible.map((item) => <a key={item.id} href={`#${item.id}`}>{String(data.items.indexOf(item) + 1).padStart(2, '0')} · {t(item.title, lang)}</a>)}</nav>
+            {visible.map((item) => compact ? <ReadingCard key={item.id} item={item} index={data.items.indexOf(item)} lang={lang} selected={comparison.includes(item.id)} onCompare={() => toggleComparison(item.id)} /> : (
+              <article key={item.id} className="object-card reading-spread" id={item.id}>
+                <div className="folio">{String(data.items.indexOf(item) + 1).padStart(2, '0')}</div>
+                <ExploreStage item={item} lang={lang} reading />
+                <div className="spread-notes"><div className="scope-badge">{item.scope === 'canonical' ? c.scopeCanonical : c.scopeAntecedent}</div>
+                  <div className="card-actions"><button type="button" className={comparison.includes(item.id) ? 'compare-button selected' : 'compare-button'} onClick={() => toggleComparison(item.id)}>{comparison.includes(item.id) ? `✓ ${c.selected}` : `＋ ${c.select}`}</button><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.institution} ↗</a></div>
+                  <SourcePanel item={item} lang={lang} />
+                </div>
+              </article>
+            ))}
           </div>
         ) : (
           <div className="explore-mode">
@@ -341,7 +366,7 @@ export default function App() {
 
       <footer>
         <p>Ana Vanzin · PPGD/UFSC · ICONOCRACIA</p>
-        <a href="/atlas/">Atlas</a><a href="/iconocracia/">ICONOCRACIA</a><a href="/publicacoes/">{lang === 'pt' ? 'Publicações' : 'Publications'}</a>
+        <a href="/trabalhos">{lang === 'pt' ? 'Trabalhos' : 'Works'}</a><a href="/atlas/">Atlas</a><a href="/iconocracia/">ICONOCRACIA</a><a href="/publicacoes/">{lang === 'pt' ? 'Publicações' : 'Publications'}</a>
       </footer>
     </div>
   )

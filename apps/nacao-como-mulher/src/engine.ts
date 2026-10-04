@@ -27,6 +27,8 @@ export interface LaidLine {
   x: number
   y: number
   heading: boolean
+  font: string
+  lineHeight: number
 }
 
 export const CONTOURS = contoursJson as unknown as Record<string, ContourData>
@@ -64,6 +66,7 @@ export function widestGap(width: number, spans: [number, number][]): { left: num
 }
 
 function obstacleSpansAtRow(obstacle: Obstacle, rowY: number): [number, number][] {
+  if (obstacle.id === '' && rowY >= obstacle.y && rowY <= obstacle.y + obstacle.h) return [[obstacle.x - GUTTER, obstacle.x + obstacle.w + GUTTER]]
   const contour = CONTOURS[obstacle.id]
   if (!contour || rowY < obstacle.y || rowY > obstacle.y + obstacle.h) return []
 
@@ -83,6 +86,15 @@ function obstacleSpansAtRow(obstacle: Obstacle, rowY: number): [number, number][
 
 export function freeIntervalAt(width: number, y: number, obstacles: Obstacle[]): { left: number; right: number } {
   return widestGap(width, obstacles.flatMap((obstacle) => obstacleSpansAtRow(obstacle, y)))
+}
+
+export function freeIntervalForLine(width: number, y: number, lineHeight: number, obstacles: Obstacle[]) {
+  const spans: [number, number][] = []
+  // Include every contour row crossed by the line, including narrow protrusions.
+  for (let row = y; row <= y + lineHeight; row += 1) {
+    spans.push(...obstacles.flatMap((obstacle) => obstacleSpansAtRow(obstacle, row)))
+  }
+  return widestGap(width, spans)
 }
 
 export class ParagraphCache {
@@ -122,7 +134,7 @@ export function flowText(
     let guard = 0
     while (guard < 500) {
       guard += 1
-      const interval = freeIntervalAt(width, y + block.lineHeight / 2, [obstacle])
+      const interval = freeIntervalForLine(width, y, block.lineHeight, [obstacle])
       const available = interval.right - interval.left
       if (available < 48) {
         y += block.lineHeight
@@ -135,6 +147,8 @@ export function flowText(
         x: interval.left,
         y,
         heading: Boolean(block.heading),
+        font: block.font,
+        lineHeight: block.lineHeight,
       })
       cursor = range.end
       y += block.lineHeight

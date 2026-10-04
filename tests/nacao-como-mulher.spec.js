@@ -50,14 +50,90 @@ test('comparison accepts two records and labels both studies', async ({ page }) 
   await expect(page.locator('.comparison-grid article img')).toHaveCount(2);
 });
 
-for (const width of [390, 320]) {
+for (const width of [390, 320, 768, 1280]) {
   test(`exhibition has no horizontal overflow at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto(route);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(1);
+    await expect(page.locator('.object-card')).toHaveCount(9);
+    if (width < 621) {
+      await expect(page.locator('.draggable-figure')).toHaveCount(0);
+      await expect(page.locator('.reading-layers')).toHaveCount(9);
+    } else {
+      await expect(page.locator('.draggable-figure')).toHaveCount(9);
+      for (const lang of ['pt', 'en']) {
+        if (lang === 'en') await page.getByRole('button', { name: 'EN', exact: true }).click();
+        await page.evaluate(() => document.fonts.ready);
+        const clipped = await page.locator('.living-text').evaluateAll(stages => stages.flatMap(stage => {
+          const box = stage.getBoundingClientRect();
+          return [...stage.querySelectorAll('.living-line')].filter(line => {
+            const r = line.getBoundingClientRect();
+            return r.left < box.left - 1 || r.right > box.right + 1 || r.bottom > box.bottom + 1;
+          }).map(line => line.textContent);
+        }));
+        expect(clipped).toEqual([]);
+      }
+    }
   });
 }
+
+test('reading relayouts on drag, supports keyboard, full plates and reset', async ({ page }) => {
+  await page.goto(route);
+  const spread = page.locator('.reading-spread').first();
+  const figure = spread.locator('.draggable-figure');
+  await figure.scrollIntoViewIfNeeded();
+  await figure.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 240));
+  const initial = await figure.boundingBox();
+  const linesBefore = await spread.locator('.living-line').allTextContents();
+  await page.mouse.move(initial.x + initial.width / 2, initial.y + 20);
+  await page.mouse.down();
+  await page.mouse.move(initial.x + initial.width / 2 - 180, initial.y + 40, { steps: 8 });
+  await page.mouse.up();
+  expect((await figure.boundingBox()).x).toBeLessThan(initial.x);
+  expect(await spread.locator('.living-line').allTextContents()).not.toEqual(linesBefore);
+  await figure.focus();
+  const before = await figure.boundingBox();
+  await page.keyboard.press('ArrowLeft');
+  expect((await figure.boundingBox()).x).toBeLessThan(before.x);
+  await page.keyboard.press('+');
+  expect((await figure.boundingBox()).width).toBeGreaterThan(before.width);
+  await page.keyboard.press('Enter');
+  await expect(figure.locator('img')).toHaveAttribute('src', /-atlas.webp$/);
+  const overlapping = await spread.locator('.living-text').evaluate(stage => {
+    const image = stage.querySelector('.draggable-figure').getBoundingClientRect();
+    return [...stage.querySelectorAll('.living-line')].filter(line => {
+      const r = line.getBoundingClientRect();
+      return r.left < image.right && r.right > image.left && r.top < image.bottom && r.bottom > image.top;
+    }).map(line => line.textContent);
+  });
+  expect(overlapping).toEqual([]);
+  await spread.getByRole('button', { name: 'Repor figura' }).click();
+  const reset = await figure.boundingBox();
+  expect(reset.width).toBeCloseTo(initial.width, 0);
+  expect(reset.x).toBeCloseTo(initial.x, 0);
+});
+
+test('touch reading remains scrollable and uses stable plates', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  await page.goto(route);
+  await expect(page.locator('.draggable-figure')).toHaveCount(0);
+  await page.getByRole('button', { name: 'EN', exact: true }).tap();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Nation as a Woman');
+  await page.locator('.object-card').last().scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(2000);
+  await context.close();
+});
+
+test('Trabalhos includes the bilingual exhibition card and preserves ICONOCRACIA', async ({ page }) => {
+  await page.goto('/trabalhos.html');
+  await expect(page.getByRole('heading', { name: 'A Nação como Mulher', exact: true })).toBeVisible();
+  await expect(page.locator('a[href="/trabalhos/iconocracia/"]').first()).toBeAttached();
+  await page.evaluate(() => { localStorage.setItem('av_lang', 'en'); });
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'The Nation as a Woman', exact: true })).toBeVisible();
+});
 
 test('the Atlas advertises the thematic exhibition', async ({ page }) => {
   await page.goto('/atlas/');
@@ -85,7 +161,7 @@ test('English Explore respects theme, semantics and sticky controls', async ({ p
   const selected = page.locator('.object-tabs button[aria-pressed="true"]');
   await expect(selected).toHaveCount(1);
   await expect(page.locator('.explore-meta h2')).toHaveText(await selected.textContent());
-  await expect(page.locator('.living-text [aria-hidden="true"]')).toBeVisible();
+  await expect(page.locator('.living-text .living-line').first()).toBeVisible();
   await expect(page.getByRole('navigation', { name: 'Objects to explore' })).toBeVisible();
   await page.evaluate(() => window.scrollTo(0, 1800));
   await expect(page.locator('.site-bar')).toBeInViewport();
