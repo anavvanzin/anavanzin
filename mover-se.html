@@ -61,9 +61,11 @@
       letter-spacing: 0.02em;
     }
     .ms-switcher {
-      display: flex;
+      display: none;
       gap: 8px;
     }
+    html.js .ms-switcher { display: flex; }
+    html:not(.js) .paradigm-view { display: none; }
     .ms-btn {
       background: none;
       border: 1px solid var(--ink);
@@ -393,6 +395,17 @@
   </div>
 
   <div class="ms-container">
+    <noscript>
+      <nav aria-label="Navegação de Mover-se">
+        <ul>
+          <li><a href="/iconocracia/">tese</a></li>
+          <li><a href="/publicacoes/">publicações</a></li>
+          <li><a href="/grupoiusgentium/">ius gentium</a></li>
+          <li><a href="/advocacia.html">advocacia</a></li>
+          <li><a href="mailto:ana@anavanzin.com">contato</a></li>
+        </ul>
+      </nav>
+    </noscript>
     
     <!-- 1. Fio Rubrico -->
     <div id="p-fio" class="paradigm-view">
@@ -476,7 +489,7 @@
       const container = document.getElementById('v-items');
       container.innerHTML = data.map((item, i) => `
         <div class="v-item" style="animation-delay: ${i*0.1}s">
-          <div class="v-overlay" onclick="this.parentElement.classList.add('revealed')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')this.click()">vendado — toque para revelar</div>
+          <div class="v-overlay" onclick="this.parentElement.classList.add('revealed')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">vendado — toque para revelar</div>
           <div class="sec-roman">${item.roman}</div>
           <a href="${item.url}" class="sec-title">${item.title}</a>
           <p class="sec-gloss">${item.gloss}</p>
@@ -531,8 +544,13 @@
     const paradigms = document.querySelectorAll('.paradigm-view');
     
     function setParadigm(id) {
-      localStorage.setItem('av_moverse_mode', id);
-      switcherBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-target') === id));
+      if (!['fio', 'margem', 'venda', 'fichario'].includes(id)) id = 'fio';
+      try { localStorage.setItem('av_moverse_mode', id); } catch (e) {}
+      switcherBtns.forEach(btn => {
+        const active = btn.getAttribute('data-target') === id;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
       paradigms.forEach(p => p.style.display = p.id === 'p-' + id ? 'flex' : 'none');
     }
 
@@ -543,8 +561,10 @@
     });
 
     // Restore state
-    const saved = localStorage.getItem('av_moverse_mode') || 'fio';
+    let saved = 'fio';
+    try { saved = localStorage.getItem('av_moverse_mode') || 'fio'; } catch (e) {}
     setParadigm(saved);
+    document.documentElement.classList.add('js');
 
   </script>
 </body>

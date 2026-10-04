@@ -141,6 +141,26 @@ async function assertActive(page, route) {
   await expect(page.locator('.avnav a.cur')).toHaveCount(1);
 }
 
+async function seminarPopupAndReturn(page) {
+  const link = page.locator('.entry a[href="/seminario8-dever-poder/"]');
+  await tabTo(page, link);
+  await expect(link).toBeFocused();
+  const opened = page.waitForEvent('popup');
+  await page.keyboard.press('Enter');
+  const seminar = await opened;
+  await seminar.waitForLoadState('load');
+  await expect(seminar).toHaveURL(url => url.pathname === '/seminario8-dever-poder/' && url.origin === new URL(page.url()).origin);
+  await expect(seminar.locator('h1').first()).toBeVisible();
+  await expect(page).toHaveURL(url => url.pathname === '/trabalhos');
+  const back = seminar.locator('a[href="/trabalhos"]').first();
+  await tabTo(seminar, back);
+  const returned = seminar.waitForResponse(response => response.request().isNavigationRequest() && new URL(response.url()).pathname === '/trabalhos');
+  await seminar.keyboard.press('Enter');
+  expect((await returned).status()).toBe(200);
+  await expect(seminar).toHaveURL(url => url.pathname === '/trabalhos' && url.origin === new URL(page.url()).origin);
+  return seminar;
+}
+
 for (const width of widths) {
   test(`Mesa Ana is a native keyboard home link at ${width}px`, async ({ page }) => {
     await visit(page, '/mesa/', width);
@@ -170,13 +190,10 @@ for (const width of widths) {
         await expect(link).toBeVisible();
       }
     }
-    await page.locator('.entry a[href="/seminario8-dever-poder/"]').click();
-    await expect(page).toHaveURL(url => url.pathname === '/seminario8-dever-poder/');
-    const back = page.locator('a[href="/trabalhos"]').first();
-    await back.focus();
-    await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(url => url.pathname === '/trabalhos');
-    await assertActive(page, '/trabalhos');
+    const returned = await seminarPopupAndReturn(page);
+    await assertActive(returned, '/trabalhos');
+    await assertLanguage(returned, '/trabalhos', 'en');
+    await returned.close();
   });
 
   test(`home index/menu retain exclusive panels and keyboard access at ${width}px`, async ({ page }) => {
@@ -252,15 +269,10 @@ test.describe('native links without JavaScript or third-party dependencies', () 
       await expect(page.locator('#langtog')).toBeHidden();
       await expect(page.locator('#title')).toHaveText('Trabalhos & Seminários');
       await expect(page.locator('.entry').filter({ hasText: 'Do Poder-Dever ao Dever-Poder' })).toContainText('Ana Vanzin & Vinícius Oliveira');
-      const seminar = page.locator('.entry a[href="/seminario8-dever-poder/"]');
-      await tabTo(page, seminar);
-      await page.keyboard.press('Enter');
-      await expect(page).toHaveURL(url => url.pathname === '/seminario8-dever-poder/');
-      const back = page.locator('a[href="/trabalhos"]').first();
-      await tabTo(page, back);
-      await page.keyboard.press('Enter');
-      await expect(page).toHaveURL(url => url.pathname === '/trabalhos');
-      await expect(page.locator('#title')).toHaveText('Trabalhos & Seminários');
+      const returned = await seminarPopupAndReturn(page);
+      await expect(returned.locator('#title')).toHaveText('Trabalhos & Seminários');
+      await expect(returned.locator('#langtog')).toBeHidden();
+      await returned.close();
     });
   }
 });
