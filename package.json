@@ -9,6 +9,9 @@
   "scripts": {
     "test": "playwright test",
     "stage:assets": "bash scripts/stage-worker-assets.sh",
+    "build:pages": "node scripts/pages/build.mjs",
+    "test:pages": "node --test tests/pages-runtime.test.mjs",
+    "test:pages:ui": "playwright test --config=playwright.pages.config.js",
     "deploy:worker": "npx wrangler deploy",
     "seo:check": "node scripts/publication.mjs",
     "seo:write": "node scripts/publication.mjs --write",
