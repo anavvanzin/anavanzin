@@ -438,33 +438,33 @@
 
     function renderFio() {
       const container = document.getElementById('fio-knots');
-      container.innerHTML = data.map((item, i) => \`
-        <div class="fio-knot-container" style="animation-delay: \${0.3 + i*0.15}s">
-          <button class="fio-knot" aria-label="\${item.title}" onclick="this.parentElement.classList.toggle('open')"></button>
+      container.innerHTML = data.map((item, i) => `
+        <div class="fio-knot-container" style="animation-delay: ${0.3 + i*0.15}s">
+          <button class="fio-knot" aria-label="${item.title}" onclick="this.parentElement.classList.toggle('open')"></button>
           <div class="fio-content">
-            <div class="sec-roman">\${item.roman}</div>
-            <a href="\${item.url}" class="sec-title">\${item.title}</a>
-            <p class="sec-gloss">\${item.gloss}</p>
+            <div class="sec-roman">${item.roman}</div>
+            <a href="${item.url}" class="sec-title">${item.title}</a>
+            <p class="sec-gloss">${item.gloss}</p>
           </div>
         </div>
-      \`).join('');
+      `).join('');
     }
 
     function renderMargem() {
       const links = document.getElementById('mv-links');
       const contents = document.getElementById('mv-contents');
       
-      links.innerHTML = data.map((item, i) => \`
-        <button class="mv-link \${i===0?'active':''}" style="animation-delay: \${i*0.1}s; background:none; border:none; text-align:left; cursor:pointer;" onclick="switchMargem(\${i})">\${item.title}</button>
-      \`).join('');
+      links.innerHTML = data.map((item, i) => `
+        <button class="mv-link ${i===0?'active':''}" style="animation-delay: ${i*0.1}s; background:none; border:none; text-align:left; cursor:pointer;" onclick="switchMargem(${i})">${item.title}</button>
+      `).join('');
       
-      contents.innerHTML = data.map((item, i) => \`
-        <div class="mv-detail \${i===0?'active':''}" id="mv-det-\${i}">
-          <div class="sec-roman">\${item.roman}</div>
-          <a href="\${item.url}" class="sec-title">\${item.title}</a>
-          <p class="sec-gloss">\${item.gloss}</p>
+      contents.innerHTML = data.map((item, i) => `
+        <div class="mv-detail ${i===0?'active':''}" id="mv-det-${i}">
+          <div class="sec-roman">${item.roman}</div>
+          <a href="${item.url}" class="sec-title">${item.title}</a>
+          <p class="sec-gloss">${item.gloss}</p>
         </div>
-      \`).join('');
+      `).join('');
     }
 
     window.switchMargem = (idx) => {
@@ -474,14 +474,14 @@
 
     function renderVenda() {
       const container = document.getElementById('v-items');
-      container.innerHTML = data.map((item, i) => \`
-        <div class="v-item" style="animation-delay: \${i*0.1}s">
+      container.innerHTML = data.map((item, i) => `
+        <div class="v-item" style="animation-delay: ${i*0.1}s">
           <div class="v-overlay" onclick="this.parentElement.classList.add('revealed')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')this.click()">vendado — toque para revelar</div>
-          <div class="sec-roman">\${item.roman}</div>
-          <a href="\${item.url}" class="sec-title">\${item.title}</a>
-          <p class="sec-gloss">\${item.gloss}</p>
+          <div class="sec-roman">${item.roman}</div>
+          <a href="${item.url}" class="sec-title">${item.title}</a>
+          <p class="sec-gloss">${item.gloss}</p>
         </div>
-      \`).join('');
+      `).join('');
     }
 
     document.getElementById('v-replay').addEventListener('click', () => {
@@ -490,14 +490,14 @@
 
     function renderFichario() {
       const container = document.getElementById('f-grid');
-      container.innerHTML = data.map((item, i) => \`
-        <a href="\${item.url}" class="f-card f-card-item" data-type="\${item.type}" style="animation-delay: \${i*0.1}s">
-          <span class="f-cota">AV·\${item.folio}</span>
-          <div class="sec-roman">\${item.roman}</div>
-          <div class="sec-title" style="font-size: 1.4rem;">\${item.title}</div>
-          <p class="sec-gloss">\${item.gloss}</p>
+      container.innerHTML = data.map((item, i) => `
+        <a href="${item.url}" class="f-card f-card-item" data-type="${item.type}" style="animation-delay: ${i*0.1}s">
+          <span class="f-cota">AV·${item.folio}</span>
+          <div class="sec-roman">${item.roman}</div>
+          <div class="sec-title" style="font-size: 1.4rem;">${item.title}</div>
+          <p class="sec-gloss">${item.gloss}</p>
         </a>
-      \`).join('');
+      `).join('');
     }
 
     document.querySelectorAll('.f-chip').forEach(chip => {

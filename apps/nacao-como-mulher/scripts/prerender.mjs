@@ -34,7 +34,7 @@ const cards = data.items.map((item, index) => `
   </article>`).join('')
 
 const fallback = `<div class="exhibition prerendered">
-  <header class="site-bar"><a href="/atlas/"><img src="/assets/sun-seal.svg" alt=""> <b>ana vanzin</b><span>atlas · exposição temática</span></a></header>
+  <header class="site-bar"><a href="/"><img src="/assets/sun-seal.svg" alt=""> <b>ana vanzin</b><span>atlas · exposição temática</span></a></header>
   <main>
     <a class="back-link" href="/atlas/">← voltar ao Atlas</a>
     <header class="hero"><p class="hero-kicker">ICONOCRACIA · exposição 01 · 2026</p><h1>A Nação como Mulher</h1><p class="hero-deck">Nove estudos sobre corpos femininos convocados para tornar território, República e soberania visíveis.</p><p class="provenance-note">As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.</p><div class="snapshot-grid"><div><b>${data.metadata.canonicalCorpus.count}</b><span>corpus canônico em expansão</span><small>${data.metadata.snapshotDate}</small></div><div><b>${data.metadata.comparativeSurvey.female}/${data.metadata.comparativeSurvey.total}</b><span>levantamento comparativo datado</span><small>${data.metadata.snapshotDate}</small></div></div><p class="corpus-note">As duas contagens pertencem a universos documentais diferentes e não devem ser somadas.</p></header>

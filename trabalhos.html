@@ -39,7 +39,7 @@
 
   /* ---- top bar ---- */
   .bar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 12px;
-    height: 54px; padding: 0 18px; background: var(--paper); border-bottom: 1px solid var(--ink); }
+    min-height: 54px; padding: 0 18px; background: var(--paper); border-bottom: 1px solid var(--ink); }
   .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
   .brand img { width: 22px; height: 22px; display: block; }
   .brand b { font-family: var(--font-display); font-weight: 600; font-size: 16px; letter-spacing: .01em; white-space: nowrap; }
@@ -48,9 +48,11 @@
     letter-spacing: .2em; font-size: 10.5px; color: var(--rubric); }
   .brand:hover .lbl { color: var(--accent-hover); }
   .spacer { flex: 1; }
-  .langtog { display: inline-flex; border: 1px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  .langtog { display: none; flex: none; border: 1px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  html.js .langtog { display: inline-flex; }
   .langtog button { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: .12em;
-    border: 0; background: var(--paper); color: var(--text-faint); padding: 3px 10px; cursor: pointer; line-height: 1.6; }
+    border: 0; background: var(--paper); color: var(--text-faint); min-width: 44px; min-height: 44px;
+    padding: 3px 10px; cursor: pointer; line-height: 1.6; }
   .langtog button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
   .langtog button:not([aria-pressed="true"]):hover { color: var(--rubric); }
 
@@ -81,7 +83,7 @@
   .entry .desc { font-size: 14.5px; line-height: 1.55; color: var(--text-muted); margin: 9px 0 0; max-width: 54ch; text-wrap: pretty; }
   .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
   .lk { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; cursor: pointer;
-    white-space: nowrap;
+    max-width: 100%; white-space: normal; overflow-wrap: anywhere;
     font-family: var(--font-body); font-size: 13px; color: var(--ink);
     border: 1px solid var(--ink); border-radius: 999px; padding: 5px 13px; background: var(--paper); }
   .lk:hover { color: var(--rubric); border-color: var(--rubric); }
@@ -113,6 +115,13 @@
   .avnav a{font-family:var(--font-body);font-size:13px;color:var(--ink);text-decoration:none;white-space:nowrap;padding-bottom:2px;border-bottom:1.5px solid transparent;letter-spacing:.01em}
   .avnav a:hover{color:var(--rubric)}
   .avnav a.cur{color:var(--rubric);border-bottom-color:var(--rubric)}
+  @media (max-width: 900px) {
+    .bar { flex-wrap: wrap; justify-content: space-between; padding-block: 8px; }
+    .bar .spacer { display: none; }
+    .bar .brand .div, .bar .brand .lbl { display: none; }
+    .avnav { order: 1; width: 100%; gap: 4px 16px; }
+    .avnav a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 6px; }
+  }
 </style>
 <link rel="canonical" href="https://anavanzin.com/trabalhos">
 <meta name="robots" content="index,follow">
@@ -266,8 +275,11 @@
 
 <script>
 /* ---------- i18n + dados ---------- */
-let lang = 'pt';
-try { const s = localStorage.getItem('av_lang'); if (s === 'pt' || s === 'en') lang = s; } catch (e) {}
+document.documentElement.classList.add('js');
+function getLang(fallback = 'pt') {
+  try { return localStorage.getItem('av_lang') === 'en' ? 'en' : 'pt'; } catch (e) { return fallback; }
+}
+let lang = getLang();
 const L = (o) => (o && typeof o === 'object') ? (o[lang] ?? o.pt) : o;
 
 const UI = {
@@ -277,7 +289,7 @@ const UI = {
     soon:'em breve', reserved:'Novos trabalhos e seminários entram aqui.' },
   en: { lbl:'works', kicker:'anavanzin.com · works', title:'Works & Seminars',
     intro:'Seminars, research group and academic materials — each piece opens its own space.',
-    foot:'PPGD/UFSC · Ius Gentium Group · Florianópolis', back:'← back to desktop',
+    foot:'PPGD/UFSC · Ius Gentium Group · Florianópolis', back:'← back to home',
     soon:'soon', reserved:'New works and seminars will appear here.' },
 };
 
@@ -414,6 +426,14 @@ function render() {
   document.getElementById('foot-back').textContent = u.back;
   document.querySelectorAll('#langtog button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false'));
   document.getElementById('sections').innerHTML = SECTIONS.map(sectionHtml).join('') + reservedHtml();
+  window.dispatchEvent(new CustomEvent('av:lang', { detail: { lang } }));
+}
+
+function restoreLang() {
+  const next = getLang(lang);
+  if (next === lang) return;
+  lang = next;
+  render();
 }
 
 document.querySelectorAll('#langtog button').forEach(b => b.addEventListener('click', () => {
@@ -422,18 +442,30 @@ document.querySelectorAll('#langtog button').forEach(b => b.addEventListener('cl
   try { localStorage.setItem('av_lang', lang); } catch (e) {}
   render();
 }));
+window.addEventListener('pageshow', restoreLang);
+window.addEventListener('storage', event => {
+  if (event.key === 'av_lang' || event.key === null) restoreLang();
+});
 render();
 </script>
 <script>
 (function(){
   var nav=document.getElementById('avnav'); if(!nav) return;
-  var path=(location.pathname.split('/').pop()||'index.html');
-  function lang(){try{return localStorage.getItem('av_lang')==='en'?'en':'pt';}catch(e){return 'pt';}}
-  function paint(){var l=lang();nav.querySelectorAll('a[data-pt]').forEach(function(a){a.textContent=a.getAttribute('data-'+l);});}
-  nav.querySelectorAll('a[data-page]').forEach(function(a){if(a.getAttribute('data-page').split('|').indexOf(path)>=0)a.classList.add('cur');});
+  function pageName(path){return (path.replace(/\/+$/,'').split('/').pop()||'index').replace(/\.html$/,'');}
+  function markActive(){
+    var path=pageName(location.pathname);
+    nav.querySelectorAll('a').forEach(function(a){
+      var pages=a.hasAttribute('data-page')?a.getAttribute('data-page').split('|').map(pageName):[];
+      var current=pages.indexOf(path)>=0;
+      a.classList.toggle('cur',current);
+      if(current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+  }
+  function paint(){var l=document.documentElement.lang==='en'?'en':'pt';nav.querySelectorAll('a[data-pt]').forEach(function(a){a.textContent=a.getAttribute('data-'+l);});}
+  markActive();
   paint();
-  document.addEventListener('click',function(e){var b=e.target.closest('.langtog button, #langtog button');if(b)setTimeout(paint,40);});
-  setInterval(paint,800);
+  window.addEventListener('av:lang',paint);
+  window.addEventListener('pageshow',function(){markActive();paint();});
 })();
 </script>
 </body>

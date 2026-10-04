@@ -5,16 +5,16 @@
    - any element with data-pt-html / data-en-html -> innerHTML swapped
    - any element with data-aria-pt / data-aria-en -> aria-label swapped
    - .langtog buttons[data-lang] toggle + persist
-   - .avnav a[data-match] (space-separated filenames) gets .cur for current page
+   - .avnav a[data-route] matches body[data-route] for the current page
    No asset paths here, so the file loads correctly from root or a subdir. */
 (function () {
   // Feature detection — progressive enhancement: lang toggle requires these APIs.
   // Without them, the page remains fully functional in Portuguese (the HTML default).
-  if (!document.querySelectorAll || !window.localStorage) return;
+  if (!document.querySelectorAll) return;
   document.documentElement.classList.add('js');
 
-  function getLang() {
-    try { var s = localStorage.getItem('av_lang'); return s === 'en' ? 'en' : 'pt'; } catch (e) { return 'pt'; }
+  function getLang(fallback) {
+    try { var s = localStorage.getItem('av_lang'); return s === 'en' ? 'en' : 'pt'; } catch (e) { return fallback || 'pt'; }
   }
   function setLang(l) {
     try { localStorage.setItem('av_lang', l); } catch (e) {}
@@ -44,10 +44,19 @@
 
   function markActive() {
     var route = document.body && document.body.getAttribute('data-route');
-    if (!route) return;
-    document.querySelectorAll('.avnav a[data-route]').forEach(function (a) {
-      if (a.getAttribute('data-route') === route) a.classList.add('cur');
+    document.querySelectorAll('.avnav a').forEach(function (a) {
+      var current = Boolean(route && a.getAttribute('data-route') === route);
+      a.classList.toggle('cur', current);
+      if (current) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
     });
+  }
+
+  function restoreLang() {
+    var next = getLang(lang);
+    if (next === lang) return;
+    lang = next;
+    paintText();
   }
 
   document.addEventListener('click', function (e) {
@@ -61,6 +70,7 @@
     }
     var b = e.target.closest('.langtog button[data-lang]');
     if (!b) return;
+    if (b.dataset.lang !== 'pt' && b.dataset.lang !== 'en') return;
     if (b.dataset.lang === lang) return;
     lang = b.dataset.lang;
     setLang(lang);
@@ -69,6 +79,10 @@
 
   // expose current lang for pages that build content imperatively
   window.AV = { get lang() { return lang; } };
+  window.addEventListener('pageshow', function () { restoreLang(); markActive(); });
+  window.addEventListener('storage', function (event) {
+    if (event.key === 'av_lang' || event.key === null) restoreLang();
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () { paintText(); markActive(); });
