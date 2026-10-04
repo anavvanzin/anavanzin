@@ -37,9 +37,9 @@ h1,h2 { overflow-wrap:anywhere; }
 .signature { color:var(--burgundy); font-size:1rem; line-height:1.5; letter-spacing:.07em; margin:1rem 0 2rem; }
 .hero-copy { grid-column:1; grid-row:2; position:relative; padding:0 0 3rem; min-width:0; }
 .intro { font-size:1.125rem; line-height:1.65; max-width:43ch; margin:0 0 1.5rem; text-wrap:pretty; }
-.actions { display:flex; align-items:baseline; flex-wrap:wrap; gap:.75rem 2rem; }
-.actions a { font-family:var(--display); font-size:clamp(1.5rem,1.25rem + .5vw,2rem); line-height:1.3; min-height:44px; padding:.375rem 0; text-decoration:none; border-bottom:1px solid var(--rule); }
-.actions .primary { color:var(--burgundy); border-color:var(--burgundy); }
+.actions { display:flex; flex-direction:column; align-items:flex-start; gap:0; }
+.actions a { font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.25rem,1.7vw,1.3125rem); font-weight:400; line-height:1.3; min-height:44px; padding:.375rem 0; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.3em; text-decoration-skip-ink:none; text-decoration-color:color-mix(in srgb,var(--ink) 30%,var(--paper)); }
+.actions .primary { color:#8B3A1A; text-decoration-color:currentColor; }
 .hero-portrait { grid-column:2; grid-row:1 / 3; position:relative; margin:0; min-width:0; overflow:hidden; }
 .hero-portrait picture { display:block; height:100%; }
 .hero-portrait img { display:block; width:100%; height:100%; min-height:34rem; object-fit:cover; object-position:90% center; }
@@ -47,7 +47,7 @@ h1,h2 { overflow-wrap:anywhere; }
 .hero-portrait video.has-frame { opacity:1; }
 .portrait-control { position:absolute; right:1rem; bottom:1rem; z-index:2; min-height:44px; padding:.5rem .875rem; border:1px solid var(--burgundy); border-radius:0; background:var(--paper); color:var(--burgundy); font-size:.875rem; line-height:1.4; }
 .portrait-control:disabled { cursor:default; }
-.mm-index-toggle { display:none; align-items:center; gap:1rem; margin-top:1.5rem; min-height:44px; padding:.5rem 0; border:0; background:none; text-decoration:underline; text-underline-offset:.4em; font-size:1rem; }
+.mm-index-toggle { display:none; align-items:center; gap:.5em; margin-top:1.5rem; min-height:44px; padding:.5rem 0; border:0; border-radius:0; background:none; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.8125rem; font-weight:400; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.4em; text-decoration-skip-ink:none; }
 .mm-ready .mm-index-toggle { display:inline-flex; }
 
 /* Supplied index changes: left position, wider panel, wrapping links. */

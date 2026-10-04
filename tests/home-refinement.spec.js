@@ -58,7 +58,7 @@ async function assertLanguage(page, lang) {
   await expect(page.locator('.methodology-cta')).toHaveText(lang === 'pt' ? 'Ler o guia →' : 'Read the guide →');
   await expect(page.locator('.methodology-topics')).toHaveAccessibleName(lang === 'pt' ? 'Seções do guia de pesquisa' : 'Research guide sections');
   await expect(page.locator('.methodology-intro')).toContainText(lang === 'pt' ? 'história do direito' : 'legal history');
-  await expect(page.locator('.actions .primary')).toHaveText(lang === 'pt' ? 'Entrar na Iconocracia →' : 'Enter Iconocracia →');
+  await expect(page.locator('.actions .primary')).toHaveText(lang === 'pt' ? 'entrar na iconocracia →' : 'enter iconocracia →');
 }
 
 async function assertNavigation(page) {
