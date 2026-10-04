@@ -136,6 +136,21 @@ async function assertReducedMotionPortrait(page) {
   expect(await page.locator('.hero-portrait').evaluate(portrait => portrait.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
 }
 
+test('regression: queued dialog close preserves an index reopened in the same turn', async ({ page }) => {
+  await openHome(page, 390, 'pt');
+  await page.evaluate(async () => {
+    const dialog = document.querySelector('#mm-index');
+    const trigger = document.querySelector('.mm-index-toggle');
+    const closed = new Promise(resolve => dialog.addEventListener('close', resolve, { once: true }));
+    trigger.click();
+    dialog.querySelector('[data-open-menu]').click();
+    trigger.click();
+    await closed;
+  });
+  await assertPanels(page, 390, 'index');
+  await expect(page).toHaveURL(url => url.hash === '#indice');
+});
+
 for (const width of widths) {
   test(`panel history, exclusivity, Escape and focus in PT/EN at ${width}px`, async ({ page }) => {
     for (const lang of languages) {

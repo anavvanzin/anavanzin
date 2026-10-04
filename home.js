@@ -55,7 +55,7 @@
   index.querySelector('.mm-index-close').addEventListener('click', closePanel);
   index.querySelector('[data-open-menu]').addEventListener('click', () => openPanel('menu'));
   index.addEventListener('cancel', event => { event.preventDefault(); closePanel(); });
-  index.addEventListener('close', () => { if (!updating && panel === 'index') closePanel(); });
+  index.addEventListener('close', () => { if (!updating && !index.open && panel === 'index') closePanel(); });
   index.addEventListener('click', event => {
     if (event.target !== index) return;
     const b = index.getBoundingClientRect();
