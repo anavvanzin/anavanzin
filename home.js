@@ -95,24 +95,13 @@
 /* Load portrait motion only when visible and permitted. */
 (() => {
   const video = document.getElementById('hero-video');
-  const button = document.querySelector('.portrait-control');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 1000px)');
-  let userPaused = false, userRequested = false, visible = true;
-
-  function label() {
-    const paused = video.paused;
-    const unavailable = Boolean(video.error);
-    button.disabled = unavailable;
-    button.dataset.pt = unavailable ? 'Retrato estático' : paused ? 'Retomar movimento' : 'Pausar movimento';
-    button.dataset.en = unavailable ? 'Static portrait' : paused ? 'Resume motion' : 'Pause motion';
-    button.textContent = document.documentElement.lang === 'en' ? button.dataset.en : button.dataset.pt;
-  }
+  let visible = true;
 
   function sync() {
-    if (userPaused || document.hidden || !visible || document.documentElement.classList.contains('av-loading') || (reduced.matches && !userRequested)) {
+    if (document.hidden || !visible || document.documentElement.classList.contains('av-loading') || reduced.matches || video.error) {
       video.pause();
-      label();
       return;
     }
     const desired = mobile.matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
@@ -120,7 +109,7 @@
       video.src = desired;
       video.load();
     }
-    video.play().then(label).catch(label);
+    video.play().catch(() => {});
   }
 
   function source() {
@@ -131,25 +120,12 @@
     sync();
   }
 
-  button.addEventListener('click', () => {
-    if (video.paused) {
-      userPaused = false;
-      userRequested = true;
-    } else {
-      userPaused = true;
-      userRequested = false;
-    }
-    sync();
+  video.addEventListener('playing', () => { video.classList.add('has-frame'); });
+  video.addEventListener('error', () => {
+    video.pause();
+    video.classList.remove('has-frame');
   });
-  video.addEventListener('playing', () => { video.classList.add('has-frame'); label(); });
-  video.addEventListener('play', label);
-  video.addEventListener('pause', label);
-  video.addEventListener('error', label);
-  reduced.addEventListener('change', () => {
-    userRequested = false;
-    if (reduced.matches && video.readyState) video.currentTime = 0;
-    sync();
-  });
+  reduced.addEventListener('change', source);
   mobile.addEventListener('change', source);
   document.addEventListener('visibilitychange', sync);
   document.addEventListener('av:loader-finished', sync);
