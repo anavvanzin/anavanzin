@@ -900,6 +900,22 @@ function Desktop({
   React.useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
+  React.useEffect(() => {
+    const restoreLanguage = () => {
+      try {
+        setLang(localStorage.getItem('av_lang') === 'en' ? 'en' : 'pt');
+      } catch (e) {}
+    };
+    const onStorage = event => {
+      if (event.key === 'av_lang' || event.key === null) restoreLanguage();
+    };
+    window.addEventListener('pageshow', restoreLanguage);
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener('pageshow', restoreLanguage);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
   // Restaura a mesa salva (apenas desktop, após boot, uma única vez).
   // Escolha local de idioma (localStorage) vence o KV; janelas validadas contra REG.
   React.useEffect(() => {

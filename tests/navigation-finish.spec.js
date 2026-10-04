@@ -164,6 +164,67 @@ async function enterHome(page, link) {
   await expect(page.locator('#name')).toContainText('vanzin');
 }
 
+async function enterMesa(page, width) {
+  await visit(page, '/mesa/', width);
+  const boot = page.getByRole('button', { name: /^(entrar|enter)\s*→$/i });
+  if (await boot.isVisible()) await boot.click();
+  await expect(page.locator('button[data-lang="pt"]')).toBeVisible();
+}
+
+async function assertMesaLanguage(page, lang) {
+  await expect(page.locator('html')).toHaveAttribute('lang', lang);
+  await expect(page.locator(`button[data-lang="${lang}"]`)).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator(`button[data-lang="${lang === 'en' ? 'pt' : 'en'}"]`)).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByRole('link', { name: lang === 'en' ? 'Ana Vanzin · home' : 'Ana Vanzin · início', exact: true })).toBeVisible();
+}
+
+for (const width of widths) {
+  test(`Mesa rereads the home language on real Back/Forward at ${width}px`, async ({ page }, testInfo) => {
+    await enterMesa(page, width);
+    await page.locator('button[data-lang="en"]').click();
+    await assertMesaLanguage(page, 'en');
+    await enterHome(page, page.getByRole('link', { name: 'Ana Vanzin · home', exact: true }));
+    await expect(page.locator('html')).toHaveClass(/\bmm-ready\b/);
+    await chooseLanguage(page, '/', 'pt');
+    await page.goBack({ waitUntil: 'load' });
+    await expect(page).toHaveURL(url => url.pathname === '/mesa/');
+    await assertMesaLanguage(page, 'pt');
+    await testInfo.attach('mesa-real-back-pageshow', {
+      body: JSON.stringify(await page.evaluate(() => window.__navigationPageshow)), contentType: 'application/json',
+    });
+    await page.locator('button[data-lang="en"]').click();
+    await assertMesaLanguage(page, 'en');
+    await page.goForward({ waitUntil: 'load' });
+    await expect(page).toHaveURL(url => url.pathname === '/');
+    await assertLanguage(page, '/', 'en');
+  });
+}
+
+test('Mesa synchronizes language changed in another real tab', async ({ page, context }) => {
+  await enterMesa(page, 390);
+  await assertMesaLanguage(page, 'pt');
+  const other = await context.newPage();
+  await visit(other, '/publicacoes/');
+  await chooseLanguage(other, '/publicacoes/', 'en');
+  await assertMesaLanguage(page, 'en');
+  await page.locator('button[data-lang="pt"]').click();
+  await assertMesaLanguage(page, 'pt');
+  await assertLanguage(other, '/publicacoes/', 'pt');
+  await other.close();
+});
+
+test('Mesa preserves in-memory language when storage is denied during restoration', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(window, 'localStorage', {
+    configurable: true,
+    get() { throw new DOMException('Storage denied by browser policy', 'SecurityError'); },
+  }));
+  await enterMesa(page, 390);
+  await page.locator('button[data-lang="en"]').click();
+  await assertMesaLanguage(page, 'en');
+  await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
+  await assertMesaLanguage(page, 'en');
+});
+
 async function assertActive(page, route) {
   const current = page.locator('.avnav a[aria-current="page"]');
   await expect(current).toHaveCount(1);
