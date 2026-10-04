@@ -1,5 +1,5 @@
-// Local migration proposal; do not deploy before approved binding setup.
-// Preview uses the approved isolated test namespace; production stays separate.
+// Pages deployment configuration. Preview and production use separate MESAS KV.
+// Preserve the existing production corpus binding without querying its data.
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "anavanzin",
@@ -15,6 +15,25 @@
     }
   ],
   "env": {
+    "production": {
+      "compatibility_date": "2026-10-04",
+      "compatibility_flags": [
+        "nodejs_compat"
+      ],
+      "kv_namespaces": [
+        {
+          "binding": "MESAS",
+          "id": "f68b5eef312746c794e86c37be7bf7e1"
+        }
+      ],
+      "d1_databases": [
+        {
+          "binding": "corpus",
+          "database_name": "iconocracy-corpus",
+          "database_id": "77c09df7-b510-48b3-8a39-94b39416aa2f"
+        }
+      ]
+    },
     "preview": {
       "kv_namespaces": [
         {
