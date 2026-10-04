@@ -6,6 +6,18 @@ for (const width of [1440, 390, 320]) {
   test(`works and related pieces remain navigable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/trabalhos.html');
+    for (const lang of ['en', 'pt']) {
+      await page.locator(`#langtog button[data-lang="${lang}"]`).click();
+      await expect(page.locator('#title')).toHaveText(lang === 'pt' ? 'Trabalhos & Seminários' : 'Works & Seminars');
+      const clipped = await page.locator('.bar a, .bar button, .entry .lk').evaluateAll(elements => {
+        const width = document.documentElement.clientWidth;
+        return elements.filter(element => {
+          const bounds = element.getBoundingClientRect();
+          return bounds.left < -1 || bounds.right > width + 1 || element.scrollWidth > element.clientWidth + 1;
+        }).map(element => element.textContent.trim());
+      });
+      expect(clipped, 'Navigation, PT/EN and work links fit the viewport').toEqual([]);
+    }
     const seminar = page.locator('.entry').filter({ hasText: 'Do Poder-Dever ao Dever-Poder' });
     await expect(seminar).toContainText('Ana Vanzin & Vinícius Oliveira');
     for (const path of paths) await expect(seminar.locator(`a[href="${path}"]`)).toBeVisible();

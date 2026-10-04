@@ -290,7 +290,7 @@ export default function App() {
   return (
     <div className="exhibition">
       <header className="site-bar">
-        <a href="/atlas/"><img src="/assets/sun-seal.svg" alt="" /> <b>ana vanzin</b><span>{c.atlas}</span></a>
+        <a href="/"><img src="/assets/sun-seal.svg" alt="" /> <b>ana vanzin</b><span>{c.atlas}</span></a>
         <nav aria-label="Idioma / Language">
           <button type="button" onClick={() => setLang('pt')} aria-pressed={lang === 'pt'}>PT</button>
           <button type="button" onClick={() => setLang('en')} aria-pressed={lang === 'en'}>EN</button>

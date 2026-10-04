@@ -8,13 +8,20 @@
   const compact = matchMedia('(max-width: 1000px)');
   let panel = null;
   let updating = false;
-  function setLang(lang) {
-    if (!['pt', 'en'].includes(lang)) return;
+  let lang = 'pt';
+  function setLang(next, persist = true) {
+    if (!['pt', 'en'].includes(next)) return;
+    lang = next;
     root.lang = lang === 'pt' ? 'pt-BR' : 'en';
     document.querySelectorAll('[data-pt]').forEach(el => { el.textContent = el.dataset[lang]; });
     document.querySelectorAll('[data-label-pt]').forEach(el => el.setAttribute('aria-label', el.dataset[lang === 'pt' ? 'labelPt' : 'labelEn']));
     document.querySelectorAll('[data-lang]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.lang === lang)));
-    try { localStorage.setItem('av_lang', lang); } catch {}
+    if (persist) { try { localStorage.setItem('av_lang', lang); } catch {} }
+  }
+  function restoreLang() {
+    let next = lang;
+    try { next = localStorage.getItem('av_lang') === 'en' ? 'en' : 'pt'; } catch {}
+    setLang(next, false);
   }
   function showPanel(next, focus = true) {
     updating = true;
@@ -49,7 +56,7 @@
     restoreFocus(previous);
   }
   document.querySelectorAll('[data-lang]').forEach(el => el.addEventListener('click', () => setLang(el.dataset.lang)));
-  try { setLang(localStorage.getItem('av_lang') || 'pt'); } catch { setLang('pt'); }
+  restoreLang();
   menuTrigger.addEventListener('click', () => panel === 'menu' ? closePanel() : openPanel('menu'));
   indexTrigger.addEventListener('click', () => openPanel('index'));
   index.querySelector('.mm-index-close').addEventListener('click', closePanel);
@@ -74,8 +81,12 @@
     if (previous && !saved) restoreFocus(previous);
   });
   window.addEventListener('pageshow', () => {
+    restoreLang();
     const saved = history.state?.avHomePanel;
     if (saved === 'index' || saved === 'menu' && compact.matches) showPanel(saved, false);
+  });
+  window.addEventListener('storage', event => {
+    if (event.key === 'av_lang' || event.key === null) restoreLang();
   });
   compact.addEventListener('change', () => { if (!compact.matches && panel === 'menu') closePanel(); });
   root.classList.add('mm-ready');

@@ -169,11 +169,12 @@ main {
 
 /* ---------- Roteiro / Presentation Player ---------- */
 .player-container {
-  display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px;
   position: relative;
   z-index: 2;
 }
-@media(max-width:900px){ .player-container{grid-template-columns:1fr; gap:20px} }
+.player-container > * { min-width: 0; }
+@media(max-width:900px){ .player-container{grid-template-columns:minmax(0, 1fr); gap:20px} }
 
 .narrative-panel {
   display: flex; flex-direction: column; justify-content: space-between;
@@ -791,3 +792,31 @@ footer {
 }
 footer a { color: var(--gold); text-decoration: none; font-weight: 700 }
 footer a:hover { text-decoration: underline }
+
+@media(max-width:900px) {
+  .download-wrapper .bento-grid { grid-template-columns: minmax(0, 1fr); }
+  .download-wrapper .bento-card { min-width: 0; }
+  .download-wrapper .bento-card-large {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .download-wrapper .bento-card-footer { flex-wrap: wrap; }
+  .download-wrapper .btn-premium { max-width: 100%; }
+}
+
+@media(max-width:600px) {
+  .menubar { flex-wrap: wrap; gap: 8px 16px; }
+  .menubar nav { order: 2; flex-basis: 100%; }
+  .menubar .sp { display: none; }
+  .menubar .clock { margin-left: auto; }
+  .tabs-nav-wrapper { position: static; }
+  .tabs-nav { flex-wrap: wrap; gap: 8px; }
+  .tab-btn { flex: 1 1 calc(50% - 8px); min-width: 0; }
+  .narrative-header { flex-wrap: wrap; gap: 8px; }
+  .narrative-title { min-width: 0; overflow-wrap: anywhere; }
+  .player-controls { flex-wrap: wrap; }
+  .player-progress-container { flex-basis: 100%; order: 1; }
+  .diagram-panels-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .diagram-panel { min-width: 0; }
+}
