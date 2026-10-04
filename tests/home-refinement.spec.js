@@ -7,9 +7,11 @@ const network = new WeakMap();
 
 test.use({ serviceWorkers: 'block' });
 
-test.beforeEach(async ({ page, context, baseURL }) => {
+test.beforeEach(async ({ page, context, baseURL, javaScriptEnabled }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(false);
   const origin = new URL(baseURL).origin;
-  const activity = { stateOrAPI: [], writes: [], mp4: [], fontCDN: [] };
+  const activity = { stateOrAPI: [], writes: [], mp4: [], fontCDN: [], motionAllowed: javaScriptEnabled };
   network.set(page, activity);
   page.on('request', request => {
     const url = new URL(request.url());
@@ -22,7 +24,7 @@ test.beforeEach(async ({ page, context, baseURL }) => {
     const request = route.request();
     const url = new URL(request.url());
     if (/\/(?:api|_state)(?:\/|$)/.test(url.pathname)
-        || /\.mp4(?:$|\/)/i.test(url.pathname)
+        || (!activity.motionAllowed && /\.mp4(?:$|\/)/i.test(url.pathname))
         || (url.origin === origin && !['GET', 'HEAD'].includes(request.method()))) return route.abort();
     if (url.origin !== origin) return route.fulfill({ status: 204, body: '' });
     return route.continue();
@@ -33,7 +35,9 @@ test.afterEach(async ({ page }) => {
   const activity = network.get(page);
   expect(activity.stateOrAPI, 'Home tests must never contact API or KV state routes').toEqual([]);
   expect(activity.writes, 'Home tests must never write through the local server').toEqual([]);
-  expect(activity.mp4, 'The static portrait must never request an MP4').toEqual([]);
+  if (!activity.motionAllowed) {
+    expect(activity.mp4, 'Reduced motion and no-JavaScript reading must never request an MP4').toEqual([]);
+  }
   expect(activity.fontCDN, 'Home uses self-hosted fonts rather than a Google Fonts download').toEqual([]);
 });
 
@@ -83,14 +87,38 @@ async function assertResponsiveNavigation(page, width) {
   }
 }
 
-async function assertPortrait(page, width) {
+async function assertPortrait(page, width, javaScriptEnabled = true) {
   await expect(page.locator('.hero-portrait picture')).toHaveCount(1);
   const image = page.locator('.hero-portrait picture img');
   await expect(image).toHaveAttribute('alt', 'Ana Vanzin');
   await expect(image).toBeVisible();
   await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toBe('/assets/redesign/ana-metamorfose.png');
-  await expect(page.locator('.portrait-control, video, .mm-switch, .mm-play')).toHaveCount(0);
+  await expect(page.locator('.mm-switch, .mm-play')).toHaveCount(0);
+  const video = page.locator('#hero-video');
+  const control = page.locator('.portrait-control');
+  await expect(video).toHaveCount(1);
+  await expect(control).toHaveCount(1);
+  if (javaScriptEnabled) {
+    await expect(video).toBeVisible();
+    await expect(control).toBeVisible();
+  } else {
+    await expect(video).toBeHidden();
+    await expect(control).toBeHidden();
+  }
+}
+
+async function assertPlayback(page, width) {
+  const video = page.locator('#hero-video');
+  const expected = width <= 1000 ? 'ana-motion-refined-v2.mp4' : 'ana-motion-editorial-v2.mp4';
+  await expect(video).toHaveAttribute('src', `/assets/redesign/${expected}`);
+  await expect(video).toHaveClass(/has-frame/);
+  await expect.poll(() => video.evaluate(element => element.paused)).toBe(false);
+  await expect.poll(() => video.evaluate(element => element.videoWidth)).toBeGreaterThan(0);
+  const startedAt = await video.evaluate(element => element.currentTime);
+  await expect.poll(() => video.evaluate(element => element.currentTime), {
+    message: 'Portrait playback advances decoded video time',
+  }).toBeGreaterThan(startedAt + 0.1);
 }
 
 async function assertNoClippingOrOverflow(page) {
@@ -160,12 +188,59 @@ for (const width of widths) {
   });
 }
 
-test('static portrait also loads with normal motion at320px and1440px', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'no-preference' });
+test('portrait plays with normal motion and pauses/resumes in PT/EN at320px and1440px', async ({ page }) => {
   for (const width of [320, 1440]) {
+    await page.goto('about:blank');
     await page.setViewportSize({ width, height: 900 });
     await openHome(page);
     await assertPortrait(page, width);
+    const video = page.locator('#hero-video');
+    const control = page.locator('.portrait-control');
+    for (const lang of languages) {
+      await page.locator(`.lang button[data-lang="${lang}"]`).click();
+      await assertLanguage(page, lang);
+      await video.scrollIntoViewIfNeeded();
+      await assertPlayback(page, width);
+      await expect(control).toHaveText(lang === 'pt' ? 'Pausar movimento' : 'Pause motion');
+      await control.click();
+      await expect.poll(() => video.evaluate(element => element.paused)).toBe(true);
+      await expect(control).toHaveText(lang === 'pt' ? 'Retomar movimento' : 'Resume motion');
+      const pausedAt = await video.evaluate(element => element.currentTime);
+      await page.waitForTimeout(250);
+      expect(await video.evaluate(element => element.currentTime), 'Paused portrait holds the same frame').toBeCloseTo(pausedAt, 3);
+      await control.click();
+      await assertPlayback(page, width);
+      await expect(control).toHaveText(lang === 'pt' ? 'Pausar movimento' : 'Pause motion');
+    }
+    const source = await video.getAttribute('src');
+    expect(network.get(page).mp4.some(url => new URL(url).pathname === source)).toBe(true);
+  }
+});
+
+test('reduced motion loads no MP4 until explicit play at320px and1440px', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);
+  const activity = network.get(page);
+  activity.motionAllowed = false;
+  for (const width of [320, 1440]) {
+    await page.goto('about:blank');
+    activity.motionAllowed = false;
+    const beforeOpen = activity.mp4.length;
+    await page.setViewportSize({ width, height: 900 });
+    await openHome(page);
+    await assertPortrait(page, width);
+    const video = page.locator('#hero-video');
+    const control = page.locator('.portrait-control');
+    await video.scrollIntoViewIfNeeded();
+    await expect(control).toHaveText('Retomar movimento');
+    expect(await video.getAttribute('src')).toBeNull();
+    expect(await video.evaluate(element => element.paused)).toBe(true);
+    expect(activity.mp4, 'Reduced motion keeps the poster before an explicit play request').toHaveLength(beforeOpen);
+    activity.motionAllowed = true;
+    await control.click();
+    await assertPlayback(page, width);
+    await expect(control).toHaveText('Pausar movimento');
+    expect(activity.mp4.length).toBeGreaterThan(beforeOpen);
   }
 });
 
@@ -176,7 +251,7 @@ test.describe('without JavaScript', () => {
       await page.setViewportSize({ width, height: 900 });
       expect((await page.goto('/')).status()).toBe(200);
       await page.evaluate(() => document.fonts.ready);
-      await assertPortrait(page, width);
+      await assertPortrait(page, width, false);
       await assertNavigation(page);
       await expect(page.locator('#methodology-title')).toHaveText('Metodologia');
       await expect(page.locator('.methodology-intro')).toBeVisible();

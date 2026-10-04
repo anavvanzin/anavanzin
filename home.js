@@ -1,4 +1,4 @@
-/* Static Metamorfose composition; only navigation changes state. */
+/* Metamorfose navigation and language controls. */
 (() => {
   const root = document.documentElement;
   const menu = document.querySelector('.mm-nav');
@@ -79,4 +79,71 @@
   });
   compact.addEventListener('change', () => { if (!compact.matches && panel === 'menu') closePanel(); });
   root.classList.add('mm-ready');
+})();
+
+/* Load portrait motion only when visible and permitted. */
+(() => {
+  const video = document.getElementById('hero-video');
+  const button = document.querySelector('.portrait-control');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile = matchMedia('(max-width: 1000px)');
+  let userPaused = false, userRequested = false, visible = true;
+
+  function label() {
+    const paused = video.paused;
+    const unavailable = Boolean(video.error);
+    button.disabled = unavailable;
+    button.dataset.pt = unavailable ? 'Retrato estático' : paused ? 'Retomar movimento' : 'Pausar movimento';
+    button.dataset.en = unavailable ? 'Static portrait' : paused ? 'Resume motion' : 'Pause motion';
+    button.textContent = document.documentElement.lang === 'en' ? button.dataset.en : button.dataset.pt;
+  }
+
+  function sync() {
+    if (userPaused || document.hidden || !visible || document.documentElement.classList.contains('av-loading') || (reduced.matches && !userRequested)) {
+      video.pause();
+      label();
+      return;
+    }
+    const desired = mobile.matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+    if (video.getAttribute('src') !== desired) {
+      video.src = desired;
+      video.load();
+    }
+    video.play().then(label).catch(label);
+  }
+
+  function source() {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+    video.classList.remove('has-frame');
+    sync();
+  }
+
+  button.addEventListener('click', () => {
+    if (video.paused) {
+      userPaused = false;
+      userRequested = true;
+    } else {
+      userPaused = true;
+      userRequested = false;
+    }
+    sync();
+  });
+  video.addEventListener('playing', () => { video.classList.add('has-frame'); label(); });
+  video.addEventListener('play', label);
+  video.addEventListener('pause', label);
+  video.addEventListener('error', label);
+  reduced.addEventListener('change', () => {
+    userRequested = false;
+    if (reduced.matches && video.readyState) video.currentTime = 0;
+    sync();
+  });
+  mobile.addEventListener('change', source);
+  document.addEventListener('visibilitychange', sync);
+  document.addEventListener('av:loader-finished', sync);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .05 }).observe(video);
+  }
+  source();
 })();

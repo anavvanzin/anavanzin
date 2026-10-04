@@ -34,7 +34,7 @@ test.afterEach(async ({ page }) => {
   const activity = activityByPage.get(page);
   expect(activity.stateOrAPI, 'Home and navigation checks never access API/KV routes').toEqual([]);
   expect(activity.writes, 'No write reaches the preview server').toEqual([]);
-  expect(activity.mp4, 'The portrait is a static image, without an MP4 request').toEqual([]);
+  expect(activity.mp4, 'Reduced-motion checks keep the poster without an MP4 request').toEqual([]);
   expect(activity.fontCDN, 'Typography loads from the site, without downloading Google Fonts').toEqual([]);
   expect(activity.errors, 'Navigation and panel controls complete without JavaScript errors').toEqual([]);
 });
@@ -118,13 +118,21 @@ async function assertNoOverflow(page) {
   expect(problems, 'Navigation, panels and reading content fit the CSS viewport').toEqual([]);
 }
 
-async function assertStaticPortrait(page) {
+async function assertReducedMotionPortrait(page) {
   const image = page.locator('.hero-portrait picture img');
   await expect(image).toBeVisible();
   await expect(image).toHaveAttribute('alt', 'Ana Vanzin');
   await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toBe('/assets/redesign/ana-metamorfose.png');
-  await expect(page.locator('video, .portrait-control, .mm-switch, .mm-play')).toHaveCount(0);
+  const video = page.locator('#hero-video');
+  await expect(video).toHaveCount(1);
+  await expect(video).toBeVisible();
+  await expect(video).not.toHaveClass(/has-frame/);
+  expect(await video.getAttribute('src')).toBeNull();
+  expect(await video.evaluate(element => element.paused)).toBe(true);
+  await expect(page.locator('.portrait-control')).toHaveCount(1);
+  await expect(page.locator('.portrait-control')).toBeVisible();
+  await expect(page.locator('.mm-switch, .mm-play')).toHaveCount(0);
   expect(await page.locator('.hero-portrait').evaluate(portrait => portrait.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
 }
 
@@ -207,13 +215,13 @@ for (const width of widths) {
     }
   });
 
-  test(`static portrait, reduced motion and 200% root text reflow at ${width}px`, async ({ page }, testInfo) => {
+  test(`portrait fallback, reduced motion and 200% root text reflow at ${width}px`, async ({ page }, testInfo) => {
     for (const lang of languages) {
       for (const fontSize of ['16px', '32px']) {
         await openHome(page, width, lang);
         await page.evaluate(size => { document.documentElement.style.fontSize = size; }, fontSize);
         await expect(page.locator('html')).toHaveCSS('font-size', fontSize);
-        await assertStaticPortrait(page);
+        await assertReducedMotionPortrait(page);
         await assertNoOverflow(page);
         if (width <= 1000) {
           await page.locator('.mm-trigger').click();
