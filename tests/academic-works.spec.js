@@ -20,7 +20,11 @@ for (const width of [1440, 390, 320]) {
     }
     const seminar = page.locator('.entry').filter({ hasText: 'Do Poder-Dever ao Dever-Poder' });
     await expect(seminar).toContainText('Ana Vanzin & Vinícius Oliveira');
-    for (const path of paths) await expect(seminar.locator(`a[href="${path}"]`)).toBeVisible();
+    for (const path of paths) {
+      const href = path === '/algoritmo-em-disputa/' ? 'https://anavanzin.com/algoritmo-em-disputa/' : path;
+      await expect(seminar.locator(`.links a[href="${href}"]`)).toBeVisible();
+    }
+    await expect(seminar.locator('.related-title a')).toHaveAttribute('href', 'https://anavanzin.com/algoritmo-em-disputa/');
     for (const path of paths) {
       const response = await page.goto(path);
       expect(response.status()).toBe(200);
