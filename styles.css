@@ -1,4 +1,5 @@
 @import url('fonts/fonts.css'); /* self-hosted webfonts — MUST stay first: an @import after any rule is ignored per CSS spec */
+@import url('/cursor-bronze.css');
 
 /* Ana Vanzin — bundled tokens */
 

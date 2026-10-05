@@ -1,0 +1,79 @@
+{
+  "name": "Windows XP Bronze",
+  "author": "Come2Back",
+  "distributor": "RIDDLER",
+  "source": "https://www.rw-designer.com/cursor-set/windows-xp-bronze",
+  "license": "Personal noncommercial use only; original terms in source-readme.txt.",
+  "extraction": "Original 32 px geometry, alpha, transparency mask and hotspots; site-palette RGB adaptation; PNG matches adapted CUR.",
+  "adaptation": {
+    "name": "Oxblood site palette",
+    "base": "#750D20",
+    "highlight": "#F5F0E6",
+    "sourceAnchor": [
+      174,
+      103,
+      11
+    ],
+    "method": "Monotonic encoded-luma ramp: black to burgundy at the bronze midtone, then paper highlights. Only bronze RGB is mapped; neutral RGB, alpha, geometry and hotspots are unchanged.",
+    "rights": "Palette adaptation does not change original authorship or personal noncommercial license."
+  },
+  "frames": [
+    {
+      "role": "normal",
+      "sourceFile": "Normal Select.cur",
+      "sourceSHA256": "566a82003e842d836606e5b52f7b0d9129b6cce4de1b34dd2988584d7a040283",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        0,
+        0
+      ],
+      "originalPayloadSHA256": "352d238490e4bfcd458d983e36839225a39ddcfbe6756b54f171d2345ef9f438",
+      "originalRGBASHA256": "36aa47e49ccd26c3901fa6d9a3378f2cec31c3a9a0c29b5f43938d5aeb53cd1d",
+      "payloadSHA256": "dde68a7756c6f66bcef344878d3989d99d1683d3986795122474d16e6fd9948d",
+      "rgbaSHA256": "f7cee1b9138151b2af224ae4862716d8381831e0856b22a0795e5f92dcd31d79",
+      "cur": "normal.cur",
+      "png": "normal.png"
+    },
+    {
+      "role": "link",
+      "sourceFile": "Link Select.cur",
+      "sourceSHA256": "83c9b8c5f7288175051e62be7da339152a5712e31ee0dc2f99b68151f51abd42",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        6,
+        1
+      ],
+      "originalPayloadSHA256": "52c1f2f4d7844685d8c97890a87608013e6af104e830dcb8f186ce9fb409a5c3",
+      "originalRGBASHA256": "9efe84d7773b6d83f56cb42e40cbc4c14b12983e14a9dc8311ba3fa2131b4cfd",
+      "payloadSHA256": "d5b1118ac077cdb1bb1117f5ebab8e906178366f75ebc957f64e5575289df4df",
+      "rgbaSHA256": "d303e36ac40f330a73e19b4e413ae9a9a20bc9258327bf780d220a3146280e92",
+      "cur": "link.cur",
+      "png": "link.png"
+    },
+    {
+      "role": "text",
+      "sourceFile": "Text Select.cur",
+      "sourceSHA256": "3cce40fba83b70b6560313cca701e129d49c1af344d861fd1ac770f5282c2432",
+      "size": [
+        32,
+        32
+      ],
+      "hotspot": [
+        16,
+        16
+      ],
+      "originalPayloadSHA256": "a711951b7af553557514e854a463984c9075ce88f27a8d6f944cfd55d2204a94",
+      "originalRGBASHA256": "c0351d39c8ebe4e2ebffbf78f23b36cc1654c24535de1e983582231c45728ab7",
+      "payloadSHA256": "7d198589530d9003ac41fbfadf12d1b6c1e41cee8f785edb28f8c0a705d6f7ef",
+      "rgbaSHA256": "5f998f55a1a72ea12e65da291c05dff2864f8488822da3218bd79ab3550bef09",
+      "cur": "text.cur",
+      "png": "text.png"
+    }
+  ]
+}
