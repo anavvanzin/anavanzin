@@ -32,115 +32,132 @@
 <link rel="stylesheet" href="styles.css">
 <!-- JetBrains Mono is self-hosted via styles.css -> fonts/fonts.css; no Google Fonts CDN -->
 <style>
-  :root{--dev:var(--sienna);--mono:'JetBrains Mono',monospace;--rline:color-mix(in srgb,var(--ink) 14%,var(--paper))}
+
+  :root{--mono:'JetBrains Mono',monospace}
   html,body{margin:0}
-  body{background:var(--paper);font-family:var(--font-body)}
+  body.readme-page{--paper:#F5F0E6;--ink:#171412;--dev:#750D20;--rubric:var(--dev);--gold:#7B5E3C;--rline:#b8a48f;--font-display:'Instrument Serif',Georgia,serif;--font-body:'DM Sans',Arial,sans-serif;--text-body:var(--ink);--text-muted:#60594f;--text-faint:#60594f;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-kerning:normal}
+  .readme-page *{box-sizing:border-box}
   ::selection{background:var(--rubric);color:var(--paper)}
-  /* top chrome */
-  .chrome{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px;padding:12px clamp(16px,4vw,40px);border-bottom:1px solid var(--ink);background:var(--paper);flex-wrap:wrap}
-  .wm{font-family:var(--mono);font-weight:700;font-size:17px;white-space:nowrap;text-decoration:none;color:var(--ink)}
+  .readme-page :focus-visible{outline:2px solid var(--dev);outline-offset:4px}
+  .skip-content{position:absolute;top:-10rem;left:1rem;z-index:60;padding:.75rem;background:var(--paper);color:var(--dev)}
+  .skip-content:focus{top:.75rem}
+  .chrome{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:1rem;padding:1rem clamp(1.25rem,4vw,3rem);border-bottom:1px solid var(--dev);background:var(--paper);flex-wrap:wrap}
+  .wm{font-family:var(--font-display);font-weight:400;font-size:2rem;line-height:1.2;white-space:nowrap;text-decoration:none;color:var(--ink);display:flex;align-items:center;min-height:44px}
   .wm .b{color:var(--dev)}
-  .crumb{font-family:var(--mono);font-size:13px;color:var(--text-muted)}
-  .crumb a{color:var(--ink);font-weight:500;text-decoration:none}
-  .crumb a:hover{color:var(--dev)}
-  .chrome .right{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;align-items:center}
-  .btn{font-family:var(--mono);font-size:12px;border:1px solid var(--ink);background:var(--paper);padding:6px 12px;white-space:nowrap;display:flex;gap:7px;align-items:center;cursor:pointer;text-decoration:none;color:var(--ink)}
-  .btn .star{color:var(--gold)}
-  .btn.primary{background:var(--dev);color:#fff;border-color:var(--dev)}
-  .btn:hover{border-color:var(--dev)}
-  .vista{display:flex;border:1px solid var(--ink);font-family:var(--mono)}
-  .vista .vseg{display:flex;flex-direction:column;gap:1px;padding:5px 11px 4px;text-decoration:none;color:var(--ink)}
-  .vista .vt{font-size:11px;line-height:1.2}
-  .vista .vf{font-size:8.5px;letter-spacing:.05em;opacity:.5;line-height:1.1}
-  a.vseg:hover .vf{opacity:.85}
+  .crumb{font-family:var(--mono);font-size:.75rem;color:var(--text-muted)}
+  .crumb a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+  .chrome .right{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.75rem;align-items:center;min-width:0}
+  .btn{font:400 .875rem/1.4 var(--font-body);border:1px solid var(--ink);background:var(--paper);padding:.5rem .875rem;min-height:44px;display:inline-flex;gap:.5rem;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;color:var(--ink)}
+  .btn.primary{background:var(--dev);color:var(--paper);border-color:var(--dev)}
+  .btn:hover{border-color:var(--dev);text-decoration:underline}
+  .vista{display:flex;border:1px solid var(--ink);font-family:var(--font-body)}
+  .vista .vseg{display:flex;flex-direction:column;justify-content:center;gap:.25rem;min-height:52px;padding:.375rem .75rem;text-decoration:none;color:var(--ink)}
+  .vista .vt{font-size:.875rem;line-height:1.2}
+  .vista .vf{font-size:.75rem;line-height:1.2;color:var(--text-muted)}
+  a.vseg:hover .vt{text-decoration:underline}
   .vista .on{background:var(--ink);color:var(--paper)}
-  .vista .on .vf{opacity:.6}
+  .vista .on .vf{color:var(--paper)}
   .vista>*+*{border-left:1px solid var(--ink)}
-  .langtog{display:inline-flex;border:1px solid var(--ink);overflow:hidden;font-family:var(--mono)}
-  .langtog button{font-size:11px;letter-spacing:.06em;border:0;background:var(--paper);color:var(--text-faint);padding:6px 9px;cursor:pointer}
+  .langtog{display:none;border:1px solid var(--ink);font-family:var(--font-body)}
+  .readme-ready .langtog{display:inline-flex}
+  .langtog button{font:400 .875rem/1.4 var(--font-body);min-width:44px;min-height:44px;border:0;background:var(--paper);color:var(--text-muted);padding:.5rem;cursor:pointer}
   .langtog button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
   .langtog button:not([aria-pressed="true"]):hover{color:var(--dev)}
-  .layout{display:grid;grid-template-columns:230px 1fr;gap:0;max-width:1180px;margin:0 auto}
-  /* file tree */
-  .tree{border-right:1px solid var(--rline);padding:18px 12px;min-height:80vh}
-  .tree .th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-faint);margin:0 6px 10px}
-  .tree a{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--ink);text-decoration:none;padding:5px 8px}
-  .tree a:hover{background:color-mix(in srgb,var(--dev) 8%,var(--paper))}
-  .tree a.on{background:color-mix(in srgb,var(--dev) 12%,var(--paper));border-left:2px solid var(--dev);padding-left:6px}
-  .tree a .ic{color:var(--text-faint)}
-  .tree a.dir .ic{color:var(--gold)}
-  /* readme pane */
-  .pane{padding:0;min-width:0}
-  .filehdr{display:flex;align-items:center;gap:10px;padding:11px 22px;border-bottom:1px solid var(--rline);font-family:var(--mono);font-size:13px;color:var(--text-muted)}
-  .filehdr .dot{width:9px;height:9px;border:1.5px solid var(--gold);border-radius:50%}
+  .layout{display:grid;grid-template-columns:14rem minmax(0,1fr);max-width:74rem;margin:0 auto}
+  .tree{border-right:1px solid var(--rline);padding:1.5rem .75rem;min-height:80vh}
+  .tree .th{font:400 .6875rem/1.5 var(--mono);letter-spacing:.05em;color:var(--text-muted);margin:0 .5rem 1rem}
+  .tree a{display:flex;align-items:center;gap:.5rem;min-height:44px;font:400 .8125rem/1.4 var(--mono);color:var(--ink);text-decoration:none;padding:.5rem}
+  .tree a:hover{background:color-mix(in srgb,var(--dev) 8%,var(--paper));text-decoration:underline}
+  .tree a.on{background:color-mix(in srgb,var(--dev) 8%,var(--paper));box-shadow:inset 2px 0 var(--dev)}
+  .tree a .ic{color:var(--text-muted)}
+  .pane{min-width:0}
+  .filehdr{display:flex;flex-wrap:wrap;align-items:center;gap:.625rem;padding:.875rem clamp(1.25rem,4vw,3rem);border-bottom:1px solid var(--rline);font:400 .75rem/1.5 var(--mono);color:var(--text-muted)}
+  .filehdr .dot{width:9px;height:9px;border:1.5px solid var(--gold);border-radius:50%;flex:none}
   .filehdr .meta{margin-left:auto}
-  .md{padding:30px clamp(20px,4vw,48px) 70px;max-width:760px}
-  .md h1{font-family:var(--font-display);font-weight:600;font-size:44px;line-height:1.05;margin:0;display:flex;align-items:center;gap:14px}
-  .md h1 img{width:38px;height:38px}
-  .md .badges{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 6px}
-  .badge{font-family:var(--mono);font-size:11px;display:flex;border:1px solid var(--ink)}
-  .badge span{padding:3px 8px}
+  .md{padding:2.5rem clamp(1.25rem,4vw,3rem) 3rem;max-width:50rem;overflow-wrap:anywhere}
+  .md h1{font:400 clamp(2.75rem,5vw,4.5rem)/1.05 var(--font-display);letter-spacing:-.02em;margin:0;display:flex;align-items:center;gap:1rem}
+  .md h1 img{width:38px;height:38px;flex:none}
+  .md .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.25rem 0 1.5rem}
+  .badge{font:400 .6875rem/1.5 var(--mono);display:flex;max-width:100%;border:1px solid var(--rline)}
+  .badge span{padding:.25rem .5rem}
   .badge .k{background:var(--ink);color:var(--paper)}
   .badge .v{background:var(--paper);color:var(--ink)}
   .badge.dev .v{color:var(--dev)}
-  .md p{font-size:16px;line-height:1.62;margin:18px 0 0;color:var(--text-body)}
-  .md h2{font-family:var(--font-display);font-weight:600;font-size:25px;margin:34px 0 0;padding-bottom:8px;border-bottom:1px solid var(--rline)}
-  .md a{color:var(--dev);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--dev) 40%,var(--paper))}
-  .md ul{margin:14px 0 0;padding-left:0;list-style:none}
-  .md li{font-size:15.5px;line-height:1.7;padding-left:22px;position:relative}
-  .md li::before{content:"–";position:absolute;left:4px;color:var(--dev)}
-  .code{font-family:var(--mono);font-size:13px;line-height:1.7;background:var(--night);color:var(--soft);padding:14px 16px;margin:16px 0 0;overflow:auto}
-  .code .c{color:var(--muted)}
-  .code .p{color:var(--aged)}
-  .code .s{color:var(--ochre)}
-  .pubrow{display:flex;gap:14px;font-family:var(--mono);font-size:13.5px;padding:10px 0;border-top:1px solid var(--rline)}
-  .pubrow .y{color:var(--text-faint);min-width:38px}
-  .pubrow i{font-style:italic;font-family:var(--font-display);font-size:16px}
-  @media(max-width:760px){.layout{grid-template-columns:1fr}.tree{display:none}.md h1{font-size:34px}.chrome .crumb{display:none}}
+  .md p,.md li,.pubrow{font:400 1.125rem/1.65 var(--font-body);color:var(--text-body)}
+  .md p{margin:1.5rem 0 0;max-width:46ch;text-wrap:pretty}
+  .md h2{font:400 2rem/1.2 var(--font-display);letter-spacing:-.015em;margin:2.5rem 0 0;padding-bottom:.75rem;border-bottom:1px solid var(--rline)}
+  .md a{color:var(--dev);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;border:0}
+  .md a:hover{color:var(--ink)}
+  .md ul{margin:1rem 0 0;padding-left:0;list-style:none}
+  .md li{padding:.5rem 0 .5rem 1.25rem;position:relative}
+  .md li::before{content:"–";position:absolute;left:0;color:var(--dev)}
+  .code{font:400 .8125rem/1.7 var(--mono);background:var(--night);color:#E8DDC8;padding:1rem;margin:1rem 0 0;white-space:normal;overflow-wrap:anywhere}
+  .code .c{color:#cbbda9}
+  .code .p{color:#e0c69d}
+  .code .s{color:#e7d590}
+  .pubrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rline)}
+  .pubrow .y{font:400 .8125rem/1.65 var(--mono);color:var(--text-muted);min-width:2.5rem;padding-top:.25rem}
+  .pubrow i{font-family:var(--font-body);font-size:inherit}
+  .readme-return{margin:0 clamp(1.25rem,4vw,3rem) 3rem;padding-top:1rem;border-top:1px solid var(--rline)}
+  .readme-return a{display:inline-flex;align-items:center;min-height:44px;font:400 1rem/1.5 var(--font-body);color:var(--dev);text-underline-offset:.25em}
+  @media(max-width:760px){
+    .chrome{position:relative;gap:.75rem}
+    .chrome .crumb{display:none}
+    .chrome .right{width:100%;margin-left:0;justify-content:flex-start}
+    .layout{grid-template-columns:minmax(0,1fr)}
+    .tree{display:flex;flex-wrap:wrap;gap:.25rem;border-right:0;border-bottom:1px solid var(--rline);padding:.75rem 1.25rem;min-height:0}
+    .tree .th{width:100%;margin:0 0 .25rem}
+    .md{padding-top:2rem}
+    .md h1{font-size:2.75rem;gap:.75rem}
+    .md h1 img{width:30px;height:30px}
+    .filehdr .meta{margin-left:0}
+  }
 </style>
 <link rel="canonical" href="https://anavanzin.com/readme">
 <meta name="robots" content="index,follow">
 </head>
-<body>
-  <div class="chrome">
+<body class="readme-page">
+  <a class="skip-content" href="#main" id="skip-content">Pular para o conteúdo</a>
+  <header class="chrome">
     <a class="wm" href="/" title="← ana vanzin"><span class="b">&lt;ana&gt;</span>vanzin</a>
-    <span class="crumb"><a href="/">anavanzin</a> / <b id="crumb-leaf">perfil</b></span>
-    <span class="right">
-      <span class="vista"><a class="vseg" href="/sobre"><span class="vt" id="vs-sobre">sobre</span><span class="vf" id="vf-sobre">a narrativa</span></a><a class="vseg" href="/perfil"><span class="vt" id="vs-perfil">perfil</span><span class="vf" id="vf-perfil">o cartão</span></a><span class="vseg on" aria-current="page"><span class="vt" id="vs-dossie">dossiê</span><span class="vf" id="vf-dossie">o currículo</span></span></span>
+    <span class="crumb"><a href="/">anavanzin</a> / <b id="crumb-leaf">dossiê</b></span>
+    <div class="right">
+      <nav class="vista" aria-label="Sobre, perfil e dossiê"><a class="vseg" href="/sobre"><span class="vt" id="vs-sobre">sobre</span><span class="vf" id="vf-sobre">a narrativa</span></a><a class="vseg" href="/perfil"><span class="vt" id="vs-perfil">perfil</span><span class="vf" id="vf-perfil">o cartão</span></a><span class="vseg on" aria-current="page"><span class="vt" id="vs-dossie">dossiê</span><span class="vf" id="vf-dossie">o currículo</span></span></nav>
       <span class="langtog" id="langtog" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt" aria-pressed="true">PT</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </span>
       <a class="btn primary" id="btn-cv" href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Lattes ↗</a>
-    </span>
-  </div>
+    </div>
+  </header>
   <div class="layout">
-    <aside class="tree">
+    <nav class="tree" aria-label="Arquivos do dossiê" id="file-directory">
       <p class="th" id="tree-th">anavanzin / main</p>
-      <a href="/readme" class="on"><span class="ic">≡</span> README.md</a>
+      <a href="/readme" class="on" aria-current="page"><span class="ic">≡</span> README.md</a>
       <a href="/conceitos" class="dir"><span class="ic">▸</span> conceitos/</a>
       <a href="/trabalhos" class="dir"><span class="ic">▸</span> trabalhos/</a>
-      <a href="iconocracia/" class="dir"><span class="ic">▸</span> iconocracia/</a>
-      <a href="/trabalhos" class="dir"><span class="ic">▸</span> ius-gentium/</a>
-      <a href="quotes/"><span class="ic">{}</span> quotes/</a>
+      <a href="/iconocracia/" class="dir"><span class="ic">▸</span> iconocracia/</a>
+      <a href="https://grupoiusgentium.com.br/" class="dir"><span class="ic">▸</span> ius-gentium/</a>
+      <a href="/quotes/"><span class="ic">{}</span> quotes/</a>
       <a href="/perfil"><span class="ic">#</span> <span id="tree-contato">contato.md</span></a>
-    </aside>
-    <main class="pane">
+    </nav>
+    <main class="pane" id="main" tabindex="-1">
       <div class="filehdr"><span class="dot"></span> README.md <span class="meta" id="filemeta">incunábulo · UTF-8</span></div>
       <!-- prerender:md -->
 <article class="md" id="md">
     <h1><img src="assets/sun-seal.svg" alt=""> ana vanzin</h1>
     <div class="badges"><span class="badge"><span class="k">área</span><span class="v">direito · história · gênero</span></span><span class="badge dev"><span class="k">doc</span><span class="v">doutoranda · PPGD/UFSC</span></span><span class="badge"><span class="k">lang</span><span class="v">PT · EN · IT · ES</span></span></div>
-    <p>Ana Vitória Vanzin Mendes — advogada e historiadora do direito. Doutoranda e mestra em Direito (PPGD/UFSC), na linha <strong>Direito dos Grupos Vulneráveis</strong>; especialista em Direito Público (FURB/ESMESC) e bacharela em Direito (UFSC). Pesquiso as <strong>alegorias femininas do direito</strong> — Justitia, a República-como-mulher — e a condição jurídica da mulher entre história, gênero e nacionalidade.</p>
+    <p>Sou Ana Vitória Vanzin Mendes, advogada e historiadora do direito. Faço doutorado em Direito no PPGD/UFSC, na linha Direito dos Grupos Vulneráveis.</p>
     <h2>$ sobre</h2>
     <div class="code"><span class="c"># a tese, em uma linha</span><br><span class="p">const</span> tese = <span class="s">"a primeira Justitia vendada nasceu como sátira, não como virtude"</span>;</div>
-    <h2>## linhas de pesquisa</h2>
-    <div class="pubrow"><span class="y">·</span><span>Iconocracia — as alegorias femininas do direito e o regime visual do poder.</span></div><div class="pubrow"><span class="y">·</span><span>Feminilidade de Estado — a nação personificada como mulher: Justitia, Marianne, a República.</span></div><div class="pubrow"><span class="y">·</span><span>Condição jurídica da mulher — nacionalidade, casamento e cidadania na história do direito.</span></div>
+    <h2>## pesquisa</h2>
+    <div class="pubrow"><span class="y">·</span><span>ICONOCRACIA — Alegoria Feminina na História da Cultura Jurídica (séc. XIX–XX).</span></div><div class="pubrow"><span class="y">·</span><span>Feminilidade de Estado — a nação personificada como mulher: Justitia, Marianne, a República.</span></div><div class="pubrow"><span class="y">·</span><span>Condição jurídica da mulher — nacionalidade, casamento e cidadania na história do direito.</span></div>
     <h2>## formação</h2>
-    <div class="pubrow"><span class="y">2024</span><span><b>Mestrado em Direito</b> · UFSC. <i>“United by marriage, chained by nationality”: a condição jurídica feminina e a nacionalidade no início do século XX.</i> Orientação: Arno Dal Ri Júnior.</span></div><div class="pubrow"><span class="y">2024</span><span><b>Especialização em Direito Público</b> · FURB / ESMESC.</span></div><div class="pubrow"><span class="y">2022</span><span><b>Bacharelado em Direito</b> · UFSC. <i>Nacionalidade e a condição feminina na Comunidade Internacional: contração e expansão na alvorada do século XX.</i></span></div>
+    <div class="pubrow"><span class="y">2024</span><span><b>Mestrado em Direito</b> · UFSC. <i>“United by marriage, chained by nationality”: a condição jurídica feminina e a nacionalidade a partir das variações na regulação da aquisição, manutenção e perda forçada do status nacional às mulheres por meio da superação de discursos e práticas consuetudinárias (1804 - 1957)</i> <a href="/defesa/">Defesa →</a> Orientação: Arno Dal Ri Júnior.</span></div><div class="pubrow"><span class="y">2024</span><span><b>Especialização em Direito Público</b> · FURB / ESMESC.</span></div><div class="pubrow"><span class="y">2022</span><span><b>Bacharelado em Direito</b> · UFSC. <i>Nacionalidade e a condição feminina na Comunidade Internacional: contração e expansão na alvorada do século XX.</i></span></div>
     <h2>## links</h2>
-    <ul><li><a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Currículo Lattes →</a></li><li><a href="/trabalhos">Apresentações, comunicações &amp; traduções →</a></li><li>Grupos: <a href="/trabalhos">Ius Gentium</a> (Direito Internacional · coordenação) · Ius Commune (História da Cultura Jurídica)</li><li><a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram</a> · <a href="http://hookahr.tumblr.com/" target="_blank" rel="noopener">Tumblr</a></li><li><a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a></li></ul></article>
+    <ul><li><a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Currículo Lattes →</a></li><li><a href="/trabalhos">Trabalhos →</a> · <a href="/publicacoes/">Publicações →</a></li><li><a href="https://grupoiusgentium.com.br/">Ius Gentium</a> (Direito Internacional · coordenação) · Ius Commune (História da Cultura Jurídica)</li><li><a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram</a> · <a href="http://hookahr.tumblr.com/" target="_blank" rel="noopener">Tumblr</a></li><li><a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a></li></ul></article>
 <!-- /prerender:md -->
+      <p class="readme-return"><a id="btn-replay" href="/intro/?replay=1">rever abertura →</a></p>
     </main>
   </div>
 
@@ -150,20 +167,20 @@ try { const s = localStorage.getItem('av_lang'); if (s === 'pt' || s === 'en') l
 
 const DATA = {
   pt: {
-    crumb:'dossiê', psobre:'sobre', pperfil:'perfil', pdossie:'dossiê', lsobre:'a narrativa', lperfil:'o cartão', ldossie:'o currículo', cv:'Lattes ↗', treeTh:'anavanzin / main', contato:'contato.md', filemeta:'incunábulo · UTF-8',
+    skip:'Pular para o conteúdo', replay:'rever abertura →', directory:'Arquivos do dossiê', views:'Sobre, perfil e dossiê', crumb:'dossiê', psobre:'sobre', pperfil:'perfil', pdossie:'dossiê', lsobre:'a narrativa', lperfil:'o cartão', ldossie:'o currículo', cv:'Lattes ↗', treeTh:'anavanzin / main', contato:'contato.md', filemeta:'incunábulo · UTF-8',
     badges:[ ['área','direito · história · gênero'], ['doc','doutoranda · PPGD/UFSC'], ['lang','PT · EN · IT · ES'] ],
-    intro:'Ana Vitória Vanzin Mendes — advogada e historiadora do direito. Doutoranda e mestra em Direito (PPGD/UFSC), na linha <strong>Direito dos Grupos Vulneráveis</strong>; especialista em Direito Público (FURB/ESMESC) e bacharela em Direito (UFSC). Pesquiso as <strong>alegorias femininas do direito</strong> — Justitia, a República-como-mulher — e a condição jurídica da mulher entre história, gênero e nacionalidade.',
+    intro:'Sou Ana Vitória Vanzin Mendes, advogada e historiadora do direito. Faço doutorado em Direito no PPGD/UFSC, na linha Direito dos Grupos Vulneráveis.',
     h_sobre:'$ sobre',
     code:'<span class="c"># a tese, em uma linha</span><br><span class="p">const</span> tese = <span class="s">"a primeira Justitia vendada nasceu como sátira, não como virtude"</span>;',
-    h_pub:'## linhas de pesquisa',
+    h_pub:'## pesquisa',
     pubs:[
-      ['·', 'Iconocracia — as alegorias femininas do direito e o regime visual do poder.'],
+      ['·', 'ICONOCRACIA — Alegoria Feminina na História da Cultura Jurídica (séc. XIX–XX).'],
       ['·', 'Feminilidade de Estado — a nação personificada como mulher: Justitia, Marianne, a República.'],
       ['·', 'Condição jurídica da mulher — nacionalidade, casamento e cidadania na história do direito.'],
     ],
     h_form:'## formação',
     form:[
-      ['2024','<b>Mestrado em Direito</b> · UFSC. <i>“United by marriage, chained by nationality”: a condição jurídica feminina e a nacionalidade no início do século XX.</i> Orientação: Arno Dal Ri Júnior.'],
+      ['2024','<b>Mestrado em Direito</b> · UFSC. <i>“United by marriage, chained by nationality”: a condição jurídica feminina e a nacionalidade a partir das variações na regulação da aquisição, manutenção e perda forçada do status nacional às mulheres por meio da superação de discursos e práticas consuetudinárias (1804 - 1957)</i> <a href="/defesa/">Defesa →</a> Orientação: Arno Dal Ri Júnior.'],
       ['2024','<b>Especialização em Direito Público</b> · FURB / ESMESC.'],
       ['2022','<b>Bacharelado em Direito</b> · UFSC. <i>Nacionalidade e a condição feminina na Comunidade Internacional: contração e expansão na alvorada do século XX.</i>'],
     ],
@@ -177,27 +194,27 @@ const DATA = {
     h_links:'## links',
     links:[
       '<a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Currículo Lattes →</a>',
-      '<a href="/trabalhos">Apresentações, comunicações & traduções →</a>',
-      'Grupos: <a href="/trabalhos">Ius Gentium</a> (Direito Internacional · coordenação) · Ius Commune (História da Cultura Jurídica)',
+      '<a href="/trabalhos">Trabalhos →</a> · <a href="/publicacoes/">Publicações →</a>',
+      '<a href="https://grupoiusgentium.com.br/">Ius Gentium</a> (Direito Internacional · coordenação) · Ius Commune (História da Cultura Jurídica)',
       '<a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram</a> · <a href="http://hookahr.tumblr.com/" target="_blank" rel="noopener">Tumblr</a>',
       '<a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>',
     ],
   },
   en: {
-    crumb:'dossier', psobre:'about', pperfil:'profile', pdossie:'dossier', lsobre:'the narrative', lperfil:'the card', ldossie:'the CV', cv:'Lattes CV ↗', treeTh:'anavanzin / main', contato:'contact.md', filemeta:'incunabulum · UTF-8',
+    skip:'Skip to content', replay:'replay opening →', directory:'Dossier files', views:'About, profile and dossier', crumb:'dossier', psobre:'about', pperfil:'profile', pdossie:'dossier', lsobre:'the narrative', lperfil:'the card', ldossie:'the CV', cv:'Lattes CV ↗', treeTh:'anavanzin / main', contato:'contact.md', filemeta:'incunabulum · UTF-8',
     badges:[ ['field','law · history · gender'], ['role','PhD cand. · PPGD/UFSC'], ['lang','PT · EN · IT · ES'] ],
-    intro:'Ana Vitória Vanzin Mendes — lawyer and legal historian. PhD candidate and Master in Law (PPGD/UFSC), in the <strong>Vulnerable Groups</strong> research line; specialist in Public Law (FURB/ESMESC) and Bachelor of Laws (UFSC). I research the <strong>female allegories of law</strong> — Justitia, the Republic-as-woman — and the legal condition of women across history, gender and nationality.',
+    intro:'I’m Ana Vitória Vanzin Mendes, a lawyer and legal historian. I’m studying for a doctorate in Law at PPGD/UFSC, in the Vulnerable Groups research line.',
     h_sobre:'$ about',
     code:'<span class="c"># the thesis, in one line</span><br><span class="p">const</span> thesis = <span class="s">"the first blindfolded Justitia was born as satire, not as virtue"</span>;',
-    h_pub:'## research lines',
+    h_pub:'## research',
     pubs:[
-      ['·', 'Iconocracy — the female allegories of law and the visual regime of power.'],
+      ['·', 'ICONOCRACIA — Female Allegory in the History of Legal Culture (19th–20th centuries).'],
       ['·', 'State Femininity — the nation personified as a woman: Justitia, Marianne, the Republic.'],
       ['·', 'Women’s legal condition — nationality, marriage and citizenship in legal history.'],
     ],
     h_form:'## education',
     form:[
-      ['2024','<b>Master in Law</b> · UFSC. <i>“United by marriage, chained by nationality”: women’s legal status and nationality in the early 20th century.</i> Advisor: Arno Dal Ri Júnior.'],
+      ['2024','<b>Master in Law</b> · UFSC. <i lang="pt-BR">“United by marriage, chained by nationality”: a condição jurídica feminina e a nacionalidade a partir das variações na regulação da aquisição, manutenção e perda forçada do status nacional às mulheres por meio da superação de discursos e práticas consuetudinárias (1804 - 1957)</i> <a href="/defesa/">Defense →</a> Advisor: Arno Dal Ri Júnior.'],
       ['2024','<b>Specialist in Public Law</b> · FURB / ESMESC.'],
       ['2022','<b>Bachelor of Laws</b> · UFSC. <i>Nationality and the female condition in the International Community: contraction and expansion at the dawn of the 20th century.</i>'],
     ],
@@ -211,8 +228,8 @@ const DATA = {
     h_links:'## links',
     links:[
       '<a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Lattes CV →</a>',
-      '<a href="/trabalhos">Talks, communications & translations →</a>',
-      'Groups: <a href="/trabalhos">Ius Gentium</a> (International Law · coordination) · Ius Commune (Legal History)',
+      '<a href="/trabalhos">Works →</a> · <a href="/publicacoes/">Publications →</a>',
+      '<a href="https://grupoiusgentium.com.br/">Ius Gentium</a> (International Law · coordination) · Ius Commune (Legal History)',
       '<a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram</a> · <a href="http://hookahr.tumblr.com/" target="_blank" rel="noopener">Tumblr</a>',
       '<a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>',
     ],
@@ -221,7 +238,11 @@ const DATA = {
 
 function render(){
   const d = DATA[lang];
-  document.documentElement.lang = lang;
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.getElementById('skip-content').textContent = d.skip;
+  document.getElementById('btn-replay').textContent = d.replay;
+  document.querySelector('.vista').setAttribute('aria-label', d.views);
+  document.getElementById('file-directory').setAttribute('aria-label', d.directory);
   document.getElementById('crumb-leaf').textContent = d.crumb;
   document.getElementById('vs-sobre').textContent = d.psobre;
   document.getElementById('vs-perfil').textContent = d.pperfil;
@@ -238,6 +259,7 @@ function render(){
   const badges = d.badges.map(([k,v]) => `<span class="badge${k==='doc'||k==='role'?' dev':''}"><span class="k">${k}</span><span class="v">${v}</span></span>`).join('');
   const pubs = d.pubs.map(([y,h]) => `<div class="pubrow"><span class="y">${y}</span><span>${h}</span></div>`).join('');
   const form = d.form.map(([y,h]) => `<div class="pubrow"><span class="y">${y}</span><span>${h}</span></div>`).join('');
+  // These unpublished source entries intentionally remain outside the rendered dossier.
   const pubs2 = d.pubs2.map(([y,h]) => `<div class="pubrow"><span class="y">${y}</span><span>${h}</span></div>`).join('');
   const links = d.links.map(h => `<li>${h}</li>`).join('');
 
@@ -261,6 +283,16 @@ document.querySelectorAll('#langtog button').forEach(b => b.addEventListener('cl
   render();
 }));
 render();
+document.documentElement.classList.add('readme-ready');
+window.addEventListener('pageshow', () => {
+  try { const stored = localStorage.getItem('av_lang'); if (stored === 'pt' || stored === 'en') lang = stored; } catch {}
+  render();
+});
+document.getElementById('btn-replay').addEventListener('click', event => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  location.replace(event.currentTarget.href);
+});
 </script>
 </body>
 </html>
