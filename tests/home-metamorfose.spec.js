@@ -145,7 +145,8 @@ for (const width of widths) {
     for (const lang of languages) {
       await openHome(page, width, lang);
       await assertPanels(page, width);
-      await expect(page.locator('.nav > nav > a')).toHaveCount(8);
+      await expect(page.locator('.nav > nav > a')).toHaveCount(9);
+      await expect(page.locator('#mm-nav a[href="https://anavanzin.com/arno-dal-ri-site"]')).toHaveText(lang === 'pt' ? 'Orientador' : 'Advisor');
       if (width <= 1000) {
         await page.locator('.mm-trigger').focus();
         await page.keyboard.press('Enter');

@@ -376,6 +376,7 @@ for (const width of [390, 1440]) {
       for (const lang of languages) {
         await chooseLanguage(page, route, lang);
         await assertActive(page, route);
+        await expect(page.locator('.ed-bar .avnav a[href="https://anavanzin.com/arno-dal-ri-site"]')).toHaveText(lang === 'pt' ? 'Orientador' : 'Advisor');
       }
       await tabTo(page, page.locator('.ed-bar a.brand'));
       await page.keyboard.press('Enter');

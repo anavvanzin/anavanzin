@@ -30,7 +30,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     const feature = page.getByRole('region', { name: 'Defesa da dissertação' });
     await expect(feature).toBeVisible();
     await expect(feature).toContainText('Mestrado');
-    await expect(page.locator('.nav > nav a')).toHaveCount(8);
+    await expect(page.locator('.nav > nav a')).toHaveCount(9);
     if (width <= 1000) {
       await expect(page.locator('.nav > nav')).toBeHidden();
       await expect(page.locator('.mm-trigger')).toBeVisible();
