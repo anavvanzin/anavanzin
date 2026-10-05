@@ -92,6 +92,8 @@
       font: 600 0.68rem/1 var(--body);
       letter-spacing: 0.18em;
       color: var(--ink);
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .replay {
@@ -243,13 +245,15 @@
       align-self: end;
       padding: 0.7rem 0;
       color: var(--muted);
+      display: inline-flex;
+      align-items: center;
     }
 
     .skip:hover,
     .skip:focus-visible { color: var(--rubric); }
 
     :focus-visible {
-      outline: 1px solid var(--rubric);
+      outline: 2px solid var(--rubric);
       outline-offset: 4px;
     }
 
@@ -271,11 +275,11 @@
 <meta name="robots" content="noindex,follow">
 </head>
 <body>
-  <main class="page" aria-label="Página inicial de Ana Vanzin">
+  <main class="page" aria-label="Entrada para o dossiê de Ana Vanzin">
     <div class="seal" aria-hidden="true"><span>AV</span></div>
     <h1>ana vanzin</h1>
     <p>tese · publicações · ius gentium · advocacia · contato</p>
-    <a class="replay" href="/?intro=done">entrar no site →</a>
+    <a class="replay" href="/readme">abrir read.me →</a>
   </main>
 
   <section class="intro" aria-label="Abertura animada" aria-hidden="false">
@@ -314,12 +318,15 @@
       <div class="system-label">av-os · v.1494 · anavanzin.com</div>
     </div>
 
-    <button class="skip" type="button">pular →</button>
+    <a class="skip" href="/readme" aria-label="Pular abertura e abrir o dossiê">pular →</a>
   </section>
+
+  <noscript><style>.intro { display: none; }</style></noscript>
 
   <script>
     (() => {
       const intro = document.querySelector('.intro');
+      const page = document.querySelector('.page');
       const skip = document.querySelector('.skip');
       const progress = document.querySelector('.progress span');
       const lines = [...document.querySelectorAll('.boot > div')];
@@ -338,6 +345,11 @@
       const hasPreviewPhase = previewParams.has('phase');
       let frame = 0;
       let started = 0;
+      let finishTimer = 0;
+      let finished = false;
+      page.inert = true;
+      page.setAttribute('aria-hidden', 'true');
+      skip.focus({ preventScroll: true });
 
       // Both silhouettes have the same 14 semantic anchors, so every part of
       // the hourglass travels to a meaningful place on the wine glass.
@@ -402,8 +414,13 @@
       }
 
       function finish() {
+        if (finished) return;
+        finished = true;
         cancelAnimationFrame(frame);
+        clearTimeout(finishTimer);
         intro.setAttribute('aria-hidden', 'true');
+        page.inert = false;
+        page.removeAttribute('aria-hidden');
         window.dispatchEvent(new Event('av:intro-finished'));
       }
 
@@ -413,7 +430,7 @@
         revealLines(normalized);
         progress.style.width = `${(normalized * 100).toFixed(1)}%`;
         if (normalized < 1) frame = requestAnimationFrame(tick);
-        else setTimeout(finish, 550);
+        else finishTimer = setTimeout(finish, 550);
       }
 
       function start() {
@@ -430,8 +447,14 @@
         frame = requestAnimationFrame(tick);
       }
 
-      skip.addEventListener('click', finish);
-      document.addEventListener('keydown', event => { if (event.key === 'Escape') finish(); });
+      skip.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        finish();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { event.preventDefault(); finish(); }
+      });
       if (hasPreviewPhase) {
         const phase = clamp(Number(previewParams.get('phase')) || 0);
         draw(phase);

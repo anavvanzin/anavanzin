@@ -5,7 +5,7 @@
     window.addEventListener('av:intro-finished', () => {
       remember();
       if (parent !== window) parent.postMessage({ type: 'av:intro-finished' }, location.origin);
-      else location.replace('/?intro=done');
+      else location.replace('/readme');
     }, { once: true });
     return;
   }
