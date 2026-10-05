@@ -444,13 +444,14 @@ body.quotes-page .overlay-scroll {
 body.quotes-page .overlay.visible .overlay-scroll { opacity: 1; transform: translateY(0); }
 body.quotes-page .close-overlay {
   position: absolute; top: 14px; right: 20px; z-index: 2;
+  min-width: 44px; min-height: 44px;
   font: 400 26px/1 var(--f-label);
   color: var(--mut); padding: 8px 12px;
 }
 body.quotes-page .close-overlay:hover { color: var(--qr); }
 body.quotes-page .trecho-topbar {
   display: flex; align-items: baseline; justify-content: space-between;
-  padding: 18px 40px 0;
+  padding: 18px 76px 0 40px;
   font: 600 10px/1 var(--f-label); letter-spacing: .2em; text-transform: uppercase;
 }
 body.quotes-page .trecho-back { color: var(--mut2); }
@@ -572,7 +573,7 @@ body.quotes-page #ovSortear { color: var(--qr); }
     white-space: normal; overflow: visible; overflow-wrap: anywhere;
   }
   body.quotes-page .verbete-head h2 { font-size: 38px; }
-  body.quotes-page .trecho-topbar { padding: 16px 20px 0; }
+  body.quotes-page .trecho-topbar { padding: 16px 64px 0 20px; }
   body.quotes-page .trecho-stage { padding: 12vh 20px 24px; }
   body.quotes-page .trecho-text.ts-52 { font-size: 38px; }
   body.quotes-page .trecho-text.ts-38 { font-size: 30px; }
