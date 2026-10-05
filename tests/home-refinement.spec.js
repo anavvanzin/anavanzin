@@ -62,10 +62,11 @@ async function assertLanguage(page, lang) {
 }
 
 async function assertNavigation(page) {
-  await expect(page.locator('.nav > nav > a')).toHaveCount(8);
+  await expect(page.locator('.nav > nav > a')).toHaveCount(9);
   expect(await page.locator('.nav > nav > a').evaluateAll(links => links.map(link => link.getAttribute('href')))).toEqual([
     '/sobre', '/atlas/', '/publicacoes/', '/metodologia/', '/quotes/',
-    'https://iconocracia.com/', 'https://grupoiusgentium.com.br/', 'mailto:ana@anavanzin.com',
+    'https://iconocracia.com/', 'https://grupoiusgentium.com.br/',
+    'https://anavanzin.com/arno-dal-ri-site', 'mailto:ana@anavanzin.com',
   ]);
   await expect(page.locator('.methodology-cta')).toHaveAttribute('href', '/metodologia/');
   expect(await page.locator('.methodology-topics a').evaluateAll(links => links.map(link => link.getAttribute('href'))))
