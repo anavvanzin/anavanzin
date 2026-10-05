@@ -7,24 +7,25 @@ const network = new WeakMap();
 
 test.use({ serviceWorkers: 'block' });
 
-test.beforeEach(async ({ page, context, baseURL, javaScriptEnabled }) => {
+test.beforeEach(async ({ page, context, baseURL }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(false);
   const origin = new URL(baseURL).origin;
-  const activity = { stateOrAPI: [], writes: [], mp4: [], fontCDN: [], motionAllowed: javaScriptEnabled };
+  const activity = { stateOrAPI: [], writes: [], mp4: [], portrait: [], fontCDN: [] };
   network.set(page, activity);
   page.on('request', request => {
     const url = new URL(request.url());
     if (/\/(?:api|_state)(?:\/|$)/.test(url.pathname)) activity.stateOrAPI.push(request.url());
     if (url.origin === origin && !['GET', 'HEAD'].includes(request.method())) activity.writes.push(request.url());
     if (/\.mp4(?:$|\/)/i.test(url.pathname)) activity.mp4.push(request.url());
+    if (url.pathname === '/assets/redesign/ana-metamorfose.png') activity.portrait.push(request.url());
     if (['fonts.googleapis.com', 'fonts.gstatic.com'].includes(url.hostname)) activity.fontCDN.push(request.url());
   });
   await context.route('**/*', route => {
     const request = route.request();
     const url = new URL(request.url());
     if (/\/(?:api|_state)(?:\/|$)/.test(url.pathname)
-        || (!activity.motionAllowed && /\.mp4(?:$|\/)/i.test(url.pathname))
+        || /\.mp4(?:$|\/)/i.test(url.pathname)
         || (url.origin === origin && !['GET', 'HEAD'].includes(request.method()))) return route.abort();
     if (url.origin !== origin) return route.fulfill({ status: 204, body: '' });
     return route.continue();
@@ -35,9 +36,8 @@ test.afterEach(async ({ page }) => {
   const activity = network.get(page);
   expect(activity.stateOrAPI, 'Home tests must never contact API or KV state routes').toEqual([]);
   expect(activity.writes, 'Home tests must never write through the local server').toEqual([]);
-  if (!activity.motionAllowed) {
-    expect(activity.mp4, 'Reduced motion and no-JavaScript reading must never request an MP4').toEqual([]);
-  }
+  expect(activity.mp4, 'The home must never request a removed hero video').toEqual([]);
+  expect(activity.portrait, 'The removed hero poster is not downloaded').toEqual([]);
   expect(activity.fontCDN, 'Home uses self-hosted fonts rather than a Google Fonts download').toEqual([]);
 });
 
@@ -87,35 +87,23 @@ async function assertResponsiveNavigation(page, width) {
   }
 }
 
-async function assertPortrait(page, width, javaScriptEnabled = true) {
-  await expect(page.locator('.hero-portrait picture')).toHaveCount(1);
-  const image = page.locator('.hero-portrait picture img');
-  await expect(image).toHaveAttribute('alt', 'Ana Vanzin');
-  await expect(image).toBeVisible();
-  await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
-  expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toBe('/assets/redesign/ana-metamorfose.png');
-  await expect(page.locator('.mm-switch, .mm-play')).toHaveCount(0);
-  const video = page.locator('#hero-video');
-  await expect(video).toHaveCount(1);
-  await expect(page.locator('.portrait-control')).toHaveCount(0);
-  if (javaScriptEnabled) {
-    await expect(video).toBeVisible();
+async function assertTextHero(page, width) {
+  await expect(page.locator('.home-hero video, .home-hero figure, .portrait-control')).toHaveCount(0);
+  await expect(page.locator('#name')).toBeVisible();
+  await expect(page.locator('.hero-copy .intro')).toBeVisible();
+  await expect(page.locator('.actions .secondary')).toHaveAttribute('href', '/intro/');
+  const placement = await page.evaluate(() => {
+    const name = document.querySelector('.hero-name').getBoundingClientRect();
+    const copy = document.querySelector('.hero-copy').getBoundingClientRect();
+    const hero = document.querySelector('.home-hero').getBoundingClientRect();
+    return { nameRight: name.right, nameBottom: name.bottom, copyLeft: copy.left, copyTop: copy.top, copyBottom: copy.bottom, heroBottom: hero.bottom };
+  });
+  if (width <= 1000) {
+    expect(placement.copyTop, 'Text follows the name without a reserved media row').toBeCloseTo(placement.nameBottom, 0);
   } else {
-    await expect(video).toBeHidden();
+    expect(placement.copyLeft, 'Desktop uses the freed column for the introduction').toBeGreaterThan(placement.nameRight);
   }
-}
-
-async function assertPlayback(page, width) {
-  const video = page.locator('#hero-video');
-  const expected = width <= 1000 ? 'ana-motion-refined-v2.mp4' : 'ana-motion-editorial-v2.mp4';
-  await expect(video).toHaveAttribute('src', `/assets/redesign/${expected}`);
-  await expect(video).toHaveClass(/has-frame/);
-  await expect.poll(() => video.evaluate(element => element.paused)).toBe(false);
-  await expect.poll(() => video.evaluate(element => element.videoWidth)).toBeGreaterThan(0);
-  const startedAt = await video.evaluate(element => element.currentTime);
-  await expect.poll(() => video.evaluate(element => element.currentTime), {
-    message: 'Portrait playback advances decoded video time',
-  }).toBeGreaterThan(startedAt + 0.1);
+  expect(placement.heroBottom, 'No empty media row remains below the introduction').toBeCloseTo(placement.copyBottom, 0);
 }
 
 async function assertNoClippingOrOverflow(page) {
@@ -167,13 +155,13 @@ async function captureMethodology(page, testInfo, name) {
 }
 
 for (const width of widths) {
-  test(`home PT/EN at ${width}px: readable methodology, portrait and destinations`, async ({ page }, testInfo) => {
+  test(`home PT/EN at ${width}px: readable methodology, text hero and destinations`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     for (const lang of languages) {
       await openHome(page, lang);
       await assertNavigation(page);
       await assertResponsiveNavigation(page, width);
-      await assertPortrait(page, width);
+      await assertTextHero(page, width);
       expect(await page.locator('.methodology-intro').evaluate(element => parseFloat(getComputedStyle(element).fontSize)), 'Methodology body text remains at least18px').toBeGreaterThanOrEqual(18);
       await expect(page.locator('.methodology-topics a').first()).toHaveCSS('font-family', /DM Sans/);
       await expect(page.locator('.methodology-topics a').first()).toHaveCSS('text-transform', 'none');
@@ -185,64 +173,28 @@ for (const width of widths) {
   });
 }
 
-test('portrait plays automatically and follows motion preference in PT/EN at320px and1440px', async ({ page }) => {
+test('home remains free of media when the motion preference changes', async ({ page }) => {
   for (const width of [320, 1440]) {
-    await page.goto('about:blank');
     await page.setViewportSize({ width, height: 900 });
-    await openHome(page);
-    await assertPortrait(page, width);
-    const video = page.locator('#hero-video');
-    for (const lang of languages) {
-      await page.locator(`.lang button[data-lang="${lang}"]`).click();
-      await assertLanguage(page, lang);
-      await video.scrollIntoViewIfNeeded();
-      await assertPlayback(page, width);
-      await expect(video).toHaveAccessibleName(lang === 'pt' ? 'Retrato em movimento de Ana Vanzin' : 'Moving portrait of Ana Vanzin');
-      await expect(page.locator('.portrait-control')).toHaveCount(0);
-      await page.emulateMedia({ reducedMotion: 'reduce' });
-      await expect.poll(() => video.evaluate(element => element.paused)).toBe(true);
-      await expect.poll(() => video.getAttribute('src')).toBeNull();
-      await expect(video).not.toHaveClass(/has-frame/);
-      await expect(page.locator('.hero-portrait picture img')).toBeVisible();
-      await page.emulateMedia({ reducedMotion: 'no-preference' });
-      await assertPlayback(page, width);
-    }
-    const source = await video.getAttribute('src');
-    expect(network.get(page).mp4.some(url => new URL(url).pathname === source)).toBe(true);
-  }
-});
-
-test('reduced motion keeps the poster without an MP4 in PT/EN at320px and1440px', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);
-  const activity = network.get(page);
-  activity.motionAllowed = false;
-  for (const width of [320, 1440]) {
-    await page.goto('about:blank');
-    activity.motionAllowed = false;
-    const beforeOpen = activity.mp4.length;
-    await page.setViewportSize({ width, height: 900 });
-    for (const lang of languages) {
-      await openHome(page, lang);
-      await assertPortrait(page, width);
-      const video = page.locator('#hero-video');
-      await video.scrollIntoViewIfNeeded();
-      expect(await video.getAttribute('src')).toBeNull();
-      expect(await video.evaluate(element => element.paused)).toBe(true);
-      await expect(video).not.toHaveClass(/has-frame/);
-      expect(activity.mp4, 'Reduced motion keeps the poster without downloading video').toHaveLength(beforeOpen);
+    for (const motion of ['no-preference', 'reduce', 'no-preference']) {
+      await page.emulateMedia({ reducedMotion: motion });
+      for (const lang of languages) {
+        await openHome(page, lang);
+        await assertTextHero(page, width);
+        await assertNoClippingOrOverflow(page);
+      }
     }
   }
 });
 
 test.describe('without JavaScript', () => {
   test.use({ javaScriptEnabled: false });
-  test('portrait and methodology remain usable at320px and1440px', async ({ page }) => {
+  test('text hero and methodology remain usable at320px and1440px', async ({ page }) => {
     for (const width of [320, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       expect((await page.goto('/')).status()).toBe(200);
       await page.evaluate(() => document.fonts.ready);
-      await assertPortrait(page, width, false);
+      await assertTextHero(page, width);
       await assertNavigation(page);
       await expect(page.locator('#methodology-title')).toHaveText('Metodologia');
       await expect(page.locator('.methodology-intro')).toBeVisible();
@@ -316,7 +268,7 @@ test('language choice survives reload in both directions on mobile anddesktop', 
       expect(await page.evaluate(() => localStorage.getItem('av_lang'))).toBe(lang);
       await page.reload();
       await assertLanguage(page, lang);
-      await assertPortrait(page, width);
+      await assertTextHero(page, width);
       await assertNoClippingOrOverflow(page);
     }
   }
@@ -353,7 +305,7 @@ test('720px effective CSS viewport reflow in PT/EN, separately from text resize'
     // This verifies reflow; it does not drive or claim native browser zoom.
     await page.setViewportSize({ width: 720, height: 900 });
     await openHome(page, lang);
-    await assertPortrait(page, 720);
+    await assertTextHero(page, 720);
     await assertNoClippingOrOverflow(page);
     const columns = await page.locator('.methodology-feature').evaluate(element => getComputedStyle(element).gridTemplateColumns.split(' ').length);
     expect(columns, 'Methodology reflows to one column at the effective viewport').toBe(1);
