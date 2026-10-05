@@ -47,8 +47,8 @@ body.quotes-page {
   -webkit-font-smoothing: antialiased;
   transition: background .35s var(--ease), color .35s var(--ease);
 }
-body.quotes-page button { font-family: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-body.quotes-page input { font-family: inherit; }
+body.quotes-page button { font: inherit; letter-spacing: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+body.quotes-page input { font: inherit; }
 body.quotes-page input:focus { outline: 1px solid var(--qr); outline-offset: 3px; }
 body.quotes-page ::selection { background: var(--qr); color: var(--qp); }
 body.quotes-page [hidden] { display: none !important; }
@@ -108,7 +108,7 @@ body.quotes-page .stats-grid {
   border-bottom: 1px solid var(--line);
 }
 body.quotes-page .stat-item { display: flex; flex-direction: column; gap: 4px; }
-body.quotes-page .stat-value { font: 500 34px/1 var(--f-label); color: var(--qi); }
+body.quotes-page .stat-value { font: 400 34px/1 var(--f-label); color: var(--qi); }
 body.quotes-page .stat-label { font: 600 9px/1.5 var(--f-label); letter-spacing: .2em; text-transform: uppercase; color: var(--mut2); }
 body.quotes-page .year-bars { display: flex; align-items: flex-end; gap: 4px; height: 64px; }
 body.quotes-page .year-bar {
@@ -158,7 +158,7 @@ body.quotes-page .hero-text {
 }
 body.quotes-page .hero-attr {
   display: block; margin-top: 18px;
-  font: italic 500 16px/1.4 var(--f-label);
+  font: italic 400 18px/1.5 var(--f-text);
   color: var(--qr);
 }
 body.quotes-page .hero-date {
@@ -187,20 +187,20 @@ body.quotes-page .folio-rule { flex: 1; height: 1px; background: var(--line); }
 body.quotes-page .folio-text {
   columns: 2; column-gap: 36px;
   column-rule: 1px solid var(--line);
-  font: 400 15.5px/1.72 var(--f-text);
-  text-align: justify; hyphens: auto; text-wrap: pretty;
+  font: 400 18px/1.65 var(--f-text);
+  text-align: start; hyphens: manual; text-wrap: pretty;
 }
 body.quotes-page .entry { margin: 0 0 15px; break-inside: avoid; cursor: pointer; }
 body.quotes-page .entry:hover .entry-author { color: var(--qi); }
 body.quotes-page .pilcrow { color: var(--qr); font-size: 17px; padding-right: 5px; }
 body.quotes-page .capitular {
   float: left;
-  font: 500 52px/.78 var(--f-label);
+  font: 400 52px/.78 var(--f-label);
   color: var(--qr);
   margin: 5px 8px 0 0;
 }
 body.quotes-page .entry-author {
-  font: italic 500 13.5px/1 var(--f-label);
+  font: italic 400 16px/1.5 var(--f-text);
   color: var(--qr);
   transition: color .2s var(--ease);
 }
@@ -220,7 +220,7 @@ body.quotes-page .apparatus {
   margin-top: 22px; padding-top: 11px;
   border-top: 1px solid var(--rule);
   columns: 2; column-gap: 36px;
-  font: 400 10.5px/1.7 var(--f-ui);
+  font: 400 14px/1.6 var(--f-ui);
   color: var(--mut);
 }
 body.quotes-page .apparatus:empty { display: none; }
@@ -305,7 +305,7 @@ body.quotes-page .verbete-head {
 }
 body.quotes-page .verbete-head h2 {
   margin: 0;
-  font: 500 52px/1 var(--f-label); letter-spacing: -.01em;
+  font: 400 52px/1.15 var(--f-label); letter-spacing: -.01em;
 }
 body.quotes-page #verbeteCount {
   font: 600 11px/1 var(--f-label); letter-spacing: .22em; text-transform: uppercase;
@@ -341,20 +341,20 @@ body.quotes-page .kwic-row:last-child { border-bottom: 0; }
 body.quotes-page .kwic-row:hover .kwic-kw { text-decoration: underline; }
 body.quotes-page .kwic-num { font: 400 9.5px/1.6 var(--f-ui); letter-spacing: .1em; color: var(--mut2); }
 body.quotes-page .kwic-left {
-  font: 400 14.5px/1.5 var(--f-text);
+  font: 400 18px/1.5 var(--f-text);
   text-align: right;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 body.quotes-page .kwic-kw {
-  font: 600 15px/1.4 var(--f-text);
+  font: 600 18px/1.5 var(--f-text);
   color: var(--qr); text-align: center;
 }
 body.quotes-page .kwic-right {
-  font: 400 14.5px/1.5 var(--f-text);
+  font: 400 18px/1.5 var(--f-text);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 body.quotes-page .kwic-author {
-  font: italic 500 12px/1.3 var(--f-label); color: var(--mut);
+  font: italic 400 16px/1.5 var(--f-text); color: var(--mut);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
@@ -445,13 +445,14 @@ body.quotes-page .overlay-scroll {
 body.quotes-page .overlay.visible .overlay-scroll { opacity: 1; transform: translateY(0); }
 body.quotes-page .close-overlay {
   position: absolute; top: 14px; right: 20px; z-index: 2;
+  min-width: 44px; min-height: 44px;
   font: 400 26px/1 var(--f-label);
   color: var(--mut); padding: 8px 12px;
 }
 body.quotes-page .close-overlay:hover { color: var(--qr); }
 body.quotes-page .trecho-topbar {
   display: flex; align-items: baseline; justify-content: space-between;
-  padding: 18px 40px 0;
+  padding: 18px 76px 0 40px;
   font: 600 10px/1 var(--f-label); letter-spacing: .2em; text-transform: uppercase;
 }
 body.quotes-page .trecho-back { color: var(--mut2); }
@@ -460,11 +461,6 @@ body.quotes-page .trecho-stage {
   position: relative;
   max-width: 860px; margin: 0 auto;
   padding: 15vh 40px 30px;
-}
-body.quotes-page .trecho-stage::before {
-  content: ""; position: absolute; top: 50%;
-  left: 0; right: 0; height: 1px;
-  background: var(--qr);
 }
 body.quotes-page .trecho-text {
   position: relative;
@@ -475,12 +471,12 @@ body.quotes-page .trecho-text {
 }
 body.quotes-page .trecho-text.ts-52 { font-size: 52px; }
 body.quotes-page .trecho-text.ts-38 { font-size: 38px; }
-body.quotes-page .trecho-text.ts-28 { font-size: 28px; }
-body.quotes-page .trecho-text.ts-22 { font-size: 22px; line-height: 1.45; }
+body.quotes-page .trecho-text.ts-28 { max-width: 60ch; font: 400 24px/1.5 var(--f-text); }
+body.quotes-page .trecho-text.ts-22 { max-width: 60ch; font: 400 20px/1.6 var(--f-text); }
 body.quotes-page .trecho-attr {
   position: relative;
   margin: 22px 0 0;
-  font: italic 500 17px/1.4 var(--f-label);
+  font: italic 400 18px/1.5 var(--f-text);
   color: var(--qr);
 }
 body.quotes-page .trecho-attr:empty { display: none; }
@@ -574,13 +570,16 @@ body.quotes-page #ovSortear { color: var(--qr); }
   body.quotes-page .kwic-kw { grid-area: kw; text-align: left; }
   body.quotes-page .kwic-right { grid-area: right; }
   body.quotes-page .kwic-author { grid-area: author; }
+  body.quotes-page .kwic-left, body.quotes-page .kwic-right, body.quotes-page .kwic-author {
+    white-space: normal; overflow: visible; overflow-wrap: anywhere;
+  }
   body.quotes-page .verbete-head h2 { font-size: 38px; }
-  body.quotes-page .trecho-topbar { padding: 16px 20px 0; }
+  body.quotes-page .trecho-topbar { padding: 16px 64px 0 20px; }
   body.quotes-page .trecho-stage { padding: 12vh 20px 24px; }
   body.quotes-page .trecho-text.ts-52 { font-size: 38px; }
   body.quotes-page .trecho-text.ts-38 { font-size: 30px; }
   body.quotes-page .trecho-text.ts-28 { font-size: 24px; }
-  body.quotes-page .trecho-text.ts-22 { font-size: 19px; }
+  body.quotes-page .trecho-text.ts-22 { font-size: 18px; line-height: 1.65; }
   body.quotes-page .trecho-meta, body.quotes-page .trecho-words-wrap, body.quotes-page .trecho-actions, body.quotes-page .trecho-nav { padding-left: 20px; padding-right: 20px; }
   body.quotes-page .close-overlay { top: 10px; right: 8px; }
 }
@@ -651,7 +650,28 @@ body.quotes-page .drawer { max-height: min(78vh, 720px); overscroll-behavior: co
 body.quotes-page .trecho-actions { flex-wrap: wrap; gap: 8px 22px; }
 body.quotes-page .trecho-record, body.quotes-page .trecho-raw { max-width: 860px; margin: 20px auto 0; padding: 0 40px; font: 400 12px/1.7 var(--f-ui); color: var(--mut); overflow-wrap: anywhere; }
 body.quotes-page .trecho-raw summary { display: list-item; min-height: 44px; padding: 10px 0; color: var(--qr); cursor: pointer; }
-body.quotes-page .trecho-raw pre { margin: 0; padding: 16px 0; border-top: 1px solid var(--line); font: 400 15px/1.7 var(--f-text); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--qi); }
+body.quotes-page .trecho-raw pre { margin: 0; padding: 16px 0; border-top: 1px solid var(--line); font: 400 18px/1.65 var(--f-text); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--qi); }
+
+/* Instrument Serif tem apenas peso 400: títulos em display; rótulos em DM Sans. */
+body.quotes-page :is(.year-trail, .hero-meta, .folio-range, .folio-nav, .rail-langs,
+  .rail-sec, .rail-letters, .verbete-sorts, .drawer-letters, .drawer-sec,
+  .trecho-topbar, .trecho-words-label, .trecho-actions, .trecho-nav, .thumbbar,
+  .stats-title, .stat-label),
+body.quotes-page :is(#verbeteCount, #verbeteBack, #drawerTitle) {
+  font: 400 13px/1.5 var(--f-ui);
+  letter-spacing: .02em; text-transform: none;
+}
+body.quotes-page :is(.trail-item small, .rail-sec span:last-child, .kwic-num,
+  .year-bars-labels, .head-fol) { font: 400 11px/1.5 var(--f-ui); letter-spacing: .02em; }
+body.quotes-page :is(.hero-date, .rail-note, .rail-keys, .site-footer,
+  .trecho-meta, .results-status, .reset-filters, .stats-close),
+body.quotes-page :is(#folLabel, #drawerClose) {
+  font: 400 13px/1.6 var(--f-ui); letter-spacing: .02em; text-transform: none;
+}
+body.quotes-page :is(.author-tags .tag, .rail-words button, .trecho-words button) {
+  font-size: 14px; line-height: 1.4;
+}
+body.quotes-page :is(#searchInput, #drawerSearch) { font: 400 16px/1.5 var(--f-ui); }
 
 /* Shell e texto prerenderizado continuam legíveis se o aplicativo não iniciar. */
 html:not(.quotes-ready) body.quotes-page .js-control { display: none; }
@@ -675,5 +695,5 @@ html:not(.quotes-ready) body.quotes-page :is(.hero, .entry) { cursor: default; }
   body.quotes-page .year-trail { gap: 14px; }
   body.quotes-page .trecho-record, body.quotes-page .trecho-raw { padding-left: 20px; padding-right: 20px; }
   body.quotes-page .trecho-stage { padding-top: 84px; }
-  body.quotes-page .trecho-nav button { min-width: 0; font-size: 11px; }
+  body.quotes-page .trecho-nav button { min-width: 0; font-size: 13px; }
 }
