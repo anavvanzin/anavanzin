@@ -122,6 +122,19 @@
     .rwm{opacity:.07;width:60%}
     .bar .avnav{width:100%;order:5;gap:13px;margin-top:7px;padding-top:8px;border-top:1px solid var(--rule-hairline)}
   }
+
+  .item { text-decoration:none; box-sizing:border-box; }
+  .mchip .v { white-space:normal; overflow-wrap:anywhere; }
+  .wt { text-transform:none; }
+  .usage { font-size:16px; line-height:1.6; max-width:60ch; }
+  .gloss-entry { padding:18px 0; border-top:1px solid var(--rule-hairline); scroll-margin-top:100px; }
+  .gloss-entry h3 { font-family:var(--font-display); font-size:22px; margin:0 0 8px; }
+  .gloss-entry p { line-height:1.6; margin:8px 0; }
+  .gloss-entry .src { font-size:13px; color:var(--text-muted); }
+  .gloss-entry .kind { font-family:var(--font-display); font-size:12px; color:var(--rubric); }
+  .search:focus-within { outline:2px solid var(--rubric); outline-offset:3px; }
+  .results { font-size:12px; color:var(--text-muted); margin:0 0 12px; }
+  @media(max-width:820px) { #list { max-height:32vh; overflow:auto; } }
 </style>
 <link rel="canonical" href="https://anavanzin.com/conceitos">
 <meta name="robots" content="index,follow">
@@ -149,33 +162,278 @@
         <svg width="15" height="15" viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="12" fill="none" stroke="var(--ink)" stroke-width="3"/><line x1="30" y1="30" x2="43" y2="43" stroke="var(--ink)" stroke-width="4"/></svg>
         <input id="q" type="search" autocomplete="off" placeholder="nome do conceito…" aria-label="Buscar conceito pelo nome">
       </div>
+      <p class="results" id="results" role="status" aria-live="polite">65 verbetes encontrados</p>
       <!-- prerender:list -->
-<div id="list"><div class="grp"><p class="gh">Núcleo</p><button class="item core on" data-id="iconocracia">
-        <span class="gi"><img src="assets/sun-seal.svg" alt=""></span><span>iconocracia</span></button><button class="item orig" data-id="regime">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="8" y="9" width="32" height="9" fill="var(--gold-soft)" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="8" y="20" width="32" height="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="8" y="31" width="32" height="9" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.5"></rect><circle cx="24" cy="13.5" r="2.4" fill="var(--rubric)"></circle></svg></span><span>regime iconocrático</span><span class="omk" title="conceito autoral">◆</span></button></div><div class="grp"><p class="gh">Métodos</p><button class="item" data-id="iconologia">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 5 H30 L37 12 V43 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 5 V12 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><line x1="15" y1="19" x2="29" y2="19" stroke="var(--ink-50)" stroke-width="1.4"></line><line x1="15" y1="24" x2="26" y2="24" stroke="var(--ink-50)" stroke-width="1.4"></line><circle cx="26" cy="33" r="7" fill="var(--paper)" stroke="var(--rubric)" stroke-width="2"></circle><line x1="31" y1="38" x2="40" y2="45" stroke="var(--rubric)" stroke-width="2.6"></line></svg></span><span>iconologia</span></button><button class="item" data-id="iconometria">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="7" y="8" width="34" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><line x1="7" y1="14" x2="41" y2="14" stroke="var(--ink-30)" stroke-width="1"></line><rect x="12" y="29" width="4" height="7" fill="var(--ink)"></rect><rect x="19" y="23" width="4" height="13" fill="var(--rubric)"></rect><rect x="26" y="26" width="4" height="10" fill="var(--ink)"></rect><rect x="33" y="19" width="4" height="17" fill="var(--gold)"></rect></svg></span><span>iconometria</span></button><button class="item" data-id="atlas">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="6" y="8" width="36" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="10" y="12" width="12" height="10" fill="none" stroke="var(--rubric)" stroke-width="1.5"></rect><rect x="26" y="12" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect><rect x="10" y="26" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect><rect x="26" y="26" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect></svg></span><span>atlas iconográfico</span></button></div><div class="grp"><p class="gh">Teorias</p><button class="item" data-id="visiocracia">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M5 24 Q24 9 43 24 Q24 39 5 24 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="24" r="7" fill="var(--ink)"></circle><circle cx="24" cy="24" r="2.6" fill="var(--rubric)"></circle></svg></span><span>visiocracia</span></button><button class="item" data-id="economia">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><circle cx="24" cy="24" r="16" fill="var(--gold-soft)" stroke="var(--ink)" stroke-width="1.6"></circle><circle cx="24" cy="24" r="11.5" fill="none" stroke="var(--gold)" stroke-width="1.2"></circle><rect x="19" y="17" width="10" height="14" fill="var(--paper)" stroke="var(--rubric)" stroke-width="1.5"></rect></svg></span><span>economia icônica</span></button><button class="item orig" data-id="contrato">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 4 H30 L37 11 V44 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 4 V11 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><line x1="15" y1="17" x2="33" y2="17" stroke="var(--ink-50)" stroke-width="1.4"></line><line x1="15" y1="22" x2="33" y2="22" stroke="var(--ink-50)" stroke-width="1.4"></line><circle cx="29" cy="36" r="6.5" fill="var(--rubric)" stroke="var(--ink)" stroke-width="1.4"></circle></svg></span><span>contrato sexual visual</span><span class="omk" title="conceito autoral">◆</span></button><button class="item orig" data-id="racial">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 5 H30 L37 12 V43 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 5 V12 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="28" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></circle><path d="M24 19 a9 9 0 0 1 0 18 Z" fill="var(--ink)"></path></svg></span><span>contrato racial visual</span><span class="omk" title="conceito autoral">◆</span></button><button class="item orig" data-id="feminilidade">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M14 14 l3 -7 3.5 5 3.5 -7 3.5 7 3.5 -5 3 7 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.2"></path><circle cx="24" cy="23" r="10.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></circle><rect x="14.5" y="21" width="19" height="3.4" fill="var(--rubric)"></rect><path d="M16 33 q8 7 16 0 v9 h-16 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path></svg></span><span>feminilidade de estado</span><span class="omk" title="conceito autoral">◆</span></button></div><div class="grp"><p class="gh">Operações</p><button class="item orig" data-id="purificacao">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M10 21 a14 14 0 0 1 28 0 V42 H10 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="22" r="6" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></circle><path d="M16 42 V33 q8 -6 16 0 V42 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></path><line x1="24" y1="6" x2="24" y2="11" stroke="var(--gold)" stroke-width="2"></line></svg></span><span>purificação clássica</span><span class="omk" title="conceito autoral">◆</span></button><button class="item orig" data-id="endurecimento">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><circle cx="24" cy="11" r="4" fill="var(--ink)"></circle><rect x="20" y="14" width="8" height="26" fill="var(--ink)"></rect><line x1="32" y1="13" x2="38" y2="13" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="22" x2="38" y2="22" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="31" x2="38" y2="31" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="40" x2="38" y2="40" stroke="var(--rubric)" stroke-width="1.6"></line></svg></span><span>endurecimento</span><span class="omk" title="conceito autoral">◆</span></button><button class="item orig" data-id="acoplamento">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="6" y="10" width="15" height="28" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><line x1="9" y1="17" x2="18" y2="17" stroke="var(--ink-50)" stroke-width="1.3"></line><line x1="9" y1="21" x2="18" y2="21" stroke="var(--ink-50)" stroke-width="1.3"></line><rect x="27" y="10" width="15" height="28" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><circle cx="34" cy="19" r="3" fill="var(--gold)"></circle><path d="M29 35 l10 -9" stroke="var(--ink)" stroke-width="1.2" fill="none"></path><rect x="20" y="22" width="8" height="4" fill="var(--rubric)"></rect></svg></span><span>acoplamento imagem-norma</span><span class="omk" title="conceito autoral">◆</span></button></div><div class="grp"><p class="gh">Índice</p><button class="item" data-id="glossario">
-        <span class="gi"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>glossário</span></button></div></div>
+<div id="list"><div class="grp"><p class="gh">Índice</p><a class="item on" href="#glossario" data-id="glossario" aria-current="true">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>glossário</span></a></div><div class="grp"><p class="gh">Núcleo</p><a class="item core" href="#iconocracia" data-id="iconocracia">
+        <span class="gi" aria-hidden="true"><img src="/assets/sun-seal.svg" alt="" width="20" height="20"></span><span>iconocracia</span></a><a class="item" href="#regime" data-id="regime">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="8" y="9" width="32" height="9" fill="var(--gold-soft)" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="8" y="20" width="32" height="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></rect><rect x="8" y="31" width="32" height="9" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.5"></rect><circle cx="24" cy="13.5" r="2.4" fill="var(--rubric)"></circle></svg></span><span>regime iconocrático</span></a></div><div class="grp"><p class="gh">Conceitos autorais</p><a class="item orig" href="#racial" data-id="racial">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 5 H30 L37 12 V43 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 5 V12 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="28" r="9" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></circle><path d="M24 19 a9 9 0 0 1 0 18 Z" fill="var(--ink)"></path></svg></span><span>Contrato Racial Visual</span><span class="omk" title="conceito autoral da tese" aria-label="conceito autoral da tese">◆</span></a><a class="item orig" href="#contrato" data-id="contrato">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 4 H30 L37 11 V44 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 4 V11 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><line x1="15" y1="17" x2="33" y2="17" stroke="var(--ink-50)" stroke-width="1.4"></line><line x1="15" y1="22" x2="33" y2="22" stroke="var(--ink-50)" stroke-width="1.4"></line><circle cx="29" cy="36" r="6.5" fill="var(--rubric)" stroke="var(--ink)" stroke-width="1.4"></circle></svg></span><span>Contrato Sexual Visual</span><span class="omk" title="conceito autoral da tese" aria-label="conceito autoral da tese">◆</span></a><a class="item orig" href="#feminilidade" data-id="feminilidade">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M14 14 l3 -7 3.5 5 3.5 -7 3.5 7 3.5 -5 3 7 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.2"></path><circle cx="24" cy="23" r="10.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></circle><rect x="14.5" y="21" width="19" height="3.4" fill="var(--rubric)"></rect><path d="M16 33 q8 7 16 0 v9 h-16 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path></svg></span><span>Feminilidade de Estado</span><span class="omk" title="conceito autoral da tese" aria-label="conceito autoral da tese">◆</span></a><a class="item orig" href="#purificacao" data-id="purificacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M10 21 a14 14 0 0 1 28 0 V42 H10 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="22" r="6" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></circle><path d="M16 42 V33 q8 -6 16 0 V42 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"></path><line x1="24" y1="6" x2="24" y2="11" stroke="var(--gold)" stroke-width="2"></line></svg></span><span>Purificação Clássica</span><span class="omk" title="conceito autoral da tese" aria-label="conceito autoral da tese">◆</span></a></div><div class="grp"><p class="gh">Métodos e documentação</p><a class="item" href="#iconografia" data-id="iconografia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>análise iconográfica</span></a><a class="item" href="#atlas" data-id="atlas">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="6" y="8" width="36" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="10" y="12" width="12" height="10" fill="none" stroke="var(--rubric)" stroke-width="1.5"></rect><rect x="26" y="12" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect><rect x="10" y="26" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect><rect x="26" y="26" width="12" height="10" fill="none" stroke="var(--ink-50)" stroke-width="1.3"></rect></svg></span><span>atlas iconográfico</span></a><a class="item" href="#atributo" data-id="atributo">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>atributo iconográfico</span></a><a class="item" href="#capta" data-id="capta">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>capta</span></a><a class="item" href="#corpus" data-id="corpus">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>corpus</span></a><a class="item" href="#pre-iconografia" data-id="pre-iconografia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>descrição pré-iconográfica</span></a><a class="item" href="#iconologia" data-id="iconologia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M11 5 H30 L37 12 V43 H11 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><path d="M30 5 V12 H37 Z" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.6"></path><line x1="15" y1="19" x2="29" y2="19" stroke="var(--ink-50)" stroke-width="1.4"></line><line x1="15" y1="24" x2="26" y2="24" stroke="var(--ink-50)" stroke-width="1.4"></line><circle cx="26" cy="33" r="7" fill="var(--paper)" stroke="var(--rubric)" stroke-width="2"></circle><line x1="31" y1="38" x2="40" y2="45" stroke="var(--rubric)" stroke-width="2.6"></line></svg></span><span>iconologia</span></a><a class="item" href="#iconometria" data-id="iconometria">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="7" y="8" width="34" height="32" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><line x1="7" y1="14" x2="41" y2="14" stroke="var(--ink-30)" stroke-width="1"></line><rect x="12" y="29" width="4" height="7" fill="var(--ink)"></rect><rect x="19" y="23" width="4" height="13" fill="var(--rubric)"></rect><rect x="26" y="26" width="4" height="10" fill="var(--ink)"></rect><rect x="33" y="19" width="4" height="17" fill="var(--gold)"></rect></svg></span><span>iconometria</span></a><a class="item" href="#indicadores" data-id="indicadores">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>indicadores ordinais</span></a><a class="item" href="#inventario" data-id="inventario">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>inventário verbal de atributos</span></a><a class="item" href="#paradigma" data-id="paradigma">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>paradigma indiciário</span></a><a class="item" href="#proveniencia" data-id="proveniencia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>proveniência</span></a><a class="item" href="#suporte" data-id="suporte">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>suporte</span></a></div><div class="grp"><p class="gh">Warburg e montagem</p><a class="item" href="#mnemosyne" data-id="mnemosyne">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Bilderatlas Mnemosyne</span></a><a class="item" href="#denkraum" data-id="denkraum">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Denkraum</span></a><a class="item" href="#montagem" data-id="montagem">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>montagem</span></a><a class="item" href="#nachleben" data-id="nachleben">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Nachleben</span></a><a class="item" href="#pathosformel" data-id="pathosformel">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Pathosformel</span></a><a class="item" href="#prancha" data-id="prancha">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>prancha comparativa</span></a><a class="item" href="#zwischenraum" data-id="zwischenraum">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Zwischenraum</span></a></div><div class="grp"><p class="gh">Articulações teóricas</p><a class="item" href="#alegoria" data-id="alegoria">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>alegoria</span></a><a class="item" href="#branquitude" data-id="branquitude">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>branquitude alegórica</span></a><a class="item" href="#colonialidade" data-id="colonialidade">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>colonialidade do ver</span></a><a class="item" href="#contrato-sexual" data-id="contrato-sexual">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>contrato sexual</span></a><a class="item" href="#cultura-juridica" data-id="cultura-juridica">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>cultura jurídica</span></a><a class="item" href="#dois-corpos" data-id="dois-corpos">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>dois corpos do rei</span></a><a class="item" href="#economia" data-id="economia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><circle cx="24" cy="24" r="16" fill="var(--gold-soft)" stroke="var(--ink)" stroke-width="1.6"></circle><circle cx="24" cy="24" r="11.5" fill="none" stroke="var(--gold)" stroke-width="1.2"></circle><rect x="19" y="17" width="10" height="14" fill="var(--paper)" stroke="var(--rubric)" stroke-width="1.5"></rect></svg></span><span>economia icônica</span></a><a class="item" href="#instituicao" data-id="instituicao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>instituição das imagens</span></a><a class="item" href="#personificacao" data-id="personificacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>personificação</span></a><a class="item" href="#reconhecimento" data-id="reconhecimento">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>reconhecimento sem reciprocidade</span></a><a class="item" href="#transferencia" data-id="transferencia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>transferência visual transatlântica</span></a><a class="item" href="#visiocracia" data-id="visiocracia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><path d="M5 24 Q24 9 43 24 Q24 39 5 24 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></path><circle cx="24" cy="24" r="7" fill="var(--ink)"></circle><circle cx="24" cy="24" r="2.6" fill="var(--rubric)"></circle></svg></span><span>visiocracia</span></a></div><div class="grp"><p class="gh">Operadores de leitura</p><a class="item" href="#acoplamento" data-id="acoplamento">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="6" y="10" width="15" height="28" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><line x1="9" y1="17" x2="18" y2="17" stroke="var(--ink-50)" stroke-width="1.3"></line><line x1="9" y1="21" x2="18" y2="21" stroke="var(--ink-50)" stroke-width="1.3"></line><rect x="27" y="10" width="15" height="28" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6"></rect><circle cx="34" cy="19" r="3" fill="var(--gold)"></circle><path d="M29 35 l10 -9" stroke="var(--ink)" stroke-width="1.2" fill="none"></path><rect x="20" y="22" width="8" height="4" fill="var(--rubric)"></rect></svg></span><span>acoplamento imagem-norma</span></a><a class="item" href="#ausencia" data-id="ausencia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>ausência alegórica</span></a><a class="item" href="#contra-alegoria" data-id="contra-alegoria">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>contra-alegoria</span></a><a class="item" href="#endurecimento" data-id="endurecimento">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><circle cx="24" cy="11" r="4" fill="var(--ink)"></circle><rect x="20" y="14" width="8" height="26" fill="var(--ink)"></rect><line x1="32" y1="13" x2="38" y2="13" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="22" x2="38" y2="22" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="31" x2="38" y2="31" stroke="var(--rubric)" stroke-width="1.6"></line><line x1="32" y1="40" x2="38" y2="40" stroke="var(--rubric)" stroke-width="1.6"></line></svg></span><span>endurecimento</span></a><a class="item" href="#iconoclasmo" data-id="iconoclasmo">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>iconoclasmo</span></a><a class="item" href="#fundacional" data-id="fundacional">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>regime fundacional</span></a><a class="item" href="#militar" data-id="militar">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>regime militar</span></a><a class="item" href="#normativo" data-id="normativo">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>regime normativo</span></a><a class="item" href="#sentido" data-id="sentido">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>sentido produzido e sentido recebido</span></a></div><div class="grp"><p class="gh">Dez indicadores</p><a class="item" href="#apagamento" data-id="apagamento">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>apagamento narrativo</span></a><a class="item" href="#desincorporacao" data-id="desincorporacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>desincorporação</span></a><a class="item" href="#dessexualizacao" data-id="dessexualizacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>dessexualização</span></a><a class="item" href="#enquadramento" data-id="enquadramento">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>enquadramento arquitetônico</span></a><a class="item" href="#heraldicizacao" data-id="heraldicizacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>heraldicização</span></a><a class="item" href="#inscricao" data-id="inscricao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>inscrição estatal</span></a><a class="item" href="#monocromatizacao" data-id="monocromatizacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>monocromatização</span></a><a class="item" href="#rigidez" data-id="rigidez">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>rigidez postural</span></a><a class="item" href="#serialidade" data-id="serialidade">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>serialidade</span></a><a class="item" href="#uniformizacao" data-id="uniformizacao">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>uniformização facial</span></a></div><div class="grp"><p class="gh">Figuras alegóricas</p><a class="item" href="#republica" data-id="republica">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>A República (Brasil)</span></a><a class="item" href="#britannia" data-id="britannia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Britannia</span></a><a class="item" href="#columbia" data-id="columbia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Columbia</span></a><a class="item" href="#germania" data-id="germania">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Germania</span></a><a class="item" href="#justitia" data-id="justitia">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Justitia</span></a><a class="item" href="#belgique" data-id="belgique">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>La Belgique</span></a><a class="item" href="#liberty" data-id="liberty">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Liberdade / Liberty</span></a><a class="item" href="#marianne" data-id="marianne">
+        <span class="gi" aria-hidden="true"><svg viewBox="0 0 48 48" shape-rendering="crispEdges"><rect x="5" y="11" width="22" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="26" fill="var(--gold-2)" stroke="var(--ink)" stroke-width="1.6"></rect><rect x="4" y="16" width="40" height="6" fill="var(--gold)"></rect><line x1="4" y1="22" x2="44" y2="22" stroke="var(--ink)" stroke-width="1.1"></line></svg></span><span>Marianne / La République</span></a></div></div>
 <!-- /prerender:list -->
       <p class="legend"><span class="omk">◆</span><span id="legendtxt">conceito autoral (original)</span></p>
     </aside>
     <main class="reader" id="main" tabindex="-1">
       <img class="rwm" id="rwm" src="assets/pixel-justitia.png" alt="" aria-hidden="true">
       <!-- prerender:reader -->
-<div class="rin" id="reader"><p class="eyebrow">núcleo</p><h1 class="wt">iconocracia</h1><div class="meta">
-      <span class="mchip"><span class="k">Fonte</span><span class="v">Mondzain (2002) + tese</span></span>
-      <span class="mchip"><span class="k">Capítulo</span><span class="v">Cap. 2</span></span>
-      <span class="mchip"><span class="k">Tipo</span><span class="v">Mobilizado · núcleo</span></span>
-    </div><p class="lead">Regime em que o poder se exerce e se legitima pela imagem. A tese investiga as alegorias femininas do direito — Justitia, a República-como-mulher — sob esse regime visual: como a imagem governa, e como o direito governa a imagem.</p><p class="sect">Conceitos relacionados</p><div class="rel"><a class="rchip" data-id="visiocracia">visiocracia <span class="ar">→</span></a><a class="rchip" data-id="feminilidade">feminilidade de estado <span class="ar">→</span></a><a class="rchip" data-id="iconologia">iconologia <span class="ar">→</span></a><a class="rchip" data-id="regime">regime iconocrático <span class="ar">→</span></a></div></div>
+<div class="rin" id="reader"><p class="eyebrow">Léxico da pesquisa</p><h1 class="wt" id="concept-title" tabindex="-1">glossário</h1>
+      <p class="lead">Conceitos autorais, vocabulário mobilizado, métodos, indicadores e figuras alegóricas. Cada verbete reúne definição, uso na tese, fonte e relações.</p><p class="refn">65 verbetes · português e inglês</p><section><h2 class="gsub">Núcleo</h2><div class="gloss"><article class="gloss-entry" id="iconocracia"><h3><a href="#iconocracia" data-id="iconocracia">iconocracia</a></h3>
+          <span class="kind">Mobilizado</span><p>Governo pela produção e gestão das imagens: a autoridade torna-se visível e solicita adesão por meio de figurações, rituais e dispositivos de exposição. A tese mobiliza essa perspectiva para investigar como as alegorias femininas participam da legitimidade jurídica.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Perguntar o que uma imagem faz na instituição, além do que ela representa.</p><p class="src">Fonte: Mondzain (2002) · tese</p>
+        </article><article class="gloss-entry" id="regime"><h3><a href="#regime" data-id="regime">regime iconocrático</a></h3>
+          <span class="kind">Operador da tese</span><p>Configuração histórica das relações entre imagem, autoridade e norma. Os modos fundacional, normativo e militar orientam a comparação dos usos alegóricos; não constituem etapas obrigatórias de uma evolução nem uma escala de intensidade. Uma imagem pode reunir tensões entre esses modos.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Relacionar formas visuais, contextos de uso e funções institucionais, sem impor uma sequência linear.</p><p class="src">Fonte: Tese · glossário e metodologia</p>
+        </article></div></section><section><h2 class="gsub">Conceitos autorais</h2><div class="gloss"><article class="gloss-entry" id="racial"><h3><a href="#racial" data-id="racial">Contrato Racial Visual</a></h3>
+          <span class="kind">Autoral ◆</span><p>Conceito autoral que interroga a branquitude constitutiva da alegoria apresentada como universal e a transferência transatlântica de modelos visuais. Examina apagamentos, hierarquias e formas de inclusão subordinada; a racialização exige interpretação histórica e não pode ser deduzida apenas da cor do material.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar quem pode personificar o universal e quem aparece como corpo particular ou tutelado.</p><p class="src">Fonte: Vanzin · tese, capítulo sobre colonialidade</p>
+        </article><article class="gloss-entry" id="contrato"><h3><a href="#contrato" data-id="contrato">Contrato Sexual Visual</a></h3>
+          <span class="kind">Autoral ◆</span><p>Conceito autoral que investiga o pacto visual pelo qual o corpo feminino figura a autoridade jurídica enquanto mulheres históricas podem permanecer excluídas de sua produção e exercício. A interlocução com o contrato sexual de Pateman não transfere a ela a autoria da formulação visual.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Confrontar a presença alegórica das mulheres com suas condições históricas de agência e cidadania.</p><p class="src">Fonte: Vanzin · tese; interlocução com Pateman (1988)</p>
+        </article><article class="gloss-entry" id="feminilidade"><h3><a href="#feminilidade" data-id="feminilidade">Feminilidade de Estado</a></h3>
+          <span class="kind">Autoral ◆</span><p>Mobilização do corpo feminino alegórico como suporte sensível da soberania. Justiça, República e Pátria podem aparecer como mulheres sem conferir poder às mulheres históricas. O conceito nomeia essa fabricação de uma presença feminina estatal e sua tensão com a ausência de reciprocidade política.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Distinguir personificação feminina do Estado e participação das mulheres no poder.</p><p class="src">Fonte: Vanzin · tese; Legendre e Carson</p>
+        </article><article class="gloss-entry" id="purificacao"><h3><a href="#purificacao" data-id="purificacao">Purificação Clássica</a></h3>
+          <span class="kind">Autoral ◆</span><p>Operação pela qual a representação extrai particularidades do corpo feminino histórico e o fixa como superfície alegórica da autoridade. O conceito articula uma matriz jurídica a ferramentas de análise da figuração. Seus indícios são examinados em cada caso; não equivalem automaticamente à presença de um estilo clássico.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Ler os apagamentos e as permanências do corpo histórico, sem presumir uma purificação completa.</p><p class="src">Fonte: Vanzin · tese; matriz jurídica e ferramentas de figuração</p>
+        </article></div></section><section><h2 class="gsub">Métodos e documentação</h2><div class="gloss"><article class="gloss-entry" id="iconografia"><h3><a href="#iconografia" data-id="iconografia">análise iconográfica</a></h3>
+          <span class="kind">Método</span><p>Identificação de temas, motivos, figuras e atributos segundo convenções históricas. Uma espada ou uma balança não basta, isoladamente, para identificar Justitia: a combinação dos atributos e o contexto documental devem sustentar a atribuição.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Reconhecer convenções sem tratá-las como significados universais e imutáveis.</p><p class="src">Fonte: Panofsky (1939)</p>
+        </article><article class="gloss-entry" id="atlas"><h3><a href="#atlas" data-id="atlas">atlas iconográfico</a></h3>
+          <span class="kind">Método</span><p>Dispositivo de investigação por montagem e comparação de imagens. As pranchas aproximam gestos, atributos e sobrevivências históricas para tornar legíveis relações e tensões. O intervalo entre imagens participa da interpretação; seleção, montagem e hipóteses permanecem explícitas e revisáveis.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Construir vizinhanças que sustentem perguntas e argumentos, não apenas ilustrar conclusões.</p><p class="src">Fonte: Warburg · tese, método do atlas</p>
+        </article><article class="gloss-entry" id="atributo"><h3><a href="#atributo" data-id="atributo">atributo iconográfico</a></h3>
+          <span class="kind">Método</span><p>Objeto, gesto ou elemento visual que participa da identificação e caracterização de uma figura: balança, espada, venda, coroa ou inscrição, por exemplo. Seu sentido depende da combinação com outros elementos e das condições históricas de uso.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar presença e configuração antes de interpretar a função do atributo.</p><p class="src">Fonte: Panofsky (1939) · glossário da tese</p>
+        </article><article class="gloss-entry" id="capta"><h3><a href="#capta" data-id="capta">capta</a></h3>
+          <span class="kind">Mobilizado</span><p>Dados entendidos como produzidos por escolhas de recorte, descrição e interpretação, em vez de simplesmente encontrados. O termo explicita a construção situada do corpus e das visualizações; não dispensa evidência nem torna todas as interpretações equivalentes.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Declarar critérios e decisões que tornam certas relações visíveis.</p><p class="src">Fonte: Drucker (2011) · documentação metodológica da tese</p>
+        </article><article class="gloss-entry" id="corpus"><h3><a href="#corpus" data-id="corpus">corpus</a></h3>
+          <span class="kind">Método</span><p>Conjunto documentado de imagens selecionadas para investigação. O corpus é aberto e exemplar: suas ocorrências sustentam comparações sem delimitar, por si mesmas, a história da alegoria. Critérios de seleção, lacunas e recortes condicionam o alcance das conclusões.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Distinguir o que foi encontrado no acervo do que se afirma sobre um universo histórico.</p><p class="src">Fonte: Tese · documentação do acervo</p>
+        </article><article class="gloss-entry" id="pre-iconografia"><h3><a href="#pre-iconografia" data-id="pre-iconografia">descrição pré-iconográfica</a></h3>
+          <span class="kind">Método</span><p>Primeiro nível de leitura: descrição de formas, posturas, ações e objetos reconhecíveis. Não é um olhar sem pressupostos; exige registrar o que se observa antes de atribuir identidades convencionais ou sentidos históricos ao conjunto.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Separar observação e inferência para que outras pessoas possam acompanhar a leitura.</p><p class="src">Fonte: Panofsky (1939)</p>
+        </article><article class="gloss-entry" id="iconologia"><h3><a href="#iconologia" data-id="iconologia">iconologia</a></h3>
+          <span class="kind">Método</span><p>Interpretação dos sentidos históricos e culturais das imagens a partir de motivos, convenções e condições de produção e uso. A identificação dos atributos é um ponto de partida; o argumento iconológico depende de fontes, comparação e confronto com interpretações concorrentes.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Articular descrição visual, documentação e hipótese interpretativa.</p><p class="src">Fonte: Panofsky (1939) · tradição warburguiana</p>
+        </article><article class="gloss-entry" id="iconometria"><h3><a href="#iconometria" data-id="iconometria">iconometria</a></h3>
+          <span class="kind">Método</span><p>Aparato guarda-chuva de análise sistemática dos padrões iconográficos, articulado à leitura iconológica e à genealogia jurídica. Contém o endurecimento como eixo de fixidez. Os dez indicadores são lidos separadamente, com inventário verbal e proveniência; não são somados em um escore composto.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Documentar padrões e diferenças sem converter a complexidade alegórica em uma nota única.</p><p class="src">Fonte: Tese · decisão de 11/07 e atualização de 24/09/2026</p>
+        </article><article class="gloss-entry" id="indicadores"><h3><a href="#indicadores" data-id="indicadores">indicadores ordinais</a></h3>
+          <span class="kind">Método</span><p>Dez dimensões de observação do eixo de fixidez, registradas em categorias ordenadas de 0 a 3. A ordem não estabelece distâncias iguais entre valores. Os indicadores permanecem separados: ausência de observação não é zero, e soma ou média não substitui o inventário verbal.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar cada dimensão e sua documentação, sem produzir uma classificação global do corpo alegórico.</p><p class="src">Fonte: Tese · codebook e decisão de 24/09/2026</p>
+        </article><article class="gloss-entry" id="inventario"><h3><a href="#inventario" data-id="inventario">inventário verbal de atributos</a></h3>
+          <span class="kind">Método</span><p>Descrição textual dos atributos observados e das razões de uma leitura iconográfica. Acompanha os indicadores e explicita como o caso foi interpretado. Não é gerado automaticamente a partir de números: onde falta documentação verbal, a hipótese qualitativa permanece pendente.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Tornar a passagem entre observação, codificação e argumento auditável.</p><p class="src">Fonte: Tese · decisão metodológica de 24/09/2026</p>
+        </article><article class="gloss-entry" id="paradigma"><h3><a href="#paradigma" data-id="paradigma">paradigma indiciário</a></h3>
+          <span class="kind">Mobilizado</span><p>Forma de conhecimento que reconstrói relações a partir de indícios e detalhes. Na pesquisa, posturas, inscrições e deslocamentos de atributos permitem formular hipóteses. A recorrência só sustenta um argumento quando confrontada com fontes, diferenças entre casos e explicações concorrentes.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Usar detalhes como pistas a investigar, sem tratar semelhança como prova suficiente.</p><p class="src">Fonte: Ginzburg · capítulo metodológico da tese</p>
+        </article><article class="gloss-entry" id="proveniencia"><h3><a href="#proveniencia" data-id="proveniencia">proveniência</a></h3>
+          <span class="kind">Método</span><p>Registro da origem da imagem, da fonte consultada e das intervenções que produziram sua descrição ou codificação. Inclui autoria, acervo, identificação do objeto, reprodução e histórico de análise quando conhecidos. Campos não verificados devem permanecer distinguíveis de informação documentada.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Permitir que uma identificação ou interpretação seja conferida e contestada.</p><p class="src">Fonte: Tese · documentação e decisões do corpus</p>
+        </article><article class="gloss-entry" id="suporte"><h3><a href="#suporte" data-id="suporte">suporte</a></h3>
+          <span class="kind">Método</span><p>Meio material e dispositivo de circulação da imagem: moeda, selo, gravura, frontispício, papel-moeda, monumento ou arquitetura forense. O suporte participa da escala, repetição, exposição e possibilidade de encontro com a alegoria.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Comparar usos de uma fórmula visual sem apagar as diferenças entre uma moeda e um monumento.</p><p class="src">Fonte: Tese · glossário e documentação do corpus</p>
+        </article></div></section><section><h2 class="gsub">Warburg e montagem</h2><div class="gloss"><article class="gloss-entry" id="mnemosyne"><h3><a href="#mnemosyne" data-id="mnemosyne">Bilderatlas Mnemosyne</a></h3>
+          <span class="kind">Mobilizado</span><p>Atlas inacabado de Warburg, organizado por montagens de reproduções em pranchas. Constitui uma referência para investigar relações entre gestos, tempos e usos das imagens. A tese toma sua operação comparativa como interlocução metodológica, não como modelo a reproduzir literalmente.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Explicitar o que a montagem permite investigar e quais escolhas ela produz.</p><p class="src">Fonte: Warburg · edição do atlas (2000)</p>
+        </article><article class="gloss-entry" id="denkraum"><h3><a href="#denkraum" data-id="denkraum">Denkraum</a></h3>
+          <span class="kind">Mobilizado</span><p>Espaço de pensamento e distância reflexiva diante da imagem. Designa a possibilidade de suspender uma adesão imediata para examinar como uma figura age sobre o olhar. Não é sinônimo de espaço físico nem um efeito automaticamente produzido pelo atlas.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Construir condições para olhar criticamente a autoridade da imagem.</p><p class="src">Fonte: Warburg · léxico da tese</p>
+        </article><article class="gloss-entry" id="montagem"><h3><a href="#montagem" data-id="montagem">montagem</a></h3>
+          <span class="kind">Método</span><p>Arranjo de imagens que produz uma situação de comparação. Aproximações, afastamentos e sequências formulam perguntas sobre gestos, atributos e temporalidades. A escolha de uma vizinhança é uma intervenção interpretativa e deve poder ser discutida e refeita.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Mostrar relações e diferenças sem ocultar o trabalho de seleção.</p><p class="src">Fonte: Warburg · metodologia do atlas</p>
+        </article><article class="gloss-entry" id="nachleben"><h3><a href="#nachleben" data-id="nachleben">Nachleben</a></h3>
+          <span class="kind">Mobilizado</span><p>Sobrevivência e reaparição transformada de formas e gestos. Permite investigar retornos da Antiguidade e outras persistências sem supor uma transmissão contínua ou intacta. A relação entre imagens exige reconstruir mediações, rupturas e mudanças de função.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Tratar a sobrevivência como problema histórico, não como árvore genealógica já demonstrada.</p><p class="src">Fonte: Warburg · léxico da tese</p>
+        </article><article class="gloss-entry" id="pathosformel"><h3><a href="#pathosformel" data-id="pathosformel">Pathosformel</a></h3>
+          <span class="kind">Mobilizado</span><p>Fórmula visual em que gesto e carga afetiva se articulam e podem reaparecer em outros tempos e contextos. A repetição formal não garante identidade de sentido: uma pose herdada pode ser deslocada, invertida ou posta a serviço de outra autoridade.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Comparar gestos e suas transformações, evitando identificar fórmula com um atributo isolado.</p><p class="src">Fonte: Warburg · léxico da tese</p>
+        </article><article class="gloss-entry" id="prancha"><h3><a href="#prancha" data-id="prancha">prancha comparativa</a></h3>
+          <span class="kind">Método</span><p>Unidade de montagem que coloca imagens em relação, acompanhada de identificações, fontes e uma pergunta de leitura. Não é apenas uma coleção de exemplos semelhantes: a comparação precisa tornar suas diferenças e suas mediações históricas examináveis.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Associar cada comparação a documentação e a uma hipótese revisável.</p><p class="src">Fonte: Tese · documentação do atlas</p>
+        </article><article class="gloss-entry" id="zwischenraum"><h3><a href="#zwischenraum" data-id="zwischenraum">Zwischenraum</a></h3>
+          <span class="kind">Mobilizado</span><p>Intervalo que permite pensar a relação entre imagens sem fundi-las. Na montagem, a distância e a vizinhança tornam diferenças e tensões interpretáveis. O sentido não está pronto no espaço vazio: depende das escolhas e perguntas que organizam a comparação.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Manter legíveis as diferenças entre imagens aproximadas numa prancha.</p><p class="src">Fonte: Warburg · método comparativo da tese</p>
+        </article></div></section><section><h2 class="gsub">Articulações teóricas</h2><div class="gloss"><article class="gloss-entry" id="alegoria"><h3><a href="#alegoria" data-id="alegoria">alegoria</a></h3>
+          <span class="kind">Mobilizado</span><p>Figura ou composição que torna uma ideia legível por meio de uma forma sensível e de convenções de leitura. A pesquisa examina especialmente a forma feminina do universal jurídico. Uma figura feminina não é, por si só, uma alegoria: identificação, atributos e contexto precisam ser considerados.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Distinguir uma mulher representada da função alegórica atribuída à figura.</p><p class="src">Fonte: Tese · glossário; Resnik e Curtis (2011)</p>
+        </article><article class="gloss-entry" id="branquitude"><h3><a href="#branquitude" data-id="branquitude">branquitude alegórica</a></h3>
+          <span class="kind">Operador da tese</span><p>Posição de universalidade atribuída ao corpo branco ou classicizado na representação da autoridade. Não se identifica apenas pelo pigmento: material, convenção, história da encomenda e relação com outros corpos precisam sustentar a interpretação racial.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Distinguir cor material, idealização clássica e operação racial.</p><p class="src">Fonte: Tese · Contrato Racial Visual</p>
+        </article><article class="gloss-entry" id="colonialidade"><h3><a href="#colonialidade" data-id="colonialidade">colonialidade do ver</a></h3>
+          <span class="kind">Mobilizado</span><p>Organização do campo visual que apresenta hierarquias coloniais como naturais ou universais. Na pesquisa, interroga a racialização do corpo alegórico e a distribuição desigual das posições de quem representa, é representado e observa. Não é sinônimo de qualquer circulação entre continentes.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Reconstruir hierarquias e mediações concretas, sem usar colonialidade como explicação automática.</p><p class="src">Fonte: Tese · capítulo sobre colonialidade</p>
+        </article><article class="gloss-entry" id="contrato-sexual"><h3><a href="#contrato-sexual" data-id="contrato-sexual">contrato sexual</a></h3>
+          <span class="kind">Mobilizado</span><p>Crítica à narrativa do contrato social que trata a liberdade como fundamento universal, ocultando a constituição de relações de sujeição sexual e do direito político masculino. É interlocução do Contrato Sexual Visual; os dois termos não designam a mesma formulação.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a matriz teórica sem ceder a autoria da extensão visual.</p><p class="src">Fonte: Pateman (1988)</p>
+        </article><article class="gloss-entry" id="cultura-juridica"><h3><a href="#cultura-juridica" data-id="cultura-juridica">cultura jurídica</a></h3>
+          <span class="kind">Mobilizado</span><p>Conjunto histórico de práticas, linguagens, saberes e formas de representação pelos quais o direito se torna pensável e operante. O recorte permite investigar imagens e materialidades como fontes da experiência jurídica, sem confundir todo símbolo político com evidência de uma função jurídica.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Situar objetos visuais em práticas e instituições documentadas.</p><p class="src">Fonte: Hespanha (2005) · tese</p>
+        </article><article class="gloss-entry" id="dois-corpos"><h3><a href="#dois-corpos" data-id="dois-corpos">dois corpos do rei</a></h3>
+          <span class="kind">Mobilizado</span><p>Distinção histórica entre o corpo natural, mortal, do soberano e o corpo político que garante continuidade à autoridade. A tese mobiliza essa matriz para interrogar a distância entre um corpo histórico particular e a permanência atribuída à figuração da soberania.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Construir uma interlocução jurídico-histórica, sem declarar equivalência entre rei e alegoria feminina.</p><p class="src">Fonte: Kantorowicz (1957)</p>
+        </article><article class="gloss-entry" id="economia"><h3><a href="#economia" data-id="economia">economia icônica</a></h3>
+          <span class="kind">Mobilizado</span><p>Organização das relações entre imagem, visibilidade e autoridade, no horizonte da oikonomia estudada por Mondzain. Na tese, permite perguntar como imagens jurídicas administram presença, adesão e legitimidade. Não se reduz à circulação mercantil ou ao valor monetário das imagens.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar como o visível medeia uma autoridade que não se apresenta diretamente.</p><p class="src">Fonte: Mondzain (2002)</p>
+        </article><article class="gloss-entry" id="instituicao"><h3><a href="#instituicao" data-id="instituicao">instituição das imagens</a></h3>
+          <span class="kind">Mobilizado</span><p>Problema das mediações visuais pelas quais uma ordem institucional apresenta fundamento e autoridade aos sujeitos. Na tese, sustenta a pergunta sobre a função das figurações jurídicas na constituição do vínculo com a instituição, além de uma função ilustrativa.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar o lugar da figura na cena institucional e nas práticas de reconhecimento.</p><p class="src">Fonte: Legendre (1994)</p>
+        </article><article class="gloss-entry" id="personificacao"><h3><a href="#personificacao" data-id="personificacao">personificação</a></h3>
+          <span class="kind">Mobilizado</span><p>Representação de uma entidade abstrata ou coletiva como figura humana. Justiça, República e nação podem adquirir corpo por esse procedimento. A identificação de uma personificação descreve uma convenção; a análise de Feminilidade de Estado pergunta por sua operação política.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Evitar usar personificação como definição completa de um conceito crítico.</p><p class="src">Fonte: Tese · glossário e iconografia jurídica</p>
+        </article><article class="gloss-entry" id="reconhecimento"><h3><a href="#reconhecimento" data-id="reconhecimento">reconhecimento sem reciprocidade</a></h3>
+          <span class="kind">Operador da tese</span><p>Assimetria entre a presença simbólica do corpo feminino na figuração do poder e o reconhecimento das mulheres como sujeitos de agência e direitos. Nomeia uma pergunta histórica da tese; a imagem, sozinha, não prova as condições jurídicas das mulheres que nela não aparecem.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Confrontar a representação com documentação sobre direitos e participação.</p><p class="src">Fonte: Tese · Feminilidade de Estado e metodologia</p>
+        </article><article class="gloss-entry" id="transferencia"><h3><a href="#transferencia" data-id="transferencia">transferência visual transatlântica</a></h3>
+          <span class="kind">Operador da tese</span><p>Circulação e transformação de modelos, repertórios e convenções visuais entre contextos atlânticos. Aproximações formais sugerem uma investigação, mas a transferência precisa de mediações documentadas: reproduções, encomendas, formação artística ou circuitos institucionais.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Separar semelhança visual de uma relação histórica demonstrada.</p><p class="src">Fonte: Tese · capítulo sobre colonialidade</p>
+        </article><article class="gloss-entry" id="visiocracia"><h3><a href="#visiocracia" data-id="visiocracia">visiocracia</a></h3>
+          <span class="kind">Mobilizado</span><p>Poder exercido pela organização do visível na cultura jurídica. Signos, emblemas, gestos e dispositivos de orientação participam da produção de uma ordem que ensina a ver e obedecer. A perspectiva amplia o estudo do direito para além da palavra normativa.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Investigar a eficácia institucional dos signos visuais.</p><p class="src">Fonte: Goodrich (2013) · capítulo 1</p>
+        </article></div></section><section><h2 class="gsub">Operadores de leitura</h2><div class="gloss"><article class="gloss-entry" id="acoplamento"><h3><a href="#acoplamento" data-id="acoplamento">acoplamento imagem-norma</a></h3>
+          <span class="kind">Operador da tese</span><p>Relação pela qual uma figuração visual participa do reconhecimento de uma norma ou autoridade jurídico-política. Selos, moedas e frontispícios são lugares possíveis desse encontro. A eficácia do vínculo não é presumida: depende das práticas e instituições em que imagem e norma circulam.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Investigar o vínculo entre objeto visual e função normativa documentada.</p><p class="src">Fonte: Tese · glossário de trabalho</p>
+        </article><article class="gloss-entry" id="ausencia"><h3><a href="#ausencia" data-id="ausencia">ausência alegórica</a></h3>
+          <span class="kind">Operador da tese</span><p>Pergunta sobre situações em que uma alegoria esperada não foi encontrada. A expectativa e o universo de busca devem ser explicitados. Falta de registro no corpus não prova inexistência histórica, assim como um arquivo inacessível não prova ausência de representação.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Documentar buscas e limites antes de interpretar uma ausência.</p><p class="src">Fonte: Tese · glossário e documentação do corpus</p>
+        </article><article class="gloss-entry" id="contra-alegoria"><h3><a href="#contra-alegoria" data-id="contra-alegoria">contra-alegoria</a></h3>
+          <span class="kind">Operador da tese</span><p>Imagem que desloca, contesta ou reapropria uma alegoria da autoridade. Paródia, inversão e denúncia são procedimentos possíveis, não garantia de emancipação. O estatuto contestatório precisa ser situado em condições de produção, circulação e recepção.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar a transformação da convenção e os limites de sua contestação.</p><p class="src">Fonte: Tese · glossário e método comparativo</p>
+        </article><article class="gloss-entry" id="endurecimento"><h3><a href="#endurecimento" data-id="endurecimento">endurecimento</a></h3>
+          <span class="kind">Operador da tese</span><p>Eixo de fixidez alegórica dentro da iconometria. Interroga rigidez, padronização e apagamentos associados à Purificação Clássica. A leitura exige inventário verbal dos casos e observação separada dos indicadores; não produz intensidade global.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Descrever o que fixa a figura em cada caso, incluindo atributos contraditórios e lacunas.</p><p class="src">Fonte: Tese · decisão metodológica de 24/09/2026</p>
+        </article><article class="gloss-entry" id="iconoclasmo"><h3><a href="#iconoclasmo" data-id="iconoclasmo">iconoclasmo</a></h3>
+          <span class="kind">Mobilizado</span><p>Conflito com a autoridade das imagens que pode envolver destruição, retirada, cobertura ou disputa de seus usos. Não se confunde com a simples ausência de uma imagem. A interpretação exige identificar os agentes, as práticas e as condições históricas do conflito.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Documentar o ato e a disputa, sem atribuir o mesmo sentido político a toda destruição.</p><p class="src">Fonte: Tese · documentação metodológica; Mondzain</p>
+        </article><article class="gloss-entry" id="fundacional"><h3><a href="#fundacional" data-id="fundacional">regime fundacional</a></h3>
+          <span class="kind">Operador da tese</span><p>Modo de uso da alegoria vinculado à instauração ou refundação de uma ordem política. Gesto, mobilização e sacrifício são questões de leitura, não propriedades necessárias de toda imagem fundacional. A atribuição exige contexto institucional e histórico.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Examinar a figura na disputa pela fundação da autoridade.</p><p class="src">Fonte: Tese · tipologia dos regimes</p>
+        </article><article class="gloss-entry" id="militar"><h3><a href="#militar" data-id="militar">regime militar</a></h3>
+          <span class="kind">Operador da tese</span><p>Modo que articula figuração alegórica, coerção, guerra ou expansão imperial. Armas, armaduras e monumentalidade orientam perguntas, mas um atributo armado não basta para classificar uma imagem. A função do objeto precisa ser reconstruída em seu contexto.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Distinguir convenção de atributo e uso histórico de legitimação bélica.</p><p class="src">Fonte: Tese · tipologia dos regimes</p>
+        </article><article class="gloss-entry" id="normativo"><h3><a href="#normativo" data-id="normativo">regime normativo</a></h3>
+          <span class="kind">Operador da tese</span><p>Modo em que a alegoria participa da rotina de reconhecimento e reprodução da autoridade: selos, moedas, edifícios e outros dispositivos institucionais. A regularidade do uso importa tanto quanto a forma visual; não se deduz o regime apenas de serenidade ou imobilidade.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Relacionar repetição visual e funcionamento cotidiano das instituições.</p><p class="src">Fonte: Tese · tipologia dos regimes</p>
+        </article><article class="gloss-entry" id="sentido"><h3><a href="#sentido" data-id="sentido">sentido produzido e sentido recebido</a></h3>
+          <span class="kind">Operador da tese</span><p>Distinção entre o sentido que um dispositivo institucional produz e disponibiliza e a experiência efetiva de quem o encontra. A leitura iconológica pode sustentar a primeira afirmação com objeto, suporte e documentação; reconstituir a recepção exige outras fontes, que não podem ser substituídas pela análise formal.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Delimitar o argumento ao que suas fontes permitem afirmar, sem projetar sentimentos sobre o espectador histórico.</p><p class="src">Fonte: Tese · decisão de aparato mínimo, 29/07/2026</p>
+        </article></div></section><section><h2 class="gsub">Dez indicadores</h2><div class="gloss"><article class="gloss-entry" id="apagamento"><h3><a href="#apagamento" data-id="apagamento">apagamento narrativo</a></h3>
+          <span class="kind">Indicador</span><p>Redução ou supressão de ações, relações e particularidades de uma cena em favor da figura emblemática. A comparação deve demonstrar o que foi retirado ou silenciado; a ausência de cenário, sozinha, não prova um apagamento histórico.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="desincorporacao"><h3><a href="#desincorporacao" data-id="desincorporacao">desincorporação</a></h3>
+          <span class="kind">Indicador</span><p>Passagem da particularidade corporal para uma forma emblemática. Examina quais marcas de corpo histórico são retiradas ou preservadas; não presume que todo corpo coberto esteja desincorporado.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="dessexualizacao"><h3><a href="#dessexualizacao" data-id="dessexualizacao">dessexualização</a></h3>
+          <span class="kind">Indicador</span><p>Redução ou apagamento de marcas de desejo e sexualidade na figura alegórica. Não equivale automaticamente à ausência de nudez: exposição, vestimenta, pose e convenções devem ser lidas em conjunto.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="enquadramento"><h3><a href="#enquadramento" data-id="enquadramento">enquadramento arquitetônico</a></h3>
+          <span class="kind">Indicador</span><p>Relação entre a figura e sua moldura, nicho, fachada ou dispositivo monumental. O enquadramento pode organizar escala e visibilidade; seu efeito deve ser observado sem supor que toda arquitetura apague a agência da figura.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="heraldicizacao"><h3><a href="#heraldicizacao" data-id="heraldicizacao">heraldicização</a></h3>
+          <span class="kind">Indicador</span><p>Integração da figura a brasões, escudos e atributos heráldicos. Investiga como a composição aproxima corpo e emblema institucional; a presença de um escudo, isoladamente, não determina essa operação.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="inscricao"><h3><a href="#inscricao" data-id="inscricao">inscrição estatal</a></h3>
+          <span class="kind">Indicador</span><p>Inscrições, legendas e marcas que vinculam a figura a uma autoridade estatal. Transcrever o que se lê e registrar localização e função; inscrições ilegíveis ou desconhecidas não devem ser tratadas como ausentes.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="monocromatizacao"><h3><a href="#monocromatizacao" data-id="monocromatizacao">monocromatização</a></h3>
+          <span class="kind">Indicador</span><p>Redução da diferenciação cromática na figura. A reprodução pode alterar sua percepção; distinguir material original, conservação e condições da imagem consultada. Pedra clara, metal ou fotografia em preto e branco não demonstram, por si, uma operação racial.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="rigidez"><h3><a href="#rigidez" data-id="rigidez">rigidez postural</a></h3>
+          <span class="kind">Indicador</span><p>Configuração da postura e do gesto em torno de fixidez ou contenção. Descrever apoio, articulação e movimento aparente antes de atribuir função política: a imobilidade do suporte não equivale à rigidez da figura.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="serialidade"><h3><a href="#serialidade" data-id="serialidade">serialidade</a></h3>
+          <span class="kind">Indicador</span><p>Repetição padronizada de uma figura em séries, como moedas ou selos. Examina invariantes e variações, além dos circuitos de reprodução; quantidade de exemplares não substitui a descrição do padrão.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article><article class="gloss-entry" id="uniformizacao"><h3><a href="#uniformizacao" data-id="uniformizacao">uniformização facial</a></h3>
+          <span class="kind">Indicador</span><p>Redução ou padronização de particularidades do rosto. Registrar traços, expressão e comparações pertinentes; um rosto pequeno ou pouco legível na reprodução não é evidência suficiente de uniformização.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Registrar a dimensão separadamente, com evidência visual e inventário verbal.</p><p class="src">Fonte: Tese · codebook e glossário</p>
+        </article></div></section><section><h2 class="gsub">Figuras alegóricas</h2><div class="gloss"><article class="gloss-entry" id="republica"><h3><a href="#republica" data-id="republica">A República (Brasil)</a></h3>
+          <span class="kind">Figura alegórica</span><p>Repertório de figurações femininas da República brasileira, construído em disputas e transferências de modelos. A pesquisa interroga sua pretensão de universalidade e sua relação com gênero e raça. A aproximação com Marianne é hipótese comparativa a documentar em cada caso.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Carvalho (1990) · glossário da tese</p>
+        </article><article class="gloss-entry" id="britannia"><h3><a href="#britannia" data-id="britannia">Britannia</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação feminina vinculada à Grã-Bretanha, presente em objetos de circulação e monumentos. Atributos marítimos, escudo e armas podem integrar sua figuração, com funções distintas conforme o objeto e o contexto. A leitura exige distinguir nação, império e uso institucional.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Glossário da tese · repertório britânico</p>
+        </article><article class="gloss-entry" id="columbia"><h3><a href="#columbia" data-id="columbia">Columbia</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação feminina dos Estados Unidos em repertórios cívicos e políticos. Sua relação com outras figuras, como Liberty, precisa ser reconstruída no objeto analisado. Não são nomes intercambiáveis para toda mulher alegórica presente na cultura visual norte-americana.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Glossário da tese · repertório dos Estados Unidos</p>
+        </article><article class="gloss-entry" id="germania"><h3><a href="#germania" data-id="germania">Germania</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação feminina associada à nação alemã em contextos de mobilização e institucionalização política. Coroa, armas e monumentalidade devem ser interpretadas junto à encomenda e ao lugar de exposição; não determinam automaticamente um regime militar.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Glossário da tese · repertório alemão</p>
+        </article><article class="gloss-entry" id="justitia"><h3><a href="#justitia" data-id="justitia">Justitia</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação da Justiça, identificada por combinações historicamente variáveis de balança, espada, venda e outros atributos. Não pressupõe uma genealogia linear nem o mesmo sentido em todos os tribunais. A identificação e o contexto de exposição sustentam a leitura.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Resnik e Curtis (2011) · glossário da tese</p>
+        </article><article class="gloss-entry" id="belgique"><h3><a href="#belgique" data-id="belgique">La Belgique</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação feminina da Bélgica. Nos comparativos da tese, permite examinar os vínculos entre autoimagem nacional, representação da autoridade e contextos coloniais. Essa função não deve ser generalizada a toda figura belga sem documentação do objeto.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Glossário da tese · repertório belga</p>
+        </article><article class="gloss-entry" id="liberty"><h3><a href="#liberty" data-id="liberty">Liberdade / Liberty</a></h3>
+          <span class="kind">Figura alegórica</span><p>Personificação da liberdade em repertórios nacionais e transnacionais. Atributos e usos variam, e uma mesma convenção pode entrar em disputas políticas diferentes. Identificar a figura não demonstra que os direitos prometidos por ela tenham sido distribuídos universalmente.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Glossário da tese · Agulhon; Resnik e Curtis</p>
+        </article><article class="gloss-entry" id="marianne"><h3><a href="#marianne" data-id="marianne">Marianne / La République</a></h3>
+          <span class="kind">Figura alegórica</span><p>Repertório de personificações femininas da República francesa, atravessado por disputas de convenção, regime e uso público. Marianne não designa um único corpo nem uma fórmula invariável. É referência comparativa para investigar a circulação e a transformação de modelos republicanos.</p>
+          <p class="usage"><strong>Uso na tese:</strong> Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.</p><p class="src">Fonte: Agulhon (1979; 1989)</p>
+        </article></div></section></div>
 <!-- /prerender:reader -->
     </main>
   </div>
@@ -201,230 +459,1677 @@ const G = {
 };
 
 const CONCEPTS = [
-  { id:'iconocracia', name:'iconocracia', cat:'nucleo', core:true,
-    tipo:'Mobilizado · núcleo', fonte:'Mondzain (2002) + tese', cap:'Cap. 2',
-    def:'Regime em que o poder se exerce e se legitima pela imagem. A tese investiga as alegorias femininas do direito — Justitia, a República-como-mulher — sob esse regime visual: como a imagem governa, e como o direito governa a imagem.',
-    rel:['visiocracia','feminilidade','iconologia','regime'],
-    en:{ name:'iconocracy', tipo:'Mobilised · core', fonte:'Mondzain (2002) + thesis',
-      def:'A regime in which power is exercised and legitimised through the image. The thesis examines the female allegories of law — Justitia, the Republic-as-woman — under this visual regime: how the image governs, and how law governs the image.' } },
-  { id:'regime', name:'regime iconocrático', cat:'nucleo',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 2',
-    def:'Sistema em que a imagem não apenas acompanha o poder, mas o fabrica sensivelmente. Comporta três modos: Fundacional (momentos constituintes — revoluções, repúblicas), Normativo (rotinização em selos, moedas, edifícios) e Militar (endurecimento do corpo feminino em crises bélicas e autoritárias).',
-    rel:['iconocracia','endurecimento','feminilidade'],
-    en:{ name:'iconocratic regime', tipo:'Original', fonte:'Thesis',
-      def:'A system in which the image does not merely accompany power but sensibly fabricates it. It comprises three modes: Foundational (constituent moments — revolutions, republics), Normative (routinisation in seals, coins, buildings) and Military (hardening of the female body in times of war and authoritarian crisis).' } },
-  { id:'iconologia', name:'iconologia', cat:'metodo',
-    tipo:'Método · qualitativo', fonte:'Tese', cap:'Cap. 3',
-    def:'Abordagem qualitativa da interpretação de imagens: significados simbólicos, contextos culturais e leituras históricas dos elementos visuais. Na Iconocracia, complementa a análise quantitativa ao explorar os sentidos das alegorias femininas.',
-    rel:['iconometria','atlas','iconocracia'],
-    en:{ name:'iconology', tipo:'Method · qualitative', fonte:'Thesis',
-      def:'A qualitative approach to image interpretation: symbolic meanings, cultural contexts and historical readings of visual elements. Within Iconocracy it complements the quantitative analysis by exploring the meanings of the female allegories.' } },
-  { id:'iconometria', name:'iconometria', cat:'metodo',
-    tipo:'Método · quantitativo', fonte:'Tese', cap:'Cap. 3',
-    def:'Abordagem quantitativa da análise de imagens: aspectos mensuráveis e padrões dentro de um corpus visual. Envolve a contagem e a análise sistemática de elementos iconográficos para identificar tendências e significância estatística.',
-    rel:['iconologia','atlas','Corpus'],
-    en:{ name:'iconometry', tipo:'Method · quantitative', fonte:'Thesis',
-      def:'A quantitative approach to image analysis: measurable aspects and patterns within a visual corpus. It involves counting and systematically analysing iconographic elements to identify trends and statistical significance.' } },
-  { id:'atlas', name:'atlas iconográfico', cat:'metodo',
-    tipo:'Método · síntese', fonte:'Tese', cap:'Cap. 4',
-    def:'Componente sintético da pesquisa: organiza e visualiza os achados das análises quantitativa (Iconometria) e qualitativa (Iconologia). Mapeia relações entre elementos iconográficos, períodos históricos e quadros conceituais.',
-    rel:['iconologia','iconometria','Pathosformel','Zwischenraum'],
-    en:{ name:'iconographic atlas', tipo:'Method · synthesis', fonte:'Thesis',
-      def:'The synthetic component of the research: it organises and visualises the findings of the quantitative (Iconometry) and qualitative (Iconology) analyses. It maps relations between iconographic elements, historical periods and conceptual frameworks.' } },
-  { id:'visiocracia', name:'visiocracia', cat:'teoria',
-    tipo:'Mobilizado', fonte:'Goodrich (2014)', cap:'Cap. 1',
-    def:'Quadro analítico proposto por Goodrich: nas sociedades modernas, as representações visuais e o ato de ver moldam cada vez mais o poder político e a ordem social. O controle do campo visual traduz-se em controle da sociedade.',
-    rel:['iconocracia','contrato','economia'],
-    en:{ name:'visiocracy', tipo:'Mobilised', fonte:'Goodrich (2014)',
-      def:'An analytic framework proposed by Goodrich: in modern societies, visual representations and the act of seeing increasingly shape political power and social order. Control of the visual field translates into control of society.' } },
-  { id:'economia', name:'economia icônica', cat:'teoria',
-    tipo:'Mobilizado', fonte:'Mondzain (2002)', cap:'Cap. 2',
-    def:'Analisa a circulação e o valor das imagens dentro de uma sociedade, enquadrando-as como uma forma de moeda. Ajuda a entender como as representações alegóricas da forma feminina acumulam valor simbólico e político.',
-    refn:'Mondzain, M-J. (2002). <em>Image, a modern magic: the life of images in the west</em>. Stanford University Press.',
-    rel:['contrato','visiocracia','Patrimônio visual'],
-    en:{ name:'iconic economy', tipo:'Mobilised', fonte:'Mondzain (2002)',
-      def:'Analyses the circulation and value of images within a society, framing them as a form of currency. It helps explain how allegorical representations of the female form accumulate symbolic and political value.' } },
-  { id:'contrato', name:'contrato sexual visual', cat:'teoria',
-    tipo:'Original', fonte:'Tese · sobre Pateman', cap:'Cap. 1',
-    def:'Desenvolve o contrato sexual de Pateman no campo visual: examina como as representações — particularmente da forma feminina — constroem e reforçam normas sociais e jurídicas de poder, gênero e sexualidade.',
-    rel:['economia','visiocracia','feminilidade'],
-    en:{ name:'visual sexual contract', tipo:'Original', fonte:'Thesis · on Pateman',
-      def:'Extends Pateman\'s sexual contract into the visual field: it examines how representations — particularly of the female form — construct and reinforce social and legal norms of power, gender and sexuality.' } },
-  { id:'racial', name:'contrato racial visual', cat:'teoria',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 3',
-    def:'Identifica a branquitude constitutiva da alegoria "universal" do direito e a transferência transatlântica de modelos neoclássicos, que instala um padrão racializado nos repertórios visuais pós-coloniais.',
-    rel:['contrato','feminilidade','economia'],
-    en:{ name:'visual racial contract', tipo:'Original', fonte:'Thesis',
-      def:'Identifies the constitutive whiteness of the "universal" allegory of law and the transatlantic transfer of neoclassical models, which installs a racialised standard in post-colonial visual repertoires.' } },
-  { id:'feminilidade', name:'feminilidade de estado', cat:'teoria',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 2',
-    def:'Personificação do Estado ou da nação por figuras alegóricas femininas. Examina como a escolha da imagem feminina para o Estado molda as percepções de sua natureza, poder e governo.',
-    rel:['iconocracia','contrato','Alegoria'],
-    en:{ name:'state femininity', tipo:'Original', fonte:'Thesis',
-      def:'The personification of the State or nation through female allegorical figures. It examines how choosing the female image for the State shapes perceptions of its nature, power and governance.' } },
-  { id:'purificacao', name:'purificação clássica', cat:'operacao',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 5',
-    def:'Operação formal pela qual o regime iconocrático extrai o feminino histórico — sua biografia, sua materialidade, sua subjetividade — e o fixa numa superfície alegórica eterna, neoclássica e funcional à soberania. Não é metáfora, mas mecanismo mensurável: rigidez postural, apagamento do gesto, uniformização facial, recobrimento heráldico.',
-    rel:['endurecimento','feminilidade','regime','iconometria'],
-    en:{ name:'classical purification', tipo:'Original', fonte:'Thesis',
-      def:'The formal operation by which the iconocratic regime strips the historical feminine — its biography, materiality and subjectivity — and fixes it onto an eternal, neoclassical allegorical surface functional to sovereignty. Not a metaphor but a measurable mechanism: postural rigidity, erasure of gesture, facial uniformisation, heraldic overlay.' } },
-  { id:'endurecimento', name:'endurecimento', cat:'operacao',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 6–7',
-    def:'Endurecimento morfológico do corpo alegórico — rigidez postural, dessexualização, uniformização facial, apagamento das particularidades —, medido por dez indicadores ordinais (escala 0–3). É o registro central da operação do Estado sobre o corpo e o principal eixo de variação do corpus (PC1).',
-    rel:['purificacao','iconometria','feminilidade'],
-    en:{ name:'hardening', tipo:'Original', fonte:'Thesis',
-      def:'The morphological hardening of the allegorical body — postural rigidity, desexualisation, facial uniformisation, erasure of particularities — measured by ten ordinal indicators (0–3 scale). It is the central register of the State\'s operation upon the body and the main axis of variation in the corpus (PC1).' } },
-  { id:'acoplamento', name:'acoplamento imagem-norma', cat:'operacao',
-    tipo:'Original', fonte:'Tese', cap:'Cap. 5',
-    def:'A norma sem imagem permanece abstrata; acoplada a um dispositivo visual — carimbo alegórico, selo, frontispício —, adquire materialidade que permite circulação, reconhecimento e interiorização. A iconicidade do direito não é suplemento, mas condição de efetividade.',
-    rel:['iconocracia','contrato','economia'],
-    en:{ name:'image–norm coupling', tipo:'Original', fonte:'Thesis',
-      def:'A norm without an image remains abstract; coupled to a visual device — allegorical stamp, seal, frontispiece — it acquires a materiality that enables circulation, recognition and internalisation. The iconicity of law is not a supplement but a condition of effectiveness.' } },
-  { id:'glossario', name:'glossário', cat:'indice', glossary:true,
-    tipo:'Índice', fonte:'Conceitos operativos', cap:'Cap. 1–8',
-    en:{ name:'glossary', tipo:'Index', fonte:'Operative concepts' } },
-];
-
-const TOK = { 'Regime Iconocrático':'Iconocratic Regime','Corpus':'Corpus','Pathosformel':'Pathosformel','Zwischenraum':'Zwischenraum','Patrimônio visual':'Visual heritage','Alegoria':'Allegory' };
-
-const GLOSS = [
-  { nm:'Iconocracia', src:'Mondzain (2002) & tese', tp:'Mobilizado', cap:'Cap. 2', en:{ nm:'Iconocracy', src:'Mondzain (2002) & thesis' } },
-  { nm:'Visiocracia', src:'Goodrich (2014)', tp:'Mobilizado', cap:'Cap. 1', en:{ nm:'Visiocracy' } },
-  { nm:'Contrato Sexual Visual', src:'Original', tp:'Original', cap:'Cap. 1', en:{ nm:'Visual Sexual Contract' } },
-  { nm:'Contrato Racial Visual', src:'Original', tp:'Original', cap:'Cap. 3', en:{ nm:'Visual Racial Contract' } },
-  { nm:'Feminilidade de Estado', src:'Original', tp:'Original', cap:'Cap. 2', en:{ nm:'State Femininity' } },
-  { nm:'Regime Iconocrático', src:'Original', tp:'Original', cap:'Cap. 2', en:{ nm:'Iconocratic Regime' } },
-  { nm:'Acoplamento imagem-norma', src:'Original', tp:'Original', cap:'Cap. 5', en:{ nm:'Image–norm coupling' } },
-  { nm:'Pintura de alma', src:'Legendre · Goodrich · Mondzain', tp:'Original', cap:'Cap. 1', en:{ nm:'Soul-painting' } },
-  { nm:'endurecimento', src:'Original', tp:'Original', cap:'Cap. 6–7', en:{ nm:'hardening' } },
-  { nm:'Purificação Clássica', src:'Original', tp:'Original', cap:'Cap. 5–6', en:{ nm:'Classical Purification' } },
-  { nm:'Pathosformel', src:'Warburg', tp:'Mobilizado', cap:'Cap. 4' },
-  { nm:'Zwischenraum', src:'Warburg', tp:'Mobilizado', cap:'Cap. 8' },
+  {
+    "id": "iconocracia",
+    "name": "iconocracia",
+    "cat": "nucleo",
+    "tipo": "Mobilizado",
+    "fonte": "Mondzain (2002) · tese",
+    "uso": "Perguntar o que uma imagem faz na instituição, além do que ela representa.",
+    "rel": [
+      "visiocracia",
+      "economia",
+      "regime",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "iconocracy",
+      "tipo": "Mobilised",
+      "fonte": "Mondzain (2002) · thesis",
+      "uso": "Ask what an image does within an institution, beyond what it represents.",
+      "def": "Government through the production and management of images: authority becomes visible and solicits assent through figures, rituals and displays. The thesis uses this perspective to investigate how feminine allegories participate in juridical legitimacy."
+    },
+    "def": "Governo pela produção e gestão das imagens: a autoridade torna-se visível e solicita adesão por meio de figurações, rituais e dispositivos de exposição. A tese mobiliza essa perspectiva para investigar como as alegorias femininas participam da legitimidade jurídica.",
+    "authorial": false,
+    "cap": "",
+    "core": true
+  },
+  {
+    "id": "regime",
+    "name": "regime iconocrático",
+    "cat": "nucleo",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · glossário e metodologia",
+    "uso": "Relacionar formas visuais, contextos de uso e funções institucionais, sem impor uma sequência linear.",
+    "rel": [
+      "fundacional",
+      "normativo",
+      "militar",
+      "contra-alegoria",
+      "acoplamento"
+    ],
+    "en": {
+      "name": "iconocratic regime",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · glossary and methodology",
+      "uso": "Relate visual forms, contexts of use and institutional functions without imposing a linear sequence.",
+      "def": "A historical configuration of relations between image, authority and norm. Foundational, normative and military modes guide comparisons of allegorical uses; they are neither mandatory stages of evolution nor an intensity scale. An image may hold tensions between them."
+    },
+    "def": "Configuração histórica das relações entre imagem, autoridade e norma. Os modos fundacional, normativo e militar orientam a comparação dos usos alegóricos; não constituem etapas obrigatórias de uma evolução nem uma escala de intensidade. Uma imagem pode reunir tensões entre esses modos.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "contrato",
+    "name": "Contrato Sexual Visual",
+    "cat": "autorais",
+    "tipo": "Autoral",
+    "fonte": "Vanzin · tese; interlocução com Pateman (1988)",
+    "uso": "Confrontar a presença alegórica das mulheres com suas condições históricas de agência e cidadania.",
+    "rel": [
+      "feminilidade",
+      "racial",
+      "reconhecimento",
+      "contrato-sexual"
+    ],
+    "en": {
+      "name": "Visual Sexual Contract",
+      "tipo": "Authorial",
+      "fonte": "Vanzin · thesis; dialogue with Pateman (1988)",
+      "uso": "Compare women’s allegorical presence with their historical conditions of agency and citizenship.",
+      "def": "An authorial concept examining the visual pact through which the feminine body figures juridical authority while historical women may remain excluded from its production and exercise. Dialogue with Pateman’s sexual contract does not transfer authorship of the visual formulation to her."
+    },
+    "def": "Conceito autoral que investiga o pacto visual pelo qual o corpo feminino figura a autoridade jurídica enquanto mulheres históricas podem permanecer excluídas de sua produção e exercício. A interlocução com o contrato sexual de Pateman não transfere a ela a autoria da formulação visual.",
+    "authorial": true,
+    "cap": ""
+  },
+  {
+    "id": "feminilidade",
+    "name": "Feminilidade de Estado",
+    "cat": "autorais",
+    "tipo": "Autoral",
+    "fonte": "Vanzin · tese; Legendre e Carson",
+    "uso": "Distinguir personificação feminina do Estado e participação das mulheres no poder.",
+    "rel": [
+      "contrato",
+      "racial",
+      "purificacao",
+      "reconhecimento"
+    ],
+    "en": {
+      "name": "State Femininity",
+      "tipo": "Authorial",
+      "fonte": "Vanzin · thesis; Legendre and Carson",
+      "uso": "Distinguish feminine personification of the State from women’s participation in power.",
+      "def": "The mobilisation of the allegorical feminine body as a sensory support for sovereignty. Justice, Republic and Homeland may appear as women without granting power to historical women. The concept names the production of this state femininity and its tension with the absence of political reciprocity."
+    },
+    "def": "Mobilização do corpo feminino alegórico como suporte sensível da soberania. Justiça, República e Pátria podem aparecer como mulheres sem conferir poder às mulheres históricas. O conceito nomeia essa fabricação de uma presença feminina estatal e sua tensão com a ausência de reciprocidade política.",
+    "authorial": true,
+    "cap": ""
+  },
+  {
+    "id": "racial",
+    "name": "Contrato Racial Visual",
+    "cat": "autorais",
+    "tipo": "Autoral",
+    "fonte": "Vanzin · tese, capítulo sobre colonialidade",
+    "uso": "Examinar quem pode personificar o universal e quem aparece como corpo particular ou tutelado.",
+    "rel": [
+      "colonialidade",
+      "branquitude",
+      "transferencia",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "Visual Racial Contract",
+      "tipo": "Authorial",
+      "fonte": "Vanzin · thesis, chapter on coloniality",
+      "uso": "Examine who can personify the universal and who appears as a particular or subordinated body.",
+      "def": "An authorial concept questioning the constitutive whiteness of allegory presented as universal and the transatlantic transfer of visual models. It examines erasure, hierarchy and subordinate inclusion; racialisation requires historical interpretation and cannot be inferred solely from a material’s colour."
+    },
+    "def": "Conceito autoral que interroga a branquitude constitutiva da alegoria apresentada como universal e a transferência transatlântica de modelos visuais. Examina apagamentos, hierarquias e formas de inclusão subordinada; a racialização exige interpretação histórica e não pode ser deduzida apenas da cor do material.",
+    "authorial": true,
+    "cap": ""
+  },
+  {
+    "id": "purificacao",
+    "name": "Purificação Clássica",
+    "cat": "autorais",
+    "tipo": "Autoral",
+    "fonte": "Vanzin · tese; matriz jurídica e ferramentas de figuração",
+    "uso": "Ler os apagamentos e as permanências do corpo histórico, sem presumir uma purificação completa.",
+    "rel": [
+      "endurecimento",
+      "feminilidade",
+      "desincorporacao",
+      "apagamento"
+    ],
+    "en": {
+      "name": "Classical Purification",
+      "tipo": "Authorial",
+      "fonte": "Vanzin · thesis; juridical matrix and tools of figuration",
+      "uso": "Read erasures and survivals of the historical body without assuming complete purification.",
+      "def": "The operation through which representation extracts particularities from the historical feminine body and fixes it as an allegorical surface of authority. The concept joins a juridical matrix to tools for analysing figuration. Its signs are examined case by case and are not equivalent to the mere presence of a classical style."
+    },
+    "def": "Operação pela qual a representação extrai particularidades do corpo feminino histórico e o fixa como superfície alegórica da autoridade. O conceito articula uma matriz jurídica a ferramentas de análise da figuração. Seus indícios são examinados em cada caso; não equivalem automaticamente à presença de um estilo clássico.",
+    "authorial": true,
+    "cap": ""
+  },
+  {
+    "id": "iconologia",
+    "name": "iconologia",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Panofsky (1939) · tradição warburguiana",
+    "uso": "Articular descrição visual, documentação e hipótese interpretativa.",
+    "rel": [
+      "pre-iconografia",
+      "iconografia",
+      "atlas",
+      "paradigma"
+    ],
+    "en": {
+      "name": "iconology",
+      "tipo": "Method",
+      "fonte": "Panofsky (1939) · Warburgian tradition",
+      "uso": "Connect visual description, documentation and interpretive hypothesis.",
+      "def": "Interpretation of images’ historical and cultural meanings through motifs, conventions and conditions of production and use. Identifying attributes is a starting point; an iconological argument depends on sources, comparison and consideration of competing interpretations."
+    },
+    "def": "Interpretação dos sentidos históricos e culturais das imagens a partir de motivos, convenções e condições de produção e uso. A identificação dos atributos é um ponto de partida; o argumento iconológico depende de fontes, comparação e confronto com interpretações concorrentes.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "iconometria",
+    "name": "iconometria",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · decisão de 11/07 e atualização de 24/09/2026",
+    "uso": "Documentar padrões e diferenças sem converter a complexidade alegórica em uma nota única.",
+    "rel": [
+      "endurecimento",
+      "inventario",
+      "indicadores",
+      "capta"
+    ],
+    "en": {
+      "name": "iconometry",
+      "tipo": "Method",
+      "fonte": "Thesis · decision of 11/07 and update of 24/09/2026",
+      "uso": "Document patterns and differences without reducing allegorical complexity to a single rating.",
+      "def": "An umbrella apparatus for the systematic analysis of iconographic patterns, connected to iconological reading and juridical genealogy. It contains endurecimento as an axis of fixity. The ten indicators are read separately, with a verbal inventory and provenance; they are not summed into a composite score."
+    },
+    "def": "Aparato guarda-chuva de análise sistemática dos padrões iconográficos, articulado à leitura iconológica e à genealogia jurídica. Contém o endurecimento como eixo de fixidez. Os dez indicadores são lidos separadamente, com inventário verbal e proveniência; não são somados em um escore composto.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "atlas",
+    "name": "atlas iconográfico",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Warburg · tese, método do atlas",
+    "uso": "Construir vizinhanças que sustentem perguntas e argumentos, não apenas ilustrar conclusões.",
+    "rel": [
+      "montagem",
+      "zwischenraum",
+      "pathosformel",
+      "nachleben",
+      "prancha"
+    ],
+    "en": {
+      "name": "iconographic atlas",
+      "tipo": "Method",
+      "fonte": "Warburg · thesis, atlas method",
+      "uso": "Construct neighbourhoods that support questions and arguments rather than merely illustrate conclusions.",
+      "def": "A device for investigation through the montage and comparison of images. Plates bring gestures, attributes and historical survivals together to make relations and tensions legible. The interval between images participates in interpretation; selection, montage and hypotheses remain explicit and revisable."
+    },
+    "def": "Dispositivo de investigação por montagem e comparação de imagens. As pranchas aproximam gestos, atributos e sobrevivências históricas para tornar legíveis relações e tensões. O intervalo entre imagens participa da interpretação; seleção, montagem e hipóteses permanecem explícitas e revisáveis.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "pre-iconografia",
+    "name": "descrição pré-iconográfica",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Panofsky (1939)",
+    "uso": "Separar observação e inferência para que outras pessoas possam acompanhar a leitura.",
+    "rel": [
+      "iconografia",
+      "iconologia",
+      "atributo"
+    ],
+    "en": {
+      "name": "pre-iconographical description",
+      "tipo": "Method",
+      "fonte": "Panofsky (1939)",
+      "uso": "Separate observation from inference so others can follow the reading.",
+      "def": "The first level of reading: description of recognisable forms, postures, actions and objects. It is not a view without assumptions; it records what is observed before assigning conventional identities or historical meanings to the whole."
+    },
+    "def": "Primeiro nível de leitura: descrição de formas, posturas, ações e objetos reconhecíveis. Não é um olhar sem pressupostos; exige registrar o que se observa antes de atribuir identidades convencionais ou sentidos históricos ao conjunto.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "iconografia",
+    "name": "análise iconográfica",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Panofsky (1939)",
+    "uso": "Reconhecer convenções sem tratá-las como significados universais e imutáveis.",
+    "rel": [
+      "iconologia",
+      "pre-iconografia",
+      "atributo",
+      "justitia"
+    ],
+    "en": {
+      "name": "iconographical analysis",
+      "tipo": "Method",
+      "fonte": "Panofsky (1939)",
+      "uso": "Recognise conventions without treating them as universal, immutable meanings.",
+      "def": "Identification of themes, motifs, figures and attributes according to historical conventions. A sword or scales alone is insufficient to identify Justitia: the combination of attributes and documentary context must support the attribution."
+    },
+    "def": "Identificação de temas, motivos, figuras e atributos segundo convenções históricas. Uma espada ou uma balança não basta, isoladamente, para identificar Justitia: a combinação dos atributos e o contexto documental devem sustentar a atribuição.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "atributo",
+    "name": "atributo iconográfico",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Panofsky (1939) · glossário da tese",
+    "uso": "Registrar presença e configuração antes de interpretar a função do atributo.",
+    "rel": [
+      "iconografia",
+      "inventario",
+      "justitia",
+      "suporte"
+    ],
+    "en": {
+      "name": "iconographic attribute",
+      "tipo": "Method",
+      "fonte": "Panofsky (1939) · glossary da thesis",
+      "uso": "Record presence and configuration before interpreting an attribute’s function.",
+      "def": "An object, gesture or visual element participating in the identification and characterisation of a figure: scales, sword, blindfold, crown or inscription, for example. Its meaning depends on combinations with other elements and historical conditions of use."
+    },
+    "def": "Objeto, gesto ou elemento visual que participa da identificação e caracterização de uma figura: balança, espada, venda, coroa ou inscrição, por exemplo. Seu sentido depende da combinação com outros elementos e das condições históricas de uso.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "corpus",
+    "name": "corpus",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · documentação do acervo",
+    "uso": "Distinguir o que foi encontrado no acervo do que se afirma sobre um universo histórico.",
+    "rel": [
+      "proveniencia",
+      "suporte",
+      "ausencia",
+      "capta"
+    ],
+    "en": {
+      "name": "corpus",
+      "tipo": "Method",
+      "fonte": "Thesis · collection documentation",
+      "uso": "Distinguish what was found in the collection from what is claimed about a historical universe.",
+      "def": "A documented set of images selected for investigation. The corpus is open and exemplary: its occurrences support comparisons without themselves delimiting the history of allegory. Selection criteria, gaps and scope condition the reach of conclusions."
+    },
+    "def": "Conjunto documentado de imagens selecionadas para investigação. O corpus é aberto e exemplar: suas ocorrências sustentam comparações sem delimitar, por si mesmas, a história da alegoria. Critérios de seleção, lacunas e recortes condicionam o alcance das conclusões.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "suporte",
+    "name": "suporte",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · glossário e documentação do corpus",
+    "uso": "Comparar usos de uma fórmula visual sem apagar as diferenças entre uma moeda e um monumento.",
+    "rel": [
+      "serialidade",
+      "acoplamento",
+      "corpus"
+    ],
+    "en": {
+      "name": "material support",
+      "tipo": "Method",
+      "fonte": "Thesis · glossary and corpus documentation",
+      "uso": "Compare uses of a visual formula without erasing differences between a coin and a monument.",
+      "def": "The image’s material medium and device of circulation: coin, stamp, print, frontispiece, banknote, monument or judicial architecture. Support participates in the scale, repetition, display and possibility of encountering the allegory."
+    },
+    "def": "Meio material e dispositivo de circulação da imagem: moeda, selo, gravura, frontispício, papel-moeda, monumento ou arquitetura forense. O suporte participa da escala, repetição, exposição e possibilidade de encontro com a alegoria.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "proveniencia",
+    "name": "proveniência",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · documentação e decisões do corpus",
+    "uso": "Permitir que uma identificação ou interpretação seja conferida e contestada.",
+    "rel": [
+      "corpus",
+      "inventario",
+      "capta"
+    ],
+    "en": {
+      "name": "provenance",
+      "tipo": "Method",
+      "fonte": "Thesis · corpus documentation and decisions",
+      "uso": "Allow identification or interpretation to be checked and challenged.",
+      "def": "A record of an image’s origin, the source consulted and the interventions producing its description or coding. It includes authorship, collection, object identification, reproduction and analytical history where known. Unverified fields must remain distinguishable from documented information."
+    },
+    "def": "Registro da origem da imagem, da fonte consultada e das intervenções que produziram sua descrição ou codificação. Inclui autoria, acervo, identificação do objeto, reprodução e histórico de análise quando conhecidos. Campos não verificados devem permanecer distinguíveis de informação documentada.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "inventario",
+    "name": "inventário verbal de atributos",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · decisão metodológica de 24/09/2026",
+    "uso": "Tornar a passagem entre observação, codificação e argumento auditável.",
+    "rel": [
+      "indicadores",
+      "endurecimento",
+      "proveniencia"
+    ],
+    "en": {
+      "name": "verbal inventory of attributes",
+      "tipo": "Method",
+      "fonte": "Thesis · methodological decision of 24/09/2026",
+      "uso": "Make the passage between observation, coding and argument auditable.",
+      "def": "A textual description of observed attributes and the reasons supporting an iconographic reading. It accompanies indicators and explains how a case was interpreted. It is not generated automatically from numbers: where verbal documentation is missing, the qualitative hypothesis remains pending."
+    },
+    "def": "Descrição textual dos atributos observados e das razões de uma leitura iconográfica. Acompanha os indicadores e explicita como o caso foi interpretado. Não é gerado automaticamente a partir de números: onde falta documentação verbal, a hipótese qualitativa permanece pendente.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "indicadores",
+    "name": "indicadores ordinais",
+    "cat": "metodo",
+    "tipo": "Método",
+    "fonte": "Tese · codebook e decisão de 24/09/2026",
+    "uso": "Examinar cada dimensão e sua documentação, sem produzir uma classificação global do corpo alegórico.",
+    "rel": [
+      "inventario",
+      "endurecimento",
+      "desincorporacao",
+      "rigidez"
+    ],
+    "en": {
+      "name": "ordinal indicators",
+      "tipo": "Method",
+      "fonte": "Thesis · codebook and decision of 24/09/2026",
+      "uso": "Examine each dimension and its documentation without producing a global classification of the allegorical body.",
+      "def": "Ten dimensions of observation for the axis of fixity, recorded in ordered categories from 0 to 3. The order does not establish equal distances between values. Indicators remain separate: missing observation is not zero, and a sum or mean cannot replace a verbal inventory."
+    },
+    "def": "Dez dimensões de observação do eixo de fixidez, registradas em categorias ordenadas de 0 a 3. A ordem não estabelece distâncias iguais entre valores. Os indicadores permanecem separados: ausência de observação não é zero, e soma ou média não substitui o inventário verbal.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "capta",
+    "name": "capta",
+    "cat": "metodo",
+    "tipo": "Mobilizado",
+    "fonte": "Drucker (2011) · documentação metodológica da tese",
+    "uso": "Declarar critérios e decisões que tornam certas relações visíveis.",
+    "rel": [
+      "corpus",
+      "proveniencia",
+      "atlas"
+    ],
+    "en": {
+      "name": "capta",
+      "tipo": "Mobilised",
+      "fonte": "Drucker (2011) · methodological documentation da thesis",
+      "uso": "Declare the criteria and decisions that make particular relations visible.",
+      "def": "Data understood as produced through choices of scope, description and interpretation rather than simply found. The term makes the situated construction of the corpus and visualisations explicit; it neither removes the need for evidence nor makes all interpretations equivalent."
+    },
+    "def": "Dados entendidos como produzidos por escolhas de recorte, descrição e interpretação, em vez de simplesmente encontrados. O termo explicita a construção situada do corpus e das visualizações; não dispensa evidência nem torna todas as interpretações equivalentes.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "paradigma",
+    "name": "paradigma indiciário",
+    "cat": "metodo",
+    "tipo": "Mobilizado",
+    "fonte": "Ginzburg · capítulo metodológico da tese",
+    "uso": "Usar detalhes como pistas a investigar, sem tratar semelhança como prova suficiente.",
+    "rel": [
+      "atributo",
+      "iconologia",
+      "proveniencia"
+    ],
+    "en": {
+      "name": "evidential paradigm",
+      "tipo": "Mobilised",
+      "fonte": "Ginzburg · methodology chapter da thesis",
+      "uso": "Use details as clues to investigate without treating resemblance as sufficient proof.",
+      "def": "A form of knowledge reconstructing relations from clues and details. In this research, postures, inscriptions and shifts in attributes allow hypotheses to be formulated. Recurrence supports an argument only when confronted with sources, differences between cases and competing explanations."
+    },
+    "def": "Forma de conhecimento que reconstrói relações a partir de indícios e detalhes. Na pesquisa, posturas, inscrições e deslocamentos de atributos permitem formular hipóteses. A recorrência só sustenta um argumento quando confrontada com fontes, diferenças entre casos e explicações concorrentes.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "pathosformel",
+    "name": "Pathosformel",
+    "cat": "warburg",
+    "tipo": "Mobilizado",
+    "fonte": "Warburg · léxico da tese",
+    "uso": "Comparar gestos e suas transformações, evitando identificar fórmula com um atributo isolado.",
+    "rel": [
+      "nachleben",
+      "montagem",
+      "fundacional"
+    ],
+    "en": {
+      "name": "Pathosformel",
+      "tipo": "Mobilised",
+      "fonte": "Warburg · léxico da thesis",
+      "uso": "Compare gestures and their transformations without identifying a formula with an isolated attribute.",
+      "def": "A visual formula in which gesture and affective charge are joined and may reappear in other times and contexts. Formal repetition does not guarantee identical meaning: an inherited pose may be displaced, inverted or put at the service of another authority."
+    },
+    "def": "Fórmula visual em que gesto e carga afetiva se articulam e podem reaparecer em outros tempos e contextos. A repetição formal não garante identidade de sentido: uma pose herdada pode ser deslocada, invertida ou posta a serviço de outra autoridade.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "nachleben",
+    "name": "Nachleben",
+    "cat": "warburg",
+    "tipo": "Mobilizado",
+    "fonte": "Warburg · léxico da tese",
+    "uso": "Tratar a sobrevivência como problema histórico, não como árvore genealógica já demonstrada.",
+    "rel": [
+      "pathosformel",
+      "transferencia",
+      "atlas"
+    ],
+    "en": {
+      "name": "Nachleben",
+      "tipo": "Mobilised",
+      "fonte": "Warburg · léxico da thesis",
+      "uso": "Treat survival as a historical problem rather than an already demonstrated family tree.",
+      "def": "The survival and transformed reappearance of forms and gestures. It enables inquiry into returns of antiquity and other persistences without assuming continuous or intact transmission. Relations between images require reconstructing mediations, ruptures and changes of function."
+    },
+    "def": "Sobrevivência e reaparição transformada de formas e gestos. Permite investigar retornos da Antiguidade e outras persistências sem supor uma transmissão contínua ou intacta. A relação entre imagens exige reconstruir mediações, rupturas e mudanças de função.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "zwischenraum",
+    "name": "Zwischenraum",
+    "cat": "warburg",
+    "tipo": "Mobilizado",
+    "fonte": "Warburg · método comparativo da tese",
+    "uso": "Manter legíveis as diferenças entre imagens aproximadas numa prancha.",
+    "rel": [
+      "montagem",
+      "atlas",
+      "denkraum"
+    ],
+    "en": {
+      "name": "Zwischenraum",
+      "tipo": "Mobilised",
+      "fonte": "Warburg · comparative method da thesis",
+      "uso": "Keep differences between images brought together in a plate legible.",
+      "def": "An interval enabling relations between images to be considered without merging them. In montage, distance and proximity make differences and tensions interpretable. Meaning is not ready-made in the empty space: it depends on the choices and questions organising comparison."
+    },
+    "def": "Intervalo que permite pensar a relação entre imagens sem fundi-las. Na montagem, a distância e a vizinhança tornam diferenças e tensões interpretáveis. O sentido não está pronto no espaço vazio: depende das escolhas e perguntas que organizam a comparação.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "denkraum",
+    "name": "Denkraum",
+    "cat": "warburg",
+    "tipo": "Mobilizado",
+    "fonte": "Warburg · léxico da tese",
+    "uso": "Construir condições para olhar criticamente a autoridade da imagem.",
+    "rel": [
+      "zwischenraum",
+      "atlas",
+      "iconocracia"
+    ],
+    "en": {
+      "name": "Denkraum",
+      "tipo": "Mobilised",
+      "fonte": "Warburg · léxico da thesis",
+      "uso": "Build conditions for looking critically at the authority of an image.",
+      "def": "A space for thought and reflective distance before the image. It names the possibility of suspending immediate assent to examine how a figure acts upon the gaze. It is neither synonymous with physical space nor an effect automatically produced by an atlas."
+    },
+    "def": "Espaço de pensamento e distância reflexiva diante da imagem. Designa a possibilidade de suspender uma adesão imediata para examinar como uma figura age sobre o olhar. Não é sinônimo de espaço físico nem um efeito automaticamente produzido pelo atlas.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "mnemosyne",
+    "name": "Bilderatlas Mnemosyne",
+    "cat": "warburg",
+    "tipo": "Mobilizado",
+    "fonte": "Warburg · edição do atlas (2000)",
+    "uso": "Explicitar o que a montagem permite investigar e quais escolhas ela produz.",
+    "rel": [
+      "atlas",
+      "montagem",
+      "pathosformel",
+      "nachleben"
+    ],
+    "en": {
+      "name": "Bilderatlas Mnemosyne",
+      "tipo": "Mobilised",
+      "fonte": "Warburg · atlas edition (2000)",
+      "uso": "Make explicit what montage enables investigation to address and what choices it produces.",
+      "def": "Warburg’s unfinished atlas, organised through montages of reproductions on plates. It provides a reference for investigating relations between gestures, times and uses of images. The thesis engages its comparative operation methodologically rather than reproducing it literally."
+    },
+    "def": "Atlas inacabado de Warburg, organizado por montagens de reproduções em pranchas. Constitui uma referência para investigar relações entre gestos, tempos e usos das imagens. A tese toma sua operação comparativa como interlocução metodológica, não como modelo a reproduzir literalmente.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "montagem",
+    "name": "montagem",
+    "cat": "warburg",
+    "tipo": "Método",
+    "fonte": "Warburg · metodologia do atlas",
+    "uso": "Mostrar relações e diferenças sem ocultar o trabalho de seleção.",
+    "rel": [
+      "prancha",
+      "zwischenraum",
+      "capta"
+    ],
+    "en": {
+      "name": "montage",
+      "tipo": "Method",
+      "fonte": "Warburg · atlas methodology",
+      "uso": "Show relations and differences without concealing the work of selection.",
+      "def": "An arrangement of images producing a situation of comparison. Proximity, distance and sequences formulate questions about gestures, attributes and temporalities. Choosing a neighbourhood is an interpretive intervention that must remain open to discussion and revision."
+    },
+    "def": "Arranjo de imagens que produz uma situação de comparação. Aproximações, afastamentos e sequências formulam perguntas sobre gestos, atributos e temporalidades. A escolha de uma vizinhança é uma intervenção interpretativa e deve poder ser discutida e refeita.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "prancha",
+    "name": "prancha comparativa",
+    "cat": "warburg",
+    "tipo": "Método",
+    "fonte": "Tese · documentação do atlas",
+    "uso": "Associar cada comparação a documentação e a uma hipótese revisável.",
+    "rel": [
+      "montagem",
+      "proveniencia",
+      "atlas"
+    ],
+    "en": {
+      "name": "comparative plate",
+      "tipo": "Method",
+      "fonte": "Thesis · documentação do atlas",
+      "uso": "Associate each comparison with documentation and a revisable hypothesis.",
+      "def": "A unit of montage placing images in relation, accompanied by identifications, sources and a reading question. It is not merely a collection of similar examples: comparison must make differences and historical mediations examinable."
+    },
+    "def": "Unidade de montagem que coloca imagens em relação, acompanhada de identificações, fontes e uma pergunta de leitura. Não é apenas uma coleção de exemplos semelhantes: a comparação precisa tornar suas diferenças e suas mediações históricas examináveis.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "visiocracia",
+    "name": "visiocracia",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Goodrich (2013) · capítulo 1",
+    "uso": "Investigar a eficácia institucional dos signos visuais.",
+    "rel": [
+      "iconocracia",
+      "economia",
+      "acoplamento"
+    ],
+    "en": {
+      "name": "visiocracy",
+      "tipo": "Mobilised",
+      "fonte": "Goodrich (2013) · chapter 1",
+      "uso": "Investigate the institutional efficacy of visual signs.",
+      "def": "Power exercised through the organisation of the visible in juridical culture. Signs, emblems, gestures and devices of orientation participate in producing an order that teaches seeing and obedience. This perspective broadens the study of law beyond normative language."
+    },
+    "def": "Poder exercido pela organização do visível na cultura jurídica. Signos, emblemas, gestos e dispositivos de orientação participam da produção de uma ordem que ensina a ver e obedecer. A perspectiva amplia o estudo do direito para além da palavra normativa.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "economia",
+    "name": "economia icônica",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Mondzain (2002)",
+    "uso": "Examinar como o visível medeia uma autoridade que não se apresenta diretamente.",
+    "rel": [
+      "iconocracia",
+      "visiocracia",
+      "instituicao"
+    ],
+    "en": {
+      "name": "iconic economy",
+      "tipo": "Mobilised",
+      "fonte": "Mondzain (2002)",
+      "uso": "Examine how the visible mediates an authority that does not appear directly.",
+      "def": "The organisation of relations between image, visibility and authority within the horizon of oikonomia studied by Mondzain. In the thesis it enables questions about how juridical images manage presence, assent and legitimacy. It is not reducible to commercial circulation or monetary value."
+    },
+    "def": "Organização das relações entre imagem, visibilidade e autoridade, no horizonte da oikonomia estudada por Mondzain. Na tese, permite perguntar como imagens jurídicas administram presença, adesão e legitimidade. Não se reduz à circulação mercantil ou ao valor monetário das imagens.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "contrato-sexual",
+    "name": "contrato sexual",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Pateman (1988)",
+    "uso": "Identificar a matriz teórica sem ceder a autoria da extensão visual.",
+    "rel": [
+      "contrato",
+      "reconhecimento",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "sexual contract",
+      "tipo": "Mobilised",
+      "fonte": "Pateman (1988)",
+      "uso": "Identify the theoretical matrix without relinquishing authorship of the visual extension.",
+      "def": "A critique of the social contract narrative that treats freedom as a universal foundation while concealing the constitution of sexual subjection and male political right. It is an interlocution for the Visual Sexual Contract; the two terms do not name the same formulation."
+    },
+    "def": "Crítica à narrativa do contrato social que trata a liberdade como fundamento universal, ocultando a constituição de relações de sujeição sexual e do direito político masculino. É interlocução do Contrato Sexual Visual; os dois termos não designam a mesma formulação.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "dois-corpos",
+    "name": "dois corpos do rei",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Kantorowicz (1957)",
+    "uso": "Construir uma interlocução jurídico-histórica, sem declarar equivalência entre rei e alegoria feminina.",
+    "rel": [
+      "purificacao",
+      "feminilidade",
+      "instituicao"
+    ],
+    "en": {
+      "name": "the king’s two bodies",
+      "tipo": "Mobilised",
+      "fonte": "Kantorowicz (1957)",
+      "uso": "Build a juridical-historical dialogue without declaring equivalence between king and feminine allegory.",
+      "def": "A historical distinction between the sovereign’s mortal natural body and the political body ensuring continuity of authority. The thesis uses this matrix to question the distance between a particular historical body and the permanence attributed to the figuration of sovereignty."
+    },
+    "def": "Distinção histórica entre o corpo natural, mortal, do soberano e o corpo político que garante continuidade à autoridade. A tese mobiliza essa matriz para interrogar a distância entre um corpo histórico particular e a permanência atribuída à figuração da soberania.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "instituicao",
+    "name": "instituição das imagens",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Legendre (1994)",
+    "uso": "Examinar o lugar da figura na cena institucional e nas práticas de reconhecimento.",
+    "rel": [
+      "feminilidade",
+      "economia",
+      "acoplamento"
+    ],
+    "en": {
+      "name": "institution of images",
+      "tipo": "Mobilised",
+      "fonte": "Legendre (1994)",
+      "uso": "Examine the figure’s place in the institutional scene and practices of recognition.",
+      "def": "The problem of visual mediations through which an institutional order presents its foundation and authority to subjects. In the thesis it supports questions about the function of juridical figurations in constituting institutional attachment beyond an illustrative role."
+    },
+    "def": "Problema das mediações visuais pelas quais uma ordem institucional apresenta fundamento e autoridade aos sujeitos. Na tese, sustenta a pergunta sobre a função das figurações jurídicas na constituição do vínculo com a instituição, além de uma função ilustrativa.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "cultura-juridica",
+    "name": "cultura jurídica",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Hespanha (2005) · tese",
+    "uso": "Situar objetos visuais em práticas e instituições documentadas.",
+    "rel": [
+      "iconologia",
+      "acoplamento",
+      "suporte"
+    ],
+    "en": {
+      "name": "legal culture",
+      "tipo": "Mobilised",
+      "fonte": "Hespanha (2005) · thesis",
+      "uso": "Situate visual objects within documented practices and institutions.",
+      "def": "The historical ensemble of practices, languages, knowledge and representations through which law becomes thinkable and operative. This scope permits images and materialities to be studied as sources of juridical experience without treating every political symbol as evidence of a legal function."
+    },
+    "def": "Conjunto histórico de práticas, linguagens, saberes e formas de representação pelos quais o direito se torna pensável e operante. O recorte permite investigar imagens e materialidades como fontes da experiência jurídica, sem confundir todo símbolo político com evidência de uma função jurídica.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "colonialidade",
+    "name": "colonialidade do ver",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Tese · capítulo sobre colonialidade",
+    "uso": "Reconstruir hierarquias e mediações concretas, sem usar colonialidade como explicação automática.",
+    "rel": [
+      "racial",
+      "branquitude",
+      "transferencia"
+    ],
+    "en": {
+      "name": "coloniality of seeing",
+      "tipo": "Mobilised",
+      "fonte": "Thesis · chapter on coloniality",
+      "uso": "Reconstruct concrete hierarchies and mediations without using coloniality as an automatic explanation.",
+      "def": "An organisation of the visual field presenting colonial hierarchies as natural or universal. In this research it questions racialisation of the allegorical body and the unequal distribution of positions of those who represent, are represented and observe. It is not synonymous with any intercontinental circulation."
+    },
+    "def": "Organização do campo visual que apresenta hierarquias coloniais como naturais ou universais. Na pesquisa, interroga a racialização do corpo alegórico e a distribuição desigual das posições de quem representa, é representado e observa. Não é sinônimo de qualquer circulação entre continentes.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "branquitude",
+    "name": "branquitude alegórica",
+    "cat": "teoria",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · Contrato Racial Visual",
+    "uso": "Distinguir cor material, idealização clássica e operação racial.",
+    "rel": [
+      "racial",
+      "colonialidade",
+      "monocromatizacao"
+    ],
+    "en": {
+      "name": "allegorical whiteness",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · Contrato Racial Visual",
+      "uso": "Distinguish material colour, classical idealisation and racial operation.",
+      "def": "A position of universality attributed to a white or classicised body in representations of authority. It cannot be identified from pigment alone: material, convention, commission history and relations to other bodies must support racial interpretation."
+    },
+    "def": "Posição de universalidade atribuída ao corpo branco ou classicizado na representação da autoridade. Não se identifica apenas pelo pigmento: material, convenção, história da encomenda e relação com outros corpos precisam sustentar a interpretação racial.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "transferencia",
+    "name": "transferência visual transatlântica",
+    "cat": "teoria",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · capítulo sobre colonialidade",
+    "uso": "Separar semelhança visual de uma relação histórica demonstrada.",
+    "rel": [
+      "nachleben",
+      "racial",
+      "republica",
+      "marianne"
+    ],
+    "en": {
+      "name": "transatlantic visual transfer",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · chapter on coloniality",
+      "uso": "Separate visual resemblance from a demonstrated historical relation.",
+      "def": "The circulation and transformation of visual models, repertoires and conventions between Atlantic contexts. Formal similarities suggest an inquiry, but transfer requires documented mediations: reproductions, commissions, artistic training or institutional circuits."
+    },
+    "def": "Circulação e transformação de modelos, repertórios e convenções visuais entre contextos atlânticos. Aproximações formais sugerem uma investigação, mas a transferência precisa de mediações documentadas: reproduções, encomendas, formação artística ou circuitos institucionais.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "reconhecimento",
+    "name": "reconhecimento sem reciprocidade",
+    "cat": "teoria",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · Feminilidade de Estado e metodologia",
+    "uso": "Confrontar a representação com documentação sobre direitos e participação.",
+    "rel": [
+      "feminilidade",
+      "contrato",
+      "cultura-juridica"
+    ],
+    "en": {
+      "name": "recognition without reciprocity",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · Feminilidade de Estado and metodologia",
+      "uso": "Confront representation with documentation on rights and participation.",
+      "def": "An asymmetry between the symbolic presence of the feminine body in representations of power and recognition of women as subjects of agency and rights. It names a historical question in the thesis; an image alone does not prove the legal conditions of women absent from it."
+    },
+    "def": "Assimetria entre a presença simbólica do corpo feminino na figuração do poder e o reconhecimento das mulheres como sujeitos de agência e direitos. Nomeia uma pergunta histórica da tese; a imagem, sozinha, não prova as condições jurídicas das mulheres que nela não aparecem.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "alegoria",
+    "name": "alegoria",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Tese · glossário; Resnik e Curtis (2011)",
+    "uso": "Distinguir uma mulher representada da função alegórica atribuída à figura.",
+    "rel": [
+      "personificacao",
+      "atributo",
+      "justitia",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "allegory",
+      "tipo": "Mobilised",
+      "fonte": "Thesis · glossary; Resnik and Curtis (2011)",
+      "uso": "Distinguish a represented woman from the allegorical function attributed to the figure.",
+      "def": "A figure or composition making an idea legible through a sensory form and conventions of reading. The research especially examines the feminine form of the juridical universal. A feminine figure is not in itself an allegory: identification, attributes and context must be considered."
+    },
+    "def": "Figura ou composição que torna uma ideia legível por meio de uma forma sensível e de convenções de leitura. A pesquisa examina especialmente a forma feminina do universal jurídico. Uma figura feminina não é, por si só, uma alegoria: identificação, atributos e contexto precisam ser considerados.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "personificacao",
+    "name": "personificação",
+    "cat": "teoria",
+    "tipo": "Mobilizado",
+    "fonte": "Tese · glossário e iconografia jurídica",
+    "uso": "Evitar usar personificação como definição completa de um conceito crítico.",
+    "rel": [
+      "alegoria",
+      "feminilidade",
+      "republica"
+    ],
+    "en": {
+      "name": "personification",
+      "tipo": "Mobilised",
+      "fonte": "Thesis · glossary and iconografia jurídica",
+      "uso": "Avoid using personification as a complete definition of a critical concept.",
+      "def": "The representation of an abstract or collective entity as a human figure. Justice, Republic and nation may acquire bodies through this procedure. Identifying a personification describes a convention; analysis of State Femininity asks about its political operation."
+    },
+    "def": "Representação de uma entidade abstrata ou coletiva como figura humana. Justiça, República e nação podem adquirir corpo por esse procedimento. A identificação de uma personificação descreve uma convenção; a análise de Feminilidade de Estado pergunta por sua operação política.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "endurecimento",
+    "name": "endurecimento",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · decisão metodológica de 24/09/2026",
+    "uso": "Descrever o que fixa a figura em cada caso, incluindo atributos contraditórios e lacunas.",
+    "rel": [
+      "purificacao",
+      "iconometria",
+      "indicadores",
+      "inventario"
+    ],
+    "en": {
+      "name": "endurecimento",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · methodological decision of 24/09/2026",
+      "uso": "Describe what fixes the figure in each case, including contradictory attributes and gaps.",
+      "def": "The axis of allegorical fixity within iconometry. It questions rigidity, standardisation and erasures associated with Classical Purification. Reading requires a verbal inventory of cases and separate observation of indicators; it does not produce a global intensity."
+    },
+    "def": "Eixo de fixidez alegórica dentro da iconometria. Interroga rigidez, padronização e apagamentos associados à Purificação Clássica. A leitura exige inventário verbal dos casos e observação separada dos indicadores; não produz intensidade global.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "acoplamento",
+    "name": "acoplamento imagem-norma",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · glossário de trabalho",
+    "uso": "Investigar o vínculo entre objeto visual e função normativa documentada.",
+    "rel": [
+      "instituicao",
+      "suporte",
+      "regime"
+    ],
+    "en": {
+      "name": "image–norm coupling",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · working glossary",
+      "uso": "Investigate the link between visual object and documented normative function.",
+      "def": "A relation through which visual figuration participates in recognition of a norm or juridical-political authority. Seals, coins and frontispieces are possible sites of this encounter. The link’s efficacy is not presumed: it depends on practices and institutions where image and norm circulate."
+    },
+    "def": "Relação pela qual uma figuração visual participa do reconhecimento de uma norma ou autoridade jurídico-política. Selos, moedas e frontispícios são lugares possíveis desse encontro. A eficácia do vínculo não é presumida: depende das práticas e instituições em que imagem e norma circulam.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "sentido",
+    "name": "sentido produzido e sentido recebido",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · decisão de aparato mínimo, 29/07/2026",
+    "uso": "Delimitar o argumento ao que suas fontes permitem afirmar, sem projetar sentimentos sobre o espectador histórico.",
+    "rel": [
+      "instituicao",
+      "reconhecimento",
+      "proveniencia"
+    ],
+    "en": {
+      "name": "produced meaning and received meaning",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · minimal apparatus decision, 29/07/2026",
+      "uso": "Limit the argument to what its sources support, without projecting feelings onto the historical viewer.",
+      "def": "A distinction between the meaning an institutional device produces and makes available and the actual experience of those encountering it. Iconological reading can support the first claim through object, medium and documentation; reconstructing reception requires other sources that formal analysis cannot replace."
+    },
+    "def": "Distinção entre o sentido que um dispositivo institucional produz e disponibiliza e a experiência efetiva de quem o encontra. A leitura iconológica pode sustentar a primeira afirmação com objeto, suporte e documentação; reconstituir a recepção exige outras fontes, que não podem ser substituídas pela análise formal.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "fundacional",
+    "name": "regime fundacional",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · tipologia dos regimes",
+    "uso": "Examinar a figura na disputa pela fundação da autoridade.",
+    "rel": [
+      "regime",
+      "pathosformel",
+      "normativo",
+      "republica"
+    ],
+    "en": {
+      "name": "foundational regime",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · regime typology",
+      "uso": "Examine the figure within struggles over the founding of authority.",
+      "def": "A mode of allegorical use linked to the establishment or refoundation of a political order. Gesture, mobilisation and sacrifice are reading questions, not necessary properties of every foundational image. Attribution requires institutional and historical context."
+    },
+    "def": "Modo de uso da alegoria vinculado à instauração ou refundação de uma ordem política. Gesto, mobilização e sacrifício são questões de leitura, não propriedades necessárias de toda imagem fundacional. A atribuição exige contexto institucional e histórico.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "normativo",
+    "name": "regime normativo",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · tipologia dos regimes",
+    "uso": "Relacionar repetição visual e funcionamento cotidiano das instituições.",
+    "rel": [
+      "regime",
+      "serialidade",
+      "inscricao",
+      "militar"
+    ],
+    "en": {
+      "name": "normative regime",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · regime typology",
+      "uso": "Relate visual repetition to institutions’ everyday functioning.",
+      "def": "A mode in which allegory participates in routine recognition and reproduction of authority through seals, coins, buildings and other institutional devices. Regularity of use matters as much as visual form; the regime cannot be inferred solely from serenity or immobility."
+    },
+    "def": "Modo em que a alegoria participa da rotina de reconhecimento e reprodução da autoridade: selos, moedas, edifícios e outros dispositivos institucionais. A regularidade do uso importa tanto quanto a forma visual; não se deduz o regime apenas de serenidade ou imobilidade.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "militar",
+    "name": "regime militar",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · tipologia dos regimes",
+    "uso": "Distinguir convenção de atributo e uso histórico de legitimação bélica.",
+    "rel": [
+      "regime",
+      "rigidez",
+      "atributo",
+      "britannia"
+    ],
+    "en": {
+      "name": "military regime",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · regime typology",
+      "uso": "Distinguish attribute convention from historical uses legitimating warfare.",
+      "def": "A mode joining allegorical figuration with coercion, war or imperial expansion. Weapons, armour and monumentality guide questions, but an armed attribute is insufficient to classify an image. The object’s function must be reconstructed in context."
+    },
+    "def": "Modo que articula figuração alegórica, coerção, guerra ou expansão imperial. Armas, armaduras e monumentalidade orientam perguntas, mas um atributo armado não basta para classificar uma imagem. A função do objeto precisa ser reconstruída em seu contexto.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "contra-alegoria",
+    "name": "contra-alegoria",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · glossário e método comparativo",
+    "uso": "Examinar a transformação da convenção e os limites de sua contestação.",
+    "rel": [
+      "regime",
+      "iconoclasmo",
+      "montagem"
+    ],
+    "en": {
+      "name": "counter-allegory",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · glossary and comparative method",
+      "uso": "Examine the transformation of convention and the limits of its contestation.",
+      "def": "An image displacing, contesting or reappropriating an allegory of authority. Parody, inversion and denunciation are possible procedures, not guarantees of emancipation. A contestatory status must be situated in conditions of production, circulation and reception."
+    },
+    "def": "Imagem que desloca, contesta ou reapropria uma alegoria da autoridade. Paródia, inversão e denúncia são procedimentos possíveis, não garantia de emancipação. O estatuto contestatório precisa ser situado em condições de produção, circulação e recepção.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "iconoclasmo",
+    "name": "iconoclasmo",
+    "cat": "operacao",
+    "tipo": "Mobilizado",
+    "fonte": "Tese · documentação metodológica; Mondzain",
+    "uso": "Documentar o ato e a disputa, sem atribuir o mesmo sentido político a toda destruição.",
+    "rel": [
+      "contra-alegoria",
+      "iconocracia",
+      "ausencia"
+    ],
+    "en": {
+      "name": "iconoclasm",
+      "tipo": "Mobilised",
+      "fonte": "Thesis · methodological documentation; Mondzain",
+      "uso": "Document the act and dispute without assigning the same political meaning to every destruction.",
+      "def": "Conflict with the authority of images that may involve destruction, removal, covering or disputes over their uses. It is not equivalent to the simple absence of an image. Interpretation requires identifying agents, practices and historical conditions of conflict."
+    },
+    "def": "Conflito com a autoridade das imagens que pode envolver destruição, retirada, cobertura ou disputa de seus usos. Não se confunde com a simples ausência de uma imagem. A interpretação exige identificar os agentes, as práticas e as condições históricas do conflito.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "ausencia",
+    "name": "ausência alegórica",
+    "cat": "operacao",
+    "tipo": "Operador da tese",
+    "fonte": "Tese · glossário e documentação do corpus",
+    "uso": "Documentar buscas e limites antes de interpretar uma ausência.",
+    "rel": [
+      "corpus",
+      "proveniencia",
+      "personificacao"
+    ],
+    "en": {
+      "name": "allegorical absence",
+      "tipo": "Thesis operator",
+      "fonte": "Thesis · glossary and corpus documentation",
+      "uso": "Document searches and their limits before interpreting an absence.",
+      "def": "A question about situations where an expected allegory was not found. The expectation and scope of search must be stated. Missing corpus records do not prove historical nonexistence, just as an inaccessible archive does not prove absence of representation."
+    },
+    "def": "Pergunta sobre situações em que uma alegoria esperada não foi encontrada. A expectativa e o universo de busca devem ser explicitados. Falta de registro no corpus não prova inexistência histórica, assim como um arquivo inacessível não prova ausência de representação.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "desincorporacao",
+    "name": "desincorporação",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "disembodiment",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "A shift from bodily particularity towards an emblematic form. It examines which traces of a historical body are removed or preserved; not every covered body is presumed disembodied."
+    },
+    "def": "Passagem da particularidade corporal para uma forma emblemática. Examina quais marcas de corpo histórico são retiradas ou preservadas; não presume que todo corpo coberto esteja desincorporado.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "rigidez",
+    "name": "rigidez postural",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "postural rigidity",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The configuration of posture and gesture around fixity or restraint. Describe support, articulation and apparent movement before assigning political function: immobility of the medium is not equivalent to rigidity of the figure."
+    },
+    "def": "Configuração da postura e do gesto em torno de fixidez ou contenção. Descrever apoio, articulação e movimento aparente antes de atribuir função política: a imobilidade do suporte não equivale à rigidez da figura.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "dessexualizacao",
+    "name": "dessexualização",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "desexualisation",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The reduction or erasure of signs of desire and sexuality in the allegorical figure. It is not automatically equivalent to absence of nudity: exposure, dress, pose and conventions must be read together."
+    },
+    "def": "Redução ou apagamento de marcas de desejo e sexualidade na figura alegórica. Não equivale automaticamente à ausência de nudez: exposição, vestimenta, pose e convenções devem ser lidas em conjunto.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "uniformizacao",
+    "name": "uniformização facial",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "facial standardisation",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The reduction or standardisation of facial particularities. Record features, expression and relevant comparisons; a small or poorly legible face in a reproduction is insufficient evidence of standardisation."
+    },
+    "def": "Redução ou padronização de particularidades do rosto. Registrar traços, expressão e comparações pertinentes; um rosto pequeno ou pouco legível na reprodução não é evidência suficiente de uniformização.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "heraldicizacao",
+    "name": "heraldicização",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "heraldicisation",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The integration of the figure into coats of arms, shields and heraldic attributes. It examines how composition brings body and institutional emblem together; a shield alone does not determine this operation."
+    },
+    "def": "Integração da figura a brasões, escudos e atributos heráldicos. Investiga como a composição aproxima corpo e emblema institucional; a presença de um escudo, isoladamente, não determina essa operação.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "enquadramento",
+    "name": "enquadramento arquitetônico",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "architectural framing",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The relation between the figure and its frame, niche, façade or monumental device. Framing may organise scale and visibility; its effect must be observed without assuming that all architecture erases the figure’s agency."
+    },
+    "def": "Relação entre a figura e sua moldura, nicho, fachada ou dispositivo monumental. O enquadramento pode organizar escala e visibilidade; seu efeito deve ser observado sem supor que toda arquitetura apague a agência da figura.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "apagamento",
+    "name": "apagamento narrativo",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "narrative erasure",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The reduction or suppression of actions, relations and particulars of a scene in favour of an emblematic figure. Comparison must show what was removed or silenced; absence of scenery alone does not prove historical erasure."
+    },
+    "def": "Redução ou supressão de ações, relações e particularidades de uma cena em favor da figura emblemática. A comparação deve demonstrar o que foi retirado ou silenciado; a ausência de cenário, sozinha, não prova um apagamento histórico.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "monocromatizacao",
+    "name": "monocromatização",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "monochromatisation",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "The reduction of chromatic differentiation in the figure. Reproduction may alter its perception; distinguish original material, conservation and conditions of the consulted image. Pale stone, metal or a black-and-white photograph do not alone demonstrate a racial operation."
+    },
+    "def": "Redução da diferenciação cromática na figura. A reprodução pode alterar sua percepção; distinguir material original, conservação e condições da imagem consultada. Pedra clara, metal ou fotografia em preto e branco não demonstram, por si, uma operação racial.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "serialidade",
+    "name": "serialidade",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "seriality",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "Standardised repetition of a figure in series such as coins or stamps. It examines invariants and variations as well as circuits of reproduction; the number of copies cannot replace description of the pattern."
+    },
+    "def": "Repetição padronizada de uma figura em séries, como moedas ou selos. Examina invariantes e variações, além dos circuitos de reprodução; quantidade de exemplares não substitui a descrição do padrão.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "inscricao",
+    "name": "inscrição estatal",
+    "cat": "indicador",
+    "tipo": "Indicador",
+    "fonte": "Tese · codebook e glossário",
+    "uso": "Registrar a dimensão separadamente, com evidência visual e inventário verbal.",
+    "rel": [
+      "indicadores",
+      "inventario",
+      "endurecimento",
+      "purificacao"
+    ],
+    "en": {
+      "name": "state inscription",
+      "tipo": "Indicator",
+      "fonte": "Thesis · codebook and glossary",
+      "uso": "Record the dimension separately, with visual evidence and a verbal inventory.",
+      "def": "Inscriptions, legends and marks linking the figure to state authority. Transcribe what can be read and record location and function; illegible or unknown inscriptions should not be treated as absent."
+    },
+    "def": "Inscrições, legendas e marcas que vinculam a figura a uma autoridade estatal. Transcrever o que se lê e registrar localização e função; inscrições ilegíveis ou desconhecidas não devem ser tratadas como ausentes.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "justitia",
+    "name": "Justitia",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Resnik e Curtis (2011) · glossário da tese",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "atributo",
+      "iconografia",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "Justitia",
+      "tipo": "Allegorical figure",
+      "fonte": "Resnik and Curtis (2011) · glossary da thesis",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A personification of Justice, identified through historically variable combinations of scales, sword, blindfold and other attributes. It presupposes neither a linear genealogy nor the same meaning in every courtroom. Identification and display context support interpretation."
+    },
+    "def": "Personificação da Justiça, identificada por combinações historicamente variáveis de balança, espada, venda e outros atributos. Não pressupõe uma genealogia linear nem o mesmo sentido em todos os tribunais. A identificação e o contexto de exposição sustentam a leitura.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "marianne",
+    "name": "Marianne / La République",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Agulhon (1979; 1989)",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "republica",
+      "transferencia",
+      "fundacional"
+    ],
+    "en": {
+      "name": "Marianne / La République",
+      "tipo": "Allegorical figure",
+      "fonte": "Agulhon (1979; 1989)",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A repertoire of feminine personifications of the French Republic, shaped by disputes over convention, regime and public use. Marianne designates neither a single body nor an invariant formula. It provides a comparison for studying circulation and transformation of republican models."
+    },
+    "def": "Repertório de personificações femininas da República francesa, atravessado por disputas de convenção, regime e uso público. Marianne não designa um único corpo nem uma fórmula invariável. É referência comparativa para investigar a circulação e a transformação de modelos republicanos.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "britannia",
+    "name": "Britannia",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Glossário da tese · repertório britânico",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "militar",
+      "suporte",
+      "atributo"
+    ],
+    "en": {
+      "name": "Britannia",
+      "tipo": "Allegorical figure",
+      "fonte": "Glossário da thesis · British repertoire",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A feminine personification associated with Britain, present on circulating objects and monuments. Maritime attributes, shield and weapons may participate in its figuration, with functions varying by object and context. Reading requires distinguishing nation, empire and institutional use."
+    },
+    "def": "Personificação feminina vinculada à Grã-Bretanha, presente em objetos de circulação e monumentos. Atributos marítimos, escudo e armas podem integrar sua figuração, com funções distintas conforme o objeto e o contexto. A leitura exige distinguir nação, império e uso institucional.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "germania",
+    "name": "Germania",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Glossário da tese · repertório alemão",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "fundacional",
+      "militar",
+      "regime"
+    ],
+    "en": {
+      "name": "Germania",
+      "tipo": "Allegorical figure",
+      "fonte": "Glossário da thesis · German repertoire",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A feminine personification associated with the German nation in contexts of political mobilisation and institutionalisation. Crown, weapons and monumentality must be interpreted with commission and display location; they do not automatically determine a military regime."
+    },
+    "def": "Personificação feminina associada à nação alemã em contextos de mobilização e institucionalização política. Coroa, armas e monumentalidade devem ser interpretadas junto à encomenda e ao lugar de exposição; não determinam automaticamente um regime militar.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "columbia",
+    "name": "Columbia",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Glossário da tese · repertório dos Estados Unidos",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "personificacao",
+      "liberty",
+      "atributo"
+    ],
+    "en": {
+      "name": "Columbia",
+      "tipo": "Allegorical figure",
+      "fonte": "Glossário da thesis · United States repertoire",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A feminine personification of the United States in civic and political repertoires. Its relation to other figures such as Liberty must be reconstructed in the analysed object. These are not interchangeable names for every allegorical woman in American visual culture."
+    },
+    "def": "Personificação feminina dos Estados Unidos em repertórios cívicos e políticos. Sua relação com outras figuras, como Liberty, precisa ser reconstruída no objeto analisado. Não são nomes intercambiáveis para toda mulher alegórica presente na cultura visual norte-americana.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "liberty",
+    "name": "Liberdade / Liberty",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Glossário da tese · Agulhon; Resnik e Curtis",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "marianne",
+      "columbia",
+      "reconhecimento"
+    ],
+    "en": {
+      "name": "Liberty",
+      "tipo": "Allegorical figure",
+      "fonte": "Glossário da thesis · Agulhon; Resnik and Curtis",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A personification of liberty in national and transnational repertoires. Attributes and uses vary, and the same convention may enter different political disputes. Identifying the figure does not demonstrate that the rights it promises were universally distributed."
+    },
+    "def": "Personificação da liberdade em repertórios nacionais e transnacionais. Atributos e usos variam, e uma mesma convenção pode entrar em disputas políticas diferentes. Identificar a figura não demonstra que os direitos prometidos por ela tenham sido distribuídos universalmente.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "belgique",
+    "name": "La Belgique",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Glossário da tese · repertório belga",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "colonialidade",
+      "racial",
+      "personificacao"
+    ],
+    "en": {
+      "name": "La Belgique",
+      "tipo": "Allegorical figure",
+      "fonte": "Glossário da thesis · Belgian repertoire",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A feminine personification of Belgium. In the thesis’s comparisons it permits examination of links between national self-image, representation of authority and colonial contexts. This function should not be generalised to every Belgian figure without object documentation."
+    },
+    "def": "Personificação feminina da Bélgica. Nos comparativos da tese, permite examinar os vínculos entre autoimagem nacional, representação da autoridade e contextos coloniais. Essa função não deve ser generalizada a toda figura belga sem documentação do objeto.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "republica",
+    "name": "A República (Brasil)",
+    "cat": "figuras",
+    "tipo": "Figura alegórica",
+    "fonte": "Carvalho (1990) · glossário da tese",
+    "uso": "Identificar a figura por atributos, fonte e contexto, antes de atribuir-lhe uma função.",
+    "rel": [
+      "marianne",
+      "transferencia",
+      "racial",
+      "feminilidade"
+    ],
+    "en": {
+      "name": "The Republic (Brazil)",
+      "tipo": "Allegorical figure",
+      "fonte": "Carvalho (1990) · glossary da thesis",
+      "uso": "Identify the figure through attributes, source and context before assigning it a function.",
+      "def": "A repertoire of feminine figurations of the Brazilian Republic, formed through disputes and transfers of models. The research questions its claim to universality and its relation to gender and race. Proximity to Marianne is a comparative hypothesis to document case by case."
+    },
+    "def": "Repertório de figurações femininas da República brasileira, construído em disputas e transferências de modelos. A pesquisa interroga sua pretensão de universalidade e sua relação com gênero e raça. A aproximação com Marianne é hipótese comparativa a documentar em cada caso.",
+    "authorial": false,
+    "cap": ""
+  },
+  {
+    "id": "glossario",
+    "name": "glossário",
+    "cat": "indice",
+    "glossary": true,
+    "tipo": "Índice",
+    "fonte": "Conceitos da pesquisa",
+    "en": {
+      "name": "glossary",
+      "tipo": "Index",
+      "fonte": "Research concepts"
+    }
+  }
 ];
 
 const UI = {
-  pt:{ lbl:'conceitos', ph:'nome do conceito…', empty:'nada encontrado.',
-    groups:{ nucleo:'Núcleo', metodo:'Métodos', teoria:'Teorias', operacao:'Operações', indice:'Índice' },
-    kFonte:'Fonte', kTipo:'Tipo', kCap:'Capítulo', rel:'Conceitos relacionados',
-    glossEyebrow:'Conceitos operativos', glossTitle:'glossário',
-    glossLead:'Termos-chave mobilizados e originais da tese, com fonte e capítulo de uso.',
-    catName:{ nucleo:'núcleo', metodo:'método', teoria:'teoria', operacao:'operação', indice:'índice' } },
-  en:{ lbl:'concepts', ph:'concept name…', empty:'nothing found.',
-    groups:{ nucleo:'Core', metodo:'Methods', teoria:'Theories', operacao:'Operations', indice:'Index' },
-    kFonte:'Source', kTipo:'Type', kCap:'Chapter', rel:'Related concepts',
-    glossEyebrow:'Operative concepts', glossTitle:'glossary',
-    glossLead:'Key terms — mobilised and original — used in the thesis, with source and chapter.',
-    catName:{ nucleo:'core', metodo:'method', teoria:'theory', operacao:'operation', indice:'index' } },
+  pt: {
+    lbl:'conceitos', ph:'termo, definição ou fonte…', searchLabel:'Buscar no glossário', empty:'Nenhum verbete encontrado.',
+    groups:{indice:'Índice',nucleo:'Núcleo',autorais:'Conceitos autorais',metodo:'Métodos e documentação',warburg:'Warburg e montagem',teoria:'Articulações teóricas',operacao:'Operadores de leitura',indicador:'Dez indicadores',figuras:'Figuras alegóricas'},
+    kFonte:'Fonte', kTipo:'Estatuto', rel:'Conceitos relacionados', usage:'Uso na tese', back:'Ver o glossário completo',
+    glossEyebrow:'Léxico da pesquisa', glossTitle:'glossário',
+    glossLead:'Conceitos autorais, vocabulário mobilizado, métodos, indicadores e figuras alegóricas. Cada verbete reúne definição, uso na tese, fonte e relações.',
+    authorial:'conceito autoral da tese', legend:'quatro conceitos autorais centrais',
+    results:n => `${n} ${n===1?'verbete encontrado':'verbetes encontrados'}`,
+    count:n => `${n} verbetes · português e inglês`, siteNav:'Navegação do site'
+  },
+  en: {
+    lbl:'concepts', ph:'term, definition or source…', searchLabel:'Search the glossary', empty:'No entries found.',
+    groups:{indice:'Index',nucleo:'Core',autorais:'Authorial concepts',metodo:'Methods and documentation',warburg:'Warburg and montage',teoria:'Theoretical connections',operacao:'Reading operators',indicador:'Ten indicators',figuras:'Allegorical figures'},
+    kFonte:'Source', kTipo:'Status', rel:'Related concepts', usage:'Use in the thesis', back:'View the complete glossary',
+    glossEyebrow:'Research lexicon', glossTitle:'glossary',
+    glossLead:'Authorial concepts, mobilised vocabulary, methods, indicators and allegorical figures. Each entry brings together a definition, use in the thesis, source and related terms.',
+    authorial:'authorial thesis concept', legend:'four central authorial concepts',
+    results:n => `${n} ${n===1?'entry found':'entries found'}`,
+    count:n => `${n} entries · Portuguese and English`, siteNav:'Site navigation'
+  }
 };
-
-const byId = Object.fromEntries(CONCEPTS.map(c => [c.id, c]));
+const byId = Object.fromEntries(CONCEPTS.map(c => [c.id,c]));
+const GLOSS = CONCEPTS.filter(c => !c.glossary);
+const GROUPS = ['indice','nucleo','autorais','metodo','warburg','teoria','operacao','indicador','figuras'];
 const T = () => UI[lang];
-const F = (c,k) => (lang === 'en' && c.en && c.en[k] != null) ? c.en[k] : c[k];
-const tpLabel = (tp) => lang === 'en' ? ({ 'Mobilizado':'Mobilised','Original':'Original','Índice':'Index','Mobilizado · núcleo':'Mobilised · core','Método · qualitativo':'Method · qualitative','Método · quantitativo':'Method · quantitative','Método · síntese':'Method · synthesis' }[tp] || tp) : tp;
-const capLabel = (cap) => (lang === 'en' && cap) ? cap.replace('Cap.','Ch.') : cap;
-const glyph = (c) => c.core ? `<img src="assets/sun-seal.svg" alt="">` : (G[c.id] || G.glossario);
-
-let selId = null;
-try { const s = localStorage.getItem('av_concept'); if (s && byId[s]) selId = s; } catch(e){}
-if (!selId) selId = 'iconocracia';
-
-const GROUPS = ['nucleo','metodo','teoria','operacao','indice'];
-
-function buildList(filter){
-  const f = (filter||'').trim().toLowerCase();
-  const host = document.getElementById('list');
-  let html = '';
-  let any = false;
-  GROUPS.forEach(g => {
-    const items = CONCEPTS.filter(c => c.cat === g && (!f || F(c,'name').toLowerCase().includes(f)));
-    if (!items.length) return;
-    any = true;
-    html += `<div class="grp"><p class="gh">${T().groups[g]}</p>`;
-    items.forEach(c => {
-      const isOrig = (c.tipo||'').includes('Original');
-      html += `<button class="item${c.core?' core':''}${isOrig?' orig':''}${c.id===selId?' on':''}" data-id="${c.id}">
-        <span class="gi">${glyph(c)}</span><span>${F(c,'name')}</span>${isOrig?'<span class="omk" title="conceito autoral">◆</span>':''}</button>`;
-    });
-    html += `</div>`;
-  });
-  host.innerHTML = any ? html : `<p class="empty">${T().empty}</p>`;
-  host.querySelectorAll('.item').forEach(b => b.addEventListener('click', () => select(b.dataset.id, true)));
+const F = (c,k) => lang==='en' && c.en?.[k]!=null ? c.en[k] : c[k];
+const E = value => String(value??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = value => String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const matches = (c,query) => {
+  const text = norm([c.name,c.def,c.fonte,c.en?.name,c.en?.def,c.en?.fonte].join(' '));
+  return norm(query).trim().split(/\s+/).filter(Boolean).every(term=>text.includes(term));
+};
+const sorted = entries => [...entries].sort((a,b)=>F(a,'name').localeCompare(F(b,'name'),lang));
+const glyph = c => c.core ? '<img src="/assets/sun-seal.svg" alt="" width="20" height="20">' : (G[c.id]||G.glossario);
+const hashId = () => {
+  try { return decodeURIComponent(location.hash.slice(1)); } catch { return ''; }
+};
+let selId = 'glossario';
+if (byId[hashId()]) selId=hashId();
+else if (!window.AV_PRERENDER) {
+  try { const saved=localStorage.getItem('av_concept'); if(byId[saved]) selId=saved; } catch {}
 }
 
-function chip(rel){
-  const c = byId[rel];
-  if (c) return `<a class="rchip" data-id="${c.id}">${F(c,'name')} <span class="ar">→</span></a>`;
-  const label = (lang === 'en' && TOK[rel]) ? TOK[rel] : rel;
-  return `<span class="rchip static">${label}</span>`;
+function buildList(filter='') {
+  const found = GLOSS.filter(c=>matches(c,filter));
+  document.getElementById('results').textContent = T().results(found.length);
+  document.getElementById('list').innerHTML = GROUPS.map(group=>{
+    const items = group==='indice' ? [byId.glossario] : sorted(found.filter(c=>c.cat===group));
+    if(!items.length) return '';
+    return `<div class="grp"><p class="gh">${E(T().groups[group])}</p>${items.map(c=>
+      `<a class="item${c.core?' core':''}${c.authorial?' orig':''}${c.id===selId?' on':''}" href="#${c.id}" data-id="${c.id}"${c.id===selId?' aria-current="true"':''}>
+        <span class="gi" aria-hidden="true">${glyph(c)}</span><span>${E(F(c,'name'))}</span>${c.authorial?`<span class="omk" title="${E(T().authorial)}" aria-label="${E(T().authorial)}">◆</span>`:''}</a>`
+    ).join('')}</div>`;
+  }).join('') + (found.length?'':`<p class="empty">${E(T().empty)}</p>`);
 }
-
-function renderReader(c){
-  const r = document.getElementById('reader');
-  document.getElementById('rwm').style.opacity = c.core ? '0.16' : '0.10';
-  if (c.glossary){
-    const rowHtml = (g) => {
-      const nm = (lang==='en' && g.en && g.en.nm) ? g.en.nm : g.nm;
-      const src = (lang==='en' && g.en && g.en.src) ? g.en.src : g.src;
-      const srcShow = (src && src!=='Original' && src!=='Mobilizado') ? `<div class="src">${src}</div>` : '';
-      return `<div class="row"><div><span class="nm2">${nm}</span>${srcShow}</div><div class="cap">${capLabel(g.cap)}</div></div>`;
-    };
-    const groups = [
-      { tp:'Original',   cap: lang==='en' ? 'Original'  : 'Originais'   },
-      { tp:'Mobilizado', cap: lang==='en' ? 'Mobilised' : 'Mobilizados' },
-    ];
-    const blocks = groups.map(gr => {
-      const items = GLOSS.filter(g => g.tp === gr.tp);
-      if (!items.length) return '';
-      return `<p class="gsub">${gr.cap}</p><div class="gloss">${items.map(rowHtml).join('')}</div>`;
+function chip(id) {
+  const c=byId[id];
+  return `<a class="rchip" href="#${id}" data-id="${id}">${E(F(c,'name'))}<span class="ar" aria-hidden="true">→</span></a>`;
+}
+function renderReader(c) {
+  const r=document.getElementById('reader');
+  document.getElementById('rwm').style.opacity=c.core?'0.16':'0.10';
+  if(c.glossary) {
+    const found=GLOSS.filter(entry=>matches(entry,document.getElementById('q').value));
+    const blocks=GROUPS.filter(g=>g!=='indice').map(group=>{
+      const entries=sorted(found.filter(entry=>entry.cat===group));
+      if(!entries.length) return '';
+      return `<section><h2 class="gsub">${E(T().groups[group])}</h2><div class="gloss">${entries.map(entry=>
+        `<article class="gloss-entry" id="${entry.id}"><h3><a href="#${entry.id}" data-id="${entry.id}">${E(F(entry,'name'))}</a></h3>
+          <span class="kind">${E(F(entry,'tipo'))}${entry.authorial?' ◆':''}</span><p>${E(F(entry,'def'))}</p>
+          <p class="usage"><strong>${E(T().usage)}:</strong> ${E(F(entry,'uso'))}</p><p class="src">${E(T().kFonte)}: ${E(F(entry,'fonte'))}</p>
+        </article>`).join('')}</div></section>`;
     }).join('');
-    r.innerHTML = `<p class="eyebrow">${T().glossEyebrow}</p><h1 class="wt">${T().glossTitle}</h1><p class="lead">${T().glossLead}</p>${blocks}`;
-    return;
+    r.innerHTML=`<p class="eyebrow">${E(T().glossEyebrow)}</p><h1 class="wt" id="concept-title" tabindex="-1">${E(T().glossTitle)}</h1>
+      <p class="lead">${E(T().glossLead)}</p><p class="refn">${E(T().count(GLOSS.length))}</p>${blocks||`<p class="empty">${E(T().empty)}</p>`}`;
+  } else {
+    r.innerHTML=`<p class="eyebrow">${E(T().groups[c.cat])}</p><h1 class="wt" id="concept-title" tabindex="-1">${E(F(c,'name'))}</h1>
+      <div class="meta"><span class="mchip${c.authorial?' orig':''}"><span class="k">${E(T().kTipo)}</span><span class="v">${E(F(c,'tipo'))}</span></span>
+      <span class="mchip"><span class="k">${E(T().kFonte)}</span><span class="v">${E(F(c,'fonte'))}</span></span></div>
+      <p class="lead">${E(F(c,'def'))}</p><h2 class="sect">${E(T().usage)}</h2><p class="usage">${E(F(c,'uso'))}</p>
+      <h2 class="sect">${E(T().rel)}</h2><div class="rel">${c.rel.map(chip).join('')}</div>
+      <p class="refn"><a href="#glossario" data-id="glossario">${E(T().back)}</a></p>`;
   }
-  const orig = (F(c,'tipo')||'').toLowerCase().includes('original');
-  const meta = `<div class="meta">
-      <span class="mchip"><span class="k">${T().kFonte}</span><span class="v">${F(c,'fonte')}</span></span>
-      <span class="mchip"><span class="k">${T().kCap}</span><span class="v">${capLabel(c.cap)}</span></span>
-      <span class="mchip${orig?' orig':''}"><span class="k">${T().kTipo}</span><span class="v">${tpLabel(F(c,'tipo'))}</span></span>
-    </div>`;
-  const refn = c.refn ? `<p class="refn">${c.refn}</p>` : '';
-  const rels = (c.rel && c.rel.length) ? `<p class="sect">${T().rel}</p><div class="rel">${c.rel.map(chip).join('')}</div>` : '';
-  r.innerHTML = `<p class="eyebrow">${T().catName[c.cat]}</p><h1 class="wt">${F(c,'name')}</h1>${meta}<p class="lead">${F(c,'def')}</p>${refn}${rels}`;
-  r.querySelectorAll('.rchip[data-id]').forEach(a => a.addEventListener('click', () => select(a.dataset.id, true)));
 }
-
-function select(id, scroll){
-  if (!byId[id]) return;
-  selId = id;
-  try { localStorage.setItem('av_concept', id); } catch(e){}
-  document.querySelectorAll('.item').forEach(b => b.classList.toggle('on', b.dataset.id === id));
+function select(id, focus=false, push=false) {
+  if(!byId[id]) return;
+  selId=id;
+  try { localStorage.setItem('av_concept',id); } catch {}
+  if(push && hashId()!==id) history.pushState(null,'','#'+id);
+  if(id==='glossario') document.getElementById('q').value='';
+  buildList(document.getElementById('q').value);
   renderReader(byId[id]);
-  if (scroll && window.matchMedia('(max-width:820px)').matches) {
-    const rd = document.querySelector('.reader');
-    if (rd) window.scrollTo({ top: rd.offsetTop - 50, behavior: 'smooth' });
-  }
+  if(focus) document.getElementById('concept-title').focus();
 }
-
-function applyLang(){
-  document.documentElement.lang = lang;
-  document.getElementById('brand-lbl').textContent = T().lbl;
-  document.getElementById('q').placeholder = T().ph;
-  document.querySelectorAll('#langtog button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true':'false'));
-  document.querySelectorAll('.avnav a[data-pt]').forEach(a => a.textContent = a.getAttribute('data-'+lang));
-  document.getElementById('legendtxt').textContent = lang==='en' ? 'authorial concept (original)' : 'conceito autoral (original)';
+function applyLang() {
+  document.documentElement.lang=lang==='pt'?'pt-BR':'en';
+  document.getElementById('brand-lbl').textContent=T().lbl;
+  document.getElementById('q').placeholder=T().ph;
+  document.getElementById('q').setAttribute('aria-label',T().searchLabel);
+  document.querySelector('.avnav').setAttribute('aria-label',T().siteNav);
+  document.querySelectorAll('#langtog button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  document.querySelectorAll('[data-pt][data-en]').forEach(el=>el.textContent=el.getAttribute('data-'+lang));
+  document.getElementById('legendtxt').textContent=T().legend;
   buildList(document.getElementById('q').value);
   renderReader(byId[selId]);
 }
-
-document.getElementById('q').addEventListener('input', (e) => buildList(e.target.value));
-document.querySelectorAll('#langtog button').forEach(b => b.addEventListener('click', () => {
-  if (b.dataset.lang === lang) return;
-  lang = b.dataset.lang;
-  try { localStorage.setItem('av_lang', lang); } catch(e){}
+document.querySelector('.shell').addEventListener('click',event=>{
+  const link=event.target.closest('a[data-id]');
+  if(!link || event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  select(link.dataset.id,true,true);
+});
+document.getElementById('q').addEventListener('input',event=>{
+  buildList(event.target.value);
+  if(selId==='glossario') renderReader(byId.glossario);
+});
+document.querySelectorAll('#langtog button').forEach(button=>button.addEventListener('click',()=>{
+  lang=button.dataset.lang;
+  try { localStorage.setItem('av_lang',lang); } catch {}
   applyLang();
 }));
-
+const routeChanged=()=>{ const id=hashId(); if(byId[id]) select(id); else if(!id) select('glossario'); };
+window.addEventListener('popstate',routeChanged);
+window.addEventListener('hashchange',routeChanged);
 applyLang();
-select(selId, false);
+
 </script>
 </body>
 </html>
