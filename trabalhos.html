@@ -95,6 +95,96 @@
   .lk.primary:hover { background: var(--rubric); border-color: var(--rubric); color: var(--paper); }
   .lk .ar { font-size: 12px; }
 
+/* Focused proposal: existing exhibition entry only. Oxblood follows home.css. */
+.entry.exhibition-feature {
+  --exhibition-accent: #750D20;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-7);
+  margin-block: var(--space-4) 0;
+  border-block: 1px solid var(--exhibition-accent);
+}
+.exhibition-feature .exhibition-copy,
+.exhibition-feature .exhibition-studies { min-width: 0; }
+.exhibition-feature .when { margin-bottom: var(--space-3); padding: 0; color: var(--text-muted); }
+.entry.exhibition-feature .tt {
+  font-size: clamp(2.2rem, 4.8vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.exhibition-feature .tt a {
+  display: inline-block;
+  min-height: 44px;
+  color: var(--exhibition-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .13em;
+}
+.entry.exhibition-feature .meta {
+  color: var(--exhibition-accent);
+  line-height: 1.7;
+  margin-top: var(--space-4);
+}
+.entry.exhibition-feature .desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-top: var(--space-4);
+}
+.exhibition-feature .links { margin-top: var(--space-5); }
+.exhibition-feature .lk {
+  min-height: 44px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: var(--space-3) var(--space-5);
+}
+.exhibition-feature .lk.primary {
+  background: var(--exhibition-accent);
+  border-color: var(--exhibition-accent);
+  color: var(--paper);
+}
+.exhibition-feature .lk.primary:hover { background: var(--ink); border-color: var(--ink); }
+.exhibition-feature a:focus-visible {
+  outline: 3px solid var(--exhibition-accent);
+  outline-offset: 5px;
+}
+.exhibition-studies { margin: 0; }
+.exhibition-studies > figcaption {
+  color: var(--text-muted);
+  font-size: .8125rem;
+  line-height: 1.5;
+  margin-top: var(--space-5);
+}
+.exhibition-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: var(--space-3);
+}
+.exhibition-figure { margin: 0; min-width: 0; }
+.exhibition-figure img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.exhibition-figure figcaption {
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--rule-hairline);
+  color: var(--text-muted);
+  font-size: .8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 720px) {
+  .entry.exhibition-feature { grid-template-columns: 1fr; gap: var(--space-6); }
+  .exhibition-figure img { height: clamp(150px, 39vw, 230px); }
+}
+
   /* reserved slot */
   .reserved { display: grid; grid-template-columns: 96px 1fr; gap: 22px; padding: 22px 0; }
   .reserved .when { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink-30); padding-top: 3px; }
@@ -170,16 +260,19 @@
 
       <div class="links"><a class="lk primary" href="https://anavanzin.com/trabalhos/iconocracia/" target="_blank" rel="noopener">Ler o trabalho <span class="ar">↗</span></a></div>
     </div>
-  </div><div class="entry">
-    <div class="when">2026</div>
-    <div>
-      <h3 class="tt">A Nação como Mulher</h3>
+  </div><article class="entry exhibition-feature">
+    <div class="exhibition-copy">
+      <div class="when">2026</div>
+      <h3 class="tt"><a href="/atlas/nacao-como-mulher/">A Nação como Mulher</a></h3>
       <p class="meta">Exposição temática · ICONOCRACIA</p>
       <p class="desc">Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.</p>
-
       <div class="links"><a class="lk primary" href="/atlas/nacao-como-mulher/" target="_blank" rel="noopener">Ver a exposição <span class="ar">↗</span></a></div>
     </div>
-  </div>
+    <figure class="exhibition-studies">
+      <div class="exhibition-figures"><figure class="exhibition-figure"><img src="/atlas/nacao-como-mulher/plates/FR-007-marianne-cut.webp" alt="Estudo interpretativo de Marianne em cartaz de empréstimo nacional" width="677" height="1241" loading="lazy" decoding="async"><figcaption>Marianne</figcaption></figure><figure class="exhibition-figure"><img src="/atlas/nacao-como-mulher/plates/DE-013-germania-cut.webp" alt="Estudo interpretativo de Germania armada" width="557" height="1272" loading="lazy" decoding="async"><figcaption>Germania</figcaption></figure><figure class="exhibition-figure"><img src="/atlas/nacao-como-mulher/plates/BR-005-republica-cut.webp" alt="Estudo interpretativo da República brasileira de Décio Villares" width="798" height="1147" loading="lazy" decoding="async"><figcaption>A República brasileira</figcaption></figure></div>
+      <figcaption class="exhibition-note">As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.</figcaption>
+    </figure>
+  </article>
   </section><section class="grp">
     <div class="head"><span class="ix">I</span><h2>Seminários</h2></div>
     <div class="entry">
@@ -332,7 +425,7 @@ const UI = {
 };
 
 const SECTIONS = [
-{"ix":"ICON","head":{"pt":"Pesquisa","en":"Research"},"items":[{"when":"2026","title":"ICONOCRACIA","meta":{"pt":"Ana Vanzin · PPGD/UFSC · Versão de trabalho","en":"Ana Vanzin · PPGD/UFSC · Working draft"},"desc":{"pt":"A alegoria feminina e o poder das imagens na cultura jurídica, séculos XIX–XX. Texto interativo, atlas e materiais para leitura.","en":"Female allegory and the power of images in legal culture, nineteenth–twentieth centuries. Interactive text, atlas and reading materials."},"links":[{"label":{"pt":"Ler o trabalho","en":"Read the work"},"href":"https://anavanzin.com/trabalhos/iconocracia/","primary":true}]},{"when":"2026","title":{"pt":"A Nação como Mulher","en":"The Nation as a Woman"},"meta":{"pt":"Exposição temática · ICONOCRACIA","en":"Thematic exhibition · ICONOCRACIA"},"desc":{"pt":"Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.","en":"Nine plates of female national personifications, with text following the figures, sources and image comparison."},"links":[{"label":{"pt":"Ver a exposição","en":"View the exhibition"},"href":"/atlas/nacao-como-mulher/","primary":true}]}]},
+{"ix":"ICON","head":{"pt":"Pesquisa","en":"Research"},"items":[{"when":"2026","title":"ICONOCRACIA","meta":{"pt":"Ana Vanzin · PPGD/UFSC · Versão de trabalho","en":"Ana Vanzin · PPGD/UFSC · Working draft"},"desc":{"pt":"A alegoria feminina e o poder das imagens na cultura jurídica, séculos XIX–XX. Texto interativo, atlas e materiais para leitura.","en":"Female allegory and the power of images in legal culture, nineteenth–twentieth centuries. Interactive text, atlas and reading materials."},"links":[{"label":{"pt":"Ler o trabalho","en":"Read the work"},"href":"https://anavanzin.com/trabalhos/iconocracia/","primary":true}]},{"when":"2026","title":{"pt":"A Nação como Mulher","en":"The Nation as a Woman"},"meta":{"pt":"Exposição temática · ICONOCRACIA","en":"Thematic exhibition · ICONOCRACIA"},"desc":{"pt":"Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.","en":"Nine plates of female national personifications, with text following the figures, sources and image comparison."},"links":[{"label":{"pt":"Ver a exposição","en":"View the exhibition"},"href":"/atlas/nacao-como-mulher/","primary":true}],"presentation":"exhibition","titleHref":"/atlas/nacao-como-mulher/"}]},
   { ix:'I', head:{ pt:'Seminários', en:'Seminars' }, items:[
     { when:'2026', title:'Do Poder-Dever ao Dever-Poder',
       relatedTitle:{ pt:'Algoritmo em Disputa', en:'Algorithm in Dispute' }, relatedHref:'https://anavanzin.com/algoritmo-em-disputa/',
@@ -427,8 +520,71 @@ function linkChip(lk) {
   if (lk.dl) return `<a class="lk ${cls}" href="${lk.href}" download>${L(lk.label)} <span class="ar">↓</span></a>`;
   return `<a class="lk ${cls}" href="${lk.href}" target="_blank" rel="noopener">${L(lk.label)} <span class="ar">↗</span></a>`;
 }
+// Existing interpretive studies and explanatory note from apps/nacao-como-mulher.
+const EXHIBITION_STUDIES = [
+  {
+    "src": "/atlas/nacao-como-mulher/plates/FR-007-marianne-cut.webp",
+    "width": 677,
+    "height": 1241,
+    "label": {
+      "pt": "Marianne",
+      "en": "Marianne"
+    },
+    "alt": {
+      "pt": "Estudo interpretativo de Marianne em cartaz de empréstimo nacional",
+      "en": "Interpretive study of Marianne in a national-loan poster"
+    }
+  },
+  {
+    "src": "/atlas/nacao-como-mulher/plates/DE-013-germania-cut.webp",
+    "width": 557,
+    "height": 1272,
+    "label": {
+      "pt": "Germania",
+      "en": "Germania"
+    },
+    "alt": {
+      "pt": "Estudo interpretativo de Germania armada",
+      "en": "Interpretive study of an armed Germania"
+    }
+  },
+  {
+    "src": "/atlas/nacao-como-mulher/plates/BR-005-republica-cut.webp",
+    "width": 798,
+    "height": 1147,
+    "label": {
+      "pt": "A República brasileira",
+      "en": "The Brazilian Republic"
+    },
+    "alt": {
+      "pt": "Estudo interpretativo da República brasileira de Décio Villares",
+      "en": "Interpretive study of Décio Villares's Brazilian Republic"
+    }
+  }
+];
+const EXHIBITION_NOTE = {
+  "pt": "As pranchas são estudos interpretativos gerados por IA a partir de objetos históricos identificados. Não são reproduções nem evidência do corpus.",
+  "en": "The plates are AI-generated interpretive studies based on identified historical objects. They are neither reproductions nor corpus evidence."
+};
+function exhibitionHtml(e, title) {
+  return `<article class="entry exhibition-feature">
+    <div class="exhibition-copy">
+      <div class="when">${e.when}</div>
+      <h3 class="tt">${title}</h3>
+      <p class="meta">${L(e.meta)}</p>
+      <p class="desc">${L(e.desc)}</p>
+      <div class="links">${e.links.map(linkChip).join('')}</div>
+    </div>
+    <figure class="exhibition-studies">
+      <div class="exhibition-figures">${EXHIBITION_STUDIES.map(s => `<figure class="exhibition-figure"><img src="${s.src}" alt="${L(s.alt)}" width="${s.width}" height="${s.height}" loading="lazy" decoding="async"><figcaption>${L(s.label)}</figcaption></figure>`).join('')}</div>
+      <figcaption class="exhibition-note">${L(EXHIBITION_NOTE)}</figcaption>
+    </figure>
+  </article>`;
+}
+
 function entryHtml(e) {
   const title = e.titleHref ? `<a href="${e.titleHref}"${e.titleDownload ? ' download' : ''}>${L(e.title)}</a>` : L(e.title);
+  if (e.presentation === 'exhibition') return exhibitionHtml(e, title);
   return `<div class="entry">
     <div class="when">${e.when}</div>
     <div>
