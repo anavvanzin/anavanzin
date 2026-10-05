@@ -278,9 +278,12 @@ for (const width of widths) {
       await chooseLanguage(page, '/trabalhos', lang);
       await assertActive(page, '/trabalhos');
       for (const route of ['/seminario8-dever-poder/', '/prot-tipo/', '/algoritmo-em-disputa/']) {
-        const link = page.locator(`.entry a[href="${route}"]`);
+        const href = route === '/algoritmo-em-disputa/' ? 'https://anavanzin.com/algoritmo-em-disputa/' : route;
+        const link = page.locator(`.entry .links a[href="${href}"]`);
         await expect(link).toBeVisible();
       }
+      const algorithmTitle = page.locator('.related-title a[href="https://anavanzin.com/algoritmo-em-disputa/"]');
+      await expect(algorithmTitle).toHaveText(lang === 'pt' ? 'Algoritmo em Disputa' : 'Algorithm in Dispute');
     }
     const returned = await seminarPopupAndReturn(page);
     await assertActive(returned, '/trabalhos');

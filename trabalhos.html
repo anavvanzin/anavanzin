@@ -78,6 +78,10 @@
   .entry .when { font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--text-faint);
     letter-spacing: .02em; padding-top: 3px; }
   .entry .tt { font-family: var(--font-display); font-weight: 600; font-size: 1.55rem; line-height: 1.12; margin: 0; }
+  .entry .related-title { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem;
+    line-height: 1.2; margin: 14px 0 0; }
+  .entry .tt a, .entry .related-title a { text-decoration-thickness: 1px; text-underline-offset: .15em; }
+  .entry .tt a:hover, .entry .related-title a:hover { color: var(--rubric); }
   .entry .meta { font-family: var(--font-display); font-weight: 600; text-transform: uppercase;
     letter-spacing: .14em; font-size: 10.5px; color: var(--text-faint); margin: 7px 0 0; }
   .entry .desc { font-size: 14.5px; line-height: 1.55; color: var(--text-muted); margin: 9px 0 0; max-width: 54ch; text-wrap: pretty; }
@@ -155,7 +159,28 @@
 <p class="intro" id="intro">Seminários, grupo de pesquisa e materiais acadêmicos — cada peça leva ao seu próprio espaço.</p>
 <!-- /prerender:intro -->
   <!-- prerender:sections -->
-<div id="sections"><section class="grp"><div class="head"><span class="ix">ICON</span><h2>Pesquisa</h2></div><div class="entry"><div class="when">2026</div><div><h3 class="tt">ICONOCRACIA</h3><p class="meta">Ana Vanzin · PPGD/UFSC · Versão de trabalho</p><p class="desc">A alegoria feminina e o poder das imagens na cultura jurídica, séculos XIX–XX. Texto interativo, atlas e materiais para leitura.</p><div class="links"><a class="lk primary" href="/trabalhos/iconocracia/">Ler o trabalho <span class="ar">↗</span></a></div></div></div><div class="entry"><div class="when">2026</div><div><h3 class="tt">A Nação como Mulher</h3><p class="meta">Exposição temática · ICONOCRACIA</p><p class="desc">Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.</p><div class="links"><a class="lk primary" href="/atlas/nacao-como-mulher/">Ver a exposição <span class="ar">↗</span></a></div></div></div></section><section class="grp">
+<div id="sections"><section class="grp">
+    <div class="head"><span class="ix">ICON</span><h2>Pesquisa</h2></div>
+    <div class="entry">
+    <div class="when">2026</div>
+    <div>
+      <h3 class="tt">ICONOCRACIA</h3>
+      <p class="meta">Ana Vanzin · PPGD/UFSC · Versão de trabalho</p>
+      <p class="desc">A alegoria feminina e o poder das imagens na cultura jurídica, séculos XIX–XX. Texto interativo, atlas e materiais para leitura.</p>
+
+      <div class="links"><a class="lk primary" href="/trabalhos/iconocracia/" target="_blank" rel="noopener">Ler o trabalho <span class="ar">↗</span></a></div>
+    </div>
+  </div><div class="entry">
+    <div class="when">2026</div>
+    <div>
+      <h3 class="tt">A Nação como Mulher</h3>
+      <p class="meta">Exposição temática · ICONOCRACIA</p>
+      <p class="desc">Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.</p>
+
+      <div class="links"><a class="lk primary" href="/atlas/nacao-como-mulher/" target="_blank" rel="noopener">Ver a exposição <span class="ar">↗</span></a></div>
+    </div>
+  </div>
+  </section><section class="grp">
     <div class="head"><span class="ix">I</span><h2>Seminários</h2></div>
     <div class="entry">
     <div class="when">2026</div>
@@ -163,7 +188,8 @@
       <h3 class="tt">Do Poder-Dever ao Dever-Poder</h3>
       <p class="meta">Seminário 8 · Ana Vanzin &amp; Vinícius Oliveira · PPGD/UFSC</p>
       <p class="desc">Administração Pública orientada por dados, governo aberto, LGPD e decisão algorítmica: o Estado como regulador ⇄ regulado. Um conjunto acadêmico com três peças relacionadas: apresentação em coautoria, demonstração React do Conselho e adaptação jurídica do LLM Council de Andrej Karpathy. Os protótipos usam cenários e pareceres didáticos.</p>
-      <div class="links"><a class="lk primary" href="/seminario8-dever-poder/" target="_blank" rel="noopener">Ver o seminário <span class="ar">↗</span></a><a class="lk " href="/seminario8-dever-poder/colegas" target="_blank" rel="noopener">Guia de estudo <span class="ar">↗</span></a><a class="lk " href="/prot-tipo/" target="_blank" rel="noopener">Conselho · demonstração React <span class="ar">↗</span></a><a class="lk " href="/algoritmo-em-disputa/" target="_blank" rel="noopener">Algoritmo em Disputa · adaptação <span class="ar">↗</span></a></div>
+      <h4 class="related-title"><a href="https://anavanzin.com/algoritmo-em-disputa/">Algoritmo em Disputa</a></h4>
+      <div class="links"><a class="lk primary" href="/seminario8-dever-poder/" target="_blank" rel="noopener">Ver o seminário <span class="ar">↗</span></a><a class="lk " href="/seminario8-dever-poder/colegas" target="_blank" rel="noopener">Guia de estudo <span class="ar">↗</span></a><a class="lk " href="/prot-tipo/" target="_blank" rel="noopener">Conselho · demonstração React <span class="ar">↗</span></a><a class="lk " href="https://anavanzin.com/algoritmo-em-disputa/" target="_blank" rel="noopener">Algoritmo em Disputa · adaptação <span class="ar">↗</span></a></div>
     </div>
   </div>
   </section><section class="grp">
@@ -174,39 +200,44 @@
       <h3 class="tt">Como se inventa uma bruxa</h3>
       <p class="meta">O Malleus Maleficarum e a construção jurídico-penal da bruxaria · 2026</p>
       <p class="desc">Como o tratado inquisitorial de 1487 codificou a bruxaria como crime e fixou a mulher como sua figura-alvo — a fabricação jurídica de um sujeito perseguível.</p>
-      <div class="links"><a class="lk primary" href="/malleus" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="slides/malleus-maleficarum.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
+
+      <div class="links"><a class="lk primary" href="/malleus" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="/slides/malleus-maleficarum.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
     </div>
   </div><div class="entry">
     <div class="when">✦</div>
     <div>
-      <h3 class="tt">The Allegorical Sexual Contract</h3>
+      <h3 class="tt"><a href="/slides/allegorical-sexual-contract.pdf">The Allegorical Sexual Contract</a></h3>
       <p class="meta">ou “The Sexual Spectacle of the Social Contract” · comunicação em conferência</p>
       <p class="desc">O contrato social lido pela imagem: como a alegoria feminina encena, e naturaliza, o pacto sexual que Pateman expõe — diálogo direto com o conceito de contrato sexual visual.</p>
-      <div class="links"><a class="lk primary" href="https://canva.link/contratosocialvisual" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="slides/allegorical-sexual-contract.pdf" download="">Baixar PDF <span class="ar">↓</span></a></div>
+
+      <div class="links"><a class="lk primary" href="/slides/allegorical-sexual-contract.pdf" target="_blank" rel="noopener">Ver PDF <span class="ar">↗</span></a></div>
     </div>
   </div><div class="entry">
     <div class="when">TCC</div>
     <div>
-      <h3 class="tt">Nacionalidade feminina</h3>
+      <h3 class="tt"><a href="/slides/nacionalidade-feminina.pptx" download="">Nacionalidade feminina</a></h3>
       <p class="meta">Apresentação de TCC · Graduação em Direito</p>
       <p class="desc">A condição jurídica e a nacionalidade da mulher: como o vínculo conjugal subordinava a nacionalidade feminina — semente da pesquisa de mestrado.</p>
-      <div class="links"><a class="lk primary" href="https://canva.link/nacionalidadefemininatcc" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="slides/nacionalidade-feminina.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
+
+      <div class="links"><a class="lk primary" href="/slides/nacionalidade-feminina.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
     </div>
   </div><div class="entry">
     <div class="when">IT</div>
     <div>
-      <h3 class="tt">Madre della Nazione</h3>
+      <h3 class="tt"><a href="/slides/madre-della-nazione.pptx" download="">Madre della Nazione</a></h3>
       <p class="meta">Presentazione didattica · em italiano</p>
       <p class="desc">A nação figurada como mãe: a alegoria feminina da pátria e o que ela ensina sobre pertencimento, sangue e cidadania — diálogo direto com a feminilidade de estado.</p>
-      <div class="links"><a class="lk primary" href="https://canva.link/madredellanazione" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="slides/madre-della-nazione.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
+
+      <div class="links"><a class="lk primary" href="/slides/madre-della-nazione.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
     </div>
   </div><div class="entry">
     <div class="when">$</div>
     <div>
-      <h3 class="tt">Quem é a mulher no nosso dinheiro?</h3>
+      <h3 class="tt"><a href="/slides/marianne-irma-tropical.pptx" download="">Quem é a mulher no nosso dinheiro?</a></h3>
       <p class="meta">Marianne, Her Brazilian Sister and the Transnational Allegory of the State</p>
       <p class="desc">A alegoria do Estado que circula na moeda: Marianne e sua irmã tropical, a República brasileira — como a figura feminina da nação atravessa fronteiras e se naturaliza no dinheiro.</p>
-      <div class="links"><a class="lk primary" href="https://canva.link/marianneesuairmatropical" target="_blank" rel="noopener">Ver a apresentação <span class="ar">↗</span></a><a class="lk " href="slides/marianne-irma-tropical.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
+
+      <div class="links"><a class="lk primary" href="/slides/marianne-irma-tropical.pptx" download="">Baixar slides <span class="ar">↓</span></a></div>
     </div>
   </div>
   </section><section class="grp">
@@ -217,6 +248,7 @@
       <h3 class="tt">Images of the Nation in Modern Legal Iconography</h3>
       <p class="meta">Comunicação · Germania, Britannia, Marianne e o uso simbólico do feminino</p>
       <p class="desc">As figuras femininas da nação e o uso simbólico do feminino na legitimação do poder.</p>
+
       <div class="links"></div>
     </div>
   </div><div class="entry">
@@ -225,6 +257,7 @@
       <h3 class="tt">História do Direito das Mulheres</h3>
       <p class="meta">XIX Encontro de História do Direito · UFSC</p>
       <p class="desc">A trajetória dos direitos das mulheres na história do direito.</p>
+
       <div class="links"></div>
     </div>
   </div><div class="entry">
@@ -233,15 +266,17 @@
       <h3 class="tt">Direito, fascismos e neofascismos entre Itália e Brasil</h3>
       <p class="meta">XXI Encontro de História do Direito · UFSC</p>
       <p class="desc">Direito e (neo)fascismo em perspectiva comparada entre Itália e Brasil.</p>
+
       <div class="links"></div>
     </div>
   </div><div class="entry">
     <div class="when">trad.</div>
     <div>
-      <h3 class="tt">Monumentos do Direito Internacional</h3>
+      <h3 class="tt"><a href="https://funartemaisdigital.funarte.gov.br/periodicos/monumentos-do-direito-internacional-alberico-gentili-e-hugo-grotius-na-construcao-de-uma-disciplina-1875-1886/">Monumentos do Direito Internacional</a></h3>
       <p class="meta">Tradução de Luigi Lacchè · Rev. Bras. de História e Ciências Sociais</p>
       <p class="desc">Tradução do ensaio de Lacchè sobre Alberico Gentili e Hugo Grotius na construção do direito internacional (1875–1886).</p>
-      <div class="links"></div>
+
+      <div class="links"><a class="lk primary" href="https://funartemaisdigital.funarte.gov.br/periodicos/monumentos-do-direito-internacional-alberico-gentili-e-hugo-grotius-na-construcao-de-uma-disciplina-1875-1886/" target="_blank" rel="noopener">Ler a tradução <span class="ar">↗</span></a></div>
     </div>
   </div>
   </section><section class="grp">
@@ -249,18 +284,20 @@
     <div class="entry">
     <div class="when">Ius</div>
     <div>
-      <h3 class="tt">Ius Gentium</h3>
+      <h3 class="tt"><a href="https://grupoiusgentium.com.br/">Ius Gentium</a></h3>
       <p class="meta">História da cultura jurídica · PPGD/UFSC</p>
       <p class="desc">Grupo de pesquisa em iconografia e iconologia do direito; encontros quinzenais, abertos à graduação e à pós-graduação.</p>
-      <div class="links"><a class="lk primary" href="grupoiusgentium/" target="_blank" rel="noopener">Site do grupo <span class="ar">↗</span></a></div>
+
+      <div class="links"><a class="lk primary" href="https://grupoiusgentium.com.br/" target="_blank" rel="noopener">Site do grupo <span class="ar">↗</span></a></div>
     </div>
   </div><div class="entry">
     <div class="when">⌘</div>
     <div>
-      <h3 class="tt">Biblioteca digital</h3>
+      <h3 class="tt"><a href="https://grupoiusgentium.com.br/biblioteca">Biblioteca digital</a></h3>
       <p class="meta">Ius Gentium · acervo</p>
       <p class="desc">Acervo digital do grupo: referências e fontes da pesquisa em cultura jurídica e iconografia.</p>
-      <div class="links"><a class="lk primary" href="grupoiusgentium/" target="_blank" rel="noopener">Abrir a biblioteca <span class="ar">↗</span></a></div>
+
+      <div class="links"><a class="lk primary" href="https://grupoiusgentium.com.br/biblioteca" target="_blank" rel="noopener">Abrir a biblioteca <span class="ar">↗</span></a></div>
     </div>
   </div>
   </section><section class="grp"><div class="reserved">
@@ -298,14 +335,15 @@ const SECTIONS = [
 {"ix":"ICON","head":{"pt":"Pesquisa","en":"Research"},"items":[{"when":"2026","title":"ICONOCRACIA","meta":{"pt":"Ana Vanzin · PPGD/UFSC · Versão de trabalho","en":"Ana Vanzin · PPGD/UFSC · Working draft"},"desc":{"pt":"A alegoria feminina e o poder das imagens na cultura jurídica, séculos XIX–XX. Texto interativo, atlas e materiais para leitura.","en":"Female allegory and the power of images in legal culture, nineteenth–twentieth centuries. Interactive text, atlas and reading materials."},"links":[{"label":{"pt":"Ler o trabalho","en":"Read the work"},"href":"/trabalhos/iconocracia/","primary":true}]},{"when":"2026","title":{"pt":"A Nação como Mulher","en":"The Nation as a Woman"},"meta":{"pt":"Exposição temática · ICONOCRACIA","en":"Thematic exhibition · ICONOCRACIA"},"desc":{"pt":"Nove pranchas de personificações nacionais femininas, com leitura em contornos, fontes e comparação entre imagens.","en":"Nine plates of female national personifications, with text following the figures, sources and image comparison."},"links":[{"label":{"pt":"Ver a exposição","en":"View the exhibition"},"href":"/atlas/nacao-como-mulher/","primary":true}]}]},
   { ix:'I', head:{ pt:'Seminários', en:'Seminars' }, items:[
     { when:'2026', title:'Do Poder-Dever ao Dever-Poder',
+      relatedTitle:{ pt:'Algoritmo em Disputa', en:'Algorithm in Dispute' }, relatedHref:'https://anavanzin.com/algoritmo-em-disputa/',
       meta:{ pt:'Seminário 8 · Ana Vanzin & Vinícius Oliveira · PPGD/UFSC', en:'Seminar 8 · Ana Vanzin & Vinícius Oliveira · PPGD/UFSC' },
       desc:{ pt:'Administração Pública orientada por dados, governo aberto, LGPD e decisão algorítmica: o Estado como regulador ⇄ regulado. Um conjunto acadêmico com três peças relacionadas: apresentação em coautoria, demonstração React do Conselho e adaptação jurídica do LLM Council de Andrej Karpathy. Os protótipos usam cenários e pareceres didáticos.',
               en:'Data-driven public administration, open government, data-protection law and algorithmic decision-making: the State as regulator ⇄ regulated. One academic project with three related pieces: a coauthored seminar, a React Council demonstration and a legal adaptation of Andrej Karpathy’s LLM Council. The prototypes use illustrative scenarios and prepared opinions.' },
       links:[
         { label:{ pt:'Ver o seminário', en:'View the seminar' }, href:'/seminario8-dever-poder/', primary:true },
-        { label:{ pt:'Guia de estudo', en:'Study guide' }, href:'/seminario8-dever-poder/colegas.html' },
+        { label:{ pt:'Guia de estudo', en:'Study guide' }, href:'/seminario8-dever-poder/colegas' },
         { label:{ pt:'Conselho · demonstração React', en:'Council · React demonstration' }, href:'/prot-tipo/' },
-        { label:{ pt:'Algoritmo em Disputa · adaptação', en:'Algorithm in Dispute · adaptation' }, href:'/algoritmo-em-disputa/' },
+        { label:{ pt:'Algoritmo em Disputa · adaptação', en:'Algorithm in Dispute · adaptation' }, href:'https://anavanzin.com/algoritmo-em-disputa/' },
       ] },
   ] },
   { ix:'II', head:{ pt:'Apresentações & comunicações', en:'Presentations & talks' }, items:[
@@ -315,39 +353,35 @@ const SECTIONS = [
               en:'How the 1487 inquisitorial treatise codified witchcraft as a crime and fixed woman as its target figure — the legal fabrication of a persecutable subject.' },
       links:[
         { label:{ pt:'Ver a apresentação', en:'View the presentation' }, href:'/malleus', primary:true },
-        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'slides/malleus-maleficarum.pptx', dl:true },
+        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'/slides/malleus-maleficarum.pptx', dl:true },
       ] },
-    { when:'✦', title:'The Allegorical Sexual Contract',
+    { when:'✦', title:'The Allegorical Sexual Contract', titleHref:'/slides/allegorical-sexual-contract.pdf',
       meta:{ pt:'ou “The Sexual Spectacle of the Social Contract” · comunicação em conferência', en:'or “The Sexual Spectacle of the Social Contract” · conference talk' },
       desc:{ pt:'O contrato social lido pela imagem: como a alegoria feminina encena, e naturaliza, o pacto sexual que Pateman expõe — diálogo direto com o conceito de contrato sexual visual.',
               en:'The social contract read through the image: how the female allegory stages, and naturalises, the sexual pact Pateman exposes — in direct dialogue with the visual sexual contract.' },
       links:[
-        { label:{ pt:'Ver a apresentação', en:'View the presentation' }, href:'https://canva.link/contratosocialvisual', primary:true },
-        { label:{ pt:'Baixar PDF', en:'Download PDF' }, href:'slides/allegorical-sexual-contract.pdf', dl:true },
+        { label:{ pt:'Ver PDF', en:'View PDF' }, href:'/slides/allegorical-sexual-contract.pdf', primary:true },
       ] },
-    { when:'TCC', title:{ pt:'Nacionalidade feminina', en:'Female nationality' },
+    { when:'TCC', title:{ pt:'Nacionalidade feminina', en:'Female nationality' }, titleHref:'/slides/nacionalidade-feminina.pptx', titleDownload:true,
       meta:{ pt:'Apresentação de TCC · Graduação em Direito', en:'Undergraduate thesis defence · Law' },
       desc:{ pt:'A condição jurídica e a nacionalidade da mulher: como o vínculo conjugal subordinava a nacionalidade feminina — semente da pesquisa de mestrado.',
               en:'The legal condition and nationality of women: how marriage subordinated a woman’s nationality — the seed of the master’s research.' },
       links:[
-        { label:{ pt:'Ver a apresentação', en:'View the presentation' }, href:'https://canva.link/nacionalidadefemininatcc', primary:true },
-        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'slides/nacionalidade-feminina.pptx', dl:true },
+        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'/slides/nacionalidade-feminina.pptx', dl:true, primary:true },
       ] },
-    { when:'IT', title:'Madre della Nazione',
+    { when:'IT', title:'Madre della Nazione', titleHref:'/slides/madre-della-nazione.pptx', titleDownload:true,
       meta:{ pt:'Presentazione didattica · em italiano', en:'Didactic presentation · in Italian' },
       desc:{ pt:'A nação figurada como mãe: a alegoria feminina da pátria e o que ela ensina sobre pertencimento, sangue e cidadania — diálogo direto com a feminilidade de estado.',
               en:'The nation figured as mother: the female allegory of the homeland and what it teaches about belonging, blood and citizenship — in dialogue with state femininity.' },
       links:[
-        { label:{ pt:'Ver a apresentação', en:'View the presentation' }, href:'https://canva.link/madredellanazione', primary:true },
-        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'slides/madre-della-nazione.pptx', dl:true },
+        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'/slides/madre-della-nazione.pptx', dl:true, primary:true },
       ] },
-    { when:'$', title:{ pt:'Quem é a mulher no nosso dinheiro?', en:'Who is the woman on our money?' },
+    { when:'$', title:{ pt:'Quem é a mulher no nosso dinheiro?', en:'Who is the woman on our money?' }, titleHref:'/slides/marianne-irma-tropical.pptx', titleDownload:true,
       meta:{ pt:'Marianne, Her Brazilian Sister and the Transnational Allegory of the State', en:'Marianne, Her Brazilian Sister and the Transnational Allegory of the State' },
       desc:{ pt:'A alegoria do Estado que circula na moeda: Marianne e sua irmã tropical, a República brasileira — como a figura feminina da nação atravessa fronteiras e se naturaliza no dinheiro.',
               en:'The allegory of the State that circulates on currency: Marianne and her tropical sister, the Brazilian Republic — how the female figure of the nation crosses borders and naturalises itself on money.' },
       links:[
-        { label:{ pt:'Ver a apresentação', en:'View the presentation' }, href:'https://canva.link/marianneesuairmatropical', primary:true },
-        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'slides/marianne-irma-tropical.pptx', dl:true },
+        { label:{ pt:'Baixar slides', en:'Download slides' }, href:'/slides/marianne-irma-tropical.pptx', dl:true, primary:true },
       ] },
   ] },
   { ix:'III', head:{ pt:'Comunicações & traduções', en:'Talks & translations' }, items:[
@@ -367,22 +401,23 @@ const SECTIONS = [
               en:'Law and (neo)fascism in comparative perspective between Italy and Brazil.' },
       links:[] },
     { when:'trad.', title:{ pt:'Monumentos do Direito Internacional', en:'Monuments of International Law' },
+      titleHref:'https://funartemaisdigital.funarte.gov.br/periodicos/monumentos-do-direito-internacional-alberico-gentili-e-hugo-grotius-na-construcao-de-uma-disciplina-1875-1886/',
       meta:{ pt:'Tradução de Luigi Lacchè · Rev. Bras. de História e Ciências Sociais', en:'Translation of Luigi Lacchè · Braz. J. of History & Social Sciences' },
       desc:{ pt:'Tradução do ensaio de Lacchè sobre Alberico Gentili e Hugo Grotius na construção do direito internacional (1875–1886).',
               en:'Translation of Lacchè’s essay on Alberico Gentili and Hugo Grotius in the making of international law (1875–1886).' },
-      links:[] },
+      links:[ { label:{ pt:'Ler a tradução', en:'Read the translation' }, href:'https://funartemaisdigital.funarte.gov.br/periodicos/monumentos-do-direito-internacional-alberico-gentili-e-hugo-grotius-na-construcao-de-uma-disciplina-1875-1886/', primary:true } ] },
   ] },
   { ix:'IV', head:{ pt:'Grupo de pesquisa', en:'Research group' }, items:[
-    { when:'Ius', title:'Ius Gentium',
+    { when:'Ius', title:'Ius Gentium', titleHref:'https://grupoiusgentium.com.br/',
       meta:{ pt:'História da cultura jurídica · PPGD/UFSC', en:'Legal-culture history · PPGD/UFSC' },
       desc:{ pt:'Grupo de pesquisa em iconografia e iconologia do direito; encontros quinzenais, abertos à graduação e à pós-graduação.',
               en:'Research group on the iconography and iconology of law; fortnightly meetings, open to undergraduate and graduate students.' },
-      links:[ { label:{ pt:'Site do grupo', en:'Group site' }, href:'grupoiusgentium/', primary:true } ] },
-    { when:'⌘', title:{ pt:'Biblioteca digital', en:'Digital library' },
+      links:[ { label:{ pt:'Site do grupo', en:'Group site' }, href:'https://grupoiusgentium.com.br/', primary:true } ] },
+    { when:'⌘', title:{ pt:'Biblioteca digital', en:'Digital library' }, titleHref:'https://grupoiusgentium.com.br/biblioteca',
       meta:{ pt:'Ius Gentium · acervo', en:'Ius Gentium · collection' },
       desc:{ pt:'Acervo digital do grupo: referências e fontes da pesquisa em cultura jurídica e iconografia.',
               en:'The group’s digital collection: references and sources for research in legal culture and iconography.' },
-      links:[ { label:{ pt:'Abrir a biblioteca', en:'Open the library' }, href:'grupoiusgentium/', primary:true } ] },
+      links:[ { label:{ pt:'Abrir a biblioteca', en:'Open the library' }, href:'https://grupoiusgentium.com.br/biblioteca', primary:true } ] },
   ] },
 ];
 
@@ -393,12 +428,14 @@ function linkChip(lk) {
   return `<a class="lk ${cls}" href="${lk.href}" target="_blank" rel="noopener">${L(lk.label)} <span class="ar">↗</span></a>`;
 }
 function entryHtml(e) {
+  const title = e.titleHref ? `<a href="${e.titleHref}"${e.titleDownload ? ' download' : ''}>${L(e.title)}</a>` : L(e.title);
   return `<div class="entry">
     <div class="when">${e.when}</div>
     <div>
-      <h3 class="tt">${L(e.title)}</h3>
+      <h3 class="tt">${title}</h3>
       <p class="meta">${L(e.meta)}</p>
       <p class="desc">${L(e.desc)}</p>
+      ${e.relatedHref ? `<h4 class="related-title"><a href="${e.relatedHref}">${L(e.relatedTitle)}</a></h4>` : ''}
       <div class="links">${e.links.map(linkChip).join('')}</div>
     </div>
   </div>`;
