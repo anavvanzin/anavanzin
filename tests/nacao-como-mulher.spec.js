@@ -140,7 +140,7 @@ test('touch reading remains scrollable and uses stable plates', async ({ browser
 test('Trabalhos includes the bilingual exhibition card and preserves ICONOCRACIA', async ({ page }) => {
   await page.goto('/trabalhos.html');
   await expect(page.getByRole('heading', { name: 'A Nação como Mulher', exact: true })).toBeVisible();
-  await expect(page.locator('a[href="/trabalhos/iconocracia/"]').first()).toBeAttached();
+  await expect(page.locator('a[href="https://anavanzin.com/trabalhos/iconocracia/"]').first()).toBeAttached();
   await page.evaluate(() => { localStorage.setItem('av_lang', 'en'); });
   await page.reload();
   await expect(page.getByRole('heading', { name: 'The Nation as a Woman', exact: true })).toBeVisible();
