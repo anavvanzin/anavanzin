@@ -6,7 +6,7 @@ O selo Autoral identifica os quatro conceitos centrais declarados pela tese. Ope
 
 ## iconocracia
 
-Mobilizado · Mondzain (2002) · tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Image, icône, économie: les sources byzantines de l'imaginaire contemporain (edição de 2002 indicada pela tese, não verificada). Passagem primária não cotejada.
 
 Governo pela produção e gestão das imagens: a autoridade torna-se visível e solicita adesão por meio de figurações, rituais e dispositivos de exposição. A tese mobiliza essa perspectiva para investigar como as alegorias femininas participam da legitimidade jurídica.
 
@@ -19,7 +19,7 @@ Government through the production and management of images: authority becomes vi
 
 ## regime iconocrático
 
-Operador da tese · Tese · glossário e metodologia
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Configuração histórica das relações entre imagem, autoridade e norma. Os modos fundacional, normativo e militar orientam a comparação dos usos alegóricos; não constituem etapas obrigatórias de uma evolução nem uma escala de intensidade. Uma imagem pode reunir tensões entre esses modos.
 
@@ -32,7 +32,7 @@ A historical configuration of relations between image, authority and norm. Found
 
 ## Contrato Sexual Visual
 
-Autoral · Vanzin · tese; interlocução com Pateman (1988)
+Autoral · Conceito autoral de Ana Vanzin; redação editorial da tese. vault/tese/capitulo-1.md; tese/manuscrito/Glossario.md §1; cotejo primário não estabelecido.
 
 Conceito autoral que investiga o pacto visual pelo qual o corpo feminino figura a autoridade jurídica enquanto mulheres históricas podem permanecer excluídas de sua produção e exercício. A interlocução com o contrato sexual de Pateman não transfere a ela a autoria da formulação visual.
 
@@ -45,7 +45,7 @@ An authorial concept examining the visual pact through which the feminine body f
 
 ## Feminilidade de Estado
 
-Autoral · Vanzin · tese; Legendre e Carson
+Autoral · Conceito autoral de Ana Vanzin; redação editorial da tese. tese/manuscrito/Glossario.md §1; cotejo primário não estabelecido.
 
 Mobilização do corpo feminino alegórico como suporte sensível da soberania. Justiça, República e Pátria podem aparecer como mulheres sem conferir poder às mulheres históricas. O conceito nomeia essa fabricação de uma presença feminina estatal e sua tensão com a ausência de reciprocidade política.
 
@@ -58,7 +58,7 @@ The mobilisation of the allegorical feminine body as a sensory support for sover
 
 ## Contrato Racial Visual
 
-Autoral · Vanzin · tese, capítulo sobre colonialidade
+Autoral · Conceito autoral de Ana Vanzin; redação editorial da tese. tese/manuscrito/Glossario.md §1; cotejo primário não estabelecido.
 
 Conceito autoral que interroga a branquitude constitutiva da alegoria apresentada como universal e a transferência transatlântica de modelos visuais. Examina apagamentos, hierarquias e formas de inclusão subordinada; a racialização exige interpretação histórica e não pode ser deduzida apenas da cor do material.
 
@@ -71,7 +71,7 @@ An authorial concept questioning the constitutive whiteness of allegory presente
 
 ## Purificação Clássica
 
-Autoral · Vanzin · tese; matriz jurídica e ferramentas de figuração
+Autoral · Conceito autoral de Ana Vanzin; redação editorial da tese. tese/manuscrito/Glossario.md §1; cotejo primário não estabelecido.
 
 Operação pela qual a representação extrai particularidades do corpo feminino histórico e o fixa como superfície alegórica da autoridade. O conceito articula uma matriz jurídica a ferramentas de análise da figuração. Seus indícios são examinados em cada caso; não equivalem automaticamente à presença de um estilo clássico.
 
@@ -84,7 +84,7 @@ The operation through which representation extracts particularities from the his
 
 ## iconologia
 
-Método · Panofsky (1939) · tradição warburguiana
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Studies in Iconology: Humanistic Themes in the Art of the Renaissance (1939); Meaning in the Visual Arts (1955). Passagem primária não cotejada.
 
 Interpretação dos sentidos históricos e culturais das imagens a partir de motivos, convenções e condições de produção e uso. A identificação dos atributos é um ponto de partida; o argumento iconológico depende de fontes, comparação e confronto com interpretações concorrentes.
 
@@ -97,7 +97,7 @@ Interpretation of images’ historical and cultural meanings through motifs, con
 
 ## iconometria
 
-Método · Tese · decisão de 11/07 e atualização de 24/09/2026
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Aparato guarda-chuva de análise sistemática dos padrões iconográficos, articulado à leitura iconológica e à genealogia jurídica. Contém o endurecimento como eixo de fixidez. Os dez indicadores são lidos separadamente, com inventário verbal e proveniência; não são somados em um escore composto.
 
@@ -110,7 +110,7 @@ An umbrella apparatus for the systematic analysis of iconographic patterns, conn
 
 ## atlas iconográfico
 
-Método · Warburg · tese, método do atlas
+Método · Síntese interpretativa da tese. tese/manuscrito/Capitulo4_metodologia.md §2.5; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Dispositivo de investigação por montagem e comparação de imagens. As pranchas aproximam gestos, atributos e sobrevivências históricas para tornar legíveis relações e tensões. O intervalo entre imagens participa da interpretação; seleção, montagem e hipóteses permanecem explícitas e revisáveis.
 
@@ -123,7 +123,7 @@ A device for investigation through the montage and comparison of images. Plates 
 
 ## descrição pré-iconográfica
 
-Método · Panofsky (1939)
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Studies in Iconology: Humanistic Themes in the Art of the Renaissance (1939); Meaning in the Visual Arts (1955). Passagem primária não cotejada.
 
 Primeiro nível de leitura: descrição de formas, posturas, ações e objetos reconhecíveis. Não é um olhar sem pressupostos; exige registrar o que se observa antes de atribuir identidades convencionais ou sentidos históricos ao conjunto.
 
@@ -136,7 +136,7 @@ The first level of reading: description of recognisable forms, postures, actions
 
 ## análise iconográfica
 
-Método · Panofsky (1939)
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Studies in Iconology: Humanistic Themes in the Art of the Renaissance (1939); Meaning in the Visual Arts (1955). Passagem primária não cotejada.
 
 Identificação de temas, motivos, figuras e atributos segundo convenções históricas. Uma espada ou uma balança não basta, isoladamente, para identificar Justitia: a combinação dos atributos e o contexto documental devem sustentar a atribuição.
 
@@ -149,7 +149,7 @@ Identification of themes, motifs, figures and attributes according to historical
 
 ## atributo iconográfico
 
-Método · Panofsky (1939) · glossário da tese
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Studies in Iconology: Humanistic Themes in the Art of the Renaissance (1939). Passagem primária não cotejada.
 
 Objeto, gesto ou elemento visual que participa da identificação e caracterização de uma figura: balança, espada, venda, coroa ou inscrição, por exemplo. Seu sentido depende da combinação com outros elementos e das condições históricas de uso.
 
@@ -162,7 +162,7 @@ An object, gesture or visual element participating in the identification and cha
 
 ## corpus
 
-Método · Tese · documentação do acervo
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Conjunto documentado de imagens selecionadas para investigação. O corpus é aberto e exemplar: suas ocorrências sustentam comparações sem delimitar, por si mesmas, a história da alegoria. Critérios de seleção, lacunas e recortes condicionam o alcance das conclusões.
 
@@ -175,7 +175,7 @@ A documented set of images selected for investigation. The corpus is open and ex
 
 ## suporte
 
-Método · Tese · glossário e documentação do corpus
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Meio material e dispositivo de circulação da imagem: moeda, selo, gravura, frontispício, papel-moeda, monumento ou arquitetura forense. O suporte participa da escala, repetição, exposição e possibilidade de encontro com a alegoria.
 
@@ -188,7 +188,7 @@ The image’s material medium and device of circulation: coin, stamp, print, fro
 
 ## proveniência
 
-Método · Tese · documentação e decisões do corpus
+Método · Síntese interpretativa da tese. tese/manuscrito/Capitulo4_metodologia.md §2.5; cotejo primário não estabelecido.
 
 Registro da origem da imagem, da fonte consultada e das intervenções que produziram sua descrição ou codificação. Inclui autoria, acervo, identificação do objeto, reprodução e histórico de análise quando conhecidos. Campos não verificados devem permanecer distinguíveis de informação documentada.
 
@@ -201,7 +201,7 @@ A record of an image’s origin, the source consulted and the interventions prod
 
 ## inventário verbal de atributos
 
-Método · Tese · decisão metodológica de 24/09/2026
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Descrição textual dos atributos observados e das razões de uma leitura iconográfica. Acompanha os indicadores e explicita como o caso foi interpretado. Não é gerado automaticamente a partir de números: onde falta documentação verbal, a hipótese qualitativa permanece pendente.
 
@@ -214,7 +214,7 @@ A textual description of observed attributes and the reasons supporting an icono
 
 ## indicadores ordinais
 
-Método · Tese · codebook e decisão de 24/09/2026
+Método · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Dez dimensões de observação do eixo de fixidez, registradas em categorias ordenadas de 0 a 3. A ordem não estabelece distâncias iguais entre valores. Os indicadores permanecem separados: ausência de observação não é zero, e soma ou média não substitui o inventário verbal.
 
@@ -227,7 +227,7 @@ Ten dimensions of observation for the axis of fixity, recorded in ordered catego
 
 ## capta
 
-Mobilizado · Drucker (2011) · documentação metodológica da tese
+Mobilizado · Síntese interpretativa da tese em interlocução com Johanna Drucker, “Humanities Approaches to Graphical Display”, Digital Humanities Quarterly 5(1), 2011. Aplicação ao corpus e ressalvas são editoriais.
 
 Dados entendidos como produzidos por escolhas de recorte, descrição e interpretação, em vez de simplesmente encontrados. O termo explicita a construção situada do corpus e das visualizações; não dispensa evidência nem torna todas as interpretações equivalentes.
 
@@ -240,7 +240,7 @@ Data understood as produced through choices of scope, description and interpreta
 
 ## paradigma indiciário
 
-Mobilizado · Ginzburg · capítulo metodológico da tese
+Mobilizado · Síntese da tese: tese/manuscrito/Capitulo4_metodologia.md §2.5.2; interlocução com Carlo Ginzburg, “Sinais: raízes de um paradigma indiciário”, em Mitos, emblemas, sinais: morfologia e história. São Paulo: Companhia das Letras, 1989. Aplicação jurídico-iconográfica autoral; passagem primária não cotejada.
 
 Forma de conhecimento que reconstrói relações a partir de indícios e detalhes. Na pesquisa, posturas, inscrições e deslocamentos de atributos permitem formular hipóteses. A recorrência só sustenta um argumento quando confrontada com fontes, diferenças entre casos e explicações concorrentes.
 
@@ -253,7 +253,7 @@ A form of knowledge reconstructing relations from clues and details. In this res
 
 ## Pathosformel
 
-Mobilizado · Warburg · léxico da tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §3; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Fórmula visual em que gesto e carga afetiva se articulam e podem reaparecer em outros tempos e contextos. A repetição formal não garante identidade de sentido: uma pose herdada pode ser deslocada, invertida ou posta a serviço de outra autoridade.
 
@@ -266,7 +266,7 @@ A visual formula in which gesture and affective charge are joined and may reappe
 
 ## Nachleben
 
-Mobilizado · Warburg · léxico da tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §3; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Sobrevivência e reaparição transformada de formas e gestos. Permite investigar retornos da Antiguidade e outras persistências sem supor uma transmissão contínua ou intacta. A relação entre imagens exige reconstruir mediações, rupturas e mudanças de função.
 
@@ -279,7 +279,7 @@ The survival and transformed reappearance of forms and gestures. It enables inqu
 
 ## Zwischenraum
 
-Mobilizado · Warburg · método comparativo da tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §3; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Intervalo que permite pensar a relação entre imagens sem fundi-las. Na montagem, a distância e a vizinhança tornam diferenças e tensões interpretáveis. O sentido não está pronto no espaço vazio: depende das escolhas e perguntas que organizam a comparação.
 
@@ -292,7 +292,7 @@ An interval enabling relations between images to be considered without merging t
 
 ## Denkraum
 
-Mobilizado · Warburg · léxico da tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §3; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Espaço de pensamento e distância reflexiva diante da imagem. Designa a possibilidade de suspender uma adesão imediata para examinar como uma figura age sobre o olhar. Não é sinônimo de espaço físico nem um efeito automaticamente produzido pelo atlas.
 
@@ -305,7 +305,7 @@ A space for thought and reflective distance before the image. It names the possi
 
 ## Bilderatlas Mnemosyne
 
-Mobilizado · Warburg · edição do atlas (2000)
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §3; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000). Passagem primária não cotejada.
 
 Atlas inacabado de Warburg, organizado por montagens de reproduções em pranchas. Constitui uma referência para investigar relações entre gestos, tempos e usos das imagens. A tese toma sua operação comparativa como interlocução metodológica, não como modelo a reproduzir literalmente.
 
@@ -318,7 +318,7 @@ Warburg’s unfinished atlas, organised through montages of reproductions on pla
 
 ## montagem
 
-Método · Warburg · metodologia do atlas
+Método · Síntese interpretativa da tese. tese/manuscrito/Capitulo4_metodologia.md §2.5; interlocução bibliográfica: Der Bilderatlas Mnemosyne (2000); L'image survivante: histoire de l'art et temps des fantômes selon Aby Warburg (2002). Passagem primária não cotejada.
 
 Arranjo de imagens que produz uma situação de comparação. Aproximações, afastamentos e sequências formulam perguntas sobre gestos, atributos e temporalidades. A escolha de uma vizinhança é uma intervenção interpretativa e deve poder ser discutida e refeita.
 
@@ -331,7 +331,7 @@ An arrangement of images producing a situation of comparison. Proximity, distanc
 
 ## prancha comparativa
 
-Método · Tese · documentação do atlas
+Método · Síntese interpretativa da tese. tese/manuscrito/Capitulo4_metodologia.md §2.5; cotejo primário não estabelecido.
 
 Unidade de montagem que coloca imagens em relação, acompanhada de identificações, fontes e uma pergunta de leitura. Não é apenas uma coleção de exemplos semelhantes: a comparação precisa tornar suas diferenças e suas mediações históricas examináveis.
 
@@ -344,7 +344,7 @@ A unit of montage placing images in relation, accompanied by identifications, so
 
 ## visiocracia
 
-Mobilizado · Goodrich (2013) · capítulo 1
+Mobilizado · Síntese interpretativa da tese. vault/tese/capitulo-1.md; tese/manuscrito/Glossario.md §1; interlocução bibliográfica: Visiocracy: On the Futures of the Fingerpost (2013). Passagem primária não cotejada.
 
 Poder exercido pela organização do visível na cultura jurídica. Signos, emblemas, gestos e dispositivos de orientação participam da produção de uma ordem que ensina a ver e obedecer. A perspectiva amplia o estudo do direito para além da palavra normativa.
 
@@ -357,7 +357,7 @@ Power exercised through the organisation of the visible in juridical culture. Si
 
 ## economia icônica
 
-Mobilizado · Mondzain (2002)
+Mobilizado · Síntese interpretativa da tese. concepts/economia-iconica.md; interlocução bibliográfica: Image, icône, économie: les sources byzantines de l'imaginaire contemporain (edição de 2002 indicada pela tese, não verificada). Passagem primária não cotejada.
 
 Organização das relações entre imagem, visibilidade e autoridade, no horizonte da oikonomia estudada por Mondzain. Na tese, permite perguntar como imagens jurídicas administram presença, adesão e legitimidade. Não se reduz à circulação mercantil ou ao valor monetário das imagens.
 
@@ -370,7 +370,7 @@ The organisation of relations between image, visibility and authority within the
 
 ## contrato sexual
 
-Mobilizado · Pateman (1988)
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: The Sexual Contract (1988). Passagem primária não cotejada.
 
 Crítica à narrativa do contrato social que trata a liberdade como fundamento universal, ocultando a constituição de relações de sujeição sexual e do direito político masculino. É interlocução do Contrato Sexual Visual; os dois termos não designam a mesma formulação.
 
@@ -383,7 +383,7 @@ A critique of the social contract narrative that treats freedom as a universal f
 
 ## dois corpos do rei
 
-Mobilizado · Kantorowicz (1957)
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: The King's Two Bodies: A Study in Mediaeval Political Theology (1957). Passagem primária não cotejada.
 
 Distinção histórica entre o corpo natural, mortal, do soberano e o corpo político que garante continuidade à autoridade. A tese mobiliza essa matriz para interrogar a distância entre um corpo histórico particular e a permanência atribuída à figuração da soberania.
 
@@ -396,7 +396,7 @@ A historical distinction between the sovereign’s mortal natural body and the p
 
 ## instituição das imagens
 
-Mobilizado · Legendre (1994)
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Dieu au miroir: étude sur l'institution des images (1994). Passagem primária não cotejada.
 
 Problema das mediações visuais pelas quais uma ordem institucional apresenta fundamento e autoridade aos sujeitos. Na tese, sustenta a pergunta sobre a função das figurações jurídicas na constituição do vínculo com a instituição, além de uma função ilustrativa.
 
@@ -409,7 +409,7 @@ The problem of visual mediations through which an institutional order presents i
 
 ## cultura jurídica
 
-Mobilizado · Hespanha (2005) · tese
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; interlocução bibliográfica: Cultura Jurídica Europeia: síntese de um milénio (2005). Passagem primária não cotejada.
 
 Conjunto histórico de práticas, linguagens, saberes e formas de representação pelos quais o direito se torna pensável e operante. O recorte permite investigar imagens e materialidades como fontes da experiência jurídica, sem confundir todo símbolo político com evidência de uma função jurídica.
 
@@ -422,7 +422,7 @@ The historical ensemble of practices, languages, knowledge and representations t
 
 ## colonialidade do ver
 
-Mobilizado · Tese · capítulo sobre colonialidade
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Capitulo3_colonialidade.md §§3.1–3.3; tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Organização do campo visual que apresenta hierarquias coloniais como naturais ou universais. Na pesquisa, interroga a racialização do corpo alegórico e a distribuição desigual das posições de quem representa, é representado e observa. Não é sinônimo de qualquer circulação entre continentes.
 
@@ -435,7 +435,7 @@ An organisation of the visual field presenting colonial hierarchies as natural o
 
 ## branquitude alegórica
 
-Operador da tese · Tese · Contrato Racial Visual
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Capitulo3_colonialidade.md §§3.1–3.3; tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Posição de universalidade atribuída ao corpo branco ou classicizado na representação da autoridade. Não se identifica apenas pelo pigmento: material, convenção, história da encomenda e relação com outros corpos precisam sustentar a interpretação racial.
 
@@ -448,7 +448,7 @@ A position of universality attributed to a white or classicised body in represen
 
 ## transferência visual transatlântica
 
-Operador da tese · Tese · capítulo sobre colonialidade
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Capitulo3_colonialidade.md §§3.1–3.3; tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Circulação e transformação de modelos, repertórios e convenções visuais entre contextos atlânticos. Aproximações formais sugerem uma investigação, mas a transferência precisa de mediações documentadas: reproduções, encomendas, formação artística ou circuitos institucionais.
 
@@ -461,7 +461,7 @@ The circulation and transformation of visual models, repertoires and conventions
 
 ## reconhecimento sem reciprocidade
 
-Operador da tese · Tese · Feminilidade de Estado e metodologia
+Operador da tese · Síntese interpretativa da tese. docs/decisions/2026-07-29-aparato-minimo-suficiente.md; cotejo primário não estabelecido.
 
 Assimetria entre a presença simbólica do corpo feminino na figuração do poder e o reconhecimento das mulheres como sujeitos de agência e direitos. Nomeia uma pergunta histórica da tese; a imagem, sozinha, não prova as condições jurídicas das mulheres que nela não aparecem.
 
@@ -474,7 +474,7 @@ An asymmetry between the symbolic presence of the feminine body in representatio
 
 ## alegoria
 
-Mobilizado · Tese · glossário; Resnik e Curtis (2011)
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Figura ou composição que torna uma ideia legível por meio de uma forma sensível e de convenções de leitura. A pesquisa examina especialmente a forma feminina do universal jurídico. Uma figura feminina não é, por si só, uma alegoria: identificação, atributos e contexto precisam ser considerados.
 
@@ -487,7 +487,7 @@ A figure or composition making an idea legible through a sensory form and conven
 
 ## personificação
 
-Mobilizado · Tese · glossário e iconografia jurídica
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Representação de uma entidade abstrata ou coletiva como figura humana. Justiça, República e nação podem adquirir corpo por esse procedimento. A identificação de uma personificação descreve uma convenção; a análise de Feminilidade de Estado pergunta por sua operação política.
 
@@ -500,7 +500,7 @@ The representation of an abstract or collective entity as a human figure. Justic
 
 ## endurecimento
 
-Operador da tese · Tese · decisão metodológica de 24/09/2026
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Eixo de fixidez alegórica dentro da iconometria. Interroga rigidez, padronização e apagamentos associados à Purificação Clássica. A leitura exige inventário verbal dos casos e observação separada dos indicadores; não produz intensidade global.
 
@@ -513,7 +513,7 @@ The axis of allegorical fixity within iconometry. It questions rigidity, standar
 
 ## acoplamento imagem-norma
 
-Operador da tese · Tese · glossário de trabalho
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Relação pela qual uma figuração visual participa do reconhecimento de uma norma ou autoridade jurídico-política. Selos, moedas e frontispícios são lugares possíveis desse encontro. A eficácia do vínculo não é presumida: depende das práticas e instituições em que imagem e norma circulam.
 
@@ -526,7 +526,7 @@ A relation through which visual figuration participates in recognition of a norm
 
 ## sentido produzido e sentido recebido
 
-Operador da tese · Tese · decisão de aparato mínimo, 29/07/2026
+Operador da tese · Síntese interpretativa da tese. docs/decisions/2026-07-29-aparato-minimo-suficiente.md; cotejo primário não estabelecido.
 
 Distinção entre o sentido que um dispositivo institucional produz e disponibiliza e a experiência efetiva de quem o encontra. A leitura iconológica pode sustentar a primeira afirmação com objeto, suporte e documentação; reconstituir a recepção exige outras fontes, que não podem ser substituídas pela análise formal.
 
@@ -539,7 +539,7 @@ A distinction between the meaning an institutional device produces and makes ava
 
 ## regime fundacional
 
-Operador da tese · Tese · tipologia dos regimes
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Modo de uso da alegoria vinculado à instauração ou refundação de uma ordem política. Gesto, mobilização e sacrifício são questões de leitura, não propriedades necessárias de toda imagem fundacional. A atribuição exige contexto institucional e histórico.
 
@@ -552,7 +552,7 @@ A mode of allegorical use linked to the establishment or refoundation of a polit
 
 ## regime normativo
 
-Operador da tese · Tese · tipologia dos regimes
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Modo em que a alegoria participa da rotina de reconhecimento e reprodução da autoridade: selos, moedas, edifícios e outros dispositivos institucionais. A regularidade do uso importa tanto quanto a forma visual; não se deduz o regime apenas de serenidade ou imobilidade.
 
@@ -565,7 +565,7 @@ A mode in which allegory participates in routine recognition and reproduction of
 
 ## regime militar
 
-Operador da tese · Tese · tipologia dos regimes
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Modo que articula figuração alegórica, coerção, guerra ou expansão imperial. Armas, armaduras e monumentalidade orientam perguntas, mas um atributo armado não basta para classificar uma imagem. A função do objeto precisa ser reconstruída em seu contexto.
 
@@ -578,7 +578,7 @@ A mode joining allegorical figuration with coercion, war or imperial expansion. 
 
 ## contra-alegoria
 
-Operador da tese · Tese · glossário e método comparativo
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Imagem que desloca, contesta ou reapropria uma alegoria da autoridade. Paródia, inversão e denúncia são procedimentos possíveis, não garantia de emancipação. O estatuto contestatório precisa ser situado em condições de produção, circulação e recepção.
 
@@ -591,7 +591,7 @@ An image displacing, contesting or reappropriating an allegory of authority. Par
 
 ## iconoclasmo
 
-Mobilizado · Tese · documentação metodológica; Mondzain
+Mobilizado · Síntese interpretativa da tese. tese/manuscrito/Glossario.md; cotejo primário não estabelecido.
 
 Conflito com a autoridade das imagens que pode envolver destruição, retirada, cobertura ou disputa de seus usos. Não se confunde com a simples ausência de uma imagem. A interpretação exige identificar os agentes, as práticas e as condições históricas do conflito.
 
@@ -604,7 +604,7 @@ Conflict with the authority of images that may involve destruction, removal, cov
 
 ## ausência alegórica
 
-Operador da tese · Tese · glossário e documentação do corpus
+Operador da tese · Síntese interpretativa da tese. tese/manuscrito/Capitulo4_metodologia.md §2.5; cotejo primário não estabelecido.
 
 Pergunta sobre situações em que uma alegoria esperada não foi encontrada. A expectativa e o universo de busca devem ser explicitados. Falta de registro no corpus não prova inexistência histórica, assim como um arquivo inacessível não prova ausência de representação.
 
@@ -617,7 +617,7 @@ A question about situations where an expected allegory was not found. The expect
 
 ## desincorporação
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Passagem da particularidade corporal para uma forma emblemática. Examina quais marcas de corpo histórico são retiradas ou preservadas; não presume que todo corpo coberto esteja desincorporado.
 
@@ -630,7 +630,7 @@ A shift from bodily particularity towards an emblematic form. It examines which 
 
 ## rigidez postural
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Configuração da postura e do gesto em torno de fixidez ou contenção. Descrever apoio, articulação e movimento aparente antes de atribuir função política: a imobilidade do suporte não equivale à rigidez da figura.
 
@@ -643,7 +643,7 @@ The configuration of posture and gesture around fixity or restraint. Describe su
 
 ## dessexualização
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Redução ou apagamento de marcas de desejo e sexualidade na figura alegórica. Não equivale automaticamente à ausência de nudez: exposição, vestimenta, pose e convenções devem ser lidas em conjunto.
 
@@ -656,7 +656,7 @@ The reduction or erasure of signs of desire and sexuality in the allegorical fig
 
 ## uniformização facial
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Redução ou padronização de particularidades do rosto. Registrar traços, expressão e comparações pertinentes; um rosto pequeno ou pouco legível na reprodução não é evidência suficiente de uniformização.
 
@@ -669,7 +669,7 @@ The reduction or standardisation of facial particularities. Record features, exp
 
 ## heraldicização
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Integração da figura a brasões, escudos e atributos heráldicos. Investiga como a composição aproxima corpo e emblema institucional; a presença de um escudo, isoladamente, não determina essa operação.
 
@@ -682,7 +682,7 @@ The integration of the figure into coats of arms, shields and heraldic attribute
 
 ## enquadramento arquitetônico
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Relação entre a figura e sua moldura, nicho, fachada ou dispositivo monumental. O enquadramento pode organizar escala e visibilidade; seu efeito deve ser observado sem supor que toda arquitetura apague a agência da figura.
 
@@ -695,7 +695,7 @@ The relation between the figure and its frame, niche, façade or monumental devi
 
 ## apagamento narrativo
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Redução ou supressão de ações, relações e particularidades de uma cena em favor da figura emblemática. A comparação deve demonstrar o que foi retirado ou silenciado; a ausência de cenário, sozinha, não prova um apagamento histórico.
 
@@ -708,7 +708,7 @@ The reduction or suppression of actions, relations and particulars of a scene in
 
 ## monocromatização
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Redução da diferenciação cromática na figura. A reprodução pode alterar sua percepção; distinguir material original, conservação e condições da imagem consultada. Pedra clara, metal ou fotografia em preto e branco não demonstram, por si, uma operação racial.
 
@@ -721,7 +721,7 @@ The reduction of chromatic differentiation in the figure. Reproduction may alter
 
 ## serialidade
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Repetição padronizada de uma figura em séries, como moedas ou selos. Examina invariantes e variações, além dos circuitos de reprodução; quantidade de exemplares não substitui a descrição do padrão.
 
@@ -734,7 +734,7 @@ Standardised repetition of a figure in series such as coins or stamps. It examin
 
 ## inscrição estatal
 
-Indicador · Tese · codebook e glossário
+Indicador · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §2; docs/decisions/2026-09-24-remocao-definitiva-do-campo.md; cotejo primário não estabelecido.
 
 Inscrições, legendas e marcas que vinculam a figura a uma autoridade estatal. Transcrever o que se lê e registrar localização e função; inscrições ilegíveis ou desconhecidas não devem ser tratadas como ausentes.
 
@@ -747,7 +747,7 @@ Inscriptions, legends and marks linking the figure to state authority. Transcrib
 
 ## Justitia
 
-Figura alegórica · Resnik e Curtis (2011) · glossário da tese
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; interlocução bibliográfica: Representing Justice: Invention, Controversy, and Rights in City-States and Democratic Courtrooms (2011). Passagem primária não cotejada.
 
 Personificação da Justiça, identificada por combinações historicamente variáveis de balança, espada, venda e outros atributos. Não pressupõe uma genealogia linear nem o mesmo sentido em todos os tribunais. A identificação e o contexto de exposição sustentam a leitura.
 
@@ -760,7 +760,7 @@ A personification of Justice, identified through historically variable combinati
 
 ## Marianne / La République
 
-Figura alegórica · Agulhon (1979; 1989)
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; interlocução bibliográfica: Marianne au combat: l'imagerie et la symbolique républicaines de 1789 à 1880 (1979); Marianne au pouvoir: l'imagerie et la symbolique républicaines de 1880 à 1914 (1989). Passagem primária não cotejada.
 
 Repertório de personificações femininas da República francesa, atravessado por disputas de convenção, regime e uso público. Marianne não designa um único corpo nem uma fórmula invariável. É referência comparativa para investigar a circulação e a transformação de modelos republicanos.
 
@@ -773,7 +773,7 @@ A repertoire of feminine personifications of the French Republic, shaped by disp
 
 ## Britannia
 
-Figura alegórica · Glossário da tese · repertório britânico
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; cotejo primário não estabelecido.
 
 Personificação feminina vinculada à Grã-Bretanha, presente em objetos de circulação e monumentos. Atributos marítimos, escudo e armas podem integrar sua figuração, com funções distintas conforme o objeto e o contexto. A leitura exige distinguir nação, império e uso institucional.
 
@@ -786,7 +786,7 @@ A feminine personification associated with Britain, present on circulating objec
 
 ## Germania
 
-Figura alegórica · Glossário da tese · repertório alemão
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; cotejo primário não estabelecido.
 
 Personificação feminina associada à nação alemã em contextos de mobilização e institucionalização política. Coroa, armas e monumentalidade devem ser interpretadas junto à encomenda e ao lugar de exposição; não determinam automaticamente um regime militar.
 
@@ -799,7 +799,7 @@ A feminine personification associated with the German nation in contexts of poli
 
 ## Columbia
 
-Figura alegórica · Glossário da tese · repertório dos Estados Unidos
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; cotejo primário não estabelecido.
 
 Personificação feminina dos Estados Unidos em repertórios cívicos e políticos. Sua relação com outras figuras, como Liberty, precisa ser reconstruída no objeto analisado. Não são nomes intercambiáveis para toda mulher alegórica presente na cultura visual norte-americana.
 
@@ -812,7 +812,7 @@ A feminine personification of the United States in civic and political repertoir
 
 ## Liberdade / Liberty
 
-Figura alegórica · Glossário da tese · Agulhon; Resnik e Curtis
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; interlocução bibliográfica: Marianne au combat: l'imagerie et la symbolique républicaines de 1789 à 1880 (1979); Representing Justice: Invention, Controversy, and Rights in City-States and Democratic Courtrooms (2011). Passagem primária não cotejada.
 
 Personificação da liberdade em repertórios nacionais e transnacionais. Atributos e usos variam, e uma mesma convenção pode entrar em disputas políticas diferentes. Identificar a figura não demonstra que os direitos prometidos por ela tenham sido distribuídos universalmente.
 
@@ -825,7 +825,7 @@ A personification of liberty in national and transnational repertoires. Attribut
 
 ## La Belgique
 
-Figura alegórica · Glossário da tese · repertório belga
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; cotejo primário não estabelecido.
 
 Personificação feminina da Bélgica. Nos comparativos da tese, permite examinar os vínculos entre autoimagem nacional, representação da autoridade e contextos coloniais. Essa função não deve ser generalizada a toda figura belga sem documentação do objeto.
 
@@ -838,7 +838,7 @@ A feminine personification of Belgium. In the thesis’s comparisons it permits 
 
 ## A República (Brasil)
 
-Figura alegórica · Carvalho (1990) · glossário da tese
+Figura alegórica · Síntese interpretativa da tese. tese/manuscrito/Glossario.md §5; interlocução bibliográfica: A formação das almas: o imaginário da República no Brasil (1990). Passagem primária não cotejada.
 
 Repertório de figurações femininas da República brasileira, construído em disputas e transferências de modelos. A pesquisa interroga sua pretensão de universalidade e sua relação com gênero e raça. A aproximação com Marianne é hipótese comparativa a documentar em cada caso.
 
@@ -863,3 +863,9 @@ As definições são sínteses editoriais da documentação da tese, não citaç
 - Paradigma indiciário: `tese/manuscrito/Capitulo4_metodologia.md`, seção que mobiliza Ginzburg.
 
 A revisão intelectual descartou “pintura de alma” porque o manuscrito apresenta definições conflitantes. Também rejeitou genealogia linear de Justitia, PC1 como resultado vigente e progressão obrigatória entre os três regimes. Regime e acoplamento são apresentados como operadores da pesquisa; o selo dos quatro conceitos centrais não resolve reivindicações adicionais de originalidade.
+
+
+
+## Revisão bibliográfica de 06/10/2026
+
+Ver `docs/parecer-glossario-pr164.md` para a auditoria individual dos 65 verbetes, bibliografia, distinção de estatutos e pendências. Nenhum verbete inteiro foi certificado como definição primária. Completar uma referência não significa verificar sua paráfrase. A edição Mondzain 2002 permanece não confirmada.
