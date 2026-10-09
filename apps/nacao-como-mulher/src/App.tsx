@@ -96,6 +96,8 @@ function SourcePanel({ item, lang }: { item: ExhibitionItem; lang: Lang }) {
         <p><span>{c.record}</span><b>{item.atlasId}</b></p>
         <p><span>{c.rights}</span>{t(item.source.rights, lang)}</p>
         <p className="citation">{t(item.source.citation, lang)}</p>
+        {item.source.provenance && <p className="citation"><span>{lang === 'pt' ? 'Proveniência documental' : 'Documentary provenance'}</span>{t(item.source.provenance, lang)}</p>}
+        {item.source.references?.map(reference => <p className="citation" key={reference.url}><a href={reference.url} target="_blank" rel="noreferrer">{reference.citation} ↗</a><small>{lang === 'pt' ? 'Consulta' : 'Accessed'}: {reference.accessedAt}</small></p>)}
         <a href={item.source.url} target="_blank" rel="noreferrer">{item.source.institution} ↗</a>
         <small>{c.reviewed} {item.review.reviewedAt}</small>
         {item.review.audit && <p className="citation"><span>{lang === 'pt' ? 'Revisão de fontes' : 'Source review'} · {item.review.audit.checkedAt}</span>{t(item.review.audit.note, lang)}</p>}
@@ -371,3 +373,4 @@ export default function App() {
     </div>
   )
 }
+

@@ -30,8 +30,8 @@
         "en": "Europe"
       },
       "date": {
-        "pt": "1537 / edições posteriores",
-        "en": "1537 / later editions"
+        "pt": "1628 (edição de referência)",
+        "en": "1628 (reference edition)"
       },
       "medium": {
         "pt": "mapa antropomórfico",
@@ -47,8 +47,8 @@
         "en": "Europe's outline forms a crowned queen. The Iberian Peninsula occupies the head; Bohemia appears at the centre of the torso; Italy and Denmark become arms."
       },
       "context": {
-        "pt": "O esquema foi concebido por Johannes Putsch em 1537 e retomado por edições cartográficas posteriores, entre elas versões ligadas à Cosmographia de Sebastian Münster.",
-        "en": "Johannes Putsch devised the scheme in 1537; later cartographic editions reused it, including versions associated with Sebastian Münster's Cosmographia."
+        "pt": "O desenho de Johannes Putsch já estava materializado na xilogravura produzida em Augsburgo em 1534 por Jobst Dennecker. A impressão parisiense de 1537, por Christian Wechel, retoma esse desenho; não marca sua criação. O registro EU-1628 remete à versão da Cosmographia de Sebastian Münster identificada no dossiê como edição de 1628, posterior à morte do autor. São momentos editoriais distintos.",
+        "en": "Johannes Putsch's design was already embodied in the woodcut produced in Augsburg in 1534 by Jobst Dennecker. Christian Wechel's Paris printing of 1537 reproduces that design; it does not date its creation. Record EU-1628 refers to the version in Sebastian Münster's Cosmographia identified in the dossier as the 1628 edition, published after the author's death. These are distinct editorial stages."
       },
       "interpretation": {
         "pt": "Como antecedente genealógico, a imagem mostra que território, corpo feminino e insígnias de soberania podiam ser fundidos numa mesma operação visual antes do recorte principal da tese.",
@@ -62,9 +62,25 @@
           "en": "Historical work in the public domain; consult the institution's terms for the digital reproduction."
         },
         "citation": {
-          "pt": "PUTSCH, Johannes. Europa Regina. 1537; versão cartográfica posterior. Bavarikon.",
-          "en": "PUTSCH, Johannes. Europa Regina. 1537; later cartographic version. Bavarikon."
-        }
+          "pt": "MÜNSTER, Sebastian. Cosmographia. Edição alemã, 1628, p. 54, «Das ander Buch»: Europa regina, xilogravura. Identificação documental: dossiê ICONOCRACIA, IDEAS 18, tabela 1 e figura 3; correspondência com o exemplar do Bavarikon ainda não conferida.",
+          "en": "MÜNSTER, Sebastian. Cosmographia. German edition, 1628, p. 54, «Das ander Buch»: Europa regina, woodcut. Documentary identification: ICONOCRACIA dossier, IDEAS 18, table 1 and figure 3; correspondence with the Bavarikon copy has not yet been checked."
+        },
+        "provenance": {
+          "pt": "A edição de referência de EU-1628 é identificada pelo dossiê, cuja figura 3 informa digitalização via archive.org. A prancha exibida é um estudo interpretativo gerado por IA, não uma reprodução desse exemplar. O exemplar de 1534 conservado no Museum Retz é outro objeto: Celine Wawruschka relata seu achado em 2018, divulgado em 2019. A leitura dessas fontes documentais não substitui o cotejo visual do exemplar de 1628.",
+          "en": "The dossier identifies the reference edition for EU-1628; its figure 3 credits digitisation via archive.org. The displayed plate is an AI-generated interpretive study, not a reproduction of that copy. The 1534 copy held at Museum Retz is a different object: Celine Wawruschka reports finding it in 2018, with the discovery publicised in 2019. Reading these documentary sources does not replace visual comparison with the 1628 copy."
+        },
+        "references": [
+          {
+            "url": "https://www.noemuseen.at/news-list/blog-detail/news/detail/News/die-koenigin-europa-in-retz/",
+            "citation": "WAWRUSCHKA, Celine. Die «Königin Europa» in Retz. Museumsmanagement Niederösterreich, 14 maio 2019.",
+            "accessedAt": "2026-10-09"
+          },
+          {
+            "url": "https://ojs.lib.unideb.hu/eastcentraleurope/article/view/16363",
+            "citation": "UZELAC, Aleksandar. Some Notes on the Putsch Map («Europa Regina») and Its Depiction of Southeastern Europe. East Central Europe: Between the Baltic and the Adriatic, v. 1, n. 1, 2025. DOI: 10.65006/eastcentraleurope/2025/16363.",
+            "accessedAt": "2026-10-09"
+          }
+        ]
       },
       "images": {
         "figure": "plates/EU-1628-europa-regina-cut.webp",
@@ -78,11 +94,11 @@
         "status": "verified",
         "reviewedAt": "2026-09-25",
         "audit": {
-          "checkedAt": "2026-10-04",
+          "checkedAt": "2026-10-09",
           "status": "unavailable",
           "note": {
-            "pt": "Consulta atual bloqueada pelo Bavarikon. A relação entre a matriz de 1537 e a edição posterior permanece a conferir no exemplar.",
-            "en": "Current consultation blocked by Bavarikon. The relationship between the 1537 design and the later edition remains to be checked against the copy."
+            "pt": "Cronologia revista documentalmente em 09/10/2026: impressão de 1534, impressão de 1537 e edição de referência de 1628 separadas. O Bavarikon voltou a negar acesso. Permanecem pendentes a identificação visual da página do exemplar institucional, sua correspondência com EU-1628 e os termos da reprodução digital. A revisão anterior de 25/09/2026 não equivale à confirmação institucional atual.",
+            "en": "Chronology reviewed against documentary sources on 2026-10-09: the 1534 printing, 1537 printing and 1628 reference edition are distinguished. Bavarikon again denied access. Visual identification of the institutional copy's page, its correspondence with EU-1628 and digital reproduction terms remain pending. The earlier review of 2026-09-25 does not constitute current institutional confirmation."
           }
         }
       }
@@ -657,3 +673,4 @@
     }
   ]
 }
+

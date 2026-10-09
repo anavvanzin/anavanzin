@@ -20,6 +20,8 @@ export interface ExhibitionItem {
     url: string
     rights: Localized
     citation: Localized
+    provenance?: Localized
+    references?: { url: string; citation: string; accessedAt: string }[]
   }
   images: {
     figure: string
@@ -41,3 +43,4 @@ export interface ExhibitionData {
   }
   items: ExhibitionItem[]
 }
+
