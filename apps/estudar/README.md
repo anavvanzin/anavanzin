@@ -23,3 +23,11 @@ As fontes ficam em `apps/estudar/` e são excluídas do site pela política de p
 Para atualizar a publicação, execute o build e copie o conteúdo de `dist/` para `../../estudar/`, removendo apenas assets antigos desse diretório. Depois revise e faça commit das fontes e do bundle. A Cloudflare Pages publica a branch `main` pelo build do site, `npm run build:pages`, que inclui todo o acervo existente.
 
 As imagens foram comprimidas para publicação. Os originais de trabalho permanecem no projeto de origem e não integram o bundle público. Os exercícios são instrumentos didáticos; o classificador jurídico inclui links para as fontes oficiais dos exemplos.
+
+## Coleção de modelos de anotação
+
+O catálogo em `src/data/noteTemplates.json` alimenta a prévia e a cópia para o Craft. As versões A4 e Markdown ficam em `public/templates/` e são incluídas no build estático.
+
+Depois de alterar o catálogo, regenere os arquivos com `python3 scripts/generate_note_templates.py` antes de executar `npm run build`. O gerador requer ReportLab e uma das fontes descritas no início do script. A coletânea reúne as seis folhas sem capa, uma página A4 por modelo.
+
+A cópia oferece conteúdo formatado e texto simples; se o navegador bloquear a área de transferência, a interface seleciona o texto para cópia manual. Os arquivos `.md` também podem ser importados no Craft. Nenhum conteúdo preenchido é enviado a um servidor.
