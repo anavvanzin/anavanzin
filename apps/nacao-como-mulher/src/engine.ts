@@ -117,6 +117,7 @@ interface FlowBlock {
   lineHeight: number
   heading?: boolean
   gapAfter: number
+  minLineWidth?: number
 }
 
 export function flowText(
@@ -124,6 +125,7 @@ export function flowText(
   blocks: FlowBlock[],
   obstacle: Obstacle,
   cache: ParagraphCache,
+  minLineWidth = 48,
 ): { lines: LaidLine[]; height: number } {
   const lines: LaidLine[] = []
   let y = 0
@@ -136,7 +138,7 @@ export function flowText(
       guard += 1
       const interval = freeIntervalForLine(width, y, block.lineHeight, [obstacle])
       const available = interval.right - interval.left
-      if (available < 48) {
+      if (available < Math.min(width, block.minLineWidth ?? minLineWidth)) {
         y += block.lineHeight
         continue
       }
@@ -158,3 +160,4 @@ export function flowText(
 
   return { lines, height: y }
 }
+
