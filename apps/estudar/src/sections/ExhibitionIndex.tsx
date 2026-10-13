@@ -44,7 +44,7 @@ export default function ExhibitionIndex({ query, category, onQueryChange, onCate
       <p className="sr-only" role="status">{filtered.length} {filtered.length === 1 ? 'verbete encontrado' : 'verbetes encontrados'}</p>
       <div className="archive-list">
         {filtered.map(item => {
-          const words = [item.intro, ...item.sections.map(section => `${section.heading} ${section.body}`)].join(' ').split(/\s+/).length;
+          const words = [item.intro, ...item.sections.map(section => `${section.heading} ${section.body} ${(section.items ?? []).join(' ')}`)].join(' ').split(/\s+/).length;
           return (
             <a className="exhibition-item" key={item.slug} href={getExhibitionPath(item.slug)}>
               <span className="exhibition-category">{item.year}</span>

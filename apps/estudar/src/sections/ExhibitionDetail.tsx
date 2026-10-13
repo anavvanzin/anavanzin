@@ -12,7 +12,7 @@ interface ExhibitionDetailProps {
 }
 
 function countWords(ex: Exhibition): number {
-  const text = [ex.intro, ...ex.sections.map((s) => `${s.heading} ${s.body}`)].join(' ');
+  const text = [ex.intro, ...ex.sections.map((s) => `${s.heading} ${s.body} ${(s.items ?? []).join(' ')}`)].join(' ');
   return text.split(/\s+/).filter(Boolean).length;
 }
 
@@ -161,7 +161,23 @@ export default function ExhibitionDetail({ exhibition }: ExhibitionDetailProps) 
               >
                 {ROMAN[i] ?? i + 1}. {section.heading}
               </h2>
-              <p style={{ margin: '0 0 2.4rem' }}>{section.body}</p>
+              <p style={{ margin: section.items || section.links ? '0 0 1.2rem' : '0 0 2.4rem' }}>{section.body}</p>
+              {section.items && (
+                <ul style={{ margin: section.links ? '0 0 1.2rem' : '0 0 2.4rem', paddingLeft: '1.25rem', listStyleType: 'disc' }}>
+                  {section.items.map((item) => (
+                    <li key={item} style={{ marginBottom: '0.65rem', textAlign: 'start', breakInside: 'avoid' }}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {section.links && (
+                <ul aria-label={`Links de ${section.heading}`} style={{ listStyle: 'none', padding: 0, margin: '0 0 2.4rem', fontSize: '0.95rem' }}>
+                  {section.links.map((link) => (
+                    <li key={link.href} style={{ marginBottom: '0.45rem', breakInside: 'avoid' }}>
+                      <a href={link.href} style={{ color: 'var(--accent-void)', overflowWrap: 'anywhere', textDecoration: 'underline' }}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </article>
           ))}
         </div>
