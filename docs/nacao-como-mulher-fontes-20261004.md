@@ -6,8 +6,10 @@ Consulta: 2026-10-04. A revisão anterior (2026-09-25) permanece registrada sepa
 
 - Fonte: [Bavarikon / Staatsbibliothek Regensburg](https://www.bavarikon.de/object/bav:SBR-HSS-00000BSB00113022?lang=en).
 - Resultado: unavailable.
-- Objeto, autoria, data e suporte: Consulta atual bloqueada pelo Bavarikon. A relação entre a matriz de 1537 e a edição posterior permanece a conferir no exemplar.
+- Objeto, autoria, data e suporte (registro histórico de 04/10): consulta bloqueada pelo Bavarikon; a relação entre a impressão de 1537 e a edição posterior permanecia a conferir no exemplar.
 - Direitos: Obra histórica em domínio público; consultar os termos da reprodução digital na instituição.
+
+**Adendo de 09/10/2026:** o [cotejo documental da Europa regina](nacao-como-mulher-europa-regina-20261009.md) corrige a cronologia: desenho de Putsch já impresso em Augsburgo em 1534; impressão parisiense de 1537; edição de referência da Cosmographia de 1628, identificada pelo dossiê para EU-1628. O achado do exemplar de Retz ocorreu em 2018, com divulgação em 2019. A nova tentativa de acesso ao Bavarikon também foi negada: o cotejo visual e a correspondência do exemplar com EU-1628 permanecem pendentes. A revisão bibliográfica não confirma o exemplar institucional. A nota de 04/10 sobre a não incorporação dos dossiês descreve aquela revisão; este adendo registra a incorporação seletiva de documentação posteriormente recebida.
 
 ## Hispania reclinada
 
@@ -68,3 +70,5 @@ Consulta: 2026-10-04. A revisão anterior (2026-09-25) permanece registrada sepa
 O registro correlato de Columbia está em [Library of Congress, 2001699142](https://www.loc.gov/pictures/item/2001699142/). A data de copyright de 1916 não foi usada para substituir por inferência a edição de 1917 anteriormente indicada.
 
 Os catálogos confirmam identificação e características materiais quando acessíveis. O contexto histórico-jurídico e as hipóteses interpretativas são a leitura da exposição, não uma atribuição automática às instituições. As contagens de corpus e levantamento comparativo continuam vinculadas ao seu levantamento datado.
+
+**Adendo de 13/10/2026:** o [rastreamento material e digital](nacao-como-mulher-europa-regina-20261009.md#adendo--rastreamento-material-e-digital-2026-10-13) demonstrou pelo catálogo IIIF institucional que `bsb00113022` é Quad/Bussemacher, *Evropae Descriptio*, 1587, e não um exemplar da *Cosmographia* de 1628. A fonte principal foi corrigida para o item do Internet Archive cuja p. 54/n117 corresponde visualmente à figura 3 do dossiê. O IA declara origem no endereço `bnm.bnrm.ma:86/pdf.aspx?IDc=4566`, inacessível nesta consulta; cota e cadeia material permanecem pendentes. `audit.status: partial` registra o avanço digital e a exclusão da associação errada, sem certificar o exemplar ou a derivação das pranchas. A nota de 09/10 acima é preservada como histórico e supersedida nestes pontos.

@@ -28,6 +28,8 @@ const cards = data.items.map((item, index) => `
         <p><span>Registro</span><b>${escape(item.atlasId)}</b></p>
         <p><span>Direitos</span>${escape(item.source.rights.pt)}</p>
         <p class="citation">${escape(item.source.citation.pt)}</p>
+        ${item.source.provenance ? `<p class="citation"><span>Proveniência documental</span>${escape(item.source.provenance.pt)}</p>` : ''}
+        ${(item.source.references || []).map(reference => `<p class="citation"><a href="${escape(reference.url)}">${escape(reference.citation)} ↗</a><small>Consulta: ${escape(reference.accessedAt)}</small></p>`).join('')}
         <a href="${escape(item.source.url)}">${escape(item.source.institution)} ↗</a>
         ${item.review.audit ? `<p class="citation"><span>Revisão de fontes · ${escape(item.review.audit.checkedAt)}</span>${escape(item.review.audit.note.pt)}</p>` : ''}
       </div></details>
@@ -49,5 +51,6 @@ source = source.replace('<!-- prerender:root -->', fallback)
 source = source.replace(/\s*<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi, '')
   .replace(/\s*<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/gi, '')
   .replace('  </head>', '<link rel="canonical" href="https://anavanzin.com/atlas/nacao-como-mulher/">\n<meta name="robots" content="index,follow">\n</head>')
-fs.writeFileSync(htmlPath, source)
+fs.writeFileSync(htmlPath, source.replace(/^[\t ]+$/gm, ''))
 console.log(`Prerendered ${data.items.length} records into ${htmlPath}`)
+
