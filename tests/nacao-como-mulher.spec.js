@@ -178,7 +178,7 @@ test('English Explore respects theme, semantics and sticky controls', async ({ p
   await expect(page.locator('.site-bar')).toBeInViewport();
   await expect(page.locator('.toolbar')).toBeInViewport();
   await page.getByRole('button', { name: 'All', exact: true }).click();
-  await expect(page.locator('.explore-meta .eyebrow')).toContainText('later editions');
+  await expect(page.locator('.explore-meta .eyebrow')).toContainText('1628 (reference edition)');
 });
 
 test('figure stays within narrow stage when moved and resized', async ({ page }) => {
@@ -208,3 +208,4 @@ test('prerendered edition qualifies counts and defers later plates', async ({ br
   expect(await page.locator('.object-card img[loading="lazy"]').count()).toBe(7);
   await context.close();
 });
+

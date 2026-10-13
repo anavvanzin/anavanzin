@@ -55,19 +55,19 @@
         "en": "As a genealogical antecedent, the image shows territory, the female body and sovereign insignia merging into one visual operation before the thesis's main period."
       },
       "source": {
-        "institution": "Bavarikon / Staatsbibliothek Regensburg",
-        "url": "https://www.bavarikon.de/object/bav:SBR-HSS-00000BSB00113022?lang=en",
+        "institution": "Internet Archive · muenster_cosmographia_1628",
+        "url": "https://archive.org/details/muenster_cosmographia_1628/page/n117/mode/1up",
         "rights": {
-          "pt": "Obra histórica em domínio público; consultar os termos da reprodução digital na instituição.",
-          "en": "Historical work in the public domain; consult the institution's terms for the digital reproduction."
+          "pt": "Obra histórica em domínio público. O Internet Archive aplica Public Domain Mark 1.0 à digitalização; a origem institucional é declarada pelo depositante e não foi confirmada no catálogo de origem. A prancha exibida é um estudo interpretativo, não essa reprodução.",
+          "en": "Historical work in the public domain. Internet Archive labels the digitisation with Public Domain Mark 1.0; its institutional source is stated by the uploader and has not been confirmed in the source catalogue. The displayed plate is an interpretive study, not that reproduction."
         },
         "citation": {
-          "pt": "MÜNSTER, Sebastian. Cosmographia. Edição alemã, 1628, p. 54, «Das ander Buch»: Europa regina, xilogravura. Identificação documental: dossiê ICONOCRACIA, IDEAS 18, tabela 1 e figura 3; correspondência com o exemplar do Bavarikon ainda não conferida.",
-          "en": "MÜNSTER, Sebastian. Cosmographia. German edition, 1628, p. 54, «Das ander Buch»: Europa regina, woodcut. Documentary identification: ICONOCRACIA dossier, IDEAS 18, table 1 and figure 3; correspondence with the Bavarikon copy has not yet been checked."
+          "pt": "MÜNSTER, Sebastian. Cosmographia. Basileia: oficina Henricpetrina, 1628, edição alemã. Frontispício conferido no índice digital n14; Europa regina, xilogravura, p. 54, «Das ander Buch», n117. Internet Archive, muenster_cosmographia_1628. A identificação do exemplar físico e de sua cota permanece pendente.",
+          "en": "MÜNSTER, Sebastian. Cosmographia. Basel: Henricpetrine printing house, 1628, German edition. Title page checked at digital index n14; Europa regina, woodcut, p. 54, «Das ander Buch», n117. Internet Archive, muenster_cosmographia_1628. The physical copy and its shelfmark remain unidentified."
         },
         "provenance": {
-          "pt": "A edição de referência de EU-1628 é identificada pelo dossiê, cuja figura 3 informa digitalização via archive.org. A prancha exibida é um estudo interpretativo gerado por IA, não uma reprodução desse exemplar. O exemplar de 1534 conservado no Museum Retz é outro objeto: Celine Wawruschka relata seu achado em 2018, divulgado em 2019. A leitura dessas fontes documentais não substitui o cotejo visual do exemplar de 1628.",
-          "en": "The dossier identifies the reference edition for EU-1628; its figure 3 credits digitisation via archive.org. The displayed plate is an AI-generated interpretive study, not a reproduction of that copy. The 1534 copy held at Museum Retz is a different object: Celine Wawruschka reports finding it in 2018, with the discovery publicised in 2019. Reading these documentary sources does not replace visual comparison with the 1628 copy."
+          "pt": "A página 54 do item muenster_cosmographia_1628 (n117) corresponde visualmente à figura 3 do dossiê, inclusive nas marcas da digitalização; o arquivo original muenster_cosmographia_1628_0117.jpg não foi recuperado para cotejo binário. O Internet Archive declara como origem http://bnm.bnrm.ma:86/pdf.aspx?IDc=4566; cota, exemplar e cadeia de digitalização permanecem sem confirmação institucional. O antigo link Bavarikon bsb00113022 identifica Europae Descriptio, de Matthias Quad, Colônia: Bussemacher, 1587, e não este exemplar da Cosmographia. As imagens exibidas são estudos interpretativos gerados por IA: semelhança visual não comprova o arquivo usado na geração. O exemplar de Putsch/Dennecker de 1534, encontrado por Wawruschka em Retz em 2018 e divulgado em 2019, é outro objeto.",
+          "en": "Page 54 of item muenster_cosmographia_1628 (n117) visually matches figure 3 in the dossier, including digitisation marks; the original file muenster_cosmographia_1628_0117.jpg was not recovered for binary comparison. Internet Archive states http://bnm.bnrm.ma:86/pdf.aspx?IDc=4566 as its source; the shelfmark, physical copy and digitisation chain remain institutionally unconfirmed. The former Bavarikon link bsb00113022 identifies Europae Descriptio by Matthias Quad, Cologne: Bussemacher, 1587, not this copy of Cosmographia. The displayed images are AI-generated interpretive studies: visual similarity does not prove which file was used to generate them. The 1534 Putsch/Dennecker copy found by Wawruschka in Retz in 2018 and publicised in 2019 is a different object."
         },
         "references": [
           {
@@ -79,6 +79,16 @@
             "url": "https://ojs.lib.unideb.hu/eastcentraleurope/article/view/16363",
             "citation": "UZELAC, Aleksandar. Some Notes on the Putsch Map («Europa Regina») and Its Depiction of Southeastern Europe. East Central Europe: Between the Baltic and the Adriatic, v. 1, n. 1, 2025. DOI: 10.65006/eastcentraleurope/2025/16363.",
             "accessedAt": "2026-10-09"
+          },
+          {
+            "url": "https://archive.org/details/muenster_cosmographia_1628",
+            "citation": "INTERNET ARCHIVE. muenster_cosmographia_1628. Metadados de edição, origem declarada e Public Domain Mark 1.0 / edition metadata, stated source and Public Domain Mark 1.0.",
+            "accessedAt": "2026-10-13"
+          },
+          {
+            "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00113022/manifest",
+            "citation": "BAYERISCHE STAATSBIBLIOTHEK / STAATLICHE BIBLIOTHEK REGENSBURG. Quad, Matthias: Evropae Descriptio. [Köln]: Bussemacher, 1587. IIIF, bsb00113022, BV013546107, Gr/2Hist.pol.5,52a. Outro objeto / different object.",
+            "accessedAt": "2026-10-13"
           }
         ]
       },
@@ -94,11 +104,11 @@
         "status": "verified",
         "reviewedAt": "2026-09-25",
         "audit": {
-          "checkedAt": "2026-10-09",
-          "status": "unavailable",
+          "status": "partial",
+          "checkedAt": "2026-10-13",
           "note": {
-            "pt": "Cronologia revista documentalmente em 09/10/2026: impressão de 1534, impressão de 1537 e edição de referência de 1628 separadas. O Bavarikon voltou a negar acesso. Permanecem pendentes a identificação visual da página do exemplar institucional, sua correspondência com EU-1628 e os termos da reprodução digital. A revisão anterior de 25/09/2026 não equivale à confirmação institucional atual.",
-            "en": "Chronology reviewed against documentary sources on 2026-10-09: the 1534 printing, 1537 printing and 1628 reference edition are distinguished. Bavarikon again denied access. Visual identification of the institutional copy's page, its correspondence with EU-1628 and digital reproduction terms remain pending. The earlier review of 2026-09-25 does not constitute current institutional confirmation."
+            "pt": "Auditoria parcial: frontispício de 1628/n14 e página 54/n117 vistos e cotejada com a figura 3 do dossiê. Os metadados IIIF institucionais demonstram que bsb00113022 é Quad/Bussemacher, 1587; a associação anterior com o exemplar de 1628 foi retirada. O Bavarikon continua bloqueado; os endereços da origem declarada no Internet Archive retornaram 502. Permanecem pendentes cota, exemplar físico, termos na origem e arquivo de referência usado para gerar as pranchas. A revisão de 25/09/2026 não certifica esses vínculos.",
+            "en": "Partial audit: the 1628 title page/n14 and page 54/n117 viewed and compared with figure 3 in the dossier. Institutional IIIF metadata establish that bsb00113022 is Quad/Bussemacher, 1587; the former association with the 1628 copy was removed. Bavarikon remains blocked; the source addresses stated by Internet Archive returned 502. The shelfmark, physical copy, source terms and reference file used to generate the plates remain pending. The review of 2026-09-25 does not certify these links."
           }
         }
       }
@@ -673,4 +683,3 @@
     }
   ]
 }
-

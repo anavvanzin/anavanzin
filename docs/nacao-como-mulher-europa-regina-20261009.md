@@ -76,3 +76,63 @@ Validações concluídas:
 
 Limite da validação: não houve teste interativo em navegador real. Chromium estava ausente e sua instalação falhou por download inválido/truncado. O cotejo React foi feito por renderização estática, não por E2E. O build avisou sobre fontes globais ausentes no checkout parcial; os arquivos globais não foram alterados.
 
+## Adendo — rastreamento material e digital (2026-10-13)
+
+Reexame da PR #165 no head `0d4ea36bfee8c9aa6bc5fca1dd147762fb7268d5`. Este adendo supersede a associação de EU-1628 ao objeto Bavarikon tratada acima como apenas pendente. A cronologia 1534/1537/1628, a descrição e a interpretação histórica permanecem separadas.
+
+### Correspondências e limites
+
+| Elo | Evidência consultada | Resultado |
+|---|---|---|
+| Dossiê → edição | Tabela 1 nomeia `muenster_cosmographia_1628_0117.jpg`; figura 3 e referência identificam Münster, Basileia, 1628, p. 54 | Identificação bibliográfica documental. O relatório de 19/09 não fornece cota ou cadeia material que certifique este exemplar. |
+| Dossiê → captura digital | Figura 3 extraída da versão DOCX do mesmo dossiê, [Drive](https://drive.google.com/file/d/1KTkEVvDoXIOyfx5UGKhvkUe9HSWwXylS/view), `word/media/rId30.jpg`, 1477 × 2186 px; [imagem n117 do Internet Archive](https://archive.org/download/muenster_cosmographia_1628/page/n117.jpg), 2953 × 4371 px | Correspondência visual forte: página 54, cabeçalho «Das ander Buch», mesmo enquadramento, manchas e interrupções do traço no cetro e na borda direita. As dimensões da imagem incorporada são aproximadamente metade da captura. São arquivos distintos; não se afirma igualdade binária. |
+| Índice digital → página impressa | [Índice de páginas do Internet Archive](https://archive.org/download/muenster_cosmographia_1628/muenster_cosmographia_1628_page_numbers.json), `leafNum: 117`, `pageNumber: "54"`, conferido visualmente | `n117` não é a paginação impressa 117: a página traz 54. A sequência 116/117/118 é catalogada como 53/54/55. |
+| Item digital → origem institucional | [Item IA](https://archive.org/details/muenster_cosmographia_1628) e [metadados](https://archive.org/metadata/muenster_cosmographia_1628): alemão, 1628, Basileia; origem declarada `http://bnm.bnrm.ma:86/pdf.aspx?IDc=4566`; depósito em 01/06/2021, perfil público Historiker | A origem é declaração do depositante, não certificação de custódia pelo Internet Archive. O domínio aponta para a Bibliothèque nationale du Royaume du Maroc; o endereço original e a tentativa HTTPS sem porta retornaram 502. Cota, titularidade do exemplar e cadeia de digitalização não foram confirmadas no catálogo institucional. |
+| Antigo Bavarikon → objeto | [Manifest IIIF institucional](https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00113022/manifest), consultado diretamente: `Quad, Matthias: Evropae Descriptio`; [Köln]: Bussemacher; 1587; [1] Bl.; latim; Regensburg, Staatliche Bibliothek; `999 Gr/2Hist.pol.5,52a`; `BV013546107`; URN `urn:nbn:de:bvb:12-bsb00113022-1` | Outro objeto. O vínculo com o exemplar Münster de 1628 é rejeitado, não deixado como correspondência provável. O portal Bavarikon ainda respondeu «Access Denied»; o catálogo e a imagem puderam ser examinados pela API IIIF institucional. |
+| Digitalização → arquivo nomeado no pacote IDEAS 18 | Busca por nome exato no Drive sem resultado; árvore da branch sem esse JPEG | Não recuperado o arquivo original `muenster_cosmographia_1628_0117.jpg`. A coincidência do nome com o índice IA e o cotejo da figura incorporada sustentam identificação digital, sem autenticar bytes do arquivo de trabalho. |
+| Fonte histórica → imagens da exposição | `EU-1628-europa-regina-atlas.webp` examinado diretamente; créditos na própria prancha e aviso editorial; metadados `images` e textos PT/EN | Prancha e recorte são estudos interpretativos gerados por IA. Há relação formal com a versão de Münster, mas não foi localizado registro de geração que comprove qual JPEG foi usado. Não são fac-símiles, nem testemunhos da materialidade do exemplar. |
+
+A imagem institucional de Quad foi examinada pelo [IIIF Image API](https://api.digitale-sammlungen.de/iiif/image/v2/bsb00113022_00001/full/1000,/0/default.jpg): cartucho «Evropae Descriptio», brasões e numerosos navios, ausentes da página 54 cotejada. O manifest institucional fornece identificação suficiente para excluir a antiga associação. Seu comentário histórico contém cronologia antiga de Putsch e não foi usado para desfazer as correções de 1534/1537.
+
+### Direitos e evidência digital
+
+O item IA declara **Public Domain Mark 1.0**. Isso foi transcrito como declaração do serviço, não convertido em autorização institucional do endereço de origem. O manifest de Quad também fornece PDM 1.0, mas seus termos não foram transferidos para Münster ou para as pranchas interpretativas.
+
+SHA-256 dos arquivos efetivamente examinados (cópias de consulta, não arquivos novos do corpus):
+
+- Figura 3 incorporada no DOCX, `rId30.jpg`: `bce6592fd8a884c11ba533a4321122cf339c982ea115b31bdd78548d99c984d0`.
+- IA `page/n117.jpg`: `117b362158b51505c2d387c86bfb6e2e6d7c12cf7ef35bdf5f063f83ea0f4d6b`.
+- Prancha existente `EU-1628-europa-regina-atlas.webp`: `fd631bcd93f478c3d4071b98646aed6d5c9f0a7eabf4c26f0f1a63fc4c434fa9`.
+
+### Decisão sobre os metadados
+
+- `source.institution/url` passa a identificar o item digital efetivamente cotejado no Internet Archive. Não se atribui a ele a custódia física.
+- A antiga referência Bavarikon é retida como referência explicitamente de **outro objeto**, com identificação institucional demonstrada; deixa de ser a fonte principal de EU-1628.
+- `source.citation/provenance/rights` explicita em PT/EN o alcance do cotejo, a origem declarada, a ausência de identificação material e o caráter interpretativo das imagens.
+- `audit.status` passa de `unavailable` para **`partial`**: a captura e a exclusão do objeto errado estão verificadas; a cadeia material continua incompleta. Não passa a `confirmed`.
+- `review.status: verified` e `reviewedAt: 2026-09-25` são preservados como registro anterior; não certificam os vínculos materiais deste adendo. IDs, nove fichas, imagens, cronologia e camadas `observed/context/interpretation` são preservados.
+
+**Pendência decisiva:** obter registro institucional com cota do exemplar de 1628, cotejar sinais de posse, recuperar o JPEG original do pacote e o registro de geração das pranchas. A confirmação da edição não comprova, sozinha, o exemplar ou a derivação dos assets.
+
+### Equivalência editorial PT/EN
+
+As duas versões dizem a mesma coisa: correspondência visual da figura 3 com p. 54/n117; edição conferida no frontispício digital n14; origem marroquina declarada pelo IA, sem confirmação de exemplar/cota; Quad 1587 como outro objeto; arquivos da exposição como estudos interpretativos; auditoria parcial. Nenhuma tradução converte hipótese de derivação ou identificação do exemplar em fato.
+
+Validação desta revisão registrada abaixo após o build e o cotejo das renderizações. Nenhum merge ou publicação foi realizado. O resultado técnico não certifica a proveniência.
+
+
+
+
+**Cotejo do frontispício digital concluído:** [n14](https://archive.org/download/muenster_cosmographia_1628/page/n14.jpg) traz Cosmographia, texto alemão, Sebastian Münster, Basel e «Bey den Henricpetrinischen». O texto menciona 1628 e a data final aparece como «M. DC. XXIIX.» (1628). Confirma-se a edição na sequência digital, sem inferir a cota ou a custódia física. A identificação da oficina não é convertida em publicação pessoal de Münster nem em atribuição a Henricus Petri vivo em 1628.
+
+### Validação do adendo de 13/10
+
+- `npm run check` e `npm run build` em `apps/nacao-como-mulher`: TypeScript, 6 testes Vitest, validação de nove fichas e dois snapshots aprovados; bundle e HTML regenerados.
+- Chromium real (`/tmp/chromium`), Playwright em checkout parcial: **14 verificações aprovadas e uma falha** no conjunto executado. As três verificações específicas de cotejo JSON/renderização (PT, EN e PT sem JavaScript) passaram; também passaram ausência de overflow em 320/390/768/1280 px, leitura, idioma, filtros e comparação.
+- A falha `figure stays within narrow stage when moved and resized` exige altura <1500 px e recebe **1756 px**. Reexecutada contra o bundle e HTML do head original `0d4ea36`, apresentou **os mesmos 1756 px**; não foi corrigida nem ocultada por relaxamento do limite nesta revisão de proveniência.
+- A expectativa antiga `later editions` no teste de Explore EN foi atualizada para `1628 (reference edition)`, já exibido pela PR original.
+- Três testes de integração da homepage/Atlas foram excluídos por não fazerem parte do checkout parcial; não se declara execução integral do site.
+- Os 18 arquivos de imagem de origem e os 18 de saída correspondem aos blobs originais da branch. CSS e componentes não foram alterados. As oito outras fichas, metadados gerais, cronologia, IDs e camadas de descrição/contexto/interpretação de EU-1628 foram preservados.
+- Avisos do build sobre fontes globais decorrem do checkout parcial; os arquivos globais originais foram recuperados para o cotejo em navegador e não entram no commit.
+
+As verificações específicas foram executadas como instrumentos locais de auditoria, sem acrescentar novos testes ao repositório. A suite da exposição permanece com uma falha reproduzida no head anterior; aprovação técnica e confirmação material são questões distintas.
