@@ -1,0 +1,85 @@
+[
+  {
+    "id": "essencial",
+    "title": "Nota essencial",
+    "description": "Um registro simples para compreender, perguntar e retomar.",
+    "whenToUse": "Para uma leitura curta ou o estudo de um conceito.",
+    "layout": "sections",
+    "metadata": ["Tema", "Data", "Fonte", "Próxima revisão"],
+    "sections": [
+      { "label": "Ideias centrais", "hint": "Registre o essencial com suas palavras.", "weight": 3 },
+      { "label": "Exemplo ou relação", "hint": "Crie um exemplo ou ligue a ideia a algo que você conhece.", "weight": 2 },
+      { "label": "Perguntas e dúvidas", "hint": "O que você precisa explicar? O que ficou em aberto?", "weight": 2 },
+      { "label": "Resumo de memória", "hint": "Feche a fonte e escreva o que ficou. Depois, confira.", "weight": 2 }
+    ]
+  },
+  {
+    "id": "cornell",
+    "title": "Cornell",
+    "description": "Perguntas, notas e uma síntese na mesma folha.",
+    "whenToUse": "Para organizar uma aula ou leitura e revisar pelas perguntas.",
+    "layout": "cornell",
+    "metadata": ["Tema", "Data", "Fonte", "Próxima revisão"],
+    "sections": [
+      { "label": "Perguntas e pistas", "hint": "Depois de anotar, formule perguntas para recuperar as ideias.", "weight": 3 },
+      { "label": "Anotações", "hint": "Registre ideias, exemplos e relações com suas palavras.", "weight": 4 },
+      { "label": "Resumo", "hint": "Sem consultar as notas, escreva uma síntese curta. Confira depois.", "weight": 1 }
+    ]
+  },
+  {
+    "id": "fichamento",
+    "title": "Fichamento de leitura",
+    "description": "Separe o argumento da fonte, as citações e sua interpretação.",
+    "whenToUse": "Para estudar um texto acadêmico ou guardar uma leitura para pesquisa.",
+    "layout": "sections",
+    "metadata": ["Tema", "Data", "Trecho ou capítulo", "Próxima revisão"],
+    "sections": [
+      { "label": "Referência completa", "hint": "Identifique autoria, título, edição, ano e link, quando houver.", "weight": 1 },
+      { "label": "Síntese do argumento", "hint": "Reconstrua a ideia do autor com suas palavras e indique as páginas.", "weight": 3 },
+      { "label": "Citação literal e página", "hint": "Use aspas, transcreva fielmente e registre a página ou localização.", "weight": 2 },
+      { "label": "Comentário próprio", "hint": "Separe sua interpretação: perguntas, relações e avaliação do argumento.", "weight": 3 }
+    ]
+  },
+  {
+    "id": "feynman",
+    "title": "Explicação Feynman",
+    "description": "Explique com simplicidade e encontre o que ainda precisa estudar.",
+    "whenToUse": "Quando você quer verificar se consegue explicar um conceito.",
+    "layout": "sections",
+    "metadata": ["Conceito", "Data", "Fonte", "Próxima revisão"],
+    "sections": [
+      { "label": "Explicação em palavras simples", "hint": "Explique sem consultar, como se a pessoa ainda não conhecesse o tema.", "weight": 3 },
+      { "label": "Exemplo e seus limites", "hint": "Crie um exemplo e indique onde ele deixa de representar a ideia.", "weight": 2 },
+      { "label": "Lacunas e dúvidas", "hint": "Marque onde travou, usou jargão ou não soube justificar.", "weight": 2 },
+      { "label": "Nova explicação", "hint": "Confira as lacunas na fonte. Feche-a e tente explicar novamente.", "weight": 3 }
+    ]
+  },
+  {
+    "id": "aula",
+    "title": "Aula ou palestra",
+    "description": "Acompanhe a exposição e transforme o registro em estudo.",
+    "whenToUse": "Durante uma aula, palestra, vídeo ou conversa de estudo.",
+    "layout": "sections",
+    "metadata": ["Tema", "Data", "Aula e docente", "Próxima revisão"],
+    "sections": [
+      { "label": "Ideias e relações", "hint": "Registre o fio da exposição, sem tentar copiar cada frase.", "weight": 4 },
+      { "label": "Exemplos e esquemas", "hint": "Anote exemplos, desenhe relações ou registre etapas importantes.", "weight": 2 },
+      { "label": "Perguntas para retomar", "hint": "Transforme pontos importantes e dúvidas em perguntas.", "weight": 2 },
+      { "label": "Síntese após a aula", "hint": "Escreva de memória o que entendeu e marque o que precisa conferir.", "weight": 2 }
+    ]
+  },
+  {
+    "id": "revisao",
+    "title": "Revisão ativa",
+    "description": "Recupere o conteúdo antes de consultar e use os erros para orientar a volta.",
+    "whenToUse": "Para revisar uma nota, preparar uma avaliação ou retomar uma leitura.",
+    "layout": "sections",
+    "metadata": ["Tema", "Data", "Fonte", "Próxima revisão"],
+    "sections": [
+      { "label": "Perguntas para recuperar", "hint": "Escolha perguntas das suas notas ou formule o que precisa saber.", "weight": 2 },
+      { "label": "Respostas sem consulta", "hint": "Feche o material e responda com o que conseguir lembrar.", "weight": 4 },
+      { "label": "Conferência e correções", "hint": "Abra a fonte, confira as respostas e corrija lacunas e erros.", "weight": 2 },
+      { "label": "Próxima retomada", "hint": "Escolha quais perguntas repetir e registre a próxima revisão no cabeçalho.", "weight": 1 }
+    ]
+  }
+]

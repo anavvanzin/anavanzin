@@ -1,3 +1,4 @@
+import NoteTemplates from '../components/NoteTemplates';
 import type { Exhibition } from '../lib/exhibitions';
 import { exhibitions } from '../lib/exhibitions';
 import { Divider, Seal } from '../components/Ornaments';
@@ -17,6 +18,7 @@ function countWords(ex: Exhibition): number {
 }
 
 export default function ExhibitionDetail({ exhibition }: ExhibitionDetailProps) {
+  const hasTemplates = exhibition.slug === 'fichamento-e-cornell';
   const index = exhibitions.findIndex((ex) => ex.slug === exhibition.slug);
   const total = exhibitions.length;
   const prev = index > 0 ? exhibitions[index - 1] : null;
@@ -101,6 +103,9 @@ export default function ExhibitionDetail({ exhibition }: ExhibitionDetailProps) 
           {exhibition.intro.slice(1)}
         </p>
 
+        {hasTemplates && (
+          <a className="reader-template-link" href="#modelos-anotacao">Escolher um modelo para copiar ou imprimir</a>
+        )}
         <div
           style={{
             display: 'flex',
@@ -128,6 +133,7 @@ export default function ExhibitionDetail({ exhibition }: ExhibitionDetailProps) 
       <nav className="reader-contents" aria-label="Seções deste verbete" style={{ padding: '0 4vw', maxWidth: '1280px', margin: '2rem auto 0' }}>
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-secondary)', margin: '0 0 0.7rem' }}>Neste verbete</p>
         <ol style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem 1.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+          {hasTemplates && <li><a href="#modelos-anotacao" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--accent-void)' }}>Modelos para copiar e imprimir</a></li>}
           {exhibition.sections.map((section, i) => (
             <li key={section.heading}><a href={`#secao-${i + 1}`} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--accent-void)' }}>{section.heading}</a></li>
           ))}
@@ -136,6 +142,7 @@ export default function ExhibitionDetail({ exhibition }: ExhibitionDetailProps) 
 
       {/* corpo em colunas, texto contornando a gravura */}
       <main id="conteudo" tabIndex={-1} style={{ padding: '3rem 4vw 5rem', maxWidth: '1280px', margin: '0 auto' }}>
+        {hasTemplates && <NoteTemplates />}
         <div
           className="article-columns"
           style={{
