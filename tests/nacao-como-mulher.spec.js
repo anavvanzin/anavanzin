@@ -181,23 +181,106 @@ test('English Explore respects theme, semantics and sticky controls', async ({ p
   await expect(page.locator('.explore-meta .eyebrow')).toContainText('1628 (reference edition)');
 });
 
-test('figure stays within narrow stage when moved and resized', async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 844 });
+async function expectReadableStage(page) {
+  // Rejoin the painted lines: no omitted text or words split across narrow slivers.
+  await expect.poll(() => page.locator('.living-text').evaluate(stage => {
+    // A break after an existing hyphen (e.g. EU-1628) is a valid word boundary.
+    const normalize = text => text.replace(/-\s+/g, '-').replace(/\s+/g, ' ').trim();
+    const painted = [...stage.querySelectorAll('.living-line')].map(line => line.textContent).join(' ');
+    const semantic = [...stage.querySelectorAll('.sr-only h3, .sr-only dt, .sr-only dd')].map(el => el.textContent).join(' ');
+    return normalize(painted) === normalize(semantic);
+  })).toBe(true);
+  await expect.poll(() => page.locator('.living-text').evaluate(stage => {
+    const box = stage.getBoundingClientRect();
+    return [...stage.querySelectorAll('.living-line, .draggable-figure')].filter(el => {
+      const r = el.getBoundingClientRect();
+      return r.left < box.left - 1 || r.right > box.right + 1 || r.top < box.top - 1 || r.bottom > box.bottom + 1;
+    }).length;
+  })).toBe(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+}
+
+for (const width of [320, 390]) for (const lang of ['pt', 'en']) {
+test(`Explore preserves readable text and keyboard controls at ${width}px (${lang})`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 844 });
   await page.goto(route);
-  await page.getByRole('button', { name: 'Explorar' }).click();
+  await page.evaluate(() => document.fonts.ready);
+  if (lang === 'en') await page.getByRole('button', { name: 'EN', exact: true }).click();
+  const explore = page.getByRole('button', { name: lang === 'pt' ? 'Explorar' : 'Explore', exact: true });
+  await explore.focus();
+  await page.keyboard.press('Enter');
+  const stage = page.locator('.living-text');
   const figure = page.locator('.draggable-figure');
-  await figure.focus();
+  const actions = page.locator('.explore-actions button');
+  await actions.first().focus();
+  for (let i = 1; i < 4; i++) {
+    await page.keyboard.press('Tab');
+    await expect(actions.nth(i)).toBeFocused();
+  }
+  await page.keyboard.press('Tab');
+  await expect(figure).toBeFocused();
+  await expectReadableStage(page);
   const initial = await figure.boundingBox();
   await page.keyboard.press('-');
-  expect((await figure.boundingBox()).width).toBeLessThanOrEqual(initial.width);
+  await expect.poll(async () => (await figure.boundingBox()).width).toBeLessThan(initial.width);
   for (let i = 0; i < 40; i++) await page.keyboard.press('+');
   for (let i = 0; i < 150; i++) await page.keyboard.press('ArrowDown');
-  const bounds = await page.locator('.living-text').boundingBox();
-  const moved = await figure.boundingBox();
-  expect(moved.width).toBeLessThanOrEqual(bounds.width);
-  expect(moved.y + moved.height).toBeLessThanOrEqual(bounds.y + bounds.height);
-  expect(bounds.height).toBeLessThan(1500);
+  await expectReadableStage(page);
+  await expect.poll(() => figure.evaluate(el => {
+    const rect = el.getBoundingClientRect();
+    const toolbar = document.querySelector('.toolbar').getBoundingClientRect();
+    return rect.top >= toolbar.bottom && rect.bottom <= window.innerHeight;
+  })).toBe(true);
+  const boundary = await figure.evaluate(el => ({ top: el.style.top, width: el.style.width }));
+  const height = (await stage.boundingBox()).height;
+  // Height depends on prose and wrapping. Moving beyond the boundary must not grow it.
+  for (let i = 0; i < 50; i++) await page.keyboard.press('ArrowDown');
+  await expect.poll(() => figure.evaluate(el => ({ top: el.style.top, width: el.style.width }))).toEqual(boundary);
+  expect((await stage.boundingBox()).height).toBe(height);
+  await page.keyboard.press('Enter');
+  await expect(figure.locator('img')).toHaveAttribute('src', /-atlas\.webp$/);
+  await expectReadableStage(page);
+  expect(await stage.evaluate(stage => {
+    const image = stage.querySelector('.draggable-figure').getBoundingClientRect();
+    return [...stage.querySelectorAll('.living-line')].filter(line => {
+      const r = line.getBoundingClientRect();
+      return r.left < image.right && r.right > image.left && r.top < image.bottom && r.bottom > image.top;
+    }).length;
+  })).toBe(0);
+
+  // A live resize must reflow the same object, keep focus and retain the selected plate.
+  await page.setViewportSize({ width: width === 320 ? 390 : 320, height: 844 });
+  await expectReadableStage(page);
+  await expect(figure).toBeFocused();
+  await expect(figure.locator('img')).toHaveAttribute('src', /-atlas\.webp$/);
+  await page.setViewportSize({ width, height: 844 });
+  await expectReadableStage(page);
+  await page.keyboard.press('Enter');
+  await expect(figure.locator('img')).toHaveAttribute('src', /-cut\.webp$/);
+  for (let i = 0; i < 3; i++) await page.keyboard.press('Shift+Tab');
+  await expect(actions.nth(1)).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect.poll(async () => (await figure.boundingBox()).width).toBeCloseTo(initial.width, 0);
+  await expectReadableStage(page);
+  for (let i = 0; i < 4; i++) await page.keyboard.press('Tab');
+  const source = page.locator('.explore-section .source-panel');
+  await expect(source.locator('summary')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(source).toHaveAttribute('open', '');
+  await expect(source.locator('.source-grid')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+  // Tab through the horizontal object selector; every record must remain readable.
+  const tabs = page.locator('.object-tabs button');
+  await tabs.first().focus();
+  for (let i = 0; i < 9; i++) {
+    await expect(tabs.nth(i)).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(tabs.nth(i)).toHaveAttribute('aria-pressed', 'true');
+    await expectReadableStage(page);
+    if (i < 8) await page.keyboard.press('Tab');
+  }
 });
+}
 
 test('prerendered edition qualifies counts and defers later plates', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
@@ -208,4 +291,5 @@ test('prerendered edition qualifies counts and defers later plates', async ({ br
   expect(await page.locator('.object-card img[loading="lazy"]').count()).toBe(7);
   await context.close();
 });
+
 

@@ -138,7 +138,7 @@ function ReadingCard({ item, index, lang, selected, onCompare }: {
   )
 }
 
-function ExploreStage({ item, lang, reading = false }: { item: ExhibitionItem; lang: Lang; reading?: boolean }) {
+function ExploreStage({ item, lang, reading = false, compact = false }: { item: ExhibitionItem; lang: Lang; reading?: boolean; compact?: boolean }) {
   const c = copy[lang]
   const stageRef = useRef<HTMLDivElement>(null)
   const dragRef = useRef<{ pointerId: number; offsetX: number; offsetY: number } | null>(null)
@@ -164,17 +164,20 @@ function ExploreStage({ item, lang, reading = false }: { item: ExhibitionItem; l
   useEffect(() => setObstacle(initial), [initial])
 
   const blocks = useMemo(() => [
-    ...(!reading ? [{ text: t(item.title, lang), font: '600 32px Georgia', lineHeight: 40, heading: true, gapAfter: 18 }] : []),
+    ...(!reading ? [{ text: t(item.title, lang), font: '600 32px Georgia', lineHeight: 40, heading: true, gapAfter: 18, minLineWidth: compact ? width : undefined }] : []),
     ...([['observed', c.observed], ['context', c.context], ['interpretation', c.interpretation]] as const).flatMap(([field, label]) => [
       { text: label, font: 'bold 13px Georgia', lineHeight: 22, heading: true, gapAfter: 6 },
       { text: t(item[field], lang), font: '20px Georgia', lineHeight: 34, gapAfter: 26 },
     ]),
-  ], [item, lang, reading, c])
+  ], [item, lang, reading, c, compact, width])
   // Full plates occupy a rectangle; cut-outs use their measured contours.
   const flowObstacle = useMemo(() => showPlate ? { ...obstacle, id: '' } : obstacle, [obstacle, showPlate])
-  const layout = useMemo(() => flowText(width, blocks, flowObstacle, cache), [blocks, cache, flowObstacle, width])
+  // On phones, skip slivers beside the image instead of splitting prose into syllables.
+  // Nine body-text ems leave room for a short phrase; desktop keeps its existing flow.
+  const minLineWidth = compact ? Math.min(width, 180) : 48
+  const layout = useMemo(() => flowText(width, blocks, flowObstacle, cache, minLineWidth), [blocks, cache, flowObstacle, width, minLineWidth])
   // The bounds must not follow the figure as it moves down the stage.
-  const baseline = useMemo(() => flowText(width, blocks, { ...flowObstacle, y: 72 }, cache), [blocks, cache, flowObstacle.id, obstacle.w, obstacle.h, obstacle.x, width])
+  const baseline = useMemo(() => flowText(width, blocks, { ...flowObstacle, y: 72 }, cache, minLineWidth), [blocks, cache, flowObstacle.id, obstacle.w, obstacle.h, obstacle.x, width, minLineWidth])
   const boundsHeight = Math.max(560, baseline.height + 40, obstacle.h + 156)
   const height = Math.max(boundsHeight, layout.height + 40)
 
@@ -191,12 +194,26 @@ function ExploreStage({ item, lang, reading = false }: { item: ExhibitionItem; l
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     const step = event.shiftKey ? 24 : 10
+    // Keep keyboard movement visible below the sticky controls on a small screen.
+    const followFigure = () => {
+      if (!compact) return
+      const figure = event.currentTarget
+      requestAnimationFrame(() => {
+        if (!figure.isConnected || document.activeElement !== figure) return
+        const rect = figure.getBoundingClientRect()
+        const top = (document.querySelector('.toolbar')?.getBoundingClientRect().bottom ?? 0) + 12
+        const bottom = window.innerHeight - 12
+        const delta = rect.top < top ? rect.top - top : Math.max(0, rect.bottom - bottom)
+        if (delta) window.scrollBy({ top: delta, behavior: 'instant' })
+      })
+    }
     if (event.key === 'Enter') { setShowPlate((value) => !value); event.preventDefault(); return }
-    if (event.key === '+' || event.key === '=') { resize(18); event.preventDefault(); return }
-    if (event.key === '-' || event.key === '_') { resize(-18); event.preventDefault(); return }
+    if (event.key === '+' || event.key === '=') { resize(18); followFigure(); event.preventDefault(); return }
+    if (event.key === '-' || event.key === '_') { resize(-18); followFigure(); event.preventDefault(); return }
     const delta = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[event.key]
     if (delta) {
       setObstacle((current) => clamp({ ...current, x: current.x + delta[0], y: current.y + delta[1] }))
+      followFigure()
       event.preventDefault()
     }
   }
@@ -359,7 +376,7 @@ export default function App() {
             <nav className="object-tabs" aria-label={c.tabs}>
               {visible.map((item) => <button type="button" key={item.id} aria-pressed={exploreItem.id === item.id} onClick={() => setActiveExplore(item.id)}>{t(item.title, lang)}</button>)}
             </nav>
-            <ExploreStage item={exploreItem} lang={lang} />
+            <ExploreStage item={exploreItem} lang={lang} compact={compact} />
           </div>
         )}
 
@@ -373,4 +390,5 @@ export default function App() {
     </div>
   )
 }
+
 
