@@ -82,3 +82,37 @@ git diff --check
 Em checkout completo com Chromium instalado, pode-se usar `npx playwright test tests/nacao-como-mulher.spec.js` com a configuração normal. Não se declara execução das três integrações Trabalhos/Atlas ausentes no checkout parcial, de Firefox/WebKit, de leitor de tela real ou de dispositivos físicos. A edição sem JavaScript foi testada. A renderização de fontes pode variar entre sistemas; por isso, a altura não é uma constante universal.
 
 O JSON histórico, as 18 imagens de origem e suas 18 cópias de saída, os contornos, o CSS e o adendo da PR #165 não entram nas alterações. O bundle é regenerado e sua referência no HTML é atualizada. A PR não efetua merge nem publicação em produção.
+
+## Complemento — integrações Trabalhos/Atlas e validação pré-merge (13/10/2026)
+
+Commit funcional validado: `876bc0a14bf170d54e0c057c11d54f59e9427101`; base: `5a9240b093ccb6dfe582125a9f2e1cc32e365812`.
+
+A clonagem Git solicitou credenciais indisponíveis neste ambiente. A árvore recursiva completa foi consultada pelo conector GitHub (sem truncamento), e foram recuperados os arquivos das páginas Trabalhos, Atlas, dos quatro destinos e da exposição, seus scripts, CSS, fontes, imagens e cursores. Os arquivos recuperados foram conferidos pelos hashes dos blobs Git. Trata-se de uma reconstrução das dependências da suíte, **não de um clone integral dos cerca de 510 MB do repositório**. Os três testes originais foram recuperados sem modificar ou excluir asserções.
+
+| Integração anteriormente excluída | Resultado |
+|---|---|
+| Trabalhos: cartão PT/EN e manutenção do link ICONOCRACIA | Aprovado |
+| Atlas: cartão da exposição aponta para `/atlas/nacao-como-mulher/` | Aprovado |
+| Atlas: Justitia, Marianne, Britannia e República mantêm links únicos e retornam HTTP 200 | Aprovado |
+
+- Execução focalizada: **3/3 aprovados**.
+- Suíte inteira `tests/nacao-como-mulher.spec.js`, sem filtros de exclusão: **18/18 aprovados**, também após restaurar o HTML exato do commit (o build removia apenas uma linha vazia final).
+- `npm run check:exhibition`: TypeScript, **6/6 testes unitários**, nove registros e dois snapshots documentais aprovados.
+- `npm run build:exhibition`: aprovado; JS e CSS gerados correspondem aos blobs da PR. As 18 imagens de saída correspondem às origens.
+- Desktop 1280 × 844: comparação nova dos seis estados (inicial, ampliado, limite inferior, movimento adicional, prancha integral e reposição) com capturas idênticas antes/depois. Nenhuma exceção JavaScript. As capturas aguardam fontes, decodificação da imagem e estabilização do palco; capturas prematuras variavam sem alteração de geometria.
+- O diff da PR preserva os dados editoriais, contornos, imagens, CSS e revisão histórica; esta complementação altera somente documentação.
+
+Ambiente: Node 24.19.0, Playwright **1.62.1**, Chromium **153.0.8010.0** fornecido por `@sparticuz/chromium@153.0.0`, instalado fora do projeto. A tentativa com a configuração normal falhou antes dos testes porque `http-server` não conseguiu consultar interfaces de rede; o download padrão do navegador também foi truncado. O override temporário substituiu somente servidor e binário: Python HTTP em 127.0.0.1:8080 e Chromium local com `--no-sandbox --no-zygote --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader`. A configuração e as dependências versionadas não foram alteradas.
+
+```sh
+npx playwright test --config=../playwright.local.cjs tests/nacao-como-mulher.spec.js --grep 'Trabalhos|the Atlas advertises|Atlas cards preserve' --workers=1
+npx playwright test --config=../playwright.local.cjs tests/nacao-como-mulher.spec.js --workers=1
+npm run check:exhibition
+npm run build:exhibition
+```
+
+### Verificações remotas e condições de integração
+
+No commit funcional, os dois check runs Socket Security (`Pull Request Alerts` e `Project Report`) concluíram com **success**. O status combinado não possui contextos; a consulta a Actions por SHA retorna zero execuções. O único workflow versionado, `Deploy GitHub Pages`, roda em push para `main` ou disparo manual: não há workflow de testes disparado por esta PR. Os checks do Socket não substituem a validação Playwright local.
+
+A PR estava aberta, sem rascunho, com `mergeable_state=clean`, sem revisões registradas. A branch `main` estava sem proteção e a lista de rulesets estava vazia. Não foram observadas exigências remotas de aprovação ou checks de integração. Os resultados sustentam a integração autorizada, com conferência do SHA antes do merge. O merge em `main` aciona o workflow de publicação; a validação descrita acima é local, sem alegar teste em produção, Firefox/WebKit, dispositivos físicos ou leitor de tela real.
