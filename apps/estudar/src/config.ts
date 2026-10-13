@@ -1,4 +1,4 @@
-import { assetPath } from './lib/paths';
+import { assetPath, getExhibitionPath } from './lib/paths';
 
 export interface SiteConfig {
   language: string
@@ -35,6 +35,8 @@ export interface ManifestoConfig {
 export interface ExhibitionArticleSection {
   heading: string
   body: string
+  items?: string[]
+  links?: { label: string; href: string }[]
 }
 
 export interface ExhibitionItem {
@@ -286,6 +288,12 @@ export const exhibitionsConfig: ExhibitionsConfig = {
           body:
             "Reserve os últimos dez minutos de cada sessão de estudo para uma 'aula de papel': pegue o conceito principal do dia e explique-o por escrito sem consultar anotações. Depois, compare com o material e marque em vermelho tudo o que ficou impreciso. Esses pontos marcados são o seu próximo plano de estudo — gerado por você, com precisão cirúrgica.",
         },
+        {
+          heading: "Escrever para entender, à mão ou na tela",
+          body:
+            "Reserve um momento para explicar o conceito à mão, num caderno ou bloco de papel, quando isso funcionar para você. Desenhe as relações, registre suas dúvidas e confira a explicação com a fonte. Depois, você pode guardar uma síntese no Bloco de Notas, no Notion, no Obsidian ou no Craft. Experimente os suportes e observe qual ajuda a compreender e a revisar com mais constância. O verbete de anotações traz um roteiro comum para papel e digital.",
+          links: [{ label: "Ver o método de anotações no papel e no digital", href: getExhibitionPath('fichamento-e-cornell') }],
+        },
       ],
     },
     {
@@ -408,35 +416,98 @@ export const exhibitionsConfig: ExhibitionsConfig = {
       ],
     },
     {
-      slug: "fichamento-e-cornell",
-      title: "Notas & Fichamento",
-      image: assetPath('/images/fichamento.jpg'),
-      year: "Ferramenta",
-      eyebrow: "Ferramenta · Registro inteligente",
-      intro:
-        "Anotar não é copiar — é processar. O método Cornell, criado na década de 1950 pelo professor Walter Pauk, e a tradição acadêmica do fichamento transformam a anotação em uma máquina de revisão: a nota certa hoje é a recordação ativa de amanhã.",
-      sections: [
+      "slug": "fichamento-e-cornell",
+      "title": "Notas & Fichamento",
+      "image": assetPath('/images/fichamento.jpg'),
+      "year": "Ferramenta",
+      "eyebrow": "Ferramenta · Anotações no papel e no digital",
+      "intro": "Anote para pensar e voltar ao que aprendeu. Escrever à mão merece espaço no estudo; caderno e ferramentas digitais podem trabalhar juntos. Um roteiro de registro, perguntas e revisão cabe no bloco de papel, no Bloco de Notas, no Notion, no Obsidian ou no Craft.",
+      "sections": [
         {
-          heading: "O layout Cornell",
-          body:
-            "Divida a folha em três zonas: uma coluna estreita à esquerda (pistas), a área principal à direita (notas da aula ou leitura) e uma faixa na base (resumo). Durante o estudo, anote apenas à direita, em frases curtas. Depois, escreva na coluna esquerda perguntas que as notas respondem. Por fim, resuma a página inteira em duas ou três frases na faixa inferior. A folha está pronta — e, mais importante, está testável.",
+          "heading": "Um método, no papel e na tela",
+          "body": "Uma anotação útil ajuda você a compreender durante o estudo e a recuperar depois. Experimente um roteiro simples: registre as ideias essenciais com suas palavras, transforme os pontos principais em perguntas, responda sem consultar e volte a essas perguntas em outros dias. Use o mesmo roteiro no caderno, num bloco de papel ou em um aplicativo. A escolha do suporte pode variar com a matéria, a tarefa, o conforto e a acessibilidade."
         },
         {
-          heading: "A nota que se testa sozinha",
-          body:
-            "O truque do Cornell é cobrir a área de notas com a mão e responder às perguntas da coluna de pistas olhando só para ela. A folha vira um dispositivo de recordação ativa embutido: não é preciso montar flashcards nem reler nada — a própria estrutura da anotação força a recuperação. E cada folha pode entrar no ciclo de repetição espaçada: revisada em 1 dia, 3 dias, 7 dias.",
+          "heading": "Escrever à mão merece espaço",
+          "body": "Reserve momentos para anotar à mão: explicar um conceito, desenhar relações, resolver uma questão ou escrever o que você lembra depois de fechar o livro. Caderno, bloco de papel e caneta digital são possibilidades. Estudos com universitários sugerem uma pequena vantagem média das notas manuscritas no desempenho, mas os resultados variam; uma replicação não encontrou vantagem robusta na aprendizagem imediata. Vale experimentar a escrita manual e observar o que você consegue explicar e recuperar depois.",
+          "links": [
+            {
+              "label": "Flanigan et al. (2024) · meta-análise",
+              "href": "https://link.springer.com/article/10.1007/s10648-024-09914-w"
+            },
+            {
+              "label": "Urry et al. (2021) · replicação",
+              "href": "https://journals.sagepub.com/doi/10.1177/0956797620965541"
+            }
+          ]
         },
         {
-          heading: "O fichamento acadêmico",
-          body:
-            "Irmão mais antigo do Cornell, o fichamento é a prática de registrar cada fonte em uma ficha própria: referência completa, ideias centrais com as próprias palavras, citações relevantes com página e comentários críticos. Trabalho braçal? Sim — e é justamente esse o ponto. Reformular uma ideia com as próprias palavras é elaboração, uma das estratégias de codificação mais robustas da ciência cognitiva: você não entende o que copia, mas precisa entender o que reformula.",
+          "heading": "O layout Cornell",
+          "body": "Divida a folha em três zonas: uma coluna estreita à esquerda para perguntas e pistas, uma área principal à direita para as notas e uma faixa na base para o resumo. Durante a aula ou leitura, registre ideias essenciais e exemplos à direita. Depois, formule perguntas à esquerda e faça uma síntese curta ao final. No digital, você pode usar uma tabela ou apenas três títulos: Notas, Perguntas e Resumo.",
+          "links": [
+            {
+              "label": "Cornell · orientação e modelo oficiais",
+              "href": "https://lsc.cornell.edu/notes.html"
+            }
+          ]
         },
         {
-          heading: "Como aplicar hoje",
-          body:
-            "Na próxima leitura, experimente o Cornell em papel ou em qualquer editor com uma tabela de duas colunas. Regra inegociável: as perguntas da coluna de pistas devem ser escritas no fim da sessão, testando o que ficou na memória — isso funde anotação e auto-teste em um único gesto. E escreva à mão quando puder: estudos comparam anotadores manuais e digitadores e sugerem que o teclado incentiva transcrição literal, enquanto a mão, mais lenta, obriga a síntese.",
+          "heading": "Um modelo mínimo para cada nota",
+          "body": "O formato pode ser simples. Estes campos cabem em uma página de caderno ou em qualquer editor; escolha os que fazem sentido para aquela leitura:",
+          "items": [
+            "Tema e data — o que estou estudando e quando.",
+            "Fonte — autor, título, página ou link; diferencie citações literais das suas próprias palavras.",
+            "Ideias centrais — uma síntese curta, acompanhada de um exemplo.",
+            "Perguntas e dúvidas — o que preciso conseguir explicar e o que ainda ficou em aberto.",
+            "Resumo e próxima revisão — o que ficou da leitura e quando voltar às perguntas."
+          ]
         },
-      ],
+        {
+          "heading": "A nota que se testa sozinha",
+          "body": "Cubra ou esconda a área de notas e responda às perguntas olhando apenas para as pistas. Você também pode explicar em voz alta ou escrever a resposta numa folha separada. Depois, confira, corrija e marque o que precisa retomar. Volte a essas perguntas em outros dias, ajustando os intervalos à dificuldade: uma resposta que ainda exige esforço merece outra revisão."
+        },
+        {
+          "heading": "Escolha um suporte que funcione para você",
+          "body": "Experimente formatos e observe em qual deles você consegue pensar, encontrar suas notas e revisar com constância. Uma ferramenta simples pode ser suficiente. Estas opções acomodam o mesmo método:",
+          "items": [
+            "Caderno ou bloco de papel — para anotar à mão, fazer esquemas e trabalhar longe da tela. Use datas, títulos e um índice para reencontrar o conteúdo.",
+            "Bloco de Notas — para um arquivo de texto direto. Separe as notas por títulos e mantenha fonte, perguntas e resumo no próprio arquivo.",
+            "Notion — para organizar anotações em páginas e blocos, com listas ou tabelas quando forem úteis.",
+            "Obsidian — para quem prefere notas em arquivos Markdown salvos localmente.",
+            "Craft — para organizar documentos em blocos e páginas. Atualmente, uso o Craft; você pode adaptar o roteiro ao suporte que funciona na sua rotina."
+          ],
+          "links": [
+            {
+              "label": "Bloco de Notas · Microsoft",
+              "href": "https://support.microsoft.com/en-us/windows/apps/help-in-notepad"
+            },
+            {
+              "label": "Notion · escrita e edição",
+              "href": "https://www.notion.com/help/writing-and-editing-basics"
+            },
+            {
+              "label": "Obsidian · armazenamento das notas",
+              "href": "https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data"
+            },
+            {
+              "label": "Craft · organização de notas",
+              "href": "https://www.craft.do/organize"
+            }
+          ]
+        },
+        {
+          "heading": "Um fluxo híbrido possível",
+          "body": "Comece uma leitura com papel e caneta para rascunhar, perguntar e desenhar relações. Ao terminar, leve para o digital uma síntese selecionada, as referências e as dúvidas que quer retomar. Se a folha contém um esquema útil, guarde uma foto junto da nota e registre onde está o original. A passagem para o digital é uma oportunidade de reorganizar e explicar a ideia, sem a obrigação de transcrever cada linha."
+        },
+        {
+          "heading": "O fichamento acadêmico",
+          "body": "Para uma leitura acadêmica, mantenha uma nota por fonte, com a referência completa, as ideias centrais nas suas palavras, as citações literais entre aspas com a página e os seus comentários críticos. Separe a posição do autor da sua interpretação. Ao revisar, tente explicar o argumento e relacione a leitura à pergunta da sua pesquisa."
+        },
+        {
+          "heading": "Como aplicar hoje",
+          "body": "Escolha uma leitura curta e um suporte que você já tenha. Registre a fonte, anote três ideias com suas palavras e formule duas perguntas. Feche o material e tente respondê-las; só então confira e corrija. Em outro dia, volte às perguntas. Para comparar papel e digital, observe o que você consegue explicar e recuperar em cada situação, além da facilidade de manter a rotina."
+        }
+      ]
     },
     {
       slug: "no-lugar-do-legislador",
