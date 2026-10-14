@@ -108,6 +108,11 @@ def draw_header(doc: canvas.Canvas, template: dict) -> float:
         doc, template["description"], MARGIN, y, width,
         size=9.2, leading=12.2, color=MUTED,
     )
+    y -= 8
+    y = draw_text_block(
+        doc, f"Como preencher: {template['howToUse']}", MARGIN, y, width,
+        size=8.5, leading=11.5, color=INK,
+    )
     y -= 22
     # Two columns leave useful space for handwriting in every metadata field.
     gap = 22
@@ -141,7 +146,7 @@ def draw_section(doc: canvas.Canvas, section: dict, x: float, top: float, width:
     )
     hint_bottom = draw_text_block(
         doc, section["hint"], x + 12, label_bottom - 4, width - 24,
-        size=7.5, leading=9.5, color=MUTED,
+        size=8, leading=10.2, color=MUTED,
     )
     line_top = hint_bottom - 17
     if line_top < bottom + 10:
@@ -178,8 +183,8 @@ def draw_page(doc: canvas.Canvas, template: dict, page_number: int | None = None
         minimum_heights = []
         for section in sections:
             labels = len(wrap_text(section["label"], width - 24, FONT_BOLD, 9))
-            hints = len(wrap_text(section["hint"], width - 24, FONT_REGULAR, 7.5))
-            minimum_heights.append(10 + labels * 11.2 + 4 + hints * 9.5 + 17 + 12)
+            hints = len(wrap_text(section["hint"], width - 24, FONT_REGULAR, 8))
+            minimum_heights.append(10 + labels * 11.2 + 4 + hints * 10.2 + 17 + 12)
         extra_height = usable_height - sum(minimum_heights)
         if extra_height < 0:
             raise ValueError(f"Too many sections on A4: {template['id']}")
@@ -199,6 +204,7 @@ def draw_page(doc: canvas.Canvas, template: dict, page_number: int | None = None
 
 def markdown(template: dict) -> str:
     blocks = [f"# {template['title']}", template["description"], f"**Quando usar:** {template['whenToUse']}"]
+    blocks.append(f"**Como preencher:** {template['howToUse']}")
     blocks.append("\n\n".join(f"**{label}:**" for label in template["metadata"]))
     for section in template["sections"]:
         blocks.extend([f"## {section['label']}", section["hint"], "[Escreva aqui]"])

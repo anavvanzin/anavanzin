@@ -1,8 +1,10 @@
 # Cornell
 
-Perguntas, notas e uma síntese na mesma folha.
+Transforme as anotações em perguntas que você possa responder depois.
 
-**Quando usar:** Para organizar uma aula ou leitura e revisar pelas perguntas.
+**Quando usar:** Para acompanhar aulas e leituras e revisar pelas perguntas.
+
+**Como preencher:** Comece pelas anotações. Depois, crie perguntas e uma síntese. Para revisar, cubra ou oculte as notas, responda e confira.
 
 **Tema:**
 
@@ -14,18 +16,18 @@ Perguntas, notas e uma síntese na mesma folha.
 
 ## Perguntas e pistas
 
-Depois de anotar, formule perguntas para recuperar as ideias.
+Que perguntas estas notas respondem? Use uma ideia por pergunta.
 
 [Escreva aqui]
 
 ## Anotações
 
-Registre ideias, exemplos e relações com suas palavras.
+O que foi explicado e como as ideias se conectam? Registre conceitos, exemplos e páginas ou minutos para retomar.
 
 [Escreva aqui]
 
 ## Resumo
 
-Sem consultar as notas, escreva uma síntese curta. Confira depois.
+Qual é a ideia central e como os pontos se conectam? Escreva sem olhar as notas. Depois, confira o que faltou.
 
 [Escreva aqui]
