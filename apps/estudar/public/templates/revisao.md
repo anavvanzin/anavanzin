@@ -1,37 +1,39 @@
 # Revisão ativa
 
-Recupere o conteúdo antes de consultar e use os erros para orientar a volta.
+Descubra o que ficou na memória e use as correções para orientar a próxima revisão.
 
-**Quando usar:** Para revisar uma nota, preparar uma avaliação ou retomar uma leitura.
+**Quando usar:** Para retomar um conteúdo já estudado ou se preparar para uma avaliação.
+
+**Como preencher:** Escolha poucas perguntas e responda sem consulta. Compare com a fonte, corrija e decida quais perguntas vai tentar novamente.
 
 **Tema:**
 
 **Data:**
 
-**Fonte:**
+**Fonte para conferir:**
 
 **Próxima revisão:**
 
-## Perguntas para recuperar
+## Perguntas da rodada
 
-Escolha perguntas das suas notas ou formule o que precisa saber.
+Que perguntas cobrem o essencial? Numere-as e inclua uma que peça explicar, comparar ou aplicar uma ideia.
 
 [Escreva aqui]
 
 ## Respostas sem consulta
 
-Feche o material e responda com o que conseguir lembrar.
+Com o material fechado, responda pelo número da pergunta. Se travar, registre até onde conseguiu lembrar.
 
 [Escreva aqui]
 
 ## Conferência e correções
 
-Abra a fonte, confira as respostas e corrija lacunas e erros.
+Compare com a fonte: o que acertou, omitiu ou confundiu? Escreva a correção e registre onde conferiu.
 
 [Escreva aqui]
 
-## Próxima retomada
+## Próxima tentativa
 
-Escolha quais perguntas repetir e registre a próxima revisão no cabeçalho.
+Quais perguntas precisam de outra tentativa? Defina a data no cabeçalho e volte a respondê-las sem consultar.
 
 [Escreva aqui]

@@ -357,6 +357,7 @@ h1, h2, h3 { text-wrap: balance; }
 .template-copy-status { min-height: 3em; margin: 0.8rem 0 1.2rem; font: 1rem/1.5 var(--font-sans); color: var(--text-secondary); }
 .template-sheet { padding: clamp(1.1rem, 3vw, 2rem); border: 1px solid var(--text-primary); background: #faf7ef; }
 .template-sheet-title { font: 500 1.35rem/1.3 var(--font-display); margin-bottom: 1.5rem; }
+.template-sheet-guide { margin: -0.5rem 0 1.5rem; font: 1rem/1.5 var(--font-sans); color: var(--text-secondary); }
 .template-sheet-metadata { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; margin-bottom: 1.5rem; }
 .template-sheet-metadata > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; min-width: 0; font: 0.75rem/1.5 var(--font-display); }
 .template-sheet-metadata i { display: block; flex: 1; min-width: 3rem; height: 1em; border-bottom: 1px solid var(--line); }

@@ -1,37 +1,39 @@
 # Explicação Feynman
 
-Explique com simplicidade e encontre o que ainda precisa estudar.
+Coloque sua compreensão à prova explicando uma ideia para quem está começando.
 
-**Quando usar:** Quando você quer verificar se consegue explicar um conceito.
+**Quando usar:** Para descobrir onde a compreensão de um conceito ainda falha.
+
+**Como preencher:** Explique sem consultar e teste a ideia com um exemplo. Confira as lacunas na fonte, feche o material e escreva uma nova explicação.
 
 **Conceito:**
 
 **Data:**
 
-**Fonte:**
+**Fonte para conferir:**
 
 **Próxima revisão:**
 
-## Explicação em palavras simples
+## Primeira explicação
 
-Explique sem consultar, como se a pessoa ainda não conhecesse o tema.
+O que é e como funciona? Explique para quem ainda não conhece o tema e esclareça os termos que precisar usar.
 
 [Escreva aqui]
 
 ## Exemplo e seus limites
 
-Crie um exemplo e indique onde ele deixa de representar a ideia.
+Mostre a ideia em uma situação concreta. Se usar uma analogia, em que ponto ela deixa de representar o conceito?
 
 [Escreva aqui]
 
 ## Lacunas e dúvidas
 
-Marque onde travou, usou jargão ou não soube justificar.
+Onde a explicação ficou vaga? Anote o que não soube definir ou justificar e transforme isso em perguntas para conferir.
 
 [Escreva aqui]
 
 ## Nova explicação
 
-Confira as lacunas na fonte. Feche-a e tente explicar novamente.
+Sem olhar a fonte, reescreva corrigindo as lacunas. Explique como as partes se conectam e verifique se os termos ficaram claros.
 
 [Escreva aqui]

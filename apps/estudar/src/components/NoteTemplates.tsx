@@ -10,6 +10,7 @@ function markdownFor(template: NoteTemplate) {
   return [
     `# ${template.title}`, '', template.description, '',
     `**Quando usar:** ${template.whenToUse}`, '',
+    `**Como preencher:** ${template.howToUse}`, '',
     ...template.metadata.flatMap((label) => [`**${label}:**`, '']),
     ...template.sections.flatMap((section) => [
       `## ${section.label}`, '', section.hint, '', '[Escreva aqui]', '',
@@ -26,6 +27,7 @@ function escapeHtml(value: string) {
 function htmlFor(template: NoteTemplate) {
   return `<html><body><h1>${escapeHtml(template.title)}</h1>` +
     `<p>${escapeHtml(template.description)}</p><p><strong>Quando usar:</strong> ${escapeHtml(template.whenToUse)}</p>` +
+    `<p><strong>Como preencher:</strong> ${escapeHtml(template.howToUse)}</p>` +
     template.metadata.map((label) => `<p><strong>${escapeHtml(label)}:</strong> </p>`).join('') +
     template.sections.map((section) => `<h2>${escapeHtml(section.label)}</h2><p>${escapeHtml(section.hint)}</p><p>[Escreva aqui]</p>`).join('') +
     '</body></html>';
@@ -135,6 +137,7 @@ export default function NoteTemplates() {
 
           <div className={`template-sheet${template.layout === 'cornell' ? ' template-sheet-cornell' : ''}`} aria-label={`Prévia do modelo ${template.title}`}>
             <div className="template-sheet-title">{template.title}</div>
+            <p className="template-sheet-guide"><strong>Como preencher:</strong> {template.howToUse}</p>
             <div className="template-sheet-metadata">
               {template.metadata.map((label) => <div key={label}><span>{label}</span><i aria-hidden="true" /></div>)}
             </div>

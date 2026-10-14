@@ -1,37 +1,39 @@
 # Aula ou palestra
 
-Acompanhe a exposição e transforme o registro em estudo.
+Acompanhe o fio da exposição e transforme as notas em perguntas de estudo.
 
-**Quando usar:** Durante uma aula, palestra, vídeo ou conversa de estudo.
+**Quando usar:** Para aulas, palestras e vídeos que você quer estudar depois.
+
+**Como preencher:** Durante a exposição, registre ideias e exemplos. Ao terminar, feche as notas, faça uma síntese de memória e escolha o que retomar.
 
 **Tema:**
 
 **Data:**
 
-**Aula e docente:**
+**Aula ou fonte:**
 
 **Próxima revisão:**
 
-## Ideias e relações
+## Fio da exposição
 
-Registre o fio da exposição, sem tentar copiar cada frase.
+Que pergunta orienta a aula? Registre as ideias principais e como se conectam, sem tentar copiar cada frase.
 
 [Escreva aqui]
 
 ## Exemplos e esquemas
 
-Anote exemplos, desenhe relações ou registre etapas importantes.
+Que exemplo esclarece a ideia? Desenhe relações ou etapas e marque a página ou o minuto para voltar.
 
 [Escreva aqui]
 
-## Perguntas para retomar
+## Perguntas e pendências
 
-Transforme pontos importantes e dúvidas em perguntas.
+O que vale perguntar, conferir ou praticar? Transforme também uma ideia importante em pergunta para revisar.
 
 [Escreva aqui]
 
-## Síntese após a aula
+## Síntese e próximo passo
 
-Escreva de memória o que entendeu e marque o que precisa conferir.
+Sem olhar as notas, escreva o que entendeu. Depois confira e escolha o que vai reler, perguntar ou praticar primeiro.
 
 [Escreva aqui]

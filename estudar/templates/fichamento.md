@@ -1,37 +1,39 @@
 # Fichamento de leitura
 
-Separe o argumento da fonte, as citações e sua interpretação.
+Distinga o argumento do autor, as citações e sua própria interpretação.
 
-**Quando usar:** Para estudar um texto acadêmico ou guardar uma leitura para pesquisa.
+**Quando usar:** Para estudar um artigo, capítulo ou livro e recuperar a fonte ao escrever.
+
+**Como preencher:** Identifique a obra, reconstrua o argumento e selecione trechos relevantes. Reserve o comentário para suas próprias perguntas e interpretações.
 
 **Tema:**
 
 **Data:**
 
-**Trecho ou capítulo:**
+**Capítulo ou páginas:**
 
 **Próxima revisão:**
 
 ## Referência completa
 
-Identifique autoria, título, edição, ano e link, quando houver.
+Registre os dados para localizar e citar a obra: autoria, título, publicação, ano e edição; inclua DOI ou link, se houver.
 
 [Escreva aqui]
 
-## Síntese do argumento
+## Tese e argumentos
 
-Reconstrua a ideia do autor com suas palavras e indique as páginas.
+Que questão o texto enfrenta? O que o autor defende e como sustenta a ideia? Resuma com suas palavras e indique as páginas.
 
 [Escreva aqui]
 
-## Citação literal e página
+## Citações e localização
 
-Use aspas, transcreva fielmente e registre a página ou localização.
+Transcreva fielmente só os trechos úteis, entre aspas. Registre a página ou, se não houver, outra localização verificável.
 
 [Escreva aqui]
 
 ## Comentário próprio
 
-Separe sua interpretação: perguntas, relações e avaliação do argumento.
+Que relações, objeções ou limites você percebe? Separe sua interpretação do que o autor afirma e conecte com sua pesquisa.
 
 [Escreva aqui]
