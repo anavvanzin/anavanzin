@@ -388,4 +388,3 @@ h1, h2, h3 { text-wrap: balance; }
   .template-sheet-field h4 { overflow-wrap: anywhere; }
 }
 .template-copy:focus-visible, .template-picker button:focus-visible { outline-color: var(--accent-void) !important; }
-
