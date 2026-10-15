@@ -36,8 +36,14 @@ function subscribeToLocation(onChange: () => void) {
 }
 
 function focusElement(element: HTMLElement) {
-  if (!element.hasAttribute('tabindex')) element.setAttribute('tabindex', '-1');
   element.focus({ preventScroll: true });
+  // Native controls (especially restored links) must keep their Tab order.
+  // Only static destinations need a temporary programmatic focus target.
+  if (document.activeElement !== element && !element.hasAttribute('tabindex')) {
+    element.setAttribute('tabindex', '-1');
+    element.addEventListener('blur', () => element.removeAttribute('tabindex'), { once: true });
+    element.focus({ preventScroll: true });
+  }
 }
 
 function moveToDestination(hash: string, focus: boolean) {
@@ -193,3 +199,4 @@ export default function App() {
     </>
   );
 }
+
