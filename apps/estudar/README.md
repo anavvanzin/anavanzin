@@ -14,6 +14,15 @@ npm run build
 
 O servidor abre a rota `/estudar/`. O conteúdo fica em `src/config.ts` e `src/data/libraryDocs.ts`; as imagens publicadas ficam em `public/images/`.
 
+Execute `npm run lint` e `npm run build` antes de publicar. O CI verifica o lint de
+todas as fontes, a correspondência entre o build e `estudar/` e as regressões de
+acessibilidade em `tests/estudar-accessibility.spec.js` (executadas pela raiz).
+
+Módulos `.tsx` de UI exportam apenas componentes para manter o Fast Refresh.
+Funções de variantes ficam em `components/ui/*-variants.ts`; hooks e contextos de
+formulário e sidebar ficam em `hooks/use-form-field.ts` e `hooks/use-sidebar.ts`.
+Importe esses auxiliares diretamente dos respectivos módulos.
+
 O build em `dist/` inclui entradas HTML para os 13 verbetes e 9 leituras. Cada uma possui título, descrição e endereço canônico próprios. Os links e imagens usam o prefixo `/estudar/`. O conteúdo interativo exige JavaScript.
 
 ## Publicação no repositório anavanzin

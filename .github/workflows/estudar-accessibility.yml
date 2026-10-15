@@ -32,8 +32,8 @@ jobs:
       - run: npm run build --prefix apps/estudar
       - name: Published bundle matches source, templates remain intact
         run: diff -r apps/estudar/dist estudar
-      - name: Lint navigation
+      - name: Lint all Estudar sources
         working-directory: apps/estudar
-        run: npx eslint src/App.tsx
+        run: npm run lint
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test tests/estudar-accessibility.spec.js --workers=1
