@@ -15,6 +15,7 @@
     root.lang = lang === 'pt' ? 'pt-BR' : 'en';
     document.querySelectorAll('[data-pt]').forEach(el => { el.textContent = el.dataset[lang]; });
     document.querySelectorAll('[data-label-pt]').forEach(el => el.setAttribute('aria-label', el.dataset[lang === 'pt' ? 'labelPt' : 'labelEn']));
+    document.querySelectorAll('[data-alt-pt]').forEach(el => el.setAttribute('alt', el.dataset[lang === 'pt' ? 'altPt' : 'altEn']));
     document.querySelectorAll('[data-lang]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.lang === lang)));
     if (persist) { try { localStorage.setItem('av_lang', lang); } catch {} }
   }
