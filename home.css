@@ -143,19 +143,15 @@ footer { margin:0 var(--gutter); border-top:1px solid var(--ink); padding:1.5rem
   *,*::before,*::after { animation-duration:0ms!important; transition-duration:0ms!important; scroll-behavior:auto!important; }
 }
 
-/* Homepage photographs and research illustration: preserve the complete originals. */
-.hero-portrait { grid-column:2; grid-row:1 / 3; align-self:center; justify-self:end; width:min(100%,360px); margin:0 0 2rem; }
-.hero-portrait img,.research-illustration img { display:block; width:100%; height:auto; }
-.research-illustration { margin:0 var(--gutter) 4rem; border:1px solid var(--rule); }
-@media(min-width:1001px) {
-  .home-hero { grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr); align-items:start; column-gap:clamp(2rem,5vw,5rem); }
-  .hero-copy { grid-column:1; grid-row:2; }
-  .hero-name h1 { font-size:clamp(7rem,11vw,12rem); }
-}
+/* The illustrated frontispiece opens the page; the portrait accompanies the biography. */
+.hero-illustration { margin:clamp(1rem,2vw,2rem) var(--gutter) 0; border:1px solid var(--rule); }
+.hero-illustration img,.bio-portrait img { display:block; width:100%; height:auto; }
+.home-hero { padding-top:clamp(1.5rem,3vw,3rem); }
+.hero-name h1 { font-size:clamp(4rem,7vw,7rem); }
+.hero-name h1 span { display:inline; }
+.hero-name h1 span + span::before { content:' '; }
+.bio-profile { min-width:0; }
+.bio-portrait { width:min(100%,240px); margin:0 0 2rem; padding:.5rem; border:1px solid var(--rule); box-shadow:6px 6px 0 var(--burgundy); }
 @media(max-width:1000px) {
-  .hero-portrait { grid-column:1; grid-row:3; justify-self:start; margin-bottom:2rem; }
-}
-@media(max-width:720px) {
-  .hero-portrait { width:min(100%,320px); }
-  .research-illustration { margin-bottom:3rem; }
+  .hero-name h1 { font-size:clamp(3.5rem,10vw,7rem); }
 }
