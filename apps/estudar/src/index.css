@@ -9,9 +9,10 @@
     --bg-secondary: #0e2a22;
     --bg-tertiary: #eae3d1;
     --text-primary: #0e2a22;
-    --text-secondary: #5f6f66;
+    --text-secondary: #56665d;
     --text-inverse: #f2ecdc;
-    --accent-void: #b8491f;
+    /* Terracotta ink: >= 4.5:1 on both paper backgrounds, including hover text. */
+    --accent-void: #a33f1b;
     --line: rgba(14, 42, 34, 0.16);
     --font-display: 'Space Grotesk', 'EB Garamond', sans-serif;
     --font-sans: 'EB Garamond', Georgia, serif;
