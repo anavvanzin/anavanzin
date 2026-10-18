@@ -779,7 +779,7 @@ function Boot({
       gap: 14
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/avatar-pixel.png",
+    src: "/assets/avatar-pixel.webp",
     alt: "Ana Vanzin",
     style: {
       height: 168,
@@ -1226,7 +1226,7 @@ function Desktop({
       textDecoration: 'none'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/avatar-pixel.png",
+    src: "/assets/avatar-pixel.webp",
     alt: "Ana Vanzin",
     width: 22,
     height: 22,

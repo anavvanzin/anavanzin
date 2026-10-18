@@ -166,7 +166,7 @@ function GroupIcon({
 }
 function ImageIcon({
   size = 46,
-  src = '/assets/pixel-justitia.png'
+  src = '/assets/pixel-justitia.webp'
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {

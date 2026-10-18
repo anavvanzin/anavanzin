@@ -47,7 +47,7 @@ function WTese({ lang }) {
           <Footnotes notes={["Brant, Sebastian. Das Narrenschiff. Basel, 1494, fol. 22v."]} style={{ marginTop: 8 }} />
         </div>
         <div style={{ border: '1px solid var(--ink)', background: 'var(--paper-deep)', padding: 6, display: 'flex', justifyContent: 'center' }}>
-          <img src="assets/pixel-justitia.png" alt="" style={{ width: '100%', imageRendering: 'pixelated' }} />
+          <img src="assets/pixel-justitia.webp" alt="" style={{ width: '100%', imageRendering: 'pixelated' }} />
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ function WJustitia({ lang }) {
   return (
     <div style={stack(0)}>
       <div style={{ background: 'var(--ink)', padding: 12, display: 'flex', justifyContent: 'center' }}>
-        <img src="assets/pixel-justitia-sky.png" alt="Justitia, pixel art" style={{ maxWidth: '100%', maxHeight: 420, imageRendering: 'pixelated', border: '1px solid var(--gold-2)' }} />
+        <img src="assets/pixel-justitia-sky.webp" alt="Justitia, pixel art" style={{ maxWidth: '100%', maxHeight: 420, imageRendering: 'pixelated', border: '1px solid var(--gold-2)' }} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--rule-hairline)', paddingTop: 10, marginTop: 10, fontSize: 12, color: 'var(--text-faint)', letterSpacing: '0.04em' }}>
         <span>justitia.png</span><span>1086 × 1448 · 16-bit</span>

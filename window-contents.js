@@ -388,7 +388,7 @@ function WJustitia({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia-sky.png",
+    src: "/assets/pixel-justitia-sky.webp",
     alt: "Justitia, pixel art",
     style: {
       maxWidth: '100%',
