@@ -55,7 +55,7 @@ export const libraryDocs: LibraryDoc[] = [
     year: 'recordação ativa · 10 questões',
     intro:
       'Um questionário de dez questões de resposta curta sobre Mitologias jurídicas da modernidade, com chave de respostas comentadas, cinco frentes de dissertação e um glossário mínimo de treze termos — um exemplo pronto de recordação ativa aplicada à leitura densa.',
-    image: assetPath('/images/bib-mitologia.jpg'),
+    image: assetPath('/images/bib-mitologia.webp'),
     meta: 'questões comentadas · chave de respostas · glossário',
     sourceNote:
       'Material de estudo do acervo pessoal: questionário com chave de respostas, sugestões de dissertação e glossário mínimo.',
@@ -218,7 +218,7 @@ export const libraryDocs: LibraryDoc[] = [
     year: 'leitura ativa · 5 seções',
     intro:
       'Fichamento analítico completo de Mitologias jurídicas da modernidade: cada seção do livro é reconstruída com perguntas de compreensão, conclusões próprias e um quadro comparativo final — o modelo de como transformar leitura densa em estudo ativo.',
-    image: assetPath('/images/bib-mitologia.jpg'),
+    image: assetPath('/images/bib-mitologia.webp'),
     meta: 'perguntas de compreensão · conclusões por seção',
     sourceNote:
       'Material de estudo do acervo pessoal: fichamento analítico seção a seção, com conclusões e cinco insights estratégicos finais.',
@@ -335,7 +335,7 @@ libraryDocs.push(
     year: '27 capítulos · 5 partes',
     intro:
       'O manual de referência para monografias, dissertações e teses. Esta página condensa a arquitetura do livro — do tema como fronteira à escrita em camadas — e acompanha um instrumento para testar um tema real contra os critérios dos autores.',
-    image: assetPath('/images/bib-metodo.jpg'),
+    image: assetPath('/images/bib-metodo.webp'),
     meta: 'coluna de leitura · instrumento sincronizado',
     sourceNote:
       'Leitura estruturada do acervo pessoal: síntese fiel dos capítulos 1 a 4 e 24, com o sumário completo das cinco partes.',
@@ -425,7 +425,7 @@ libraryDocs.push(
     year: '15 páginas · critérios de qualificação',
     intro:
       'A aula inaugural sobre rigor metodológico na perspectiva da avaliação CAPES: o projeto de tese como mapa intelectual, a metodologia como condição de validade e os critérios que reprovam projetos em qualificação.',
-    image: assetPath('/images/bib-capes.jpg'),
+    image: assetPath('/images/bib-capes.webp'),
     meta: 'ficha CAPES · pesos · percurso quadrienal',
     sourceNote:
       'Material de estudo do acervo pessoal: síntese da aula inaugural do PPGD/UFSC sobre o ciclo de avaliação CAPES 2025–2028.',
@@ -566,7 +566,7 @@ libraryDocs.push(
     year: '3 partes · 5 períodos da interpretação',
     intro:
       'O clássico que fundou a metodologia do direito moderno: a interpretação como reconstrução do pensamento posto na lei, as técnicas hermenêuticas e a história delas em cinco períodos. A página acompanha um instrumento para classificar fragmentos segundo as quatro técnicas savignyanas.',
-    image: assetPath('/images/bib-metodo.jpg'),
+    image: assetPath('/images/bib-metodo.webp'),
     meta: 'coluna de leitura · classificador de técnicas',
     sourceNote:
       'Leitura estruturada do acervo pessoal: síntese fiel da Vorlesung über juristische Methodologie, com o prefácio e as três partes.',
@@ -660,7 +660,7 @@ libraryDocs.push(
     year: '15 encontros · 2 momentos',
     intro:
       'O caderno do curso de métodos e metodologias: a arquitetura do projeto de pesquisa, as tradições de pesquisa em direito, os métodos e técnicas explicados passo a passo, e os instrumentos de trabalho — matriz de leitura, plano de revisão e cronograma.',
-    image: assetPath('/images/bib-metodo.jpg'),
+    image: assetPath('/images/bib-metodo.webp'),
     meta: 'arquitetura da tese · instrumentos de trabalho',
     sourceNote:
       'Material de estudo do acervo pessoal: síntese do caderno do curso (encontros 1–15), com a arquitetura do projeto, as tradições de pesquisa e os instrumentos de trabalho. Exemplos de projeto em andamento foram propositalmente omitidos — aqui entra apenas o método transferível.',
@@ -780,7 +780,7 @@ libraryDocs.push(
     year: 'aulas 1, 4 e 6 · slides',
     intro:
       'A série do curso de metodologia em três movimentos: da ideia à hipótese (tema, delimitação, problematização), o embasamento teórico (tripé, revisão sistemática, termos-chave) e a revisão integrativa (tipos de revisão, PRISMA, inclusão e exclusão).',
-    image: assetPath('/images/bib-metodo.jpg'),
+    image: assetPath('/images/bib-metodo.webp'),
     meta: 'tema → hipótese · teoria · revisão',
     sourceNote:
       'Material de estudo do acervo pessoal: síntese das aulas 1, 4 e 6 da série de metodologia do projeto de tese.',
@@ -876,7 +876,7 @@ libraryDocs.push(
     year: 'séc. XII–XV · 14 lâminas',
     intro:
       'Apresentação completa de um estudo de caso historiográfico: o contexto medieval da perseguição, a obra de 1486, sua recepção pela Inquisição e pelos tribunais seculares, e o diálogo com a historiografia processual italiana.',
-    image: assetPath('/images/bib-malleus.jpg'),
+    image: assetPath('/images/bib-malleus.webp'),
     meta: 'fonte primária · historiografia · debate',
     sourceNote:
       'Material de estudo do acervo pessoal: síntese da apresentação do estudo de caso nº 5, com a cronologia, a análise da Pars III e a bibliografia.',
@@ -995,7 +995,7 @@ libraryDocs.push({
   year: 'consulta permanente · estante do Herbário',
   intro:
     'O dicionário de ideias afins de Fernando de Fonseca e Sousa Azevedo: palavras agrupadas por conceito, com remissivas etimológicas — a estante de consulta do Herbário e o instrumento de precisão lexical da escrita jurídica.',
-  image: assetPath('/images/bib-dicionario.jpg'),
+  image: assetPath('/images/bib-dicionario.webp'),
   meta: 'ideias afins · remissivas etimológicas',
   sourceNote:
     'Obra de referência do acervo pessoal. O índice interativo abaixo é construído sobre as famílias do próprio Herbário do site — o dicionário em si permanece na estante física.',

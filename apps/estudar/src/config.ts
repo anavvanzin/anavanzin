@@ -194,7 +194,7 @@ export const manifestoConfig: ManifestoConfig = {
   headingText: "Nada aqui é motivação. É método.",
   bodyText:
     "Este site existe porque aprender é um ofício, não um estado de espírito. Cada verbete do acervo parte da ciência cognitiva — memória, atenção, recuperação — e não de promessas de produtividade. A gramática é tratada como instrumento de precisão, e a etimologia como o mapa que revela de onde as palavras vieram e por que significam o que significam. Não há coach, não há gatilhos mentais, não há milagre de sete dias. Há técnica, prática deliberada e o prazer silencioso de entender como as coisas funcionam.",
-  imagePath: assetPath('/images/bib-capes.jpg'),
+  imagePath: assetPath('/images/bib-capes.webp'),
 }
 
 export const exhibitionsConfig: ExhibitionsConfig = {
@@ -205,7 +205,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "repeticao-espacada",
       title: "Repetição Espaçada",
-      image: assetPath('/images/repeticao-espacada.jpg'),
+      image: assetPath('/images/repeticao-espacada.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Memória",
       intro:
@@ -236,7 +236,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "recordacao-ativa",
       title: "Recordação Ativa",
-      image: assetPath('/images/recordacao-ativa.jpg'),
+      image: assetPath('/images/recordacao-ativa.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Recuperação",
       intro:
@@ -267,7 +267,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "metodo-feynman",
       title: "Método Feynman",
-      image: assetPath('/images/metodo-feynman.jpg'),
+      image: assetPath('/images/metodo-feynman.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Compreensão",
       intro:
@@ -299,7 +299,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "pratica-intercalada",
       title: "Prática Intercalada",
-      image: assetPath('/images/pratica-intercalada.jpg'),
+      image: assetPath('/images/pratica-intercalada.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Variação",
       intro:
@@ -325,7 +325,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "persistencia",
       title: "Persistência",
-      image: assetPath('/images/persistencia.jpg'),
+      image: assetPath('/images/persistencia.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Constância",
       intro:
@@ -356,7 +356,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "excelencia",
       title: "Excelência",
-      image: assetPath('/images/excelencia.jpg'),
+      image: assetPath('/images/excelencia.webp'),
       year: "Técnica",
       eyebrow: "Técnica de estudo · Prática deliberada",
       intro:
@@ -387,7 +387,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "pomodoro",
       title: "Pomodoro",
-      image: assetPath('/images/pomodoro.jpg'),
+      image: assetPath('/images/pomodoro.webp'),
       year: "Ferramenta",
       eyebrow: "Ferramenta · Gestão de atenção",
       intro:
@@ -418,7 +418,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       "slug": "fichamento-e-cornell",
       "title": "Notas & Fichamento",
-      "image": assetPath('/images/fichamento.jpg'),
+      "image": assetPath('/images/fichamento.webp'),
       "year": "Ferramenta",
       "eyebrow": "Ferramenta · Anotações no papel e no digital",
       "intro": "Anote para pensar e voltar ao que aprendeu. Escrever à mão merece espaço no estudo; caderno e ferramentas digitais podem trabalhar juntos. Um roteiro de registro, perguntas e revisão cabe no bloco de papel, no Bloco de Notas, no Notion, no Obsidian ou no Craft.",
@@ -512,7 +512,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "no-lugar-do-legislador",
       title: "No Lugar do Legislador",
-      image: assetPath('/images/metodo-interpretacao.jpg'),
+      image: assetPath('/images/metodo-interpretacao.webp'),
       year: "Método",
       eyebrow: "Do acervo · Savigny, 1802/1840",
       intro:
@@ -548,7 +548,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "um-tema-e-uma-duvida-verdadeira",
       title: "Um Tema é uma Dúvida Verdadeira",
-      image: assetPath('/images/metodo-tema.jpg'),
+      image: assetPath('/images/metodo-tema.webp'),
       year: "Método",
       eyebrow: "Do acervo · Feferbaum & Queiroz, cap. 4",
       intro:
@@ -584,7 +584,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "escrever-em-camadas",
       title: "Escrever em Camadas",
-      image: assetPath('/images/metodo-camadas.jpg'),
+      image: assetPath('/images/metodo-camadas.webp'),
       year: "Método",
       eyebrow: "Do acervo · Feferbaum & Queiroz, cap. 24",
       intro:
@@ -620,7 +620,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "a-virgula",
       title: "A Vírgula",
-      image: assetPath('/images/virgula.jpg'),
+      image: assetPath('/images/virgula.webp'),
       year: "Gramática",
       eyebrow: "Gramática · Pontuação",
       intro:
@@ -651,7 +651,7 @@ export const exhibitionsConfig: ExhibitionsConfig = {
     {
       slug: "como-as-palavras-nascem",
       title: "Como as Palavras Nascem",
-      image: assetPath('/images/etimologia.jpg'),
+      image: assetPath('/images/etimologia.webp'),
       year: "Etimologia",
       eyebrow: "Etimologia · Origem das palavras",
       intro:
@@ -685,8 +685,8 @@ export const exhibitionsConfig: ExhibitionsConfig = {
 export const pavilionsConfig: PavilionsConfig = {
   sectionLabel: "05 · Sala de leitura — lâminas em contemplação",
   plates: [
-    { image: assetPath('/images/bib-mitologia.jpg'), caption: "I. A biblioteca à noite — o silêncio como instrumento de trabalho." },
-    { image: assetPath('/images/bib-metodo.jpg'), caption: "II. O caderno aberto — toda técnica termina em papel e repetição." },
+    { image: assetPath('/images/bib-mitologia.webp'), caption: "I. A biblioteca à noite — o silêncio como instrumento de trabalho." },
+    { image: assetPath('/images/bib-metodo.webp'), caption: "II. O caderno aberto — toda técnica termina em papel e repetição." },
   ],
 }
 
@@ -719,7 +719,7 @@ export const companionsConfig: CompanionsConfig = {
     {
       name: "Spirit City: Lofi Sessions",
       platform: "Steam · PC/Mac",
-      image: assetPath('/images/jogo-spirit-city.png'),
+      image: assetPath('/images/jogo-spirit-city.webp'),
       description:
         "O clássico do gênero. Você monta seu avatar, escolhe um quarto aconchegante, liga a playlist lofi e trabalha — com to-do list, timer pomodoro, diário e rastreador de hábitos embutidos. Enquanto isso, espíritos curiosos aparecem conforme as combinações de ambiente que você monta.",
       note: "A gamificação é propositalmente leve: existe para você voltar amanhã, não para roubar a sessão de hoje.",
@@ -728,7 +728,7 @@ export const companionsConfig: CompanionsConfig = {
     {
       name: "Ithya: Magic Studies",
       platform: "Steam · PC",
-      image: assetPath('/images/jogo-ithya.png'),
+      image: assetPath('/images/jogo-ithya.webp'),
       description:
         "Uma torre de magia à beira de um lago, entre montanhas nevadas. Você é o aprendiz que estuda à escrivaninha — com lista de tarefas e pomodoro integrados, trilhas lofi e fantasiosas, e um cenário que pode ficar recolhido na borda da tela enquanto você escreve ou lê.",
       note: "A opção mais discreta: funciona como janela fina lateral, quase um widget vivo de companhia.",
@@ -737,7 +737,7 @@ export const companionsConfig: CompanionsConfig = {
     {
       name: "Focus Grove",
       platform: "Steam · PC/Mac",
-      image: assetPath('/images/jogo-focus-grove.png'),
+      image: assetPath('/images/jogo-focus-grove.webp'),
       description:
         "Uma fazendinha florestal que cresce quando você trabalha. Os Woodlings cuidam da horta durante seus pomodoros e descansam nos seus intervalos — tarefas reais concluídas viram árvores, construções e bichos novos. Inclui timer, tarefas, hábitos, bloco de notas e sons de natureza.",
       note: "O progresso da fazenda é um espelho suave do seu progresso real: a floresta só cresce se você trabalhar.",

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Hud from './sections/Hud';
 import Hero from './sections/Hero';
 import Manifesto from './sections/Manifesto';
@@ -7,8 +7,8 @@ import Library from './sections/Library';
 import Companions from './sections/Companions';
 import Herbarium from './sections/Herbarium';
 import ExhibitionIndex from './sections/ExhibitionIndex';
-import ExhibitionDetail from './sections/ExhibitionDetail';
-import LibraryReader from './sections/LibraryReader';
+const ExhibitionDetail = lazy(() => import('./sections/ExhibitionDetail'));
+const LibraryReader = lazy(() => import('./sections/LibraryReader'));
 import CinematicPavilions from './sections/CinematicPavilions';
 import Footer from './sections/Footer';
 import { siteConfig } from './config';
@@ -46,21 +46,23 @@ function focusElement(element: HTMLElement) {
   }
 }
 
-function moveToDestination(hash: string, focus: boolean) {
+function moveToDestination(hash: string, focus: boolean): boolean {
   let id = '';
   try {
     id = decodeURIComponent(hash.slice(1));
   } catch {
-    return;
+    return true;
   }
   const element = id ? document.getElementById(id) : document.getElementById('conteudo');
-  if (id && element) {
+  if (!element) return false;
+  if (id) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     element.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
-  } else if (!id) {
+  } else {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
-  if (focus && element) focusElement(element);
+  if (focus) focusElement(element);
+  return true;
 }
 
 function navigate(path: string, source?: HTMLAnchorElement) {
@@ -148,27 +150,42 @@ export default function App() {
     firstRender.current = false;
     pendingFocus = null;
     if (!focus && !initialHash) return;
-    const frame = requestAnimationFrame(() => {
+    let cancelled = false;
+    let timeoutId = 0;
+    let attempts = 0;
+    const attempt = () => {
+      if (cancelled) return;
+      attempts += 1;
+      let done = false;
       if (focus === 'restore') {
         const href = focusedLinksByPath.get(getAppPath(currentUrl.pathname));
         const link = href ? Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href]')).find((anchor) => anchor.href === href) : null;
         const target = link || document.getElementById('conteudo');
-        if (target) focusElement(target);
-        return;
+        if (target) {
+          focusElement(target);
+          done = true;
+        }
+      } else {
+        done = moveToDestination(currentUrl.hash, focus === 'navigate');
       }
-      moveToDestination(currentUrl.hash, focus === 'navigate');
-    });
-    return () => cancelAnimationFrame(frame);
+      // Lazy chunks mount after the route renders; keep trying briefly.
+      if (!done && attempts < 40) timeoutId = window.setTimeout(attempt, 100);
+    };
+    timeoutId = window.setTimeout(attempt, 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
   }, [location, currentUrl.hash, currentUrl.pathname]);
 
   const skipLink = <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>;
 
   if (activeExhibition) {
-    return <>{skipLink}<ExhibitionDetail exhibition={activeExhibition} onBack={() => navigate(`${rootPath}#exhibitions`)} onNavigate={(slug) => navigate(getExhibitionPath(slug))} /></>;
+    return <>{skipLink}<Suspense fallback={<div role="status" style={{ minHeight: '60vh', display: 'grid', placeItems: 'center' }}>Abrindo a exposição…</div>}><ExhibitionDetail exhibition={activeExhibition} onBack={() => navigate(`${rootPath}#exhibitions`)} onNavigate={(slug) => navigate(getExhibitionPath(slug))} /></Suspense></>;
   }
 
   if (activeLibraryDoc) {
-    return <>{skipLink}<LibraryReader doc={activeLibraryDoc} onBack={() => navigate(`${rootPath}#biblioteca`)} onNavigate={(slug) => navigate(getLibraryPath(slug))} /></>;
+    return <>{skipLink}<Suspense fallback={<div role="status" style={{ minHeight: '60vh', display: 'grid', placeItems: 'center' }}>Abrindo a leitura…</div>}><LibraryReader doc={activeLibraryDoc} onBack={() => navigate(`${rootPath}#biblioteca`)} onNavigate={(slug) => navigate(getLibraryPath(slug))} /></Suspense></>;
   }
 
   if (notFound) {
