@@ -95,7 +95,7 @@ img{display:block;max-width:100%}
 /* ---------- plate (ilustração) ---------- */
 .plate{margin:0 var(--gutter);padding:2.5rem 0 0}
 .plate figure{border:1px solid var(--rule);padding:1rem;background:#EFE7D6}
-.plate img{width:100%;filter:sepia(.12)}
+.plate img{width:100%;height:auto;filter:sepia(.12)}
 .plate figcaption{font-family:var(--mono);font-size:.75rem;color:var(--burgundy);margin-top:.75rem;letter-spacing:.05em}
 
 /* ---------- feature (defesa) ---------- */
