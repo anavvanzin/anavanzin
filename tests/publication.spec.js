@@ -27,12 +27,11 @@ test('drafts and auxiliary pages never enter the sitemap', () => {
   }
 });
 
-test('intro message cannot be dismissed by an unrelated window', async ({ page }) => {
+test('home não tem overlay de intro; janela externa não altera o conteúdo', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#av-loader')).toBeVisible();
+  await expect(page.locator('.fluid-hero')).toBeVisible();
+  await expect(page.locator('#av-loader')).toHaveCount(0);
   await page.evaluate(() => window.postMessage({ type: 'av:intro-finished' }, location.origin));
-  await expect(page.locator('#av-loader')).toBeVisible();
-  await page.getByRole('button', { name: 'Entrar agora', exact: true }).click();
-  await expect(page.locator('#av-loader')).toBeHidden();
+  await expect(page.locator('.fluid-hero')).toBeVisible();
   await expect(page.locator('main')).not.toHaveAttribute('inert', '');
 });
