@@ -98,6 +98,16 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 - Suíte pós-port: 128/76 no run pleno; isoladas quotes-folio e hello passam 100% com a home av-os; falhas restantes = flakes de paralelismo + grupos pré-existentes. Commitado 4db4f56.
 - Deploy: 2026-10-18 15:15 UTC → produção ao vivo em ~75 s; home fluida av-os a 1,54 MB (antes: 2,55 MB; original pré-sessão: 4,34 MB).
 
+### Phase 8b: Capa em tudo — 4 páginas internas (2026-10-18 ~13:00-15:20 UTC)
+
+- **Status:** complete
+- Actions taken:
+  - Handoff `01M57P8MV3TK0T49GBEWPGYVDN` identificado como a sessão "capa em tudo": trabalhos, publicações, atlas e mesa reconstruídas com componentes `.capa/.cena/.marquee/.coda`; home e editoriais idênticas ao staging fase 1–5.
+  - Portado para produção: as 4 páginas + 8 webp de atlas (`assets/atlas/*-800.webp`, `*-cut.webp`) + `assets/av-os.css` re-sincronizado com o pacote (fix do meu text-shadow reaplicado após a troca).
+  - `/trabalhos.html` antigo removido (substituído por diretório); o desktop-mesa deixou de ser a página `/mesa/` (replaced por estática av-os). Os JS do desktop-mesa (`_ds_bundle.js`, `desktop-app.js`, etc.) permanecem na árvore, sem referência — pendência de limpeza, não urgente.
+  - Verificação: /trabalhos/, /atlas/, /mesa/, /publicacoes/ 200 em produção; local 1,41 MB máx; zero 404/erros; screenshots aprovados por viewport.
+  - Commits: 9eec9fb (delete trabalhos.html, sem querer só esse) + e4dd578 (todo o resto); deploy confirmado.
+
 ## Test Results
 
 | Test | Input | Expected | Actual | Status |
