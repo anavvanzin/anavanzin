@@ -93,6 +93,7 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
   - Fix de legibilidade do hero reaplicado (o pacote tinha sobrescrito o meu).
 - Verificação local (8877): 1,82 MB desktop / 1,42 MB mobile, zero erros JS, PT/EN com detecção confirmada.
 - Suíte pós-port: 128/76 no run pleno; isoladas quotes-folio e hello passam 100% com a home av-os; falhas restantes = flakes de paralelismo + grupos pré-existentes. Commitado 4db4f56.
+- Deploy: 2026-10-18 15:15 UTC → produção ao vivo em ~75 s; home fluida av-os a 1,54 MB (antes: 2,55 MB; original pré-sessão: 4,34 MB).
 
 ## Test Results
 

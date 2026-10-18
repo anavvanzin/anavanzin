@@ -85,8 +85,8 @@ Phase 7 — Entregas pendentes de decisão
 - [x] Intro-overlay: home sem overlay; teste reescrito
 - [x] Verificação local 8877 (1440/390/320, PT/EN, zero erros)
 - [x] Suíte Playwright: 128 passou/76 falhou no run completo; após isolamento, quotes-folio (32/32) e hello (17/17) passam — as falhas no run pleno são flakes de paralelismo, não regressão. Restam os grupos pré-existentes mapeados (home-defense/metamorfose/refinement, tier1, tarot, estudar).
-- [ ] Push/deploy — decide com ela
-- **Status:** in_progress
+- [x] Push/deploy (2026-10-18 15:15 UTC, 4db4f56+63d8db1): produção agora é a landing fluida av-os — 1,54 MB, canvas ativo, pt-BR detectado, zero erros, marquee/corpus-strip presentes.
+- **Status:** complete
 
 ## Key Questions
 
