@@ -11,8 +11,12 @@
   // Resolve an asset path → inlined blob URL when bundled standalone (keyed by
   // filename via <meta name="ext-resource-dependency">), else the original path.
   const RES = p => {
-    const f = String(p).split("/").pop();
-    return window.__resources && window.__resources[f] || p;
+    const s = String(p);
+    const f = s.split("/").pop();
+    if (window.__resources && window.__resources[f]) return window.__resources[f];
+    if (s.startsWith("/assets/corpus/") && f.endsWith(".jpg")) return s.replace(/\.jpg$/, "-atlas-1000.jpg");
+    if (s.startsWith("/assets/corpus/") && f.endsWith(".png")) return s.replace(/\.png$/, "-atlas-1000.webp");
+    return s;
   };
 
   // ── Theme → CSS custom properties ───────────────────────────────
