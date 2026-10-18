@@ -10,7 +10,7 @@ Site: https://anavanzin.com/ (branch `main`, deploy em Cloudflare Pages via `npm
 
 ## Next Step
 
-Nenhuma ação de implementação pendente. Próxima ação: decisões pendentes da Phase 7 (commit/deploy, política do estudar, specs velhas do redesign, hold do loader) com a pesquisadora.
+Nenhuma ação de implementação pendente. Changeset commitado, empurrado e ao vivo em produção (verificado). Restam as decisões da Phase 7 registradas: política do estudar, specs velhas do redesign, hold do loader — três escolhas da pesquisadora, sem dependência técnica.
 
 ## Current Phase
 
@@ -71,7 +71,7 @@ Phase 7 — Entregas pendentes de decisão
 ### Phase 7: Entregas pendentes de decisão
 
 - [x] Commit do changeset (10 commits `perf(*)`/`test` + 1 `docs`, `main` 11 à frente da `origin/main`; AGENTS.md deixado não commitado por ser edição local da pesquisadora)
-- [ ] Push/deploy (deploy de produção na Cloudflare Pages acontece ao empurrar `main`)
+- [x] Push e deploy (2026-10-18 13:40 UTC, 13 commits 35fdd13..5724198): Cloudflare Pages ao vivo em ~100 s; hero-1200 e cache de 7 dias confirmados em produção; home a 2,55 MB com 6/6 derivativos `-board-500` servidos; CI GitHub verde (Deploy Pages 49 s, a11y do estudar 1 m35 s)
 - [ ] Política de indexação do `/estudar`: 23 testes de `publication.spec.js` falham (shells sem h1/body; injetar conteúdo gera CLS na troca do React; alternativas no findings.md)
 - [ ] Triagem das specs velhas do redesign (~35 testes: hello.spec, home.spec, mobile-dialog testam DOM removido)
 - [ ] Hold do loader: 705 ms (rede rápida) / 2,27 s (Fast3G), teto de 1,6 s; reduzir é decisão de desenho

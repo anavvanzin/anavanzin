@@ -67,6 +67,15 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 - Actions taken:
   - Nenhuma ainda; aguardando decisões (ver `task_plan.md` Phase 7).
 
+### Phase 7: Entregas (fechamento)
+
+- **Status:** complete
+- Actions taken:
+  - Push de 13 commits (35fdd13..5724198) para origin/main às 13:40 UTC.
+  - Cloudflare Pages: produção ao vivo em ~100 s; hero-1200 e `Cache-Control: max-age=604800` confirmados via curl.
+  - CI GitHub: Deploy GitHub Pages sucesso (49 s); Estudar accessibility sucesso (1 m35 s).
+  - Verificação final em produção: home 2,55 MB, 6/6 board-500 servidos.
+
 ### Phase 8: Commit do changeset (2026-10-18)
 
 - **Status:** complete
