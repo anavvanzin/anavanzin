@@ -72,6 +72,7 @@ Phase 7 — Entregas pendentes de decisão
 
 - [x] Commit do changeset (10 commits `perf(*)`/`test` + 1 `docs`, `main` 11 à frente da `origin/main`; AGENTS.md deixado não commitado por ser edição local da pesquisadora)
 - [x] Push e deploy (2026-10-18 13:40 UTC, 13 commits 35fdd13..5724198): Cloudflare Pages ao vivo em ~100 s; hero-1200 e cache de 7 dias confirmados em produção; home a 2,55 MB com 6/6 derivativos `-board-500` servidos; CI GitHub verde (Deploy Pages 49 s, a11y do estudar 1 m35 s)
+- [x] Correção de exposição (2026-10-18 ~14:05 UTC): os arquivos de planejamento trackados chegaram à produção nos deploys de 5724198/79f36c6; corrigido no commit a0b6c76 com `export-ignore` em .gitattributes + entradas em .assetsignore; verificação: `git archive HEAD | tar -t` não contém os três, e anavanzin.com/task_plan.md, /findings.md e /progress.md retornam 404 após o novo deploy. Janela pública anterior de ~25 minutos; cópias permanecem acessíveis apenas nas URLs por hash de build antigos (não linkadas, não indexadas), que caducam da lista de deploys.
 - [ ] Política de indexação do `/estudar`: 23 testes de `publication.spec.js` falham (shells sem h1/body; injetar conteúdo gera CLS na troca do React; alternativas no findings.md)
 - [ ] Triagem das specs velhas do redesign (~35 testes: hello.spec, home.spec, mobile-dialog testam DOM removido)
 - [ ] Hold do loader: 705 ms (rede rápida) / 2,27 s (Fast3G), teto de 1,6 s; reduzir é decisão de desenho
