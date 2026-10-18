@@ -87,7 +87,7 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 ### Phase 8: Landing page av-os portada da produção
 
   - Ajustes pós-port: fix do height:auto da placa (db6e4d3) e remoção da lede do hero a pedido da Ana (2c79e12, ao vivo).
-  - Restauração do cursor bronze na landing (classe + cursor-bronze.css perdidos no port; verificado localmente, commit ao lado).
+  - Restauração do cursor bronze na landing (classe + cursor-bronze.css perdidos no port; depois substituído pelo cursor do protótipo kimi.page em av-os.js/av-os.css com rótulo-default 'explorar'; verificado localmente, commit ao lado).
 
 - **Status:** in_progress
 - Actions taken:
