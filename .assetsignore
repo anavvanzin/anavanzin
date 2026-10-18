@@ -106,3 +106,8 @@ assets/anavanzin_site_asset_pack.zip
 # Archived migration tooling and source captures are not website assets.
 quotes/forum-migration
 quotes/forum-migration/**
+
+# Planning files (planning-with-files): tracked, never published.
+task_plan.md
+findings.md
+progress.md
