@@ -1,7 +1,19 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesa · ana vanzin</title>
+<meta name="description" content="A mesa de trabalho de Ana Vanzin — os objetos da pesquisa à mão e os caminhos do site.">
+<meta name="theme-color" content="#15110E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ana vanzin">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://anavanzin.com/mesa/">
+<meta property="og:title" content="Mesa · ana vanzin">
+<meta property="og:description" content="A mesa de trabalho de Ana Vanzin — os objetos da pesquisa à mão e os caminhos do site.">
+<link rel="canonical" href="https://anavanzin.com/mesa/">
+<meta name="robots" content="noindex,follow">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZEX4SFYEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,64 +22,103 @@
 
   gtag('config', 'G-TZEX4SFYEN');
 </script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ana vanzin · mesa de trabalho</title><!-- vista secundária; a home canônica é / -->
-<link rel="icon" type="image/png" href="/assets/favicon-32.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<meta name="description" content="Mesa de trabalho retrô de Ana Vanzin — desktop-OS com janelas para perfil, publicações, atlas visual e a pesquisa em iconocracia jurídica.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ana vanzin">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:url" content="https://anavanzin.com/mesa/">
-<meta property="og:title" content="ana vanzin · mesa de trabalho">
-<meta property="og:description" content="Mesa de trabalho retrô — desktop-OS com janelas para perfil, publicações, atlas visual e a pesquisa em iconocracia jurídica.">
-<meta property="og:image" content="https://anavanzin.com/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ana vanzin · mesa de trabalho">
-<meta name="twitter:description" content="Mesa de trabalho retrô — desktop-OS com janelas para perfil, publicações, atlas visual e a pesquisa em iconocracia jurídica.">
-<meta name="twitter:image" content="https://anavanzin.com/assets/og-image.png">
-<meta name="theme-color" content="#F5F0E6">
-<link rel="stylesheet" href="/styles.css?v=20260922-tiles-ordered">
-<script src="/vendor/react/react-18.3.1.production.min.js"></script>
-<script src="/vendor/react/react-dom-18.3.1.production.min.js"></script>
-<script src="/_ds_bundle.js"></script>
-<style>
-  html, body { margin: 0; min-height: 100%; background: var(--paper); }
-  html.desktop-enhanced, html.desktop-enhanced body { height: 100%; overflow: hidden; }
-  ::selection { background: var(--rubric); color: var(--paper); }
-</style>
-<link rel="canonical" href="https://anavanzin.com/mesa/">
-<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/assets/favicon-32.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/av-os.css">
+<script src="/assets/av-os.js" defer></script>
 </head>
-<body style="font-family: sans-serif">
-<div id="root">
-  <main class="semantic-home" aria-labelledby="home-title" style="max-width: 760px; margin: 0 auto; padding: clamp(2rem, 7vw, 5rem) clamp(1.25rem, 5vw, 3rem);">
-    <p style="letter-spacing: .18em; text-transform: uppercase; color: var(--rubric); font-size: .85rem; margin-bottom: 1rem;">direito · iconografia jurídica · pesquisa</p>
-    <h1 id="home-title" style="font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 1rem;"><a href="/" style="color: inherit; text-decoration: none;">ana vanzin</a></h1>
-    <p style="font-size: 1.2rem; line-height: 1.6; max-width: 62ch; margin-bottom: 1.5rem;">Advogada e historiadora do direito dedicada às alegorias femininas do direito, à iconografia jurídica e às relações entre imagem, poder e condição da mulher.</p>
-    <p style="line-height: 1.7; max-width: 62ch; margin-bottom: 1.5rem;">Esta é a mesa de trabalho retrô — uma camada interativa progressiva. Os principais caminhos também estão disponíveis aqui no HTML inicial, antes de qualquer hidratação JavaScript.</p>
-    <nav aria-label="Navegação principal" style="display: flex; flex-wrap: wrap; gap: .75rem 1rem;">
-      <a href="/sobre">Perfil</a>
-      <a href="/publicacoes/">Publicações</a>
-      <a href="/atlas/">Atlas</a>
-      <a href="/iconocracia/">Iconocracia</a>
-      <a href="/">Mesa iluminada</a>
-      <a href="mailto:ana@anavanzin.com">Contato</a>
+<body class="night">
+<a class="skip" href="#main" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Ana Vanzin · início" data-label-pt="Ana Vanzin · início" data-label-en="Ana Vanzin · home">av<span aria-hidden="true">.</span></a>
+  <nav class="nav-links" id="nav-links" aria-label="Navegação principal" data-label-pt="Navegação principal" data-label-en="Main navigation">
+    <a href="/sobre" data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="/atlas/">Atlas</a>
+    <a href="/publicacoes/" data-pt="Publicações" data-en="Publications">Publicações</a>
+    <a href="/metodologia/" data-pt="Metodologia" data-en="Methodology">Metodologia</a>
+    <a href="/estudar/" data-pt="Estudar" data-en="Study">Estudar</a>
+    <a href="/quotes/" data-pt="Trechos" data-en="Quotes">Trechos</a>
+    <a href="https://iconocracia.com/">Iconocracia</a>
+    <a href="https://grupoiusgentium.com.br/">Ius Gentium</a>
+    <a href="https://anavanzin.com/arno-dal-ri-site" data-pt="Orientador" data-en="Advisor">Orientador</a>
+    <a href="mailto:ana@anavanzin.com" data-pt="Contato" data-en="Contact">Contato</a>
+  </nav>
+  <div class="nav-controls">
+    <button class="menu-trigger" type="button" aria-expanded="false" aria-controls="nav-links"><span data-pt="Menu" data-en="Menu">Menu</span><span aria-hidden="true">+</span></button>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="ed ed-night">
+<a class="ed-back" href="/"><span class="ar">←</span><span data-pt="ana vanzin" data-en="ana vanzin">ana vanzin</span></a>
+    <section class="capa">
+      <p class="kicker rise" data-pt="Mesa de trabalho · caminhos" data-en="Worktable · paths">Mesa de trabalho · caminhos</p>
+      <h1 class="capa-title rise" style="--d:.06s"><span>mesa</span><span class="ghost" data-pt="de trabalho" data-en="at work">de trabalho</span></h1>
+      <p class="dek rise" style="--d:.12s" data-pt="A mesa é onde os objetos ficam à mão antes de virarem texto. Deixo aqui as peças que atravessam a pesquisa — e as portas de entrada do site." data-en="The table is where the objects stay within reach before they become text. I keep here the pieces that run through the research — and the ways into the site.">A mesa é onde os objetos ficam à mão antes de virarem texto. Deixo aqui as peças que atravessam a pesquisa — e as portas de entrada do site.</p>
+      <p class="capa-meta rise" style="--d:.18s"><span>ana vanzin — direito · imagem · memória</span><span>1494 · 1559 · 1840 · 1900 · 1961</span></p>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>mesa <em>mensa</em></span><span>mão <em>manus</em></span><span>peça <em>fragmentum</em></span><span>caminho <em>via</em></span>
+        <span>mesa <em>mensa</em></span><span>mão <em>manus</em></span><span>peça <em>fragmentum</em></span><span>caminho <em>via</em></span>
+      </div>
+    </div>
+
+    <section class="mesa-board" aria-labelledby="mesa-board-title">
+      <div class="board-head">
+        <h2 id="mesa-board-title" data-pt="Sobre a mesa · seis peças" data-en="On the table · six pieces">Sobre a mesa · seis peças</h2>
+        <span>1494 · 1559 · 1840 · 1900 · 1961</span>
+      </div>
+      <div class="board-grid">
+        <figure class="f1"><a href="/atlas/" aria-label="Bruegel · Justitia"><img loading="lazy" decoding="async" src="/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg" srcset="/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg 500w, /assets/corpus/fr-bruegel-justicia-1559-board-1000.jpg 1000w" sizes="(max-width:640px) 100vw, (max-width:1000px) 48vw, 44vw" width="500" height="430" alt="Bruegel · Justitia"></a><figcaption>FR-1559 · Bruegel · Justitia</figcaption></figure>
+        <figure class="f2"><a href="/marginalia/" aria-label="Clésinger · République"><img loading="lazy" decoding="async" src="/assets/corpus/fr-clesinger-republique-1900-board-500.jpg" srcset="/assets/corpus/fr-clesinger-republique-1900-board-500.jpg 500w, /assets/corpus/fr-clesinger-republique-1900-board-1000.jpg 1000w" sizes="(max-width:640px) 100vw, (max-width:1000px) 32vw, 24vw" width="370" height="500" alt="Clésinger · République"></a><figcaption>FR-1900 · Clésinger · République</figcaption></figure>
+        <figure class="f3"><a href="/atlas/" aria-label="Britannia · penny"><img loading="lazy" decoding="async" src="/assets/corpus/uk-britannia-penny-1912-board-500.jpg" srcset="/assets/corpus/uk-britannia-penny-1912-board-500.jpg 500w, /assets/corpus/uk-britannia-penny-1912-board-1000.jpg 1000w" sizes="(max-width:640px) 50vw, 16vw" width="500" height="500" alt="Britannia · penny"></a><figcaption>UK-1912 · Britannia · penny</figcaption></figure>
+        <figure class="f4"><a href="/atlas/" aria-label="Seated Liberty"><img loading="lazy" decoding="async" src="/assets/corpus/us-seated-liberty-1840-c-atlas-1000.webp" width="300" height="300" alt="Seated Liberty"></a><figcaption>US-1840 · Seated Liberty</figcaption></figure>
+        <figure class="f5"><a href="/atlas/" aria-label="Germania · Reichspost"><img loading="lazy" decoding="async" src="/assets/corpus/de-germania-1900-atlas-1000.jpg" width="210" height="250" alt="Germania · Reichspost"></a><figcaption>DE-1900 · Germania · Reichspost</figcaption></figure>
+        <figure class="f6"><a href="/trabalhos/" aria-label="A Justiça · STF"><img loading="lazy" decoding="async" src="/assets/corpus/br-stf-justica-1961-board-500.jpg" srcset="/assets/corpus/br-stf-justica-1961-board-500.jpg 500w, /assets/corpus/br-stf-justica-1961-board-1000.jpg 1000w" sizes="(max-width:640px) 50vw, 16vw" width="368" height="500" alt="A Justiça · STF"></a><figcaption>BR-1961 · A Justiça · STF</figcaption></figure>
+      </div>
+    </section>
+
+    <nav class="mesa-paths" aria-label="Caminhos" data-label-pt="Caminhos" data-label-en="Paths">
+      <p class="gh" data-pt="Caminhos" data-en="Paths">Caminhos</p>
+      <a class="mesa-path" href="/sobre"><span class="n">01</span><span class="t" data-pt="perfil" data-en="profile">perfil</span><span class="d" data-pt="Quem escreve, onde pesquisa, como falar comigo." data-en="Who writes, where I research, how to reach me.">Quem escreve, onde pesquisa, como falar comigo.</span><span class="ar">→</span></a>
+      <a class="mesa-path" href="/atlas/"><span class="n">02</span><span class="t">atlas</span><span class="d" data-pt="Os objetos da pesquisa, ficha a ficha." data-en="The research objects, dossier by dossier.">Os objetos da pesquisa, ficha a ficha.</span><span class="ar">→</span></a>
+      <a class="mesa-path" href="/publicacoes/"><span class="n">03</span><span class="t" data-pt="publicações" data-en="publications">publicações</span><span class="d" data-pt="A escrita publicada e em curso." data-en="Published and in-progress writing.">A escrita publicada e em curso.</span><span class="ar">→</span></a>
+      <a class="mesa-path" href="/marginalia/"><span class="n">04</span><span class="t" data-pt="marginália" data-en="marginalia">marginália</span><span class="d" data-pt="Notas de pesquisa em forma de ensaio curto." data-en="Research notes in short-essay form.">Notas de pesquisa em forma de ensaio curto.</span><span class="ar">→</span></a>
+      <a class="mesa-path" href="https://iconocracia.com/"><span class="n">05</span><span class="t">iconocracia</span><span class="d" data-pt="O site da tese." data-en="The thesis website.">O site da tese.</span><span class="ar">→</span></a>
+      <a class="mesa-path" href="/metodologia/"><span class="n">06</span><span class="t" data-pt="metodologia" data-en="methodology">metodologia</span><span class="d" data-pt="Como o trabalho é feito, ferramenta a ferramenta." data-en="How the work is done, tool by tool.">Como o trabalho é feito, ferramenta a ferramenta.</span><span class="ar">→</span></a>
     </nav>
-  </main>
-</div>
-<script src="/icons.js"></script>
-<script src="/ampulheta-native.js"></script>
-<script src="/window-contents.js"></script>
-<script src="/WTarot.js"></script>
-<script src="/desktop-app.js?v=20260922-contract-article"></script>
-<script>
-  document.documentElement.classList.add('desktop-enhanced');
-  var Desktop = window.avapp.Desktop;
-  ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(Desktop));
-</script>
+
+    <p class="archive-note" data-pt="A mesa muda com a pesquisa. O que sai daqui vira texto, aula ou exposição." data-en="The table changes with the research. What leaves it becomes text, teaching or exhibition.">A mesa muda com a pesquisa. O que sai daqui vira texto, aula ou exposição.</p>
+</main>
+
+<footer class="coda">
+  <span class="coda-lbl" data-pt="fim da descida — a superfície fica por aqui" data-en="end of the descent — the surface stays here">fim da descida — a superfície fica por aqui</span>
+  <a class="coda-cta" href="mailto:ana@anavanzin.com"><span data-pt="abrir uma conversa" data-en="start a conversation">abrir uma conversa</span> <span aria-hidden="true">↗</span></a>
+  <div class="coda-mid">
+    <div>
+      <a class="coda-mail" href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>
+      <p class="coda-sub" data-pt-html="grupo de pesquisa Ius Gentium<br>PPGD/UFSC · Florianópolis, Brasil" data-en-html="Ius Gentium research group<br>PPGD/UFSC · Florianópolis, Brazil">grupo de pesquisa Ius Gentium<br>PPGD/UFSC · Florianópolis, Brasil</p>
+    </div>
+    <nav class="pills" aria-label="Atalhos" data-label-pt="Atalhos" data-label-en="Shortcuts">
+      <a href="/atlas/">Atlas</a>
+      <a href="/publicacoes/" data-pt="Publicações" data-en="Publications">Publicações</a>
+      <a href="/metodologia/" data-pt="Metodologia" data-en="Methodology">Metodologia</a>
+      <a href="/" data-pt="Voltar à superfície ↑" data-en="Back to the surface ↑">Voltar à superfície ↑</a>
+    </nav>
+  </div>
+  <div class="coda-legal">
+    <span>© 2026 ana vanzin — direito · imagem · memória</span>
+    <span>Florianópolis · MMXXVI</span>
+  </div>
+</footer>
+
 </body>
 </html>

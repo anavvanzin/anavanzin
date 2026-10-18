@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZEX4SFYEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,17 +11,9 @@
 
   gtag('config', 'G-TZEX4SFYEN');
 </script>
-<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atlas · ana vanzin</title>
-<link rel="icon" href="/assets/favicon-32.png">
 <meta name="description" content="Atlas — dossiês de objetos visuais do direito, sob curadoria. A imagem jurídica como dispositivo político, não como ornamento herdado.">
 <meta name="theme-color" content="#F5F0E6">
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../editorial.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,109 +50,168 @@
 </script>
 <link rel="canonical" href="https://anavanzin.com/atlas/">
 <meta name="robots" content="index,follow">
+<link rel="icon" href="/assets/favicon-32.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/av-os.css">
+<script src="/assets/av-os.js" defer></script>
 </head>
-<body class="ed" data-route="atlas">
-  <header class="ed-bar">
-    <a class="brand" href="/" title="← ana vanzin">
-      <img src="../assets/sun-seal.svg" alt=""><b>ana vanzin</b><span class="div"></span>
-      <span class="lbl" data-pt="atlas" data-en="atlas">atlas</span>
-    </a>
-    <span class="sp"></span>
-    <nav class="avnav" aria-label="Navegação da pesquisa">
-      <a href="../iconocracia/" data-route="iconocracia" data-pt="iconocracia" data-en="iconocracy">iconocracia</a>
-      <a href="../marginalia/" data-route="marginalia" data-pt="marginália" data-en="marginalia">marginália</a>
-      <a href="../publicacoes/" data-route="publicacoes" data-pt="publicações" data-en="publications">publicações</a>
-      <a href="../sala-de-leitura/" data-route="leitura" data-pt="sala de leitura" data-en="reading room">sala de leitura</a>
-      <a href="/advocacia" data-route="advocacia" data-pt="advocacia" data-en="practice">advocacia</a>
-      <a href="/atlas/" data-route="atlas">atlas</a>
-      <a href="/sobre" data-route="sobre" data-pt="sobre" data-en="about">sobre</a>
-      <a href="https://anavanzin.com/arno-dal-ri-site" data-pt="Orientador" data-en="Advisor">Orientador</a>
-    </nav>
-    <span class="langtog" role="group" aria-label="Idioma / Language">
+<body class="night">
+<a class="skip" href="#main" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Ana Vanzin · início" data-label-pt="Ana Vanzin · início" data-label-en="Ana Vanzin · home">av<span aria-hidden="true">.</span></a>
+  <nav class="nav-links" id="nav-links" aria-label="Navegação principal" data-label-pt="Navegação principal" data-label-en="Main navigation">
+    <a href="/sobre" data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="/atlas/">Atlas</a>
+    <a href="/publicacoes/" data-pt="Publicações" data-en="Publications">Publicações</a>
+    <a href="/metodologia/" data-pt="Metodologia" data-en="Methodology">Metodologia</a>
+    <a href="/estudar/" data-pt="Estudar" data-en="Study">Estudar</a>
+    <a href="/quotes/" data-pt="Trechos" data-en="Quotes">Trechos</a>
+    <a href="https://iconocracia.com/">Iconocracia</a>
+    <a href="https://grupoiusgentium.com.br/">Ius Gentium</a>
+    <a href="https://anavanzin.com/arno-dal-ri-site" data-pt="Orientador" data-en="Advisor">Orientador</a>
+    <a href="mailto:ana@anavanzin.com" data-pt="Contato" data-en="Contact">Contato</a>
+  </nav>
+  <div class="nav-controls">
+    <button class="menu-trigger" type="button" aria-expanded="false" aria-controls="nav-links"><span data-pt="Menu" data-en="Menu">Menu</span><span aria-hidden="true">+</span></button>
+    <div class="lang" role="group" aria-label="Idioma / Language">
       <button type="button" data-lang="pt" aria-pressed="true">PT</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
-    </span>
-  </header>
+    </div>
+  </div>
+</header>
 
-  <main class="ed-page">
-    <a class="ed-back" href="../iconocracia/"><span class="ar">←</span><span data-pt="ICONOCRACIA" data-en="ICONOCRACIA">ICONOCRACIA</span></a>
-    <div class="ed-head">
+<main id="main" class="ed ed-night">
+<a class="ed-back" href="/"><span class="ar">←</span><span data-pt="ana vanzin" data-en="ana vanzin">ana vanzin</span></a>
+    <section class="capa">
       <p class="kicker rise" data-pt="Objetos · arquivo visual" data-en="Objects · visual archive">Objetos · arquivo visual</p>
-      <h1 class="ed-title rise" style="--d:.06s" data-pt="atlas" data-en="atlas">atlas</h1>
+      <h1 class="capa-title rise" style="--d:.06s"><span>atlas</span><span class="ghost" data-pt="do visível" data-en="of the visible">do visível</span></h1>
       <p class="dek rise" style="--d:.12s" data-pt="Moedas, gravuras e figuras de Justiça. Reúno aqui objetos da pesquisa e as fontes consultadas. As fichas indicam o que ainda está em curadoria." data-en="Coins, prints and figures of Justice. Here I gather research objects and the sources consulted. The dossiers indicate what remains under curation.">Moedas, gravuras e figuras de Justiça. Reúno aqui objetos da pesquisa e as fontes consultadas. As fichas indicam o que ainda está em curadoria.</p>
-    </div>
+      <p class="capa-meta rise" style="--d:.18s"><span>ana vanzin — direito · imagem · memória</span><span data-pt="cinco dossiês · em formação" data-en="five dossiers · in formation">cinco dossiês · em formação</span></p>
+    </section>
 
-    <div id="tfilter" class="tfilter" role="group" aria-label="Filtrar por tema"></div>
-    <!-- prerender:grid -->
-<ul class="atlas-grid" id="grid"><li data-themes="justica-cegueira alegoria-feminina"><a href="justitia.html"><span class="th"><span class="st">em curadoria</span><img src="../assets/atlas/justitia.jpg" width="250" height="375" alt="O tolo venda os olhos de Justitia. A primeira Justitia vendada não é virtude — é escárnio." loading="lazy"></span><span class="cap"><span class="ti">Justitia vendada</span><span class="mt">Xilogravura · Das Narrenschiff, Basileia · 1494</span><span class="ds">A mais antiga Justitia vendada de que se tem notícia não a mostra como virtude, mas como alvo: um tolo lhe cobre os olhos, e o gesto é de zombaria. Este dossiê reúne o objeto, sua descrição material e as leituras que o atravessam.</span></span></a></li><li data-themes="nacao-republica alegoria-feminina soberania-visual"><a href="marianne.html"><span class="th"><span class="st">em formação</span><img src="../assets/atlas/marianne.jpg" width="1280" height="1024" alt="A República figurada em corpo de mulher — e sua irmã tropical." loading="lazy"></span><span class="cap"><span class="ti">Marianne</span><span class="mt">Alegoria nacional · França · séc. XVIII–</span><span class="ds">A figura feminina que encarna a República francesa e viaja, transformada, para a alegoria da nação brasileira. Dossiê em formação.</span></span></a></li><li data-themes="nacao-republica soberania-visual colonialidade-ver"><a href="britannia.html"><span class="th"><span class="st">em formação</span><img src="../assets/atlas/britannia.jpg" width="586" height="800" alt="A nação imperial em corpo de mulher armada." loading="lazy"></span><span class="cap"><span class="ti">Britannia</span><span class="mt">Alegoria nacional · Grã-Bretanha · séc. XVII–</span><span class="ds">A alegoria britânica entre virtude cívica e poder imperial. Dossiê em formação.</span></span></a></li><li data-themes="nacao-republica alegoria-feminina colonialidade-ver"><a href="republica.html"><span class="th"><span class="st">em formação</span><img src="../assets/atlas/republica.jpg" width="616" height="1200" alt="A irmã tropical de Marianne: a República brasileira figurada como mulher." loading="lazy"></span><span class="cap"><span class="ti">A República</span><span class="mt">Alegoria nacional · Brasil · 1889–</span><span class="ds">A alegoria feminina da nação brasileira, entre importação iconográfica e invenção local. Dossiê em formação.</span></span></a></li><li data-themes="nacao-republica alegoria-feminina soberania-visual"><a href="/atlas/nacao-como-mulher/"><span class="th"><span class="st">exposição · 9 objetos</span><img src="../atlas/nacao-como-mulher/plates/BR-005-republica-atlas.webp" width="1133" height="1388" alt="A República brasileira em composição alegórica; a exposição identifica separadamente cada objeto histórico." loading="lazy"></span><span class="cap"><span class="ti">A Nação como Mulher</span><span class="mt">Exposição temática bilíngue · Europa e Américas · 1537–1917</span><span class="ds">Nove personificações femininas lidas em três camadas: descrição visível, contexto histórico-jurídico e hipótese interpretativa. Com proveniência, direitos e leitura comparativa.</span></span></a></li></ul>
-<!-- /prerender:grid -->
-
-    <p class="dek" style="margin-top:clamp(40px,6vh,68px);max-width:60ch" data-pt="O Atlas está em formação. Imagens e direitos são verificados objeto a objeto antes da publicação." data-en="The Atlas is in formation. Images and rights are verified object by object before publication.">O Atlas está em formação. Imagens e direitos são verificados objeto a objeto antes da publicação.</p>
-  </main>
-
-  <footer class="ed-foot">
-    <div class="in">
-      <div class="zone brand">
-        <a class="id" href="/"><img src="/assets/monogram-av-inverse.svg" alt=""> <b>ana vanzin</b></a>
-        <p class="desc" data-pt="advogada · historiadora do direito · doutoranda PPGD/UFSC" data-en="lawyer · legal historian · PhD candidate, PPGD/UFSC">advogada · historiadora do direito · doutoranda PPGD/UFSC</p>
-      </div>
-      <nav class="zone nav" aria-label="Navegação do rodapé">
-        <span class="zt" data-pt="navegação" data-en="navigation">navegação</span>
-        <a href="/mesa/" data-pt="mesa" data-en="work desk">mesa</a>
-        <a href="/iconocracia/">iconocracia</a>
-        <a href="/publicacoes/" data-pt="publicações" data-en="publications">publicações</a>
-        <a href="/sala-de-leitura/" data-pt="sala de leitura" data-en="reading room">sala de leitura</a>
-        <a href="/sobre" data-pt="sobre" data-en="about">sobre</a>
-      </nav>
-      <div class="zone links">
-        <span class="zt" data-pt="canais" data-en="channels">canais</span>
-        <a href="mailto:ana@anavanzin.com">e-mail</a>
-        <a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Lattes ↗</a>
-        <a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram ↗</a>
-        <a href="http://hookahr.tumblr.com/" target="_blank" rel="noopener">Tumblr ↗</a>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>ver <em>videre</em></span><span>mostrar <em>monstrare</em></span><span>figurar <em>figurare</em></span><span>vendar <em>velare</em></span>
+        <span>ver <em>videre</em></span><span>mostrar <em>monstrare</em></span><span>figurar <em>figurare</em></span><span>vendar <em>velare</em></span>
       </div>
     </div>
-    <div class="base">
-      <span class="cl">© 2026 ana vanzin · PPGD/UFSC · Ius Gentium · anavanzin.com</span>
-      <span class="flr">❧</span>
-      <a class="top" href="#" data-pt="voltar ao topo ↑" data-en="back to top ↑">voltar ao topo ↑</a>
+
+    <div id="tfilter" class="tfilter" role="group" aria-label="Filtrar por tema" data-label-pt="Filtrar por tema" data-label-en="Filter by theme"></div>
+
+    <ul class="atlas-grid" id="grid">
+      <li data-themes="justica-cegueira alegoria-feminina">
+        <a href="/atlas/justitia.html">
+          <span class="th"><span class="st" data-pt="em curadoria" data-en="under curation">em curadoria</span><img src="/assets/atlas/justitia-800.webp" width="250" height="375" alt="O tolo venda os olhos de Justitia. A primeira Justitia vendada não é virtude — é escárnio." loading="lazy" decoding="async"></span>
+          <span class="cap"><span class="ti">Justitia vendada</span><span class="mt">Xilogravura · Das Narrenschiff, Basileia · 1494</span><span class="ds">A mais antiga Justitia vendada de que se tem notícia não a mostra como virtude, mas como alvo: um tolo lhe cobre os olhos, e o gesto é de zombaria. Este dossiê reúne o objeto, sua descrição material e as leituras que o atravessam.</span></span>
+        </a>
+      </li>
+      <li data-themes="nacao-republica alegoria-feminina">
+        <a href="/atlas/marianne.html">
+          <span class="th"><span class="st" data-pt="em formação" data-en="in formation">em formação</span><img src="/assets/atlas/marianne-800.webp" width="800" height="640" alt="A República figurada em corpo de mulher — e sua irmã tropical." loading="lazy" decoding="async"></span>
+          <span class="cap"><span class="ti">Marianne</span><span class="mt">Alegoria nacional · França · séc. XVIII–</span><span class="ds">A figura feminina que encarna a República francesa e viaja, transformada, para a alegoria da nação brasileira. Dossiê em formação.</span></span>
+        </a>
+      </li>
+      <li data-themes="nacao-republica soberania-visual colonialidade-ver">
+        <a href="/atlas/britannia.html">
+          <span class="th"><span class="st" data-pt="em formação" data-en="in formation">em formação</span><img src="/assets/atlas/britannia-800.webp" width="586" height="800" alt="A nação imperial em corpo de mulher armada." loading="lazy" decoding="async"></span>
+          <span class="cap"><span class="ti">Britannia</span><span class="mt">Alegoria nacional · Grã-Bretanha · séc. XVII–</span><span class="ds">A alegoria britânica entre virtude cívica e poder imperial. Dossiê em formação.</span></span>
+        </a>
+      </li>
+      <li data-themes="nacao-republica alegoria-feminina colonialidade-ver">
+        <a href="/atlas/republica.html">
+          <span class="th"><span class="st" data-pt="em formação" data-en="in formation">em formação</span><img src="/assets/atlas/republica-800.webp" width="616" height="1200" alt="A irmã tropical de Marianne: a República brasileira figurada como mulher." loading="lazy" decoding="async"></span>
+          <span class="cap"><span class="ti">A República</span><span class="mt">Alegoria nacional · Brasil · 1889–</span><span class="ds">A alegoria feminina da nação brasileira, entre importação iconográfica e invenção local. Dossiê em formação.</span></span>
+        </a>
+      </li>
+      <li data-themes="nacao-republica alegoria-feminina soberania-visual">
+        <a href="/atlas/nacao-como-mulher/">
+          <span class="th"><span class="st" data-pt="exposição · 9 objetos" data-en="exhibition · 9 objects">exposição · 9 objetos</span><img src="/assets/atlas/BR-005-republica-atlas-800.webp" width="800" height="980" alt="A República brasileira em composição alegórica; a exposição identifica separadamente cada objeto histórico." loading="lazy" decoding="async"></span>
+          <span class="cap"><span class="ti">A Nação como Mulher</span><span class="mt">Exposição temática bilíngue · Europa e Américas · 1537–1917</span><span class="ds">Nove personificações femininas lidas em três camadas: descrição visível, contexto histórico-jurídico e hipótese interpretativa. Com proveniência, direitos e leitura comparativa.</span></span>
+        </a>
+      </li>
+    </ul>
+
+    <section class="cena">
+      <span class="cena-lbl" data-pt="do caderno" data-en="from the notebook">do caderno</span>
+      <p data-pt="a imagem jurídica não é ornamento — é dispositivo." data-en="the legal image is not ornament — it is device.">a imagem jurídica não é ornamento — é dispositivo.</p>
+    </section>
+
+    <p class="archive-note" data-pt="O Atlas está em formação. Imagens e direitos são verificados objeto a objeto antes da publicação." data-en="The Atlas is in formation. Images and rights are verified object by object before publication.">O Atlas está em formação. Imagens e direitos são verificados objeto a objeto antes da publicação.</p>
+</main>
+
+<footer class="coda">
+  <span class="coda-lbl" data-pt="fim da descida — a superfície fica por aqui" data-en="end of the descent — the surface stays here">fim da descida — a superfície fica por aqui</span>
+  <a class="coda-cta" href="mailto:ana@anavanzin.com"><span data-pt="abrir uma conversa" data-en="start a conversation">abrir uma conversa</span> <span aria-hidden="true">↗</span></a>
+  <div class="coda-mid">
+    <div>
+      <a class="coda-mail" href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>
+      <p class="coda-sub" data-pt-html="grupo de pesquisa Ius Gentium<br>PPGD/UFSC · Florianópolis, Brasil" data-en-html="Ius Gentium research group<br>PPGD/UFSC · Florianópolis, Brazil">grupo de pesquisa Ius Gentium<br>PPGD/UFSC · Florianópolis, Brasil</p>
     </div>
-  </footer>
+    <nav class="pills" aria-label="Atalhos" data-label-pt="Atalhos" data-label-en="Shortcuts">
+      <a href="/publicacoes/" data-pt="Publicações" data-en="Publications">Publicações</a>
+      <a href="/metodologia/" data-pt="Metodologia" data-en="Methodology">Metodologia</a>
+      <a href="/marginalia/" data-pt="Marginália" data-en="Marginalia">Marginália</a>
+      <a href="/" data-pt="Voltar à superfície ↑" data-en="Back to the surface ↑">Voltar à superfície ↑</a>
+    </nav>
+  </div>
+  <div class="coda-legal">
+    <span>© 2026 ana vanzin — direito · imagem · memória</span>
+    <span>Florianópolis · MMXXVI</span>
+  </div>
+</footer>
 
-  <script src="../content.js"></script>
-  <script src="../editorial.js"></script>
-  <script src="../theme-filter.js"></script>
-  <script>
-  (function () {
-    var L = function (o) { return window.AVContent.L(o); };
-    var active = 'all';
-
-    function card(o) {
-      var en = window.AV && window.AV.lang === 'en';
-      var th = o.img
-        ? '<span class="th"><img src="../' + o.img + '" alt="' + L(o.caption) + '" loading="lazy"></span>'
-        : '<span class="th"><span class="ph"><span class="ph-lbl">' + L(o.caption) + '</span></span></span>';
-      return '<li data-themes="' + o.themes.join(' ') + '"><a href="' + (o.href && !o.href.startsWith('atlas/') ? o.href : o.slug + '.html') + '">' +
-        th.replace('<span class="th">', '<span class="th"><span class="st">' + L(o.status) + '</span>') +
-        '<span class="cap"><span class="ti">' + L(o.title) + '</span>' +
-        '<span class="mt">' + L(o.object) + ' · ' + L(o.origin) + ' · ' + o.date + '</span>' +
-        '<span class="ds">' + L(o.summary) + '</span></span></a></li>';
-    }
-
-    function paint() {
-      var grid = document.getElementById('grid');
-      grid.innerHTML = window.AVContent.OBJECTS.map(card).join('');
-      window.AVThemeFilter.apply(grid, active);
-    }
-
-    window.AVThemeFilter.mount(document.getElementById('tfilter'), {
-      base: '../',
-      onChange: function (slug) { active = slug; window.AVThemeFilter.apply(document.getElementById('grid'), slug); }
+<script>
+/* filtro de temas do atlas — vanilla, sem dependências */
+(function () {
+  var THEMES = {
+    'justica-cegueira': ['justiça e cegueira', 'justice and blindness'],
+    'alegoria-feminina': ['alegoria feminina', 'feminine allegory'],
+    'nacao-republica': ['nação e república', 'nation and republic'],
+    'soberania-visual': ['soberania visual', 'visual sovereignty'],
+    'colonialidade-ver': ['colonialidade do ver', 'coloniality of seeing']
+  };
+  var box = document.getElementById('tfilter');
+  var grid = document.getElementById('grid');
+  if (!box || !grid) return;
+  var items = Array.prototype.slice.call(grid.children);
+  var seen = [];
+  items.forEach(function (li) {
+    (li.getAttribute('data-themes') || '').split(/\s+/).forEach(function (t) {
+      if (t && seen.indexOf(t) < 0) seen.push(t);
     });
-    window.addEventListener('av:lang', paint);
-    paint();
-  })();
-  </script>
+  });
+  var all = document.createElement('button');
+  all.type = 'button';
+  all.setAttribute('data-pt', 'todos');
+  all.setAttribute('data-en', 'all');
+  all.textContent = 'todos';
+  all.setAttribute('aria-pressed', 'true');
+  box.appendChild(all);
+  seen.forEach(function (t) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('data-theme', t);
+    var lbl = THEMES[t] || [t, t];
+    b.setAttribute('data-pt', lbl[0]);
+    b.setAttribute('data-en', lbl[1]);
+    b.textContent = lbl[0];
+    b.setAttribute('aria-pressed', 'false');
+    box.appendChild(b);
+  });
+  box.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    var t = b.getAttribute('data-theme');
+    box.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    items.forEach(function (li) {
+      var show = !t || (li.getAttribute('data-themes') || '').split(/\s+/).indexOf(t) >= 0;
+      li.hidden = !show;
+    });
+  });
+})();
+</script>
 </body>
 </html>
-
