@@ -68,6 +68,39 @@
   var fluidCanvas = document.querySelector('canvas.fluid');
   if (fluidCanvas) initFluid(fluidCanvas);
 
+  /* ---------- cursor do protótipo kimi.page (dot + ring, difference) ---------- */
+  (function initCursor() {
+    if (!window.matchMedia || matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    if (document.querySelector('.cursor-dot')) return;
+    var dot = document.createElement('div'); dot.className = 'cursor-dot';
+    var ring = document.createElement('div'); ring.className = 'cursor-ring'; ring.setAttribute('aria-hidden', 'true');
+    dot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    var mx = -100, my = -100, rx = mx, ry = my, active = false;
+    window.addEventListener('pointermove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      if (!active) { active = true; dot.classList.add('is-active'); ring.classList.add('is-active'); }
+    }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', function () {
+      active = false; dot.classList.remove('is-active'); ring.classList.remove('is-active');
+    });
+    var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function loop() {
+      requestAnimationFrame(loop);
+      rx += (mx - rx) * (reduced ? 0.5 : 0.14);
+      ry += (my - ry) * (reduced ? 0.5 : 0.14);
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+    }
+    requestAnimationFrame(loop);
+    var SEL = 'a, button, [data-cursor], input, textarea, select, [role="button"]';
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target instanceof Element ? e.target.closest(SEL) : null;
+      ring.classList.toggle('is-link', !!t);
+      ring.dataset.cursorLabel = t ? (t.getAttribute('data-cursor-label') || 'explorar') : '';
+    });
+  })();
+
   function initFluid(canvas) {
     var ctx = canvas.getContext('2d');
     if (!ctx) return;

@@ -623,3 +623,14 @@ main.ed>.cena{margin-inline:0}
 .pills a{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgb(245 240 230/.4);border-radius:999px;padding:.55rem 1rem;color:var(--paper);text-decoration:none}
 .pills a:hover{background:var(--paper);color:var(--night);border-color:var(--paper)}
 .coda-legal{display:flex;justify-content:space-between;gap:.5rem 2rem;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:rgb(245 240 230/.5);border-top:1px solid rgb(245 240 230/.2);padding-top:2rem}
+
+/* ---------- cursor do protótipo kimi.page (dot + ring, mix-blend difference) ---------- */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:99998}
+.cursor-dot{width:6px;height:6px;background:#fff;border-radius:50%;margin:-3px 0 0 -3px;mix-blend-mode:difference;opacity:0;transition:opacity .3s ease}
+.cursor-ring{width:36px;height:36px;border:1px solid #fff;border-radius:50%;margin:-18px 0 0 -18px;mix-blend-mode:difference;opacity:0;will-change:transform;transition:width .5s cubic-bezier(.22,1,.36,1),height .5s cubic-bezier(.22,1,.36,1),margin .5s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+.cursor-ring::after{content:attr(data-cursor-label);position:absolute;inset:0;display:grid;place-items:center;color:#000;font-family:var(--mono);font-size:.5625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .2s ease}
+.cursor-dot.is-active,.cursor-ring.is-active{opacity:1}
+.cursor-ring.is-link{width:64px;height:64px;margin:-32px 0 0 -32px;border-width:0;background:#fff}
+.cursor-ring.is-link::after{opacity:1}
+@media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none!important}}
+@media (prefers-reduced-motion:reduce){.cursor-ring{transition:opacity .15s ease}}
