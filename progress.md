@@ -86,6 +86,8 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 
 ### Phase 8: Landing page av-os portada da produção
 
+  - Ajustes pós-port: fix do height:auto da placa (db6e4d3) e remoção da lede do hero a pedido da Ana (2c79e12, ao vivo).
+
 - **Status:** in_progress
 - Actions taken:
   - `assets/av-os.css` (625 linhas, do pacote de handoff 01M57P8MV3TK0T49GBEWPGYVDN — sessão capa-em-tudo) + `assets/av-os.js` copiados para a raiz; o index.html da produção reescrito com o landing do redesign, preloads de fontes, degrau 1200w na placa, hero-strip com derivativos de 500w/dims, board com srcset nos 3 breakpoints (12/6 colunas/stack).
