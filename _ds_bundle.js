@@ -1207,7 +1207,7 @@ function Boot({
       gap: 14
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     style: {
       height: 150,
@@ -1395,7 +1395,7 @@ function Desktop() {
       fontFamily: 'var(--font-body)'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     "aria-hidden": "true",
     style: {
@@ -1837,7 +1837,7 @@ function GroupIcon({
 }
 function ImageIcon({
   size = 46,
-  src = '/assets/pixel-justitia.png'
+  src = '/assets/pixel-justitia.webp'
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2112,7 +2112,7 @@ function WTese({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     style: {
       width: '100%',
@@ -2304,7 +2304,7 @@ function WJustitia({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia-sky.png",
+    src: "/assets/pixel-justitia-sky.webp",
     alt: "Justitia, pixel art",
     style: {
       maxWidth: '100%',
@@ -2781,7 +2781,7 @@ function Boot({
       gap: 14
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     style: {
       height: 150,
@@ -2969,7 +2969,7 @@ function Desktop() {
       fontFamily: 'var(--font-body)'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     "aria-hidden": "true",
     style: {
@@ -3347,7 +3347,7 @@ function WTese({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia.png",
+    src: "/assets/pixel-justitia.webp",
     alt: "",
     style: {
       width: '100%',
@@ -3539,7 +3539,7 @@ function WJustitia({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/pixel-justitia-sky.png",
+    src: "/assets/pixel-justitia-sky.webp",
     alt: "Justitia, pixel art",
     style: {
       maxWidth: '100%',
@@ -3741,7 +3741,7 @@ function GroupIcon({
 }
 function ImageIcon({
   size = 46,
-  src = '/assets/pixel-justitia.png'
+  src = '/assets/pixel-justitia.webp'
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
