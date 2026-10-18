@@ -121,6 +121,7 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 | 2026-10-18 | 404 pixel-justitia.webp | 1 | gerar derivativo do arquivo certo (não confundir com -sky) |
 | 2026-10-18 | Race de foco pós-lazy (3 testes a11y) | 1 | retentativa no efeito de foco |
 | 2026-10-18 | Arquivos de planejamento trackados foram publicados em produção (deploy de todo o repo) | 1 | `export-ignore` em .gitattributes + `.assetsignore` (commit a0b6c76); produção re-verificada: 404 nos três; padrão já existia para docs/superpowers |
+| 2026-10-18 | Ilustração da placa esticada (`img max-width:100%` sem `height:auto` no av-os.css) | 1 | `.plate img` com `height:auto`; razão render 1,919 → 1,778, medido em 1984×896 DPR1/2 |
 | 2026-10-18 | Superpowers manual: skills não catalogadas | 1 | reverter; instalar via `/plugins install` no TUI |
 
 ## 5-Question Reboot Check
