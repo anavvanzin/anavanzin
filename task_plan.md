@@ -79,6 +79,15 @@ Phase 7 — Entregas pendentes de decisão
 - [ ] Atualização do AGENTS.md (edição local de Ana) para refletir o novo estado, se aplicável
 - **Status:** pending
 
+### Phase 8: Landing page av-os (hero fluido) na produção
+
+- [x] Portar index.html + av-os.css/js para a raiz, com otimizações da main embutidas
+- [x] Intro-overlay: home sem overlay; teste reescrito
+- [x] Verificação local 8877 (1440/390/320, PT/EN, zero erros)
+- [x] Suíte Playwright: 128 passou/76 falhou no run completo; após isolamento, quotes-folio (32/32) e hello (17/17) passam — as falhas no run pleno são flakes de paralelismo, não regressão. Restam os grupos pré-existentes mapeados (home-defense/metamorfose/refinement, tier1, tarot, estudar).
+- [ ] Push/deploy — decide com ela
+- **Status:** in_progress
+
 ## Key Questions
 
 1. O estudar deve ser indexável sem JS (resolver os 23 testes) ou permanecer como app client-side com canonical/noindex? → pendente com a pesquisadora.

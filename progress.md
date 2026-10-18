@@ -84,6 +84,16 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
   - `test-results/.last-run.json` restaurado ao estado trackado; AGENTS.md local preservado sem commit.
   - Working tree limpa exceto AGENTS.md; `main` 11 commits à frente da `origin/main`.
 
+### Phase 8: Landing page av-os portada da produção
+
+- **Status:** in_progress
+- Actions taken:
+  - `assets/av-os.css` (625 linhas, do pacote de handoff 01M57P8MV3TK0T49GBEWPGYVDN — sessão capa-em-tudo) + `assets/av-os.js` copiados para a raiz; o index.html da produção reescrito com o landing do redesign, preloads de fontes, degrau 1200w na placa, hero-strip com derivativos de 500w/dims, board com srcset nos 3 breakpoints (12/6 colunas/stack).
+  - Teste do intro atualizado: a nova home não tem overlay (a introdução fica em /intro/) — o teste agora verifica que postMessage externo não altera conteúdo.
+  - Fix de legibilidade do hero reaplicado (o pacote tinha sobrescrito o meu).
+- Verificação local (8877): 1,82 MB desktop / 1,42 MB mobile, zero erros JS, PT/EN com detecção confirmada.
+- Suíte pós-port: 128/76 no run pleno; isoladas quotes-folio e hello passam 100% com a home av-os; falhas restantes = flakes de paralelismo + grupos pré-existentes. Commitado 4db4f56.
+
 ## Test Results
 
 | Test | Input | Expected | Actual | Status |
