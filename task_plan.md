@@ -70,7 +70,8 @@ Phase 7 — Entregas pendentes de decisão
 
 ### Phase 7: Entregas pendentes de decisão
 
-- [ ] Commit/deploy do changeset (~90 arquivos modificados, ~90 novos assets, rebuild do estudar)
+- [x] Commit do changeset (10 commits `perf(*)`/`test` + 1 `docs`, `main` 11 à frente da `origin/main`; AGENTS.md deixado não commitado por ser edição local da pesquisadora)
+- [ ] Push/deploy (deploy de produção na Cloudflare Pages acontece ao empurrar `main`)
 - [ ] Política de indexação do `/estudar`: 23 testes de `publication.spec.js` falham (shells sem h1/body; injetar conteúdo gera CLS na troca do React; alternativas no findings.md)
 - [ ] Triagem das specs velhas do redesign (~35 testes: hello.spec, home.spec, mobile-dialog testam DOM removido)
 - [ ] Hold do loader: 705 ms (rede rápida) / 2,27 s (Fast3G), teto de 1,6 s; reduzir é decisão de desenho

@@ -18,6 +18,7 @@ Medições baseline (produção, 2026-10-18):
 - Páginas internas: `/mesa/` 2,55 MB (pixel-justitia-sky 1,18 MB + avatar 684 KB); `/atlas/` CLS 0,0321; artigo "O contrato visual" CLS 0,0195-0,0250 (font swap).
 - Varredura do sitemap (53 URLs): 36 páginas >1 MB; top: `/apresentacao/` 7,98 MB, `/manifesto/impressa.html` 7,08 MB, `/mae` 3,16 MB.
 - Loader de intro: hold de 705 ms em rede rápida; 2,27 s em Fast3G (CDP throttling), dominado pelo teto de 1,6 s após avaliação do script deferido.
+- INP (medido após os fixes, mobile 390 com 14 cliques reais: menu, idioma, index): pior interação 16 ms, muito abaixo do limiar de 200 ms; desktop sem longtasks (TBT 0) e handlers síncronos.
 
 Resultados finais (locais, verificados por rede):
 - Home 2,55 MB; `/iconocracia/atlas/` 10,6 → 3,0 MB; `/apresentacao/` 0,77 MB; `/manifesto/impressa.html` 1,12 MB; `/mae` 1,20 MB; `/malleus/` 1,01 MB; atlas CLS 0,0025; artigo CLS 0,0123.

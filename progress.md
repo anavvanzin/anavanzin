@@ -67,6 +67,14 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 - Actions taken:
   - Nenhuma ainda; aguardando decisões (ver `task_plan.md` Phase 7).
 
+### Phase 8: Commit do changeset (2026-10-18)
+
+- **Status:** complete
+- Actions taken:
+  - 10 commits lógicos: cache, home, pixel-art, artigo, atlas, iconocracia (RES + derivativos), estudar (imagens/bundle/fontes), sweep, teste do intro; + commit de remanescentes.
+  - `test-results/.last-run.json` restaurado ao estado trackado; AGENTS.md local preservado sem commit.
+  - Working tree limpa exceto AGENTS.md; `main` 11 commits à frente da `origin/main`.
+
 ## Test Results
 
 | Test | Input | Expected | Actual | Status |
@@ -81,6 +89,7 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
 | Páginas da varredura | rede local | zero 404, peso reduzido | confirmado (tabela em task_plan) | ok |
 | CLS atlas / artigo | Playwright | < 0,1 | 0,0025 / 0,0123 | ok |
 | Loader em Fast3G | CDP throttle | medido | hold 2,27 s | info |
+| INP com interações reais | cliques no menu, idioma, index (mobile 390) | < 200 ms | pior: 16 ms em 14 eventos | ok |
 
 ## Error Log
 
