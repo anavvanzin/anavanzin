@@ -108,6 +108,13 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
   - Verificação: /trabalhos/, /atlas/, /mesa/, /publicacoes/ 200 em produção; local 1,41 MB máx; zero 404/erros; screenshots aprovados por viewport.
   - Commits: 9eec9fb (delete trabalhos.html, sem querer só esse) + e4dd578 (todo o resto); deploy confirmado.
 
+### Phase 8c: Editoriais av-os (2026-10-18)
+
+- **Status:** complete
+- Actions taken:
+  - sobre (file→dir), defesa (maxresdefault 404 → hqdefault), marginalia (index reescrito), metodologia (reescrito), advocacia (reescrito) — 5 editoriais para o redesign; 200 em todas, zero erros; thumb da defesa verificada via ytimg.
+  - Commit 314717d, deploy em produção.
+
 ## Test Results
 
 | Test | Input | Expected | Actual | Status |
