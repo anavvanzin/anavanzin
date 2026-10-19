@@ -152,7 +152,7 @@ img{display:block;max-width:100%}
 .bio h2{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,2rem + 2vw,3.5rem);line-height:1.1;text-wrap:balance}
 .bio-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:3rem;align-items:start}
 .bio-portrait{border:1px solid var(--rule);padding:1rem;background:#EFE7D6;max-width:280px}
-.bio-portrait img{filter:sepia(.12)}
+.bio-portrait img{height:auto;filter:sepia(.12)}
 .facts{list-style:none;margin-top:1.5rem;border-top:1px solid var(--burgundy)}
 .facts li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--rule);font-size:.9375rem;align-items:baseline}
 .facts li > span:first-child{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--burgundy)}
