@@ -46,6 +46,15 @@
     });
   }
 
+  /* ---------- página atual na navegação (o CSS prevê aria-current) ---------- */
+  var path = location.pathname.replace(/\/index\.html$/, '/');
+  if (links) {
+    links.querySelectorAll('a').forEach(function (a) {
+      var p = new URL(a.href, location.href).pathname.replace(/\/index\.html$/, '/');
+      if (p === path) a.setAttribute('aria-current', 'page');
+    });
+  }
+
   /* ---------- índice do site ---------- */
   var dialog = document.getElementById('site-index');
   var toggle = document.querySelector('.index-toggle');
