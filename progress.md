@@ -115,6 +115,17 @@ Sessão longa (goal mode, 14 turnos): auditoria de performance completa do site 
   - sobre (file→dir), defesa (maxresdefault 404 → hqdefault), marginalia (index reescrito), metodologia (reescrito), advocacia (reescrito) — 5 editoriais para o redesign; 200 em todas, zero erros; thumb da defesa verificada via ytimg.
   - Commit 314717d, deploy em produção.
 
+### Phase 8d: Correções da critique impeccable (2026-10-18)
+
+- **Status:** complete
+- Actions taken:
+  - `body.night :focus-visible{outline-color:var(--gold)}` — foco visível em noturno (antes 1,64:1).
+  - `body.night main.ed h2{color:var(--gold)}` — board-head da mesa legível (1,0:1 → ouro sobre noite).
+  - Notas de arquivo: opacidade ≥0,75 light / 0,72 night (3,9:1 → AA).
+  - hero-strip figcaption 12px; depth-rail 11px; `.entries a` min-height 24px; `.footer a` padding-block .35rem.
+  - `av-os.js`: emissão de `aria-current="page"` por pathname (a regra CSS já existia).
+  - Verificado: mesa h2 gold sobre night; atlas aria-current + focus gold. Commit e deploy.
+
 ## Test Results
 
 | Test | Input | Expected | Actual | Status |
