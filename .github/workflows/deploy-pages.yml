@@ -1,47 +1,43 @@
-# Resume GitHub Pages publishes for anavanzin.com.
-# Repo Settings → Pages uses build_type=workflow, but no workflow existed after
-# mid-2026 — deploys stopped at commit 3058230 (2026-07-11) while main moved on.
-name: Deploy GitHub Pages
+name: Pages release checks
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-check-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  pages-release-check:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 10
+    env:
+      WRANGLER_SEND_METRICS: 'false'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          # Manual dispatches must publish the production branch, never the
-          # branch selected in the Actions UI.
-          ref: main
-
-      - name: Stage site tree
-        run: bash scripts/stage-worker-assets.sh
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .worker-assets
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:pages
+      - name: Test the Pages artifact and isolated local KV
+        shell: bash
+        run: |
+          node_modules/.bin/wrangler dev --config tests/fixtures/iconocracia-work/wrangler.jsonc --local --port 8102 --ip 127.0.0.1 --show-interactive-dev-session=false > "$RUNNER_TEMP/pages-service.log" 2>&1 &
+          service_pid=$!
+          node_modules/.bin/wrangler pages dev .worker-assets --kv MESAS --service ICONOCRACIA_WORK=pages-iconocracia-fixture --port 8101 --ip 127.0.0.1 --persist-to "$RUNNER_TEMP/pages-state" --show-interactive-dev-session=false > "$RUNNER_TEMP/pages-runtime.log" 2>&1 &
+          pages_pid=$!
+          trap 'kill "$pages_pid" "$service_pid"; wait "$pages_pid" "$service_pid" || true' EXIT
+          timeout 30s bash -c 'until curl --silent --fail http://127.0.0.1:8102/ > /dev/null; do sleep 1; done'
+          timeout 30s bash -c 'until curl --silent --fail http://127.0.0.1:8101/ > /dev/null; do sleep 1; done'
+          npm run test:pages
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:pages:ui

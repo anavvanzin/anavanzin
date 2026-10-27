@@ -37,11 +37,11 @@ Domínio canônico: **anavanzin.com**.
 
 ### Cloudflare Pages
 
-A configuração do projeto `anavanzin` usa `main` para produção e
-`codex/pages-preflight` para prévia. O build é `npm run build:pages`, com saída
-em `.worker-assets`. O corte do domínio canônico para Pages depende de validar
-o deployment de produção e as rotas; `www` deve redirecionar ao domínio principal
-preservando caminho e query string.
+O projeto `anavanzin` no Cloudflare Pages é o publicador canônico. `main` é a
+branch de produção; `fix/*`, `feat/*` e `codex/*` têm prévias. O build é
+`npm run build:pages`, com saída em `.worker-assets`. O fluxo é branch → prévia
+e checks → PR → merge em `main` → publicação automática pelo Cloudflare.
+`www` redireciona ao domínio principal preservando caminho e query string.
 
 [`wrangler.jsonc`](wrangler.jsonc) é a fonte da configuração Functions. `MESAS`
 usa o namespace existente de produção; a prévia usa um namespace distinto.
@@ -54,13 +54,20 @@ Ferramentas, infraestrutura interna e mídia acima do limite ficam fora do artif
 
 ### Caminho de retorno
 
-O Worker `anavanzin` anterior e seus dados continuam preservados. Antes de
-publicar, é necessário isolar os dois Workers Builds legados ligados incorretamente
-a este repo de `main` e `codex/pages-preflight`, sem apagar os serviços nem revogar
-a conexão GitHub compartilhada. Veja o [procedimento de rollback](scripts/pages/ROLLBACK.md).
+O Worker `anavanzin` anterior e seus dados continuam preservados como retorno.
+As rotas específicas de Trabalhos, Arno e Iconocracia e os subdomínios têm donos
+próprios; não são removidos junto com o catch-all antigo do apex. Veja o
+[procedimento de rollback](scripts/pages/ROLLBACK.md).
 
-O workflow [GitHub Pages](.github/workflows/deploy-pages.yml) continua publicando
-uma cópia a partir de `main`. Ele não é o mecanismo de publicação canônico do Pages.
+O workflow [Pages release checks](.github/workflows/deploy-pages.yml) verifica
+o artifact no runtime Pages local, com KV local, e no navegador em 1440, 390 e
+320 px. Não publica no GitHub Pages e não usa credenciais Cloudflare.
+`pages-release-check` e `Cloudflare Pages` devem ser obrigatórios para merge.
+
+Prévias usam MESAS separado e compartilham somente o Worker estático
+`anavanzin-kimi`, sem bindings de dados graváveis. O teste de navegador cobre
+a interface atual; `tests/pages-mesa.spec.js` conserva os testes da interface
+anterior de janelas, fora do gate de publicação atual.
 
 ### Vercel
 

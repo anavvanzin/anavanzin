@@ -1,0 +1,235 @@
+{
+  "checked_at": "2026-10-27T06:50:23.279Z",
+  "routes": [
+    {
+      "id": "858609cdd3a34accbd5043f9f2bf447e",
+      "pattern": "*.anavanzin.com/",
+      "script": "anavanzin",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "ba930ab69c324a16b41be05759fd833d",
+      "pattern": "anavanzin.com/*",
+      "script": "anavanzin",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "7e275877fa4a4a1f9ed28a4974d6a8f9",
+      "pattern": "anavanzin.com/estudar/*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "8a0ad30c5e3946d4b3785602b1d79018",
+      "pattern": "*.anavanzin.com/*",
+      "script": "anavanzin",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "d6747177fc8f42089808e74a1bf13726",
+      "pattern": "mentoria.anavanzin.com/*",
+      "script": "mentoria-ppg",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "9ca6b02e9ccd47e7b3825446071db350",
+      "pattern": "anavanzin.com",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "4994bdf0363d485db7b81fee42155d5e",
+      "pattern": "anavanzin.com/trabalhos*",
+      "script": "anavanzin-kimi",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "4b270fd55750432fa3a10bd19db4d9c3",
+      "pattern": "anavanzin.com/iconocracia",
+      "script": "iconocracia",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "c7007221606f416387faca156159de1a",
+      "pattern": "anavanzin.com/arno-dal-ri/*",
+      "script": "arno-domain-router",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "48f94aae97e04185ba968e39e717f83b",
+      "pattern": "anavanzin.com/arno-dal-ri",
+      "script": "arno-domain-router",
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "e4144782cd6a4362b90bfbbbf64784b1",
+      "pattern": "anavanzin.com/assets/corpus/fr-clesinger-republique-1900-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "5cb551f832384ceaaf9300ff3e7635e5",
+      "pattern": "anavanzin.com/assets/corpus/br-villares-republica-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "63ad47fcce7e47e1808f8a7a927ef636",
+      "pattern": "anavanzin.com/assets/home/ana-vanzin-research-1672.webp*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "6d36f6e86189484d95d397ebd7b8d2fa",
+      "pattern": "anavanzin.com/assets/corpus/fr-bruegel-justicia-1559-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "2b1b86fe84384d988a154be5d6c4580a",
+      "pattern": "anavanzin.com/assets/corpus/us-seated-liberty-1840-c-atlas-1000.webp*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "82db77a3e0da43a5839ea952ad81170b",
+      "pattern": "anavanzin.com/assets/corpus/br-stf-justica-1961-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "64240af99cb4433fab0a17053ca0a67b",
+      "pattern": "anavanzin.com/assets/corpus/br-stf-justica-1961-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "78f958370ee94892887c6ccb0e2abea3",
+      "pattern": "anavanzin.com/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "b3ce520a0eba40d2a0a3339368ef17b2",
+      "pattern": "anavanzin.com/assets/corpus/br-villares-republica-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "74a1a425a5204d2e90584b9449c6fdc4",
+      "pattern": "anavanzin.com/assets/av-os.css*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "7702648c1a2e426c96753f7779b753a1",
+      "pattern": "anavanzin.com/assets/corpus/fr-chifflart-justice-1865-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "47aba0f4b270457e999c671c050b4313",
+      "pattern": "anavanzin.com/assets/corpus/uk-britannia-penny-1912-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "1ec34be62a0b45eca112c2176746d736",
+      "pattern": "anavanzin.com/assets/av-os.js*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "73977e739ece4cffaca11563eeba139e",
+      "pattern": "anavanzin.com/assets/corpus/uk-britannia-penny-1912-board-500.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "806fcd22421f4ed3b8d04fb7cd61c58b",
+      "pattern": "anavanzin.com/assets/home-review.css*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "14a2a561b7004fb095aee1ea13fcfb11",
+      "pattern": "anavanzin.com/assets/home/ana-vanzin-staircase.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "f946f72b1d4e4437bae27c3ba2d1af56",
+      "pattern": "anavanzin.com/assets/home/ana-vanzin-research-800.webp*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "3cce9243e1f94f74a8e9846e7893a4d9",
+      "pattern": "anavanzin.com/assets/corpus/de-justitia-esslingen-1589-c-atlas-1000.webp*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "b06197445b684694bf7c14d671baafbb",
+      "pattern": "anavanzin.com/assets/home/ana-vanzin-research-1200.webp*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "fb32bd7b226745b3999f624e4b57f75c",
+      "pattern": "anavanzin.com/assets/corpus/fr-chifflart-justice-1865-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    },
+    {
+      "id": "f714739951a6426e8b885faaeffc739f",
+      "pattern": "anavanzin.com/assets/corpus/fr-clesinger-republique-1900-board-1000.jpg*",
+      "script": null,
+      "request_limit_fail_open": false
+    }
+  ],
+  "project": {
+    "name": "anavanzin",
+    "source": {
+      "type": "github",
+      "config": {
+        "owner": "anavvanzin",
+        "owner_id": "77904873",
+        "repo_name": "anavanzin",
+        "repo_id": "1221191459",
+        "production_branch": "main",
+        "pr_comments_enabled": false,
+        "deployments_enabled": true,
+        "production_deployments_enabled": true,
+        "preview_deployment_setting": "custom",
+        "preview_branch_includes": [
+          "codex/pages-preflight"
+        ],
+        "preview_branch_excludes": [],
+        "path_includes": [
+          "*"
+        ],
+        "path_excludes": []
+      }
+    },
+    "canonical_deployment": {
+      "id": "cda2089c-6789-4286-8c9a-d85884094eed",
+      "commit": "f800e48314fbaa59ceb5a6829cd8eb16ee9cb945"
+    },
+    "preview_kv": {
+      "MESAS": {
+        "namespace_id": "6ea9865c03d640e1846cabda3d2194ec"
+      }
+    },
+    "production_kv": {
+      "MESAS": {
+        "namespace_id": "f68b5eef312746c794e86c37be7bf7e1"
+      }
+    },
+    "production_d1": {
+      "corpus": {
+        "id": "77c09df7-b510-48b3-8a39-94b39416aa2f"
+      }
+    }
+  }
+}
