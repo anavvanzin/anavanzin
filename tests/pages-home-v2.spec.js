@@ -27,7 +27,21 @@ async function noOverflow(page) {
   expect(await page.evaluate(()=>Math.max(document.documentElement.scrollWidth,document.body.scrollWidth)<=innerWidth)).toBe(true);
 }
 
+async function heroGeometry(page) {
+  const g=await page.evaluate(()=>{
+    const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}};
+    const a=document.querySelector('.project-float'),r=a.getBoundingClientRect();
+    return {link:rect('.project-float'),panel:rect('.hero-panel'),hero:rect('.fluid-hero'),bio:rect('.bio'),position:getComputedStyle(a).position,animation:getComputedStyle(a).animationName};
+  });
+  expect(g.link.bottom).toBeLessThanOrEqual(g.panel.top);
+  expect(g.panel.bottom).toBeLessThanOrEqual(g.hero.bottom);
+  expect(g.hero.bottom).toBeLessThanOrEqual(g.bio.top);
+  expect(g.link.height).toBeGreaterThanOrEqual(44);
+  expect(g.position).not.toBe('fixed');expect(g.animation).toBe('none');
+  await expect(page.locator('.project-float')).toHaveAccessibleName(/ICONOCRACIA · (pesquisa|research)/);
+}
 async function commentaryGeometry(page) {
+  await heroGeometry(page);
   const g=await page.evaluate(()=>{
     const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}};
     const i=document.querySelector('.stf-photo img'),band=document.querySelector('.study-pair .band');
@@ -71,8 +85,8 @@ for (const width of [320,390,768,1024,1440]) {
     else expect(pair.by).toBeGreaterThan(pair.ay);
 
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
-    await expect(page.locator('.hero-panel a.primary')).toHaveAttribute('href','https://iconocracia.com');
-    await expect(page.locator('.hero-panel a.primary')).toHaveText('ICONOCRACIA.COM →');
+    await expect(page.locator('.project-float')).toHaveAttribute('href','https://iconocracia.com');
+    await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA↗');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
     await expect(page.locator('main > :last-child')).toHaveClass('study-inspiration');

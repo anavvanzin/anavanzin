@@ -524,3 +524,17 @@
 /* Commentary belongs to normal flow, not the fixed-height picture mosaic. */
 .home-v2 .board .f9 .stf-photo:hover img{transform:none}
 .home-v2 .study-pair .band{padding:clamp(1.5rem,3vw,3rem) clamp(1.25rem,2.5vw,2.5rem)}
+
+/* Floating editorial project label: normal document flow, stable click target. */
+.home-v2 .hero-project{position:relative;z-index:2;min-width:0;margin-top:clamp(1rem,5vw,4rem)}
+.home-v2 .project-float{display:flex;align-items:baseline;justify-content:flex-end;gap:.35em;width:fit-content;max-width:100%;margin:0 0 1.5rem auto;padding:.35rem 0;min-height:44px;color:var(--burgundy);font-family:var(--display);font-size:clamp(1.75rem,3.5vw,3.5rem);line-height:1.1;letter-spacing:.015em;text-decoration:none}
+.home-v2 .project-float>span:first-child{min-width:0;overflow-wrap:anywhere}
+.home-v2 .project-float .project-arrow{flex:none;font-size:.6em}
+.home-v2 .project-float:hover{color:var(--ink);text-decoration:underline;text-underline-offset:.16em;text-decoration-thickness:1px}
+.home-v2 .project-float:focus-visible{outline:2px solid var(--burgundy);outline-offset:6px}
+.home-v2 .hero-project .hero-panel{margin-top:0;border:0;padding:1.25rem 1.5rem;max-width:none}
+.home-v2.v3 .hero-project .signature{margin-top:0}
+.home-v2 .hero-secondary{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1rem}
+.home-v2.v3 .fluid-hero .hero-secondary a,.home-v2.v3 .fluid-hero .hero-secondary .index-toggle{display:inline-flex;align-items:center;min-height:44px;margin:0;padding:.25rem 0;border:0;font-family:var(--body);font-size:.875rem;line-height:1.4;color:var(--burgundy);background:none;text-decoration:none}
+.home-v2 .hero-secondary a:hover,.home-v2.v3 .fluid-hero .hero-secondary .index-toggle:hover{text-decoration:underline;text-underline-offset:.2em}
+@media(max-width:1000px){.home-v2 .hero-project{margin-top:0;max-width:40rem}.home-v2 .project-float{margin-bottom:1rem}.home-v2 .hero-project .hero-panel{padding:1.25rem}}
