@@ -1,0 +1,21 @@
+const {test,expect}=require('@playwright/test');
+test.use({serviceWorkers:'block',locale:'pt-BR',reducedMotion:'reduce'});
+for(const width of [320,768,1440])test('consolidated works: categories, locale and links at '+width,async({page,context,baseURL})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await context.route('**/*',r=>new URL(r.request().url()).origin===new URL(baseURL).origin&&['GET','HEAD'].includes(r.request().method())?r.continue():r.abort());
+ await page.setViewportSize({width,height:900});await page.goto('/trabalhos/');
+ await expect(page.locator('[data-record]')).toHaveCount(18);
+ for(const [id,count] of [['escrita',2],['em-curso',4],['apresentacoes',9],['projetos-visuais',1],['recursos',2]])await expect(page.locator('#'+id+' [data-record]')).toHaveCount(count);
+ for(const lang of ['EN','PT']){
+  await page.getByRole('button',{name:lang,exact:true}).click();
+  await expect(page.locator('h1')).toHaveText(lang==='EN'?'Research and works':'Pesquisa e trabalhos');
+  await expect(page.locator('#em-curso')).toContainText(lang==='EN'?'in progress':'em curso');
+  await expect(page.locator('#em-curso')).toContainText(lang==='EN'?'venue to be confirmed':'veículo a confirmar');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await page.locator('.works-sections a[href="#em-curso"]').focus();await page.keyboard.press('Enter');
+ await expect(page).toHaveURL(/#em-curso$/);await expect(page.locator('#em-curso-title')).toBeInViewport();
+ if(width===320){await page.addStyleTag({content:'html{font-size:200%!important}'});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
+ await page.goto('/publicacoes/');await expect(page).toHaveURL(/\/trabalhos\/#escrita$/);await expect(page.locator('#escrita-title')).toBeVisible();
+ expect(errors).toEqual([]);
+});

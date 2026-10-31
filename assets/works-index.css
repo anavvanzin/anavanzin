@@ -1,0 +1,12 @@
+/* Consolidated index: keep the existing editorial system and explicit statuses. */
+.works-index .capa-title{font-size:clamp(2.75rem,7vw,6rem);max-width:14ch;overflow-wrap:anywhere}
+.works-index .works-sections{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin:2rem 0}
+.works-index .works-sections a{padding:.5rem 0;color:var(--burgundy);text-underline-offset:.25em}
+.works-index .pub-grp{scroll-margin-top:6rem}
+.works-index .pub-grp:focus{outline:none}
+.works-index .pub-grp:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px}
+.works-index .pub>*{min-width:0;overflow-wrap:anywhere}
+.works-index .expo-figures{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.25rem}
+.works-index .expo-figures img{width:auto;max-width:28%;height:150px;object-fit:contain}
+.works-index .expo-note{display:block;margin-top:1rem;font-size:.875rem;line-height:1.6}
+@media(max-width:640px){.works-index .pub{grid-template-columns:minmax(0,1fr);gap:.75rem}.works-index .pub>.ar{display:none}}

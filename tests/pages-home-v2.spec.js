@@ -37,9 +37,11 @@ for (const width of [320,390,768,1024,1440]) {
     expect((await page.goto('/')).status()).toBe(200);
     await ready(page);
     await expect(page.locator('#name')).toBeVisible();
-    expect(await page.locator('img').count()).toBe(19);
+    expect(await page.locator('img').count()).toBe(20);
     expect(await page.locator('img[src*="ana-reading"]').count()).toBe(0);
     await expect(page.locator('.study-inspiration img')).toHaveAttribute('src','/assets/home/avo-original-color.webp');
+    await expect(page.locator('.editorial-portrait img')).toHaveAttribute('src','/assets/ana-portrait.webp');
+    expect(await page.locator('.editorial-portrait img').evaluate(img=>getComputedStyle(img).filter)).toBe('none');
     await expect(page.locator('.bio-sticker')).toHaveAttribute('src','/assets/stickers/sticker-heart.png');
     await expect(page.locator('main > section').nth(1)).toHaveClass('bio');
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
