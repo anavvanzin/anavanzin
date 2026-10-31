@@ -43,7 +43,7 @@ test('shipped desktop scripts remain functional in an explicit local legacy fixt
  await expect(page.locator('.desktop-tile-group')).toHaveCount(4);
  await page.getByRole('button',{name:'pessoa e memória',exact:true}).click();
  await expect(page.locator('[data-app-id="ampulheta"]')).toHaveCount(0);
- await expect(page.locator('[data-app-id="sobre"]')).toBeVisible();
+ await expect(page.locator('.desktop-icon[data-app-id="sobre"]')).toBeVisible();
  expect(errors).toEqual([]);
 });
 for(const width of [390,1440])for(const [path,notice] of [['/iconocracia/atlas/','#prototype-notice'],['/iconocracia/radiografia/','#radiografia-prototype-notice']])test('prototype notice survives React rendering: '+path+' '+width,async({page,context,baseURL})=>{
