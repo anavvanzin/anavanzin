@@ -46,6 +46,10 @@ async function heroGeometry(page) {
 }
 async function commentaryGeometry(page) {
   await heroGeometry(page);
+  const plate=await page.locator('.capela-frame img').evaluate(i=>{const r=i.getBoundingClientRect();return {height:r.height,ratio:r.width/r.height,natural:i.naturalWidth/i.naturalHeight}});
+  expect(plate.height).toBeLessThanOrEqual(300);
+  expect(plate.ratio).toBeCloseTo(plate.natural,2);
+
   const g=await page.evaluate(()=>{
     const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}};
     const i=document.querySelector('.stf-photo img'),band=document.querySelector('.study-pair .band');
