@@ -46,6 +46,8 @@ for (const width of [320,390,768,1024,1440]) {
       await page.getByRole('button',{name:language.toUpperCase(),exact:true}).click();
       await expect(page.locator('html')).toHaveAttribute('lang',language==='en'?'en':'pt-BR');
       await noOverflow(page);
+      const names=language==='en'?['Research · paths for research','Quotes · an archive of reading','Works · works and projects']:['Pesquisar · caminhos para pesquisar','Trechos · um arquivo de leituras','Trabalhos · obras e projetos'];
+      for(let i=0;i<3;i++) await expect(page.locator('.door').nth(i)).toHaveAccessibleName(names[i]);
     }
     const fontNames=await page.evaluate(()=>[...document.fonts].filter(f=>f.status==='loaded').map(f=>f.family.replaceAll('"','')));
     for(const font of ['Instrument Serif','DM Sans','JetBrains Mono'])expect(fontNames).toContain(font);
@@ -100,9 +102,15 @@ test('home-v2 stays usable without GSAP',async({page,context,baseURL})=>{
   const door=page.locator('.door').first();const name=await door.getAttribute('aria-label');
   await door.focus();await page.waitForTimeout(100);await expect(door).toHaveAccessibleName(name);
 });
-test('home-v2 links resolve inside actual artifact, redirects inspected without following',async({page,context,baseURL,request})=>{
+test('home-v2 artifact links return valid first hops and canonical redirects',async({page,context,baseURL,request})=>{
   await localOnly(context,baseURL);
   await page.goto('/');
+  const missing=await page.locator('a[href^="#"]').evaluateAll(links=>links.map(a=>a.getAttribute('href').slice(1)).filter(id=>id && !document.getElementById(id)));
+  expect(missing).toEqual([]);
+  for(const [path,status,location] of [['/sobre',308,'/sobre/'],['/trabalhos',308,'/trabalhos/'],['/arno-dal-ri-site',301,'https://arno-dal-ri.anavanzin.workers.dev/']]) {
+    const response=await request.get(new URL(path,baseURL).href,{maxRedirects:0});
+    expect(response.status()).toBe(status); expect(response.headers().location).toBe(location);
+  }
   const paths=await page.locator('a[href^="/"]').evaluateAll(a=>[...new Set(a.map(x=>x.getAttribute('href').split('#')[0]))]);
   for(const path of paths){
     const r=await request.get(new URL(path,baseURL).href,{maxRedirects:0});
@@ -135,7 +143,9 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
       await expect.poll(()=>page.evaluate(()=>window.__reviewPin.progress)).toBeLessThan(0.5);
       const before=await page.evaluate(()=>window.__reviewPin.progress);
       for(const lang of ['EN','PT']){
-        await page.getByRole('button',{name:lang,exact:true}).click({force:true});
+        // Dispatch at the active pin without scrolling to the offscreen header.
+        // Real pointer language switching is covered at all five widths above.
+        await page.getByRole('button',{name:lang,exact:true}).dispatchEvent('click');
         await expect(page.locator('html')).toHaveAttribute('lang',lang==='EN'?'en':'pt-BR');
         // safeRefresh is debounced by 180ms; inspect after it has run.
         await page.waitForTimeout(400);
