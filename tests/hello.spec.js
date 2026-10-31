@@ -37,7 +37,7 @@ const researchPath = [
   { title: 'pesquisa', ids: ['tese', 'conceitos', 'justitia', 'iconocracia', 'atlas', 'radiografia'] },
   { title: 'materiais e escrita', ids: ['sala-de-leitura', 'marginalia', 'quotes', 'contrato-visual', 'publicacoes', 'trabalhos'] },
   { title: 'redes', ids: ['projetos', 'ius', 'advocacia'] },
-  { title: 'pessoa e memória', ids: ['sobre', 'perfil', 'curriculo', 'vo', 'mae', 'ampulheta', 'contato'] },
+  { title: 'pessoa e memória', ids: ['sobre', 'perfil', 'curriculo', 'vo', 'mae', 'contato'] },
 ];
 
 test('desktop tiles follow the research path and remain keyboard operable', async ({ page }) => {
@@ -328,7 +328,7 @@ test('about has the current contact and direct bilingual research description', 
   await expect(page.locator('#research-links')).toHaveText('Research and publications');
 });
 
-for (const route of ['/sobre.html', '/conceitos.html', '/perfil.html', '/publicacoes/', '/atlas/', '/iconocracia/', '/apresentacao/', '/ampulheta.html', '/landing/']) {
+for (const route of ['/sobre.html', '/conceitos.html', '/perfil.html', '/publicacoes/', '/atlas/', '/iconocracia/', '/apresentacao/', '/landing/']) {
   test('paper stays light with dark OS at ' + route, async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto(route);

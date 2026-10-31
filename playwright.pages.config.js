@@ -9,7 +9,7 @@ process.env.PAGES_UI_TEST_URL = baseURL;
 
 module.exports = defineConfig({
   testDir:'./tests',
-  testMatch:'pages-release.spec.js',
+  testMatch:['pages-release.spec.js','pages-home-v2.spec.js','pages-works.spec.js'],
   outputDir:'./test-results/pages',
   workers:1,
   timeout:45000,
