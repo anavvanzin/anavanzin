@@ -39,6 +39,7 @@ test('shipped desktop scripts remain functional in an explicit local legacy fixt
  await page.setViewportSize({width:1440,height:1000});
  await context.route('**/__legacy-desktop-fixture',route=>route.fulfill({status:200,contentType:'text/html',body:require('node:fs').readFileSync('mesa/index 2.html','utf8')}));
  await page.goto('/__legacy-desktop-fixture');
+ await page.getByRole('button',{name:'entrar →',exact:true}).click();
  await expect(page.locator('.desktop-tile-group')).toHaveCount(4);
  await page.getByRole('button',{name:'pessoa e memória',exact:true}).click();
  await expect(page.locator('[data-app-id="ampulheta"]')).toHaveCount(0);
