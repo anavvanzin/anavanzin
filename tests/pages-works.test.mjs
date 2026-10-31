@@ -13,9 +13,10 @@ test('Only legacy publication indexes redirect to the consolidated writing secti
   assert.equal(destination.pathname,'/trabalhos/');assert.equal(destination.hash,'#escrita');
  }
  const r=await get('/trabalhos/');assert.equal(r.status,200);
- const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,18);
+ const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,20);
  for(const id of ['escrita','em-curso','apresentacoes','projetos-visuais','recursos'])assert.ok(html.includes('id="'+id+'"'));
  for(const slug of ['vrouwe-justitia','contrato-visual','maria-marianne']){
+  const historical=await get('/publicacoes/'+slug+'.html');assert.equal(historical.status,308);assert.equal(new URL(historical.headers.get('location'),base).pathname,'/publicacoes/'+slug);
   const detail=await get('/publicacoes/'+slug);assert.equal(detail.status,200,slug);
   assert.equal(await detail.text(),fs.readFileSync(path.join(output,'publicacoes',slug+'.html'),'utf8'));
  }
@@ -46,4 +47,19 @@ test('Exhibition artifact serves its HTML, hashed bundles and all eighteen plate
   const asset=await get(p);assert.equal(asset.status,200,p);
   assert.deepEqual(Buffer.from(await asset.arrayBuffer()),fs.readFileSync(path.join(output,p)));
  }
+});
+
+test('Removed Ampulheta entry points and exclusive assets return genuine 404s',async()=>{
+ for(const p of ['/ampulheta','/ampulheta/','/ampulheta.html','/ampulheta-native.js','/assets/icons/ampulheta-v1.png'])assert.equal((await get(p)).status,404,p);
+ for(const p of ['desktop-app.js','window-contents.js','icons.js'])assert.ok(!fs.readFileSync(path.join(output,p),'utf8').match(/WAmpulheta|AmpulhetaNative|HourglassIcon|ampulheta/i),p);
+});
+test('Research companion prominently identifies active demonstration data',async()=>{
+ const r=await get('/iconocracia/atlas/');assert.equal(r.status,200);const html=await r.text();assert.ok(html.includes('id="prototype-notice"'));assert.ok(html.includes('não representam medições validadas'));
+ const source=fs.readFileSync(path.join(output,'iconocracia/atlas/data.js'),'utf8');
+ assert.ok(source.includes('placas no corpus · demonstração'));assert.ok(source.includes('codificado · demonstração'));assert.ok(source.includes('pontuações demonstrativas, não validadas'));
+});
+
+test('Standalone Radiografia retains noindex and labels illustrative scores',async()=>{
+ const r=await get('/iconocracia/radiografia/');assert.equal(r.status,200);const html=await r.text();
+ assert.ok(html.includes('id="radiografia-prototype-notice"'));assert.ok(html.includes('não medições validadas'));assert.ok(html.includes('content="noindex,follow"'));
 });

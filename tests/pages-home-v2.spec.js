@@ -44,6 +44,16 @@ for (const width of [320,390,768,1024,1440]) {
     expect(await page.locator('.editorial-portrait img').evaluate(img=>getComputedStyle(img).filter)).toBe('none');
     await expect(page.locator('.bio-sticker')).toHaveAttribute('src','/assets/stickers/sticker-heart.png');
     await expect(page.locator('main > section').nth(1)).toHaveClass('bio');
+    await expect(page.locator('main > section').nth(2)).toHaveClass('index-illustrated');
+    await expect(page.locator('.research-question')).toHaveCount(3);
+    await expect(page.locator('a[href="/marginalia/justica-nao-nasceu-cega.html"]')).toHaveCount(0);
+    await expect(page.locator('#question-money a[href="/trabalhos/#dinheiro"]')).toHaveCount(1);
+    await expect(page.locator('#question-iconocracy a')).toHaveAttribute('href','https://iconocracia.com/');
+    await expect(page.locator('.capela-note')).toContainText('Intervenção cromática de Ana Vanzin');
+    const pair=await page.locator('.study-pair').evaluate(el=>{const a=el.children[0].getBoundingClientRect(),b=el.children[1].getBoundingClientRect();return {ax:a.x,bx:b.x,ay:a.y,by:b.y}});
+    if(width>900){expect(pair.bx).toBeGreaterThan(pair.ax);expect(Math.abs(pair.ay-pair.by)).toBeLessThan(2);}
+    else expect(pair.by).toBeGreaterThan(pair.ay);
+
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
     await expect(page.locator('.hero-panel a.primary')).toHaveAttribute('href','https://iconocracia.com');
     await expect(page.locator('.hero-panel a.primary')).toHaveText('ICONOCRACIA →');
@@ -59,6 +69,12 @@ for (const width of [320,390,768,1024,1440]) {
     for (const language of ['en','pt']) {
       await page.getByRole('button',{name:language.toUpperCase(),exact:true}).click();
       await expect(page.locator('html')).toHaveAttribute('lang',language==='en'?'en':'pt-BR');
+      for(const summary of await page.locator('.research-question summary').all()){
+        await summary.focus();await page.keyboard.press('Enter');
+        await expect(summary.locator('..')).toHaveAttribute('open','');
+        await expect(summary.locator('..').locator('.qa-answer')).toBeVisible();
+        await page.keyboard.press('Enter');
+      }
       await noOverflow(page);
       await expect(page.locator('#about-title')).toHaveText(language==='en'?'Hello, I’m Ana.':'Olá, sou a Ana.');
       await expect(page.locator('#readme h3').first()).toHaveText(language==='en'?'## research':'## pesquisa');
@@ -96,6 +112,11 @@ for (const width of [320,390,768,1024,1440]) {
     await target.click();
     await expect(page).toHaveURL(/#stf-justica$/);
     await expect(page.locator('#stf-justica')).toBeInViewport();
+    await page.locator('.stf-observation summary').focus();await page.keyboard.press('Enter');
+    await expect(page.locator('.stf-observation')).toHaveAttribute('open','');
+    await page.locator('.home-glossary summary').first().focus();await page.keyboard.press('Enter');
+    await expect(page.locator('.home-glossary details').first()).toHaveAttribute('open','');
+    await noOverflow(page);
     expect(errors).toEqual([]);expect(bad).toEqual([]);
   });
 }
@@ -105,6 +126,7 @@ for(const width of [320,768]){
     await localOnly(context,baseURL);
     await page.setViewportSize({width,height:900});
     await page.goto('/');await ready(page);
+    await page.locator('.research-question,.home-glossary details,.stf-observation').evaluateAll(nodes=>nodes.forEach(n=>n.open=true));
     await page.addStyleTag({content:'html { font-size: 200% !important; }'});
     for(const lang of ['EN','PT']){
       await page.getByRole('button',{name:lang,exact:true}).click();

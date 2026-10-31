@@ -3,19 +3,19 @@ const A = "../assets/";
 
 window.AtlasData = {
   thesis: {
-    kicker: "ICONOCRACIA · Tese de Doutorado · PPGD/UFSC",
-    title: "A alegoria feminina como tecnologia visual do Estado",
-    lede: "Uma cartografia comparada do corpo feminino alegórico na cultura jurídica de seis nações — França, Reino Unido, Alemanha, Estados Unidos, Bélgica e Brasil — entre 1789 e 2000. Onde o Estado precisou ser visto, vestiu uma mulher.",
+    kicker: "ICONOCRACIA · Protótipo de pesquisa em desenvolvimento",
+    title: "Alegorias do Estado",
+    lede: "Companheiro digital de pesquisa para explorar imagens, argumentos e formas de comparação. A interface contém dados demonstrativos; seu alcance é mais amplo que o recorte da tese, dedicado ao Brasil entre 1822 e 1922.",
     author: "Ana Vanzin", group: "Ius Gentium · UFSC · Florianópolis", year: "MMXXVI",
     heroImg: "/assets/corpus/br-stf-justica-1961.jpg",
     heroCap: "BR · 1961 · Alfredo Ceschiatti · A Justiça, granito · Supremo Tribunal Federal, Brasília",
   },
 
   stats: [
-    { v: "328", l: "placas no corpus", s: "seis nações · 1789–2000" },
-    { v: "8",   l: "painéis do atlas", s: "disposição warburguiana" },
-    { v: "10",  l: "indicadores", s: "iconometria do endurecimento" },
-    { v: "88%", l: "codificado", s: "Panofsky · três níveis" },
+    { v: "328", l: "placas no corpus · demonstração", s: "seis nações · 1789–2000" },
+    { v: "8",   l: "painéis do atlas · demonstração", s: "disposição warburguiana" },
+    { v: "10",  l: "indicadores · demonstração", s: "iconometria do endurecimento" },
+    { v: "88%", l: "codificado · demonstração", s: "Panofsky · três níveis" },
   ],
 
   argument: {
@@ -456,7 +456,7 @@ window.AtlasData = {
   ],
 
   radiografia: {
-    cap: "Radiografia · ENDURECIMENTO",
+    cap: "Radiografia · pontuações demonstrativas, não validadas",
     title: "Da serenidade ao endurecimento",
     desc: "O mesmo dispositivo — a mulher-Estado — em duas têmperas. O rosto sereno e laureado da moeda republicana francesa, e o corpo armado, de elmo, escudo e tridente, da potência imperial britânica. A iconometria mede, em dez indicadores ordinais, a distância entre a serenidade e o endurecimento: a guerra não inventa a figura, ela a enrijece.",
     indicators: ["desincorporação","rigidez postural","dessexualização","uniformização facial","heraldicização","enquadramento arq.","apagamento narrativo","monocromatização","serialidade","inscrição estatal"],

@@ -48,3 +48,37 @@ test /estudar, state/KV, corpus URLs, the delegated work prefix and unrelated
 404s. Rollback is the saved live Worker version. No DNS, route, Worker, Pages or
 production changes were performed here; neither this note nor local tests prove
 that the public 404 is fixed.
+
+## Additional user-selected resources
+
+The index now has 20 distinct records/resources: two additional digital prototypes
+are listed separately, without collapsing them into the personal Atlas directory
+or the nine-object exhibition.
+
+- “Alegorias do Estado”, `/iconocracia/atlas/`: research companion prototype.
+  Active AtlasData supplies demonstration counts, percentages and scores; loading
+  corpus.generated.js does not override it. Visible prototype notice and statistic
+  labels disclose this; no data connection or metric recalculation was attempted.
+- “Radiografia — comparação iconométrica”, `/iconocracia/radiografia/`: separate
+  interactive comparison prototype. Illustrative scores and score-derived prose
+  are explicitly labelled; overlays are not pixel registration. Existing noindex
+  remains. Connecting real corpus evidence is a separate research task.
+
+## Latest homepage editorial direction
+
+Questions now open substantive native disclosures with specific work links;
+unfinished blind-Justice essay and duplicate beginner-methodology question are
+not featured. Exhibition and glossary have distinct presentations. Illustrated
+index is third, after hero/introduction; defense and methodology share a responsive
+pair. The STF image has visible observation/question and expandable commentary,
+not an invented explanation of the artist’s intention. Narrenschiff is credited
+as Ana’s colour intervention based on the French version, per author clarification;
+edition, copy, date and scan provenance remain unverified research metadata.
+
+Ampulheta app/page and exclusive code/icon were removed with active launch paths,
+manifest and expectations. Unrelated introductory hourglass animation, loader and
+literary quotations remain. Prior versions are recoverable from Git history.
+
+The defense’s existing YouTube ID abbUWwb3-As was not replaced: public metadata
+reports playable/embed-enabled1:31:07 but the correct recording identity remains
+under user clarification. No unrelated video is substituted.
