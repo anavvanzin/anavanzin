@@ -10,3 +10,11 @@
 .works-index .expo-figures img{width:auto;max-width:28%;height:150px;object-fit:contain}
 .works-index .expo-note{display:block;margin-top:1rem;font-size:.875rem;line-height:1.6}
 @media(max-width:640px){.works-index .pub{grid-template-columns:minmax(0,1fr);gap:.75rem}.works-index .pub>.ar{display:none}}
+/* Text enlargement must reflow long research titles and the shared site chrome. */
+.works-page p,.works-page h2,.works-page a,.works-page li{overflow-wrap:anywhere}
+.works-page .pub-grp .gh{display:block}
+.works-page .nav,.works-page .nav-controls{flex-wrap:wrap}
+.works-page .nav-controls{max-width:100%;min-width:0;gap:.5rem}
+.works-page .coda-cta,.works-page .coda-mid{min-width:0}
+.works-page .coda-cta>*,.works-page .coda-mid>*{min-width:0;max-width:100%}
+@media(max-width:640px){.works-page .coda-cta{display:block}.works-page .coda-mid{display:block}.works-page .pills{margin-top:1.5rem}}
