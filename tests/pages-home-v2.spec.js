@@ -26,6 +26,22 @@ async function ready(page) {
 async function noOverflow(page) {
   expect(await page.evaluate(()=>Math.max(document.documentElement.scrollWidth,document.body.scrollWidth)<=innerWidth)).toBe(true);
 }
+
+async function commentaryGeometry(page) {
+  const g=await page.evaluate(()=>{
+    const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}};
+    const i=document.querySelector('.stf-photo img'),band=document.querySelector('.study-pair .band');
+    return {board:rect('.board'),figure:rect('.f9'),photo:rect('.stf-photo'),image:rect('.stf-photo img'),caption:rect('.f9 figcaption'),readme:rect('.home-readme'),natural:i.naturalWidth/i.naturalHeight,pad:parseFloat(getComputedStyle(band).paddingLeft)};
+  });
+  expect(g.figure.bottom).toBeLessThanOrEqual(g.board.bottom);
+  expect(g.caption.bottom).toBeLessThanOrEqual(g.figure.bottom+1);
+  expect(g.image.bottom).toBeLessThanOrEqual(g.photo.bottom+1);
+  expect(g.image.top).toBeGreaterThanOrEqual(g.photo.top-1);
+  expect(g.image.width/g.image.height).toBeCloseTo(g.natural,2);
+  expect(g.figure.bottom).toBeLessThan(g.readme.top);
+  expect(g.pad).toBeGreaterThanOrEqual(20);
+}
+
 for (const width of [320,390,768,1024,1440]) {
   test('home-v2 artifact: PT/EN, assets and keyboard at '+width, async ({page,context,baseURL})=>{
     await page.emulateMedia({reducedMotion:'reduce'});
@@ -56,7 +72,7 @@ for (const width of [320,390,768,1024,1440]) {
 
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
     await expect(page.locator('.hero-panel a.primary')).toHaveAttribute('href','https://iconocracia.com');
-    await expect(page.locator('.hero-panel a.primary')).toHaveText('ICONOCRACIA →');
+    await expect(page.locator('.hero-panel a.primary')).toHaveText('ICONOCRACIA.COM →');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
     await expect(page.locator('main > :last-child')).toHaveClass('study-inspiration');
@@ -76,6 +92,7 @@ for (const width of [320,390,768,1024,1440]) {
         await page.keyboard.press('Enter');
       }
       await noOverflow(page);
+      await commentaryGeometry(page);
       await expect(page.locator('.bio')).toHaveAccessibleName(language==='en'?'Introduction':'Apresentação');
       await expect(page.locator('.bio h1, .bio h2, #about-title')).toHaveCount(0);
       await expect(page.locator('.bio-lede')).toBeVisible();
@@ -119,6 +136,7 @@ for (const width of [320,390,768,1024,1440]) {
     await expect(page.locator('.stf-observation')).toHaveAttribute('open','');
     for(const summary of await page.locator('.home-glossary summary').all()){await summary.focus();await page.keyboard.press('Enter');await expect(summary.locator('..')).toHaveAttribute('open','');}
     await noOverflow(page);
+    await commentaryGeometry(page);
     expect(errors).toEqual([]);expect(bad).toEqual([]);
   });
 }
@@ -133,6 +151,7 @@ for(const width of [320,768]){
     for(const lang of ['EN','PT']){
       await page.getByRole('button',{name:lang,exact:true}).click();
       await noOverflow(page);
+      await commentaryGeometry(page);
       await expect(page.locator('.study-inspiration img')).toBeVisible();
     }
   });
@@ -193,6 +212,7 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
       await page.waitForTimeout(400);
       expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
       await noOverflow(page);
+      await commentaryGeometry(page);
     }
     for(const summary of await page.locator('.research-question summary,.home-glossary summary').all())await summary.click();
     await page.waitForTimeout(400);
@@ -206,3 +226,15 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
     expect(errors).toEqual([]);
   });
 }
+
+test('homepage asset URLs are content fingerprints, not stale dated cache keys',async({request})=>{
+  const {createHash}=require('node:crypto');
+  const html=await (await request.get('/')).text();
+  for(const ext of ['css','js']){
+    const pattern=new RegExp('/assets/home-v2\\.([a-f0-9]{12})\\.'+ext);
+    const match=html.match(pattern);expect(match).not.toBeNull();
+    const response=await request.get(match[0]);expect(response.ok()).toBe(true);
+    expect(createHash('sha256').update(await response.body()).digest('hex').slice(0,12)).toBe(match[1]);
+  }
+  expect(html).not.toContain('home-v2-20261031.');
+});
