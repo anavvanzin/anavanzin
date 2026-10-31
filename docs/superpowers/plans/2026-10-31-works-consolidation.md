@@ -82,3 +82,10 @@ literary quotations remain. Prior versions are recoverable from Git history.
 The defense’s existing YouTube ID abbUWwb3-As was not replaced: public metadata
 reports playable/embed-enabled1:31:07 but the correct recording identity remains
 under user clarification. No unrelated video is substituted.
+
+Ius Gentium and Biblioteca now lead the index under “Pesquisa coletiva e
+construção de acervos”. The official group site identifies Direito Internacional
+at UFSC; the earlier iconography-only description and unverified fortnightly
+schedule were removed. Ana's library-building contribution is stated in first
+person per her explicit account, without claiming founding or sole authorship.
+Source checked: https://grupoiusgentium.com.br/ on 2026-10-31.

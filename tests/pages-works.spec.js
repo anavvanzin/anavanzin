@@ -11,6 +11,9 @@ for(const width of [320,768,1440])test('consolidated works: categories, locale a
  await expect(page.locator('#em-curso [data-record="em-curso-3"]')).toContainText('veículo a confirmar');
  await expect(page.locator('#em-curso [data-record="em-curso-4"]')).toContainText('versão de trabalho');
  await expect(page.locator('[data-record]')).toHaveCount(20);
+ await expect(page.locator('.pub-grp').first()).toHaveAttribute('id','recursos');
+ await expect(page.locator('#recursos')).toContainText('Participei da construção da biblioteca digital');
+ await expect(page.locator('#recursos')).not.toContainText('quinzenais');
  for(const [id,count] of [['escrita',2],['em-curso',4],['apresentacoes',9],['projetos-visuais',3],['recursos',2]])await expect(page.locator('#'+id+' [data-record]')).toHaveCount(count);
  await expect(page.locator('[data-record="projetos-visuais-2"]')).toContainText('protótipo');
  await expect(page.locator('[data-record="projetos-visuais-2"]')).not.toContainText('328');
