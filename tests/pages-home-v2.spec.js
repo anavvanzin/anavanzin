@@ -122,8 +122,13 @@ for (const width of [320,390,768,1024,1440]) {
       await expect(page.locator('.bio')).not.toContainText(/Olá, sou a Ana|Hello, I’m Ana/);
       await expect(page.locator('#readme h3').first()).toHaveText(language==='en'?'## research':'## pesquisa');
       await expect(page.locator('.publications-projects h2')).toHaveText(language==='en'?'Publications and visual projects':'Publicações e projetos visuais');
-      const names=language==='en'?['Research · paths for research','Quotes · an archive of reading','Works · works and projects']:['Pesquisar · caminhos para pesquisar','Trechos · um arquivo de leituras','Trabalhos · obras e projetos'];
-      for(let i=0;i<3;i++) await expect(page.locator('.door').nth(i)).toHaveAccessibleName(names[i]);
+      const names=language==='en'?['Study · paths for research','Quotes · an archive of reading','Works · works and projects']:['Estudar · caminhos para pesquisar','Trechos · um arquivo de leituras','Trabalhos · obras e projetos'];
+      for(let i=0;i<3;i++) {
+        const door=page.locator('.door').nth(i);
+        await expect(door).toHaveAccessibleName(names[i]);
+        const visible=(await door.locator('.word').innerText()).trim().toLocaleLowerCase();
+        expect((await door.getAttribute('aria-label')).toLocaleLowerCase().startsWith(visible+' ·')).toBe(true);
+      }
     }
     const fontNames=await page.evaluate(()=>[...document.fonts].filter(f=>f.status==='loaded').map(f=>f.family.replaceAll('"','')));
     for(const font of ['Instrument Serif','DM Sans','JetBrains Mono'])expect(fontNames).toContain(font);
