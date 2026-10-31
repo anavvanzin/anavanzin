@@ -76,7 +76,10 @@ for (const width of [320,390,768,1024,1440]) {
         await page.keyboard.press('Enter');
       }
       await noOverflow(page);
-      await expect(page.locator('#about-title')).toHaveText(language==='en'?'Hello, I’m Ana.':'Olá, sou a Ana.');
+      await expect(page.locator('.bio')).toHaveAccessibleName(language==='en'?'Introduction':'Apresentação');
+      await expect(page.locator('.bio h1, .bio h2, #about-title')).toHaveCount(0);
+      await expect(page.locator('.bio-lede')).toBeVisible();
+      await expect(page.locator('.bio')).not.toContainText(/Olá, sou a Ana|Hello, I’m Ana/);
       await expect(page.locator('#readme h3').first()).toHaveText(language==='en'?'## research':'## pesquisa');
       await expect(page.locator('.publications-projects h2')).toHaveText(language==='en'?'Publications and visual projects':'Publicações e projetos visuais');
       const names=language==='en'?['Research · paths for research','Quotes · an archive of reading','Works · works and projects']:['Pesquisar · caminhos para pesquisar','Trechos · um arquivo de leituras','Trabalhos · obras e projetos'];
