@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="pt-BR" class="home-review">
+<!-- home-v2 · candidato de redesign da home (staging local — NÃO publicar).
+     Base: DOM da home publicada (anavanzin.com, variante home-review) +
+     coreografia tipográfica do motion-lab (variante B · Lexicón). -->
+<html lang="pt-BR" class="home-review home-v2 v3">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,18 +18,50 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://anavanzin.com/">
 <meta name="robots" content="index,follow">
-<link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/av-os.css">
 <link rel="stylesheet" href="/assets/home-review.css">
+<link rel="stylesheet" href="/assets/home-v2-20261031.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","name":"ana vanzin · direito & iconografia","url":"https://anavanzin.com/","mainEntity":{"@type":"Person","name":"Ana Vanzin","url":"https://anavanzin.com/","jobTitle":"Advogada e historiadora do direito"}}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZEX4SFYEN"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TZEX4SFYEN');</script>
 <script src="/assets/av-os.js" defer></script>
 </head>
 <body>
+
+<!-- marca edelweiss (sistema Edelvais): um único símbolo, reutilizado como
+     ornamento. A cor vem de `currentColor`; o miolo usa --ew-core, ajustado
+     por contexto (papel no fundo claro, night no fundo escuro). -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="edelweiss" viewBox="-50 -50 100 100">
+    <g fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+      <g transform="rotate(0)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(45)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(90)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(135)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(180)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(225)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(270)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g transform="rotate(315)"><path d="M0 0 C 14 -10.5, 11.2 -29.4, 0 -42 C -11.2 -29.4, -14 -10.5, 0 0 Z"/><path d="M0 -12 L0 -32" fill="none" stroke="var(--ew-core,#F5F0E6)" stroke-width=".9" stroke-linecap="round" opacity=".9"/></g>
+      <g fill="none" stroke-width=".9" opacity=".95">
+        <path transform="rotate(22.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(67.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(112.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(157.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(202.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(247.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(292.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+        <path transform="rotate(337.5)" d="M0 0 C 11 -7, 8.8 -19.6, 0 -28 C -8.8 -19.6, -11 -7, 0 0 Z"/>
+      </g>
+      <circle r="12" fill="var(--ew-core,#F5F0E6)"/>
+      <g fill="var(--ew-core,#F5F0E6)" stroke-width=".8">
+        <circle cx="5.4" cy="2.1" r="2.6"/><circle cx="-1.3" cy="5.7" r="2.6"/><circle cx="-5.4" cy="-2.1" r="2.6"/><circle cx="-1.3" cy="-5.7" r="2.6"/>
+        <circle cx="2.4" cy="4.9" r="2.6"/><circle cx="3.5" cy="-4.1" r="2.6"/><circle cx="-3.5" cy="4.1" r="2.6"/><circle cx="-2.4" cy="-4.9" r="2.6"/>
+      </g>
+      <circle r="2.4" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+</svg>
 
 <a class="skip" href="#main" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
 
@@ -59,6 +94,8 @@
     <canvas class="fluid" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <h1 id="name"><a href="/" aria-label="Ana Vanzin · início" data-label-pt="Ana Vanzin · início" data-label-en="Ana Vanzin · home"><span>ana</span><span class="surname">vanzin</span></a></h1>
+    </div>
+    <div class="hero-panel">
       <p class="signature" data-pt="direito · imagem · memória" data-en="law · image · memory">direito · imagem · memória</p>
       <div class="hero-copy">
         <p class="intro" data-pt="Pesquiso a alegoria feminina na história da cultura jurídica." data-en="I research female allegory in the history of legal culture.">Pesquiso a alegoria feminina na história da cultura jurídica.</p>
@@ -69,11 +106,43 @@
       </div>
       <button class="index-toggle" type="button" aria-expanded="false" aria-controls="site-index" aria-label="abrir index do site" data-label-pt="abrir index do site" data-label-en="open site index">index ↘</button>
     </div>
-    <figure class="hero-art">
-      <a href="https://iconocracia.com" aria-label="Explorar o Atlas: Bruegel · Justitia, 1559" data-label-pt="Explorar o Atlas: Bruegel · Justitia, 1559" data-label-en="Explore the Atlas: Bruegel · Justitia, 1559">
-        <img src="/assets/corpus/fr-bruegel-justicia-1559-board-1000.jpg" srcset="/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg 500w, /assets/corpus/fr-bruegel-justicia-1559-board-1000.jpg 1000w" sizes="(max-width: 760px) calc(100vw - 2.5rem), 46vw" width="1000" height="860" alt="Bruegel · Justitia, 1559" fetchpriority="high" decoding="async">
+  </section>
+
+  <!-- v2: as três portas (prioridades do handoff: Estudar → Trechos → Trabalhos) -->
+  <section class="doors" aria-label="Três caminhos" data-label-pt="Três caminhos" data-label-en="Three paths">
+    <p class="doors-head" data-pt="Três caminhos" data-en="Three paths">Três caminhos</p>
+    <div class="doors-grid">
+      <a class="door" data-cursor-label="entrar" href="/estudar/" aria-label="Pesquisar · caminhos para pesquisar" data-label-pt="Pesquisar · caminhos para pesquisar" data-label-en="Research · paths for research">
+        <span class="door-idx" aria-hidden="true">I</span>
+        <span class="word" data-pt="ESTUDAR" data-en="STUDY" data-latin="STVDIUM">ESTUDAR</span>
+        <span class="door-sub" data-pt="caminhos para pesquisar" data-en="paths for research">caminhos para pesquisar</span>
+        <span class="door-arrow" aria-hidden="true">→</span>
       </a>
-      <figcaption>FR-1559 · Bruegel · Justitia</figcaption>
+      <a class="door" data-cursor-label="entrar" href="/quotes/" aria-label="Trechos · um arquivo de leituras" data-label-pt="Trechos · um arquivo de leituras" data-label-en="Quotes · an archive of reading">
+        <span class="door-idx" aria-hidden="true">II</span>
+        <span class="word" data-pt="TRECHOS" data-en="QUOTES" data-latin="FRAGMENTA">TRECHOS</span>
+        <span class="door-sub" data-pt="um arquivo de leituras" data-en="an archive of reading">um arquivo de leituras</span>
+        <span class="door-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="door" data-cursor-label="entrar" href="/trabalhos" aria-label="Trabalhos · obras e projetos" data-label-pt="Trabalhos · obras e projetos" data-label-en="Works · works and projects">
+        <span class="door-idx" aria-hidden="true">III</span>
+        <span class="word" data-pt="TRABALHOS" data-en="WORKS" data-latin="OPERA">TRABALHOS</span>
+        <span class="door-sub" data-pt="obras e projetos" data-en="works and projects">obras e projetos</span>
+        <span class="door-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Passagem pessoal aprovada: motivação para estudar, fora do corpus. -->
+  <section class="study-inspiration" aria-labelledby="study-inspiration-title">
+    <div class="study-inspiration-copy">
+      <p class="eyebrow" data-pt="Minha inspiração" data-en="My inspiration">Minha inspiração</p>
+      <h2 id="study-inspiration-title" data-pt="Por que continuo estudando" data-en="Why I keep studying">Por que continuo estudando</h2>
+      <p class="study-inspiration-note" data-pt="Minha avó é a minha maior inspiração para continuar estudando." data-en="My grandmother is my greatest inspiration to keep studying.">Minha avó é a minha maior inspiração para continuar estudando.</p>
+    </div>
+    <figure class="avo-plate study-inspiration-photo">
+      <img src="/assets/home/avo-original-color.webp" width="860" height="912" loading="lazy" decoding="async" alt="Ana criança, segurando um troféu, ao lado da avó." data-alt-pt="Ana criança, segurando um troféu, ao lado da avó." data-alt-en="Ana as a child, holding a trophy beside her grandmother.">
+      <figcaption data-pt="Com a minha avó." data-en="With my grandmother.">Com a minha avó.</figcaption>
     </figure>
   </section>
 
@@ -84,12 +153,173 @@
     </div>
   </div>
 
-  <div class="plate">
-    <figure>
-      <img src="/assets/home/ana-vanzin-research-1672.webp" srcset="/assets/home/ana-vanzin-research-800.webp 800w, /assets/home/ana-vanzin-research-1200.webp 1200w, /assets/home/ana-vanzin-research-1672.webp 1672w" sizes="calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1672" height="941" fetchpriority="high" decoding="async" alt="Ilustração em preto, marfim e bordô: mulher lendo entre livros e arquivos, com um gato e a alegoria da Justiça. No alto, Ana Vanzin: ler é método, método é pesquisa." data-alt-pt="Ilustração em preto, marfim e bordô: mulher lendo entre livros e arquivos, com um gato e a alegoria da Justiça. No alto, Ana Vanzin: ler é método, método é pesquisa." data-alt-en="Black, ivory and burgundy illustration: a woman reading among books and archives, with a cat and the allegory of Justice. Above, Ana Vanzin: reading is method, method is research.">
-      <figcaption data-pt="ler é método. método é pesquisa." data-en="reading is method. method is research.">ler é método. método é pesquisa.</figcaption>
-    </figure>
-  </div>
+  <!-- Direção A · "a home responde": as perguntas do arquivo.
+       Títulos taken from the SEO/AEO board (28/10) — nada inventado. Cada
+       pergunta aponta para uma página que já existe no site. -->
+  <section class="qa" aria-labelledby="qa-title">
+    <div class="qa-head">
+      <figure class="qa-mark">
+        <img src="/assets/home/capitular-iluminada.webp" width="380" height="380" alt="" loading="lazy" decoding="async">
+      </figure>
+      <div class="qa-head-text">
+        <p class="eyebrow" data-pt="a home responde" data-en="the home answers">a home responde</p>
+        <h2 id="qa-title" data-pt="perguntas frequentes do arquivo" data-en="frequent questions of the archive">perguntas frequentes do arquivo</h2>
+        <p class="qa-lede" data-pt="Perguntas da pesquisa — e materiais para investigá-las." data-en="Research questions — and materials to investigate them.">Perguntas da pesquisa — e materiais para investigá-las.</p>
+      </div>
+    </div>
+
+    <div class="qa-body">
+      <ol class="qa-list">
+        <li>
+          <a class="qa-item" href="/marginalia/justica-nao-nasceu-cega.html">
+            <span class="qa-num" aria-hidden="true">I</span>
+            <span class="qa-q" data-pt="O que significa a venda nos olhos da Justiça?" data-en="What does Justice’s blindfold mean?">O que significa a venda nos olhos da Justiça?</span>
+            <span class="qa-where" data-pt="marginália · ensaio" data-en="marginalia · essay">marginália · ensaio</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/atlas/nacao-como-mulher/">
+            <span class="qa-num" aria-hidden="true">II</span>
+            <span class="qa-q" data-pt="Por que a nação é uma mulher?" data-en="Why is the nation a woman?">Por que a nação é uma mulher?</span>
+            <span class="qa-where" data-pt="atlas · dossiê" data-en="atlas · dossier">atlas · dossiê</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/atlas/republica.html">
+            <span class="qa-num" aria-hidden="true">III</span>
+            <span class="qa-q" data-pt="Quem é a mulher nas notas de real?" data-en="Who is the woman on the banknotes?">Quem é a mulher nas notas de real?</span>
+            <span class="qa-where" data-pt="atlas · dossiê" data-en="atlas · dossier">atlas · dossiê</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/defesa/">
+            <span class="qa-num" aria-hidden="true">IV</span>
+            <span class="qa-q" data-pt="Quando casar custava a nacionalidade" data-en="When marriage cost you your nationality">Quando casar custava a nacionalidade</span>
+            <span class="qa-where" data-pt="defesa · dissertação" data-en="defense · dissertation">defesa · dissertação</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/atlas/justitia.html">
+            <span class="qa-num" aria-hidden="true">V</span>
+            <span class="qa-q" data-pt="Têmis, Diké ou Justitia?" data-en="Themis, Dike or Justitia?">Têmis, Diké ou Justitia?</span>
+            <span class="qa-where" data-pt="atlas · dossiê" data-en="atlas · dossier">atlas · dossiê</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/metodologia/#comecar">
+            <span class="qa-num" aria-hidden="true">VI</span>
+            <span class="qa-q" data-pt="Como começar uma pesquisa em história do direito" data-en="How to start a research project in legal history">Como começar uma pesquisa em história do direito</span>
+            <span class="qa-where" data-pt="metodologia · guia" data-en="methodology · guide">metodologia · guia</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/conceitos.html">
+            <span class="qa-num" aria-hidden="true">VII</span>
+            <span class="qa-q" data-pt="O que é iconocracia?" data-en="What is iconocracy?">O que é iconocracia?</span>
+            <span class="qa-where" data-pt="conceitos" data-en="concepts">conceitos</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="/metodologia/#acervos">
+            <span class="qa-num" aria-hidden="true">VIII</span>
+            <span class="qa-q" data-pt="Onde encontrar imagens históricas para pesquisa" data-en="Where to find historical images for research">Onde encontrar imagens históricas para pesquisa</span>
+            <span class="qa-where" data-pt="metodologia · acervos" data-en="methodology · archives">metodologia · acervos</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="qa-item" href="#stf-justica">
+            <span class="qa-num" aria-hidden="true">IX</span>
+            <span class="qa-q" data-pt="Por que a Justiça do STF tem venda e espada, mas não balança?" data-en="Why does the STF’s Justice have a blindfold and a sword, but no scales?">Por que a Justiça do STF tem venda e espada, mas não balança?</span>
+            <span class="qa-where" data-pt="painel · imagem" data-en="panel · image">painel · imagem</span>
+            <span class="qa-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ol>
+
+      <figure class="qa-plate">
+        <img src="/assets/home/bannery-pesquisar.webp" width="480" height="348" alt="Gravura em preto, creme e bordô: livros empilhados — Direito, História, Política, Cultura, Imagem — ao lado de um globo terrestre; ao lado, a frase «Entre mundos, métodos e perguntas — sempre pesquisa»." data-alt-pt="Gravura em preto, creme e bordô: livros empilhados — Direito, História, Política, Cultura, Imagem — ao lado de um globo terrestre; ao lado, a frase «Entre mundos, métodos e perguntas — sempre pesquisa»." data-alt-en="Black, cream and burgundy woodcut: stacked books — Law, History, Politics, Culture, Image — beside a terrestrial globe; alongside, the line “Between worlds, methods and questions — always research”." loading="lazy" decoding="async">
+        <figcaption data-pt="prancha · ilustração" data-en="plate · illustration">prancha · ilustração</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Reprodução fornecida por Ana, mantida inteira, inclusive a legenda.
+       A identificação “Lyon, 1497” recebida permanece em conferência;
+       não atribuir a esta cópia a data da edição alemã de 1494. -->
+  <section class="capela capela-historical" aria-labelledby="capela-title">
+    <a class="capela-frame" href="/marginalia/justica-nao-nasceu-cega.html" data-cursor-label="ler">
+      <img src="/assets/home/justice-fool-display-600.webp" srcset="/assets/home/justice-fool-display-600.webp 600w, /assets/home/justice-fool-supplied.webp 1103w" sizes="(min-width: 521px) 30rem, calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1103" height="1426" loading="lazy" decoding="async" alt="Reprodução de gravura: um louco coloca uma venda nos olhos de uma figura feminina da Justiça, que segura uma espada; uma balança aparece à sua frente. A reprodução inclui uma legenda impressa." data-alt-pt="Reprodução de gravura: um louco coloca uma venda nos olhos de uma figura feminina da Justiça, que segura uma espada; uma balança aparece à sua frente. A reprodução inclui uma legenda impressa." data-alt-en="Reproduction of a print: a fool places a blindfold over the eyes of a female figure of Justice, who holds a sword; scales appear in front of her. The reproduction includes a printed caption.">
+    </a>
+    <div class="capela-caption">
+      <div class="capela-reading">
+        <h2 class="capela-title" id="capela-title" data-pt="A venda não é sinônimo de imparcialidade." data-en="A blindfold does not automatically signify impartiality.">A venda não é sinônimo de imparcialidade.</h2>
+        <p class="capela-context" data-pt="A venda, isoladamente, não permite concluir que a imagem representa a imparcialidade. É preciso examinar a composição, os usos e o contexto de cada representação — inclusive as atuais. No Narrenschiff, a venda é um instrumento de escárnio à Justiça." data-en="A blindfold alone does not establish that an image represents impartiality. Its meaning must be read through the composition, uses and context of each representation — including contemporary ones. In the Narrenschiff, the blindfold is used to mock Justice.">A venda, isoladamente, não permite concluir que a imagem representa a imparcialidade. É preciso examinar a composição, os usos e o contexto de cada representação — inclusive as atuais. No Narrenschiff, a venda é um instrumento de escárnio à Justiça.</p>
+      </div>
+      <p class="capela-note" data-pt="Reprodução fornecida por Ana · edição e exemplar a conferir" data-en="Reproduction supplied by Ana · edition and copy to be checked">Reprodução fornecida por Ana · edição e exemplar a conferir</p>
+    </div>
+  </section>
+
+  <!-- v2: índice ilustrado (as portas I–II–III acima; aqui IV–VII).
+       O ornamento edelweiss marca o cabeçalho, como no mockup. -->
+  <section class="index-illustrated" aria-labelledby="index-illustrated-title">
+    <div class="index-illustrated-head">
+      <span class="rule" aria-hidden="true"></span>
+      <svg class="ew" aria-hidden="true" focusable="false"><use href="#edelweiss"></use></svg>
+      <h2 id="index-illustrated-title" data-pt="índice ilustrado" data-en="illustrated index">índice ilustrado</h2>
+      <svg class="ew" aria-hidden="true" focusable="false"><use href="#edelweiss"></use></svg>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <ul class="tiles">
+      <li>
+        <a class="tile" href="/arno-dal-ri-site">
+          <span class="tile-num" aria-hidden="true">IV</span>
+          <span class="tile-art"><img src="/assets/icons/perfil.webp" width="128" height="128" alt="" loading="lazy" decoding="async"></span>
+          <span class="tile-title" data-pt="Orientador" data-en="Advisor">Orientador</span>
+          <span class="tile-rule" aria-hidden="true"><i></i>✦<i></i></span>
+          <span class="tile-desc" data-pt="Arno Dal Ri Jr. · UFSC" data-en="Arno Dal Ri Jr. · UFSC">Arno Dal Ri Jr. · UFSC</span>
+          <span class="tile-go" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="tile" href="/publicacoes/">
+          <span class="tile-num" aria-hidden="true">V</span>
+          <span class="tile-art"><img src="/assets/icons/publicacoes.webp" width="128" height="128" alt="" loading="lazy" decoding="async"></span>
+          <span class="tile-title" data-pt="Publicações" data-en="Publications">Publicações</span>
+          <span class="tile-rule" aria-hidden="true"><i></i>✦<i></i></span>
+          <span class="tile-desc" data-pt="Artigos e outros textos de pesquisa" data-en="Articles and other research texts">Artigos e outros textos de pesquisa</span>
+          <span class="tile-go" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="tile" href="https://iconocracia.com/">
+          <span class="tile-num" aria-hidden="true">VI</span>
+          <span class="tile-art"><img src="/assets/icons/iconocracia.webp" width="128" height="128" alt="" loading="lazy" decoding="async"></span>
+          <span class="tile-title">Iconocracia</span>
+          <span class="tile-rule" aria-hidden="true"><i></i>✦<i></i></span>
+          <span class="tile-desc" data-pt="A tese e o Atlas" data-en="The thesis and the Atlas">A tese e o Atlas</span>
+          <span class="tile-go" aria-hidden="true">→</span>
+        </a>
+      </li>
+      <li>
+        <a class="tile" href="/sobre">
+          <span class="tile-num" aria-hidden="true">VII</span>
+          <span class="tile-art"><img src="/assets/icons/sobre.webp" width="128" height="128" alt="" loading="lazy" decoding="async"></span>
+          <span class="tile-title" data-pt="Sobre" data-en="About">Sobre</span>
+          <span class="tile-rule" aria-hidden="true"><i></i>✦<i></i></span>
+          <span class="tile-desc" data-pt="Percurso e mesa de trabalho" data-en="Path and work desk">Percurso e mesa de trabalho</span>
+          <span class="tile-go" aria-hidden="true">→</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
   <section class="feature" aria-labelledby="defense-title">
     <p class="eyebrow" data-pt="Em destaque · Mestrado · UFSC · 2024" data-en="Featured · Master’s degree · UFSC · 2024">Em destaque · Mestrado · UFSC · 2024</p>
@@ -116,67 +346,84 @@
   <section class="entries" aria-label="Pesquisa e leituras" data-label-pt="Pesquisa e leituras" data-label-en="Research and reading">
     <article>
       <h2 data-pt="Publicações" data-en="Publications">Publicações</h2>
-      <p data-pt="Artigos e outros textos que escrevo a partir da pesquisa." data-en="Articles and other writing that emerge from my research.">Artigos e outros textos que escrevo a partir da pesquisa.</p>
+      <p data-pt="Artigos, versões de trabalho e outros textos de pesquisa." data-en="Articles, working papers and other research texts.">Artigos, versões de trabalho e outros textos de pesquisa.</p>
       <a href="/publicacoes/" data-pt="Ler publicações →" data-en="Read publications →">Ler publicações →</a>
     </article>
     <article>
       <h2>Iconocracia</h2>
-      <p data-pt="Minha pesquisa sobre a alegoria feminina na história da cultura jurídica dos séculos XIX e XX." data-en="My research on female allegory in the history of legal culture in the nineteenth and twentieth centuries.">Minha pesquisa sobre a alegoria feminina na história da cultura jurídica dos séculos XIX e XX.</p>
+      <p data-pt="Minha pesquisa sobre a alegoria feminina na cultura jurídica brasileira entre 1822 e 1922." data-en="My research on female allegory in Brazilian legal culture between 1822 and 1922.">Minha pesquisa sobre a alegoria feminina na cultura jurídica brasileira entre 1822 e 1922.</p>
       <a href="https://iconocracia.com/" data-pt="Conhecer a pesquisa →" data-en="About the research →">Conhecer a pesquisa →</a>
     </article>
     <article>
       <h2 data-pt="Trechos" data-en="Quotes">Trechos</h2>
-      <p data-pt="Fragmentos literários que reúno desde 2014. Um arquivo de leituras, vozes e lembranças para explorar por palavra ou autor." data-en="Literary excerpts I have collected since 2014. An archive of reading, voices, and memories to explore by word or author.">Fragmentos literários que reúno desde 2014. Um arquivo de leituras, vozes e lembranças para explorar por palavra ou autor.</p>
+      <p data-pt="Trechos literários que reúno desde 2014. Um arquivo de leituras para explorar por palavra ou autor." data-en="Literary excerpts I have collected since 2014. An archive of readings to explore by word or author.">Trechos literários que reúno desde 2014. Um arquivo de leituras para explorar por palavra ou autor.</p>
       <a href="/quotes/" data-pt="Explorar os trechos →" data-en="Browse the quotes →">Explorar os trechos →</a>
     </article>
   </section>
+
+  <div class="v2-divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg class="ew" focusable="false"><use href="#edelweiss"></use></svg>
+    <span class="rule"></span>
+  </div>
 
   <section class="statements" aria-label="Manifesto" data-label-pt="Manifesto" data-label-en="Manifesto">
     <p data-pt="ler é método." data-en="reading is method.">ler é método.</p>
     <p data-pt="método é pesquisa." data-en="method is research.">método é pesquisa.</p>
     <p data-pt="pesquisa é também cuidado." data-en="research is also care.">pesquisa é também cuidado.</p>
-    <p data-pt="a justiça tem rosto de mulher — e uma venda nos olhos." data-en="justice has a woman’s face — and a blindfold.">a justiça tem rosto de mulher — e uma venda nos olhos.</p>
+    <p data-pt="a venda da Justiça não tem um sentido único." data-en="Justice’s blindfold does not have a single meaning.">a venda da Justiça não tem um sentido único.</p>
   </section>
+
 
   <section class="board" aria-labelledby="board-title">
     <div class="board-head">
       <h2 id="board-title" data-pt="Painel I · a mulher como Estado" data-en="Panel I · woman as State">Painel I · a mulher como Estado</h2>
-      <span>FR · UK · DE · US · BE · BR</span>
+      <span>FR · UK · DE · US · BR</span>
     </div>
     <div class="board-grid">
-      <figure class="f1"><a data-cursor-label="ver" href="/atlas/" aria-label="Bruegel · Justitia"><img loading="lazy" decoding="async" src="/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg" srcset="/assets/corpus/fr-bruegel-justicia-1559-board-500.jpg 500w, /assets/corpus/fr-bruegel-justicia-1559-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 5 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 3 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="2000" height="1720" alt="Bruegel · Justitia" style="object-position:50% 50%"></a><figcaption>FR-1559 · Bruegel · Justitia</figcaption></figure>
-      <figure class="f2"><a data-cursor-label="ver" href="/atlas/" aria-label="Chifflart · La Justice"><img loading="lazy" decoding="async" src="/assets/corpus/fr-chifflart-justice-1865-board-500.jpg" srcset="/assets/corpus/fr-chifflart-justice-1865-board-500.jpg 500w, /assets/corpus/fr-chifflart-justice-1865-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 3 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 3 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1200" height="794" alt="Chifflart · La Justice" style="object-position:50% 50%"></a><figcaption>FR-1865 · Chifflart · La Justice</figcaption></figure>
-      <figure class="f3"><a data-cursor-label="ver" href="/atlas/" aria-label="Britannia · penny"><img loading="lazy" decoding="async" src="/assets/corpus/uk-britannia-penny-1912-board-500.jpg" srcset="/assets/corpus/uk-britannia-penny-1912-board-500.jpg 500w, /assets/corpus/uk-britannia-penny-1912-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 2 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 2 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1500" height="1500" alt="Britannia · penny" style="object-position:50% 50%"></a><figcaption>UK-1912 · Britannia · penny</figcaption></figure>
-      <figure class="f4"><a data-cursor-label="ver" href="/atlas/" aria-label="Seated Liberty"><img loading="lazy" decoding="async" src="/assets/corpus/us-seated-liberty-1840-c-atlas-1000.webp" width="300" height="300" alt="Seated Liberty" style="object-position:50% 50%"></a><figcaption>US-1840 · Seated Liberty</figcaption></figure>
-      <figure class="f5"><a data-cursor-label="ver" href="/atlas/" aria-label="Germania · Reichspost"><img loading="lazy" decoding="async" src="/assets/corpus/de-germania-1900.jpg" width="210" height="250" alt="Germania · Reichspost" style="object-position:50% 50%"></a><figcaption>DE-1900 · Germania · Reichspost</figcaption></figure>
-      <figure class="f6"><a data-cursor-label="ver" href="/atlas/" aria-label="Justitia · Esslingen"><img loading="lazy" decoding="async" src="/assets/corpus/de-justitia-esslingen-1589-c-atlas-1000.webp" width="557" height="948" alt="Justitia · Esslingen" style="object-position:50% 50%"></a><figcaption>DE-1589 · Justitia · Esslingen</figcaption></figure>
-      <figure class="f7"><a data-cursor-label="ver" href="/atlas/" aria-label="Clésinger · République"><img loading="lazy" decoding="async" src="/assets/corpus/fr-clesinger-republique-1900-board-500.jpg" srcset="/assets/corpus/fr-clesinger-republique-1900-board-500.jpg 500w, /assets/corpus/fr-clesinger-republique-1900-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 2 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 1 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1200" height="1620" alt="Clésinger · République" style="object-position:50% 50%"></a><figcaption>FR-1900 · Clésinger · République</figcaption></figure>
-      <figure class="f8"><a data-cursor-label="ver" href="/atlas/" aria-label="Villares · República"><img loading="lazy" decoding="async" src="/assets/corpus/br-villares-republica-board-500.jpg" srcset="/assets/corpus/br-villares-republica-board-500.jpg 500w, /assets/corpus/br-villares-republica-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 3 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 2 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1020" height="1380" alt="Villares · República" style="object-position:50% 20%"></a><figcaption>BR · Villares · República</figcaption></figure>
-      <figure class="f9"><a data-cursor-label="ver" href="/atlas/" aria-label="A Justiça · STF"><img loading="lazy" decoding="async" src="/assets/corpus/br-stf-justica-1961-board-500.jpg" srcset="/assets/corpus/br-stf-justica-1961-board-500.jpg 500w, /assets/corpus/br-stf-justica-1961-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 5 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 3 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1672" height="2268" alt="A Justiça · STF" style="object-position:50% 40%"></a><figcaption>BR-1961 · A Justiça · STF</figcaption></figure>
+      <figure class="f1"><a data-cursor-label="ver" href="/atlas/" aria-label="US · 1896 · A História instrui a Juventude · cédula" data-label-pt="US · 1896 · A História instrui a Juventude · cédula" data-label-en="US · 1896 · History Instructing Youth · banknote"><img loading="lazy" decoding="async" src="/assets/corpus/us-educational-1896-c-atlas-1000.webp" width="600" height="262" alt="Cédula de um dólar: mulher e criança à esquerda, monumentos ao fundo e texto da Constituição à direita." data-alt-pt="Cédula de um dólar: mulher e criança à esquerda, monumentos ao fundo e texto da Constituição à direita." data-alt-en="One-dollar banknote: a woman and child at left, monuments in the background and the Constitution text at right." style="object-fit:contain;object-position:50% 50%"></a><figcaption data-pt="US · 1896 · A História instrui a Juventude · cédula" data-en="US · 1896 · History Instructing Youth · banknote">US · 1896 · A História instrui a Juventude · cédula</figcaption></figure>
+      <figure class="f2"><a data-cursor-label="ver" href="/atlas/" aria-label="FR-1865 · Chifflart · La Justice" data-label-pt="FR-1865 · Chifflart · La Justice" data-label-en="FR-1865 · Chifflart · La Justice"><img loading="lazy" decoding="async" src="/assets/corpus/fr-chifflart-justice-1865-board-500.jpg" srcset="/assets/corpus/fr-chifflart-justice-1865-board-500.jpg 500w, /assets/corpus/fr-chifflart-justice-1865-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 3 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 3 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1200" height="794" alt="Alegoria da Justiça em composição de Chifflart." data-alt-pt="Alegoria da Justiça em composição de Chifflart." data-alt-en="Allegory of Justice in a composition by Chifflart." style="object-position:50% 50%"></a><figcaption data-pt="FR-1865 · Chifflart · La Justice" data-en="FR-1865 · Chifflart · La Justice">FR-1865 · Chifflart · La Justice</figcaption></figure>
+      <figure class="f3"><a data-cursor-label="ver" href="/atlas/" aria-label="UK-1912 · Britannia · penny" data-label-pt="UK-1912 · Britannia · penny" data-label-en="UK-1912 · Britannia · penny"><img loading="lazy" decoding="async" src="/assets/corpus/uk-britannia-penny-1912-board-500.jpg" srcset="/assets/corpus/uk-britannia-penny-1912-board-500.jpg 500w, /assets/corpus/uk-britannia-penny-1912-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 2 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 2 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1500" height="1500" alt="Reverso de penny com Britannia sentada, escudo e tridente." data-alt-pt="Reverso de penny com Britannia sentada, escudo e tridente." data-alt-en="Penny reverse showing seated Britannia with shield and trident." style="object-position:50% 50%"></a><figcaption data-pt="UK-1912 · Britannia · penny" data-en="UK-1912 · Britannia · penny">UK-1912 · Britannia · penny</figcaption></figure>
+      <figure class="f4"><a data-cursor-label="ver" href="/atlas/" aria-label="US-1840 · Seated Liberty" data-label-pt="US-1840 · Seated Liberty" data-label-en="US-1840 · Seated Liberty"><img loading="lazy" decoding="async" src="/assets/corpus/us-seated-liberty-1840-c-atlas-1000.webp" width="300" height="300" alt="Moeda com a figura da Liberdade sentada." data-alt-pt="Moeda com a figura da Liberdade sentada." data-alt-en="Coin bearing the seated figure of Liberty." style="object-position:50% 50%"></a><figcaption data-pt="US-1840 · Seated Liberty" data-en="US-1840 · Seated Liberty">US-1840 · Seated Liberty</figcaption></figure>
+      <figure class="f5"><a data-cursor-label="ver" href="/atlas/" aria-label="DE-1900 · Germania · Reichspost" data-label-pt="DE-1900 · Germania · Reichspost" data-label-en="DE-1900 · Germania · Reichspost"><img loading="lazy" decoding="async" src="/assets/corpus/de-germania-1900.jpg" width="210" height="250" alt="Selo alemão com a figura de Germania." data-alt-pt="Selo alemão com a figura de Germania." data-alt-en="German postage stamp bearing the figure of Germania." style="object-position:50% 50%"></a><figcaption data-pt="DE-1900 · Germania · Reichspost" data-en="DE-1900 · Germania · Reichspost">DE-1900 · Germania · Reichspost</figcaption></figure>
+      <figure class="f6"><a data-cursor-label="ver" href="/atlas/" aria-label="DE-1589 · Justitia · Esslingen" data-label-pt="DE-1589 · Justitia · Esslingen" data-label-en="DE-1589 · Justitia · Esslingen"><img loading="lazy" decoding="async" src="/assets/corpus/de-justitia-esslingen-1589-c-atlas-1000.webp" width="557" height="948" alt="Escultura da Justiça em Esslingen." data-alt-pt="Escultura da Justiça em Esslingen." data-alt-en="Sculpture of Justice in Esslingen." style="object-position:50% 50%"></a><figcaption data-pt="DE-1589 · Justitia · Esslingen" data-en="DE-1589 · Justitia · Esslingen">DE-1589 · Justitia · Esslingen</figcaption></figure>
+      <figure class="f7"><a data-cursor-label="ver" href="/atlas/" aria-label="FR · 1871 · Rops · A República amável" data-label-pt="FR · 1871 · Rops · A República amável" data-label-en="FR · 1871 · Rops · The Amiable Republic"><img loading="lazy" decoding="async" src="/assets/corpus/fr-rops-republique-1871-atlas-1000.jpg" width="682" height="1000" alt="Estampa de Rops: figura feminina de barrete, com uma mão na cintura e outra sobre uma placa inscrita; amplas margens de papel." data-alt-pt="Estampa de Rops: figura feminina de barrete, com uma mão na cintura e outra sobre uma placa inscrita; amplas margens de papel." data-alt-en="Print by Rops: a female figure wearing a cap, one hand on her hip and the other on an inscribed tablet; broad paper margins." style="object-fit:contain;object-position:50% 50%"></a><figcaption data-pt="FR · 1871 · Rops · A República amável" data-en="FR · 1871 · Rops · The Amiable Republic">FR · 1871 · Rops · A República amável</figcaption></figure>
+      <figure class="f8"><a data-cursor-label="ver" href="/atlas/" aria-label="BR · 1896 · Lopes Rodrigues · A República" data-label-pt="BR · 1896 · Lopes Rodrigues · A República" data-label-en="BR · 1896 · Lopes Rodrigues · The Republic"><img loading="lazy" decoding="async" src="/assets/corpus/br-lopes-republica-1896-atlas-1000.jpg" width="513" height="1000" alt="Mulher sentada com barrete vermelho, vestido branco e manto verde, segurando uma espada, diante de um fundo ornamentado." data-alt-pt="Mulher sentada com barrete vermelho, vestido branco e manto verde, segurando uma espada, diante de um fundo ornamentado." data-alt-en="Seated woman in a red cap, white dress and green mantle, holding a sword against an ornamental background." style="object-fit:contain;object-position:50% 50%"></a><figcaption data-pt="BR · 1896 · Lopes Rodrigues · A República" data-en="BR · 1896 · Lopes Rodrigues · The Republic">BR · 1896 · Lopes Rodrigues · A República</figcaption></figure>
+      <figure class="f9" id="stf-justica" tabindex="-1"><a data-cursor-label="ver" href="/atlas/" aria-label="BR-1961 · A Justiça · STF" data-label-pt="BR-1961 · A Justiça · STF" data-label-en="BR-1961 · Justice · STF"><img loading="lazy" decoding="async" src="/assets/corpus/br-stf-justica-1961-board-500.jpg" srcset="/assets/corpus/br-stf-justica-1961-board-500.jpg 500w, /assets/corpus/br-stf-justica-1961-board-1000.jpg 1000w" sizes="(min-width: 1001px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 13.75rem) * 5 / 12), (min-width: 641px) calc(calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem) - 6.25rem) * 3 / 6), calc(100vw - 2 * clamp(1.25rem, 4vw, 4.5rem))" width="1672" height="2268" alt="A Justiça, de Alfredo Ceschiatti, diante do STF: figura sentada, com os olhos vendados e uma espada no colo, sem balança." data-alt-pt="A Justiça, de Alfredo Ceschiatti, diante do STF: figura sentada, com os olhos vendados e uma espada no colo, sem balança." data-alt-en="Justice, by Alfredo Ceschiatti, outside Brazil’s STF: a seated figure with a blindfold and a sword across her lap, without scales." style="object-fit:contain;object-position:50% 50%"></a><figcaption data-pt="BR-1961 · A Justiça · STF" data-en="BR-1961 · Justice · STF">BR-1961 · A Justiça · STF</figcaption></figure>
     </div>
   </section>
 
+  <div class="v2-divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg class="ew" focusable="false"><use href="#edelweiss"></use></svg>
+    <span class="rule"></span>
+  </div>
+
   <section class="bio" aria-labelledby="about-title">
-    <div class="section-head">
-      <p class="eyebrow" data-pt="Apresentação" data-en="Introduction">Apresentação</p>
-      <h2 id="about-title" data-pt="Sobre" data-en="About">Sobre</h2>
-    </div>
     <div class="bio-grid">
-      <div>
-        <figure class="bio-portrait">
-          <img src="/assets/home/ana-vanzin-staircase.jpg" width="3024" height="4032" alt="Ana Vanzin em uma escadaria iluminada por janelas" data-alt-pt="Ana Vanzin em uma escadaria iluminada por janelas" data-alt-en="Ana Vanzin on a staircase lit by windows" loading="lazy" decoding="async">
-        </figure>
+      <div class="prose">
+        <div class="section-head">
+          <p class="eyebrow" data-pt="Apresentação" data-en="Introduction">Apresentação</p>
+          <h2 id="about-title" data-pt="Sobre" data-en="About">Sobre</h2>
+        </div>
+        <p class="bio-lede" data-pt="Minha tese, ICONOCRACIA, investiga a alegoria feminina na cultura jurídica brasileira entre 1822 e 1922. No mestrado, pesquisei a condição jurídica feminina e a nacionalidade entre 1804 e 1957, com atenção à relação entre casamento e nacionalidade." data-en="My thesis, ICONOCRACIA, examines female allegory in Brazilian legal culture between 1822 and 1922. For my master’s degree, I researched women’s legal status and nationality between 1804 and 1957, with particular attention to the relationship between marriage and nationality.">Minha tese, ICONOCRACIA, investiga a alegoria feminina na cultura jurídica brasileira entre 1822 e 1922. No mestrado, pesquisei a condição jurídica feminina e a nacionalidade entre 1804 e 1957, com atenção à relação entre casamento e nacionalidade.</p>
+        <p data-pt="Reúno aqui materiais de estudo, trechos de leitura e trabalhos de pesquisa. O Atlas amplia o recorte da tese com imagens de outros países e períodos; Publicações reúne textos publicados e em preparação." data-en="Here I bring together study materials, reading excerpts and research work. The Atlas extends beyond the thesis’s scope to include images from other countries and periods; Publications gathers published and forthcoming texts.">Reúno aqui materiais de estudo, trechos de leitura e trabalhos de pesquisa. O Atlas amplia o recorte da tese com imagens de outros países e períodos; Publicações reúne textos publicados e em preparação.</p>
         <ul class="facts">
           <li><span data-pt="Doutorado" data-en="Doctorate">Doutorado</span><span>PPGD/UFSC</span></li>
           <li><span data-pt="Grupo" data-en="Group">Grupo</span><span>Ius Gentium</span></li>
           <li><span>ORCID</span><a href="https://orcid.org/0009-0004-8464-6761" rel="me" aria-label="ORCID — Ana Vanzin — 0009-0004-8464-6761">0009-0004-8464-6761</a></li>
-          <li><span>Corpus</span><span data-pt="França · Reino Unido · Alemanha · EUA · Bélgica · Brasil" data-en="France · United Kingdom · Germany · USA · Belgium · Brazil">França · Reino Unido · Alemanha · EUA · Bélgica · Brasil</span></li>
+          <li><span>Atlas</span><span data-pt="França · Reino Unido · Alemanha · EUA · Bélgica · Brasil" data-en="France · United Kingdom · Germany · USA · Belgium · Brazil">França · Reino Unido · Alemanha · EUA · Bélgica · Brasil</span></li>
         </ul>
+        <a class="bio-cta" href="/mesa/" data-pt="Abrir a mesa de trabalho →" data-en="Open the work desk →">Abrir a mesa de trabalho →</a>
       </div>
-      <div class="prose">
-        <p data-pt="Minha tese, ICONOCRACIA, investiga a alegoria feminina na história da cultura jurídica dos séculos XIX e XX. Antes, no mestrado, pesquisei a condição jurídica da mulher casada e a relação entre casamento e nacionalidade no início do século XX." data-en="My thesis, ICONOCRACIA, examines female allegory in the history of legal culture in the nineteenth and twentieth centuries. For my master’s degree, I researched the legal status of married women and the relationship between marriage and nationality in the early twentieth century.">Minha tese, ICONOCRACIA, investiga a alegoria feminina na história da cultura jurídica dos séculos XIX e XX. Antes, no mestrado, pesquisei a condição jurídica da mulher casada e a relação entre casamento e nacionalidade no início do século XX.</p>
-        <p data-pt="Reúno aqui parte desse trabalho. O Atlas organiza os objetos da pesquisa; nas publicações, estão os textos que escrevo ao longo desse percurso." data-en="I bring together part of that work here. The Atlas organises the research objects; the publications bring together the writing developed along the way.">Reúno aqui parte desse trabalho. O Atlas organiza os objetos da pesquisa; nas publicações, estão os textos que escrevo ao longo desse percurso.</p>
-        <a href="/mesa/" data-pt="Abrir a mesa de trabalho →" data-en="Open the work desk →">Abrir a mesa de trabalho →</a>
+      <div class="bio-col">
+        <figure class="bio-portrait">
+          <img class="bio-sticker" src="/assets/stickers/sticker-heart.png" width="350" height="350" alt="gata com coração · adesivo" data-alt-pt="gata com coração · adesivo" data-alt-en="cat with a heart · sticker" loading="lazy" decoding="async">
+          <div class="bio-frame">
+            <img src="/assets/home/ana-vanzin-staircase.jpg" width="3024" height="4032" alt="Ana Vanzin em uma escadaria iluminada por janelas" data-alt-pt="Ana Vanzin em uma escadaria iluminada por janelas" data-alt-en="Ana Vanzin on a staircase lit by windows" loading="lazy" decoding="async">
+          </div>
+          <figcaption><span>ana vanzin</span><span data-pt="retrato · escadaria" data-en="portrait · staircase">retrato · escadaria</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -219,5 +466,8 @@
   <a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="/assets/home-v2-20261031.js" defer></script>
 </body>
 </html>
