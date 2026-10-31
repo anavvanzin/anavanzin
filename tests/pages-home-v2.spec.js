@@ -24,8 +24,6 @@ async function ready(page) {
   });
 }
 async function noOverflow(page) {
-  expect(await page.evaluate(()=>({doc:document.documentElement.scrollWidth,body:document.body.scrollWidth,width:innerWidth})))
-    .toEqual(expect.objectContaining({width:expect.any(Number)}));
   expect(await page.evaluate(()=>Math.max(document.documentElement.scrollWidth,document.body.scrollWidth)<=innerWidth)).toBe(true);
 }
 for (const width of [320,390,768,1024,1440]) {
@@ -112,12 +110,12 @@ test('home-v2 links resolve inside actual artifact, redirects inspected without 
     expect(r.status(),path).toBeLessThan(400);
   }
 });
-for(const reducedMotion of ['no-preference','reduce']){
-  test('home-v2 real pinned CDN scripts: '+reducedMotion,async({page,context,baseURL})=>{
+for(const width of [390,1440]) for(const reducedMotion of ['no-preference','reduce']){
+  test('home-v2 real pinned CDN scripts: '+width+' '+reducedMotion,async({page,context,baseURL})=>{
     test.skip(process.env.PAGES_TEST_ALLOW_CDN!=='1','Opt-in GET-only check of existing pinned CDN scripts.');
     await localOnly(context,baseURL,true);
     await page.emulateMedia({reducedMotion});
-    await page.setViewportSize({width:1440,height:900});
+    await page.setViewportSize({width,height:900});
     await page.goto('/');await ready(page);
     await page.waitForFunction(()=>!!window.gsap && !!window.ScrollTrigger);
     if(reducedMotion==='reduce'){
@@ -128,13 +126,19 @@ for(const reducedMotion of ['no-preference','reduce']){
       await page.evaluate(()=>{
         const trigger=ScrollTrigger.getAll().find(t=>t.vars.trigger==='.statements');
         if(!trigger)throw new Error('Missing statement pin');
-        window.__reviewPin=trigger;window.scrollTo(0,trigger.start+(trigger.end-trigger.start)*0.45);
+        document.documentElement.style.scrollBehavior='auto';
+        window.__reviewPin=trigger;window.scrollTo({top:trigger.start+(trigger.end-trigger.start)*0.45,behavior:'instant'});
         ScrollTrigger.update();
       });
+      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.isActive)).toBe(true);
+      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.progress)).toBeGreaterThan(0.4);
+      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.progress)).toBeLessThan(0.5);
       const before=await page.evaluate(()=>window.__reviewPin.progress);
       for(const lang of ['EN','PT']){
         await page.getByRole('button',{name:lang,exact:true}).click({force:true});
-        await page.waitForTimeout(100);
+        await expect(page.locator('html')).toHaveAttribute('lang',lang==='EN'?'en':'pt-BR');
+        // safeRefresh is debounced by 180ms; inspect after it has run.
+        await page.waitForTimeout(400);
         expect(await page.evaluate(()=>ScrollTrigger.getAll().includes(window.__reviewPin))).toBe(true);
         expect(Math.abs(await page.evaluate(()=>window.__reviewPin.progress)-before)).toBeLessThan(0.05);
       }
