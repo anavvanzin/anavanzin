@@ -41,11 +41,26 @@ for (const width of [320,390,768,1024,1440]) {
     expect(await page.locator('img[src*="ana-reading"]').count()).toBe(0);
     await expect(page.locator('.study-inspiration img')).toHaveAttribute('src','/assets/home/avo-original-color.webp');
     await expect(page.locator('.bio-sticker')).toHaveAttribute('src','/assets/stickers/sticker-heart.png');
+    await expect(page.locator('main > section').nth(1)).toHaveClass('bio');
+    await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
+    await expect(page.locator('.hero-panel a.primary')).toHaveAttribute('href','https://iconocracia.com');
+    await expect(page.locator('.hero-panel a.primary')).toHaveText('ICONOCRACIA →');
+    await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
+    await expect(page.locator('.statements')).toHaveCount(0);
+    await expect(page.locator('main > :last-child')).toHaveClass('study-inspiration');
+    expect(await page.locator('.board').evaluate(el=>!!(el.compareDocumentPosition(document.querySelector('#readme')) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+    const crop=await page.locator('.study-inspiration img').evaluate(img=>({fit:getComputedStyle(img).objectFit,pos:getComputedStyle(img).objectPosition,ratio:img.clientWidth/img.clientHeight}));
+    expect(crop.fit).toBe('cover');expect(crop.pos).toBe('50% 0%');
+    expect(crop.ratio).toBeGreaterThan(1.14);expect(crop.ratio).toBeLessThan(1.16);
+
     expect(await page.evaluate(()=>getComputedStyle(document.querySelector('.study-inspiration img')).filter)).toBe('none');
     for (const language of ['en','pt']) {
       await page.getByRole('button',{name:language.toUpperCase(),exact:true}).click();
       await expect(page.locator('html')).toHaveAttribute('lang',language==='en'?'en':'pt-BR');
       await noOverflow(page);
+      await expect(page.locator('#about-title')).toHaveText(language==='en'?'Hello, I’m Ana.':'Olá, sou a Ana.');
+      await expect(page.locator('#readme h3').first()).toHaveText(language==='en'?'## research':'## pesquisa');
+      await expect(page.locator('.publications-projects h2')).toHaveText(language==='en'?'Publications and visual projects':'Publicações e projetos visuais');
       const names=language==='en'?['Research · paths for research','Quotes · an archive of reading','Works · works and projects']:['Pesquisar · caminhos para pesquisar','Trechos · um arquivo de leituras','Trabalhos · obras e projetos'];
       for(let i=0;i<3;i++) await expect(page.locator('.door').nth(i)).toHaveAccessibleName(names[i]);
     }
@@ -97,7 +112,7 @@ test('home-v2 stays usable without GSAP',async({page,context,baseURL})=>{
   await page.goto('/');await ready(page);
   expect(await page.evaluate(()=>!!window.gsap)).toBe(false);
   expect(await page.locator('html').getAttribute('class')||'').not.toContain('v2-motion');
-  await expect(page.locator('.statements')).toBeVisible();
+  await expect(page.locator('#readme')).toBeVisible();
   for(const lang of ['EN','PT'])await page.getByRole('button',{name:lang,exact:true}).click();
   const door=page.locator('.door').first();const name=await door.getAttribute('aria-label');
   await door.focus();await page.waitForTimeout(100);await expect(door).toHaveAccessibleName(name);
@@ -119,7 +134,7 @@ test('home-v2 artifact links return valid first hops and canonical redirects',as
   }
 });
 for(const width of [390,1440]) for(const reducedMotion of ['no-preference','reduce']){
-  test('home-v2 real pinned CDN scripts: '+width+' '+reducedMotion,async({page,context,baseURL})=>{
+  test('home-v2 real CDN motion without oversized manifesto: '+width+' '+reducedMotion,async({page,context,baseURL})=>{
     test.skip(process.env.PAGES_TEST_ALLOW_CDN!=='1','Opt-in GET-only check of existing pinned CDN scripts.');
     await localOnly(context,baseURL,true);
     await page.emulateMedia({reducedMotion});
@@ -128,30 +143,19 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
     await page.waitForFunction(()=>!!window.gsap && !!window.ScrollTrigger);
     if(reducedMotion==='reduce'){
       expect(await page.locator('html').getAttribute('class')||'').not.toContain('v2-motion');
-      expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
     }else{
       await page.waitForFunction(()=>document.documentElement.classList.contains('v2-motion'));
-      await page.evaluate(()=>{
-        const trigger=ScrollTrigger.getAll().find(t=>t.vars.trigger==='.statements');
-        if(!trigger)throw new Error('Missing statement pin');
-        document.documentElement.style.scrollBehavior='auto';
-        window.__reviewPin=trigger;window.scrollTo({top:trigger.start+(trigger.end-trigger.start)*0.45,behavior:'instant'});
-        ScrollTrigger.update();
-      });
-      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.isActive)).toBe(true);
-      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.progress)).toBeGreaterThan(0.4);
-      await expect.poll(()=>page.evaluate(()=>window.__reviewPin.progress)).toBeLessThan(0.5);
-      const before=await page.evaluate(()=>window.__reviewPin.progress);
-      for(const lang of ['EN','PT']){
-        // Dispatch at the active pin without scrolling to the offscreen header.
-        // Real pointer language switching is covered at all five widths above.
-        await page.getByRole('button',{name:lang,exact:true}).dispatchEvent('click');
-        await expect(page.locator('html')).toHaveAttribute('lang',lang==='EN'?'en':'pt-BR');
-        // safeRefresh is debounced by 180ms; inspect after it has run.
-        await page.waitForTimeout(400);
-        expect(await page.evaluate(()=>ScrollTrigger.getAll().includes(window.__reviewPin))).toBe(true);
-        expect(Math.abs(await page.evaluate(()=>window.__reviewPin.progress)-before)).toBeLessThan(0.05);
-      }
+    }
+    // The large manifesto has been removed; no scroll-pinning should survive.
+    expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
+    for(const lang of ['EN','PT']){
+      await page.getByRole('button',{name:lang,exact:true}).click();
+      await expect(page.locator('html')).toHaveAttribute('lang',lang==='EN'?'en':'pt-BR');
+      await page.locator('#readme').scrollIntoViewIfNeeded();
+      await expect(page.locator('#readme')).toBeInViewport();
+      await page.waitForTimeout(400);
+      expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
+      await noOverflow(page);
     }
   });
 }

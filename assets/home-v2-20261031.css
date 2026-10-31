@@ -403,3 +403,66 @@
 .home-v2 .tile-title{max-width:100%;overflow-wrap:anywhere}
 .home-v2 .door,.home-v2 .board figcaption{overflow-wrap:anywhere}
 .home-v2 .band li a > span:last-child{flex:none}
+
+/* Reader-led revision: quiet links, early introduction, late personal note. */
+.home-v2 .hero-panel .actions{gap:.5rem 1.25rem}
+.home-v2.v3 .fluid-hero .hero-panel .actions a,
+.home-v2.v3 .fluid-hero .hero-panel .index-toggle{
+  display:inline-flex;align-items:center;min-height:44px;max-width:100%;
+  font-family:var(--body);font-size:.9375rem;line-height:1.4;letter-spacing:0;
+  border:0;border-bottom:1px solid var(--rule);padding:.4rem 0;
+  color:var(--burgundy);background:none;text-decoration:none;
+}
+.home-v2.v3 .fluid-hero .hero-panel .actions .primary{font-weight:600}
+.home-v2.v3 .fluid-hero .hero-panel .index-toggle{margin-top:.5rem}
+.home-v2.v3 .fluid-hero .hero-panel .actions a:hover,
+.home-v2.v3 .fluid-hero .hero-panel .index-toggle:hover{color:var(--ink);border-color:var(--ink);background:none}
+.home-v2 .hero-panel a:focus-visible,.home-v2 .hero-panel button:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px}
+.home-v2 .bio{padding:clamp(3rem,6vw,5rem) 0}
+.home-v2 .bio-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center}
+.home-v2 .bio .section-head{margin-bottom:1.25rem}
+.home-v2 .bio .section-head h2{font-size:clamp(2rem,3.5vw,3rem);line-height:1.1}
+.home-v2 .bio-lede::first-letter{float:none;font:inherit;color:inherit;border:0;padding:0;margin:0}
+.home-v2 .bio .prose p{font-size:1.125rem;line-height:1.7}
+.home-v2 .bio .prose p + p{font-size:1rem;margin-bottom:1.5rem}
+.home-v2 .bio-portrait{max-width:23rem;justify-self:end}
+.home-v2 .bio-portrait img.bio-sticker{left:-2.5rem;top:-2.5rem;width:8rem}
+.home-v2 .publications-projects > a{display:block;width:fit-content;margin-top:.75rem}
+.home-v2 .study-inspiration{
+  grid-template-columns:minmax(0,16rem) minmax(0,1fr);grid-template-areas:"photo copy";
+  max-width:44rem;margin:clamp(2rem,4vw,3rem) var(--gutter) clamp(3rem,5vw,4rem);
+  padding:1.25rem;border:1px solid var(--rule);gap:1.5rem;align-items:center;
+}
+.home-v2 .study-inspiration-photo{max-width:16rem;padding:.5rem}
+.home-v2 .study-inspiration-photo img{width:100%;height:auto;aspect-ratio:752 / 656;object-fit:cover;object-position:50% 0%;filter:none}
+.home-v2 .study-inspiration-copy h2{font-size:1.75rem;max-width:none;margin:0 0 .75rem}
+.home-v2 .study-inspiration-note{font-size:1rem;line-height:1.6;max-width:30ch}
+@media(max-width:900px){
+  .home-v2 .bio-grid{grid-template-columns:minmax(0,1fr)}
+  .home-v2 .bio-portrait{max-width:23rem;margin-top:1.5rem}
+  .home-v2 .bio-portrait img.bio-sticker{left:auto;right:-.375rem;top:-2rem;width:7rem}
+}
+@media(max-width:640px){
+  .home-v2 .study-inspiration{grid-template-columns:minmax(0,1fr);grid-template-areas:"photo" "copy";padding:1rem;gap:1rem}
+  .home-v2 .study-inspiration-photo{justify-self:start;width:100%;max-width:16rem}
+}
+
+/* A real excerpt of the existing dossier, not a second oversized manifesto. */
+.home-v2 .home-readme{margin:0 var(--gutter);border:1px solid var(--ink);scroll-margin-top:6rem}
+.home-v2 .readme-tab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:.875rem 1.25rem;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:.75rem}
+.home-v2 .readme-tab h2{font:inherit;margin:0;color:var(--burgundy)}
+.home-v2 .readme-grid{display:grid;grid-template-columns:minmax(10rem,.7fr) minmax(0,2fr)}
+.home-v2 .readme-files{display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;padding:1.5rem 1.25rem;border-right:1px solid var(--rule);font-family:var(--mono);font-size:.8125rem}
+.home-v2 .readme-files a{padding:.5rem 0;min-height:44px}
+.home-v2 .readme-content{padding:clamp(1.25rem,3vw,2.5rem);max-width:76ch;min-width:0}
+.home-v2 .readme-content p,.home-v2 .readme-content li{font-size:1rem;line-height:1.65}
+.home-v2 .readme-content h3{font-family:var(--mono);font-size:.875rem;font-weight:400;color:var(--burgundy);margin:1.75rem 0 .75rem}
+.home-v2 .readme-content ul{padding-left:1.25rem;margin:0}
+.home-v2 .readme-content li + li{margin-top:.5rem}
+.home-v2 .readme-links{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}
+.home-v2 .home-readme a{color:var(--burgundy);text-underline-offset:.25em;overflow-wrap:anywhere}
+.home-v2 .home-readme a:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px}
+@media(max-width:760px){
+ .home-v2 .readme-grid{grid-template-columns:minmax(0,1fr)}
+ .home-v2 .readme-files{flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem;border-right:0;border-bottom:1px solid var(--rule)}
+}

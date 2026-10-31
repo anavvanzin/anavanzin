@@ -67,3 +67,20 @@ No push, remote PR, merge or publication is part of this preparation.
 Before any later release: independently authorize the #179 merge and homepage
 release, update/rebase the integration branch as needed, and require both
 `pages-release-check` and `Cloudflare Pages` at the exact new head.
+
+## Reader-directed revision — 2026-10-31 evening
+
+The user corrected the hierarchy and terminology: short natural introduction
+and real portrait/sticker immediately after hero; full README/profile content
+near the end; grandmother as a compact final personal note. The photo uses CSS
+object-fit/object-position only; its original file remains unchanged. The
+oversized manifesto is removed, including its active scroll pin. Earlier pin
+regression descriptions above document the previous checkpoint, not the revised
+candidate. New motion checks assert no pins and use real language clicks.
+
+The README-format excerpt is grounded in existing readme.html/perfil.html,
+without copying their stale doctoral line name or unqualified historical claim.
+ICONOCRACIA links to iconocracia.com; Atlas remains the separate local visual
+project, listed alongside publications with in-progress status made explicit.
+No replacement illustration has been selected. The rejected reading banner
+remains absent; this is a review candidate, not final design approval.
