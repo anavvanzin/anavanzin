@@ -33,14 +33,25 @@ for(const width of [320,768,1440])test('consolidated works: categories, locale a
  await page.goto('/publicacoes/');await expect(page).toHaveURL(/\/trabalhos\/#escrita$/);await expect(page.locator('#escrita-title')).toBeVisible();
  expect(errors).toEqual([]);expect(bad).toEqual([]);
 });
-test('legacy desktop remains functional without the removed Ampulheta launcher',async({page,context,baseURL})=>{
+test('shipped desktop scripts remain functional in an explicit local legacy fixture',async({page,context,baseURL})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await context.route('**/*',r=>new URL(r.request().url()).origin===new URL(baseURL).origin&&['GET','HEAD'].includes(r.request().method())?r.continue():r.abort());
  await page.setViewportSize({width:1440,height:1000});
- await page.goto('/mesa/index%202.html');
+ await context.route('**/__legacy-desktop-fixture',route=>route.fulfill({status:200,contentType:'text/html',body:require('node:fs').readFileSync('mesa/index 2.html','utf8')}));
+ await page.goto('/__legacy-desktop-fixture');
  await expect(page.locator('.desktop-tile-group')).toHaveCount(4);
  await page.getByRole('button',{name:'pessoa e memória',exact:true}).click();
  await expect(page.locator('[data-app-id="ampulheta"]')).toHaveCount(0);
  await expect(page.locator('[data-app-id="sobre"]')).toBeVisible();
  expect(errors).toEqual([]);
+});
+for(const width of [390,1440])for(const [path,notice] of [['/iconocracia/atlas/','#prototype-notice'],['/iconocracia/radiografia/','#radiografia-prototype-notice']])test('prototype notice survives React rendering: '+path+' '+width,async({page,context,baseURL})=>{
+ test.skip(process.env.PAGES_TEST_ALLOW_CDN!=='1','Opt-in GET-only check of the existing pinned React CDN scripts.');
+ const allowed=new Set(['https://unpkg.com/react@18.3.1/umd/react.production.min.js','https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js']);
+ await context.route('**/*',r=>['GET','HEAD'].includes(r.request().method())&&(new URL(r.request().url()).origin===new URL(baseURL).origin||allowed.has(r.request().url()))?r.continue():r.abort());
+ await page.setViewportSize({width,height:900});await page.goto(path);
+ await expect(page.locator('#root > *').first()).toBeVisible();
+ await expect(page.locator(notice)).toBeVisible();await expect(page.locator(notice)).toBeInViewport();
+ expect(await page.locator(notice).evaluate(el=>!el.closest('#root'))).toBe(true);
+ await expect(page.locator(notice)).toContainText('not validated');
 });

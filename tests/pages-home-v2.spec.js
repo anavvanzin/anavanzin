@@ -114,8 +114,7 @@ for (const width of [320,390,768,1024,1440]) {
     await expect(page.locator('#stf-justica')).toBeInViewport();
     await page.locator('.stf-observation summary').focus();await page.keyboard.press('Enter');
     await expect(page.locator('.stf-observation')).toHaveAttribute('open','');
-    await page.locator('.home-glossary summary').first().focus();await page.keyboard.press('Enter');
-    await expect(page.locator('.home-glossary details').first()).toHaveAttribute('open','');
+    for(const summary of await page.locator('.home-glossary summary').all()){await summary.focus();await page.keyboard.press('Enter');await expect(summary.locator('..')).toHaveAttribute('open','');}
     await noOverflow(page);
     expect(errors).toEqual([]);expect(bad).toEqual([]);
   });
@@ -192,6 +191,15 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
       expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
       await noOverflow(page);
     }
+    for(const summary of await page.locator('.research-question summary,.home-glossary summary').all())await summary.click();
+    await page.waitForTimeout(400);
+    await page.locator('#stf-justica').scrollIntoViewIfNeeded();
+    await expect(page.locator('#stf-justica')).toHaveCSS('opacity','1');
+    for(const summary of await page.locator('.research-question summary,.home-glossary summary').all())await summary.click();
+    await page.waitForTimeout(400);
+    await page.locator('#readme').scrollIntoViewIfNeeded();
+    await expect(page.locator('#readme')).toBeInViewport();
+    await noOverflow(page);
     expect(errors).toEqual([]);
   });
 }

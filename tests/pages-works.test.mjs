@@ -50,7 +50,7 @@ test('Exhibition artifact serves its HTML, hashed bundles and all eighteen plate
 });
 
 test('Removed Ampulheta entry points and exclusive assets return genuine 404s',async()=>{
- for(const p of ['/ampulheta','/ampulheta/','/ampulheta.html','/ampulheta-native.js','/assets/icons/ampulheta-v1.png'])assert.equal((await get(p)).status,404,p);
+ for(const p of ['/ampulheta','/ampulheta/','/ampulheta.html','/ampulheta-native.js','/assets/icons/ampulheta-v1.png','/mesa/index%202.html'])assert.equal((await get(p)).status,404,p);
  for(const p of ['desktop-app.js','window-contents.js','icons.js'])assert.ok(!fs.readFileSync(path.join(output,p),'utf8').match(/WAmpulheta|AmpulhetaNative|HourglassIcon|ampulheta/i),p);
 });
 test('Research companion prominently identifies active demonstration data',async()=>{

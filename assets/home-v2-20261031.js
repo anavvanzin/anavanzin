@@ -344,6 +344,18 @@
     }, 220);
   }, { passive: true });
 
+  // Native research disclosures change document height without a resize event.
+  document.addEventListener('toggle', function (event) {
+    if (!motionStarted || !event.target.matches('.research-question, .home-glossary details, .stf-observation')) return;
+    refreshDirty = true;
+    clearTimeout(reT);
+    reT = setTimeout(function () {
+      if (!refreshDirty) return;
+      refreshDirty = false;
+      safeRefresh();
+    }, 180);
+  }, true);
+
   if (document.readyState === 'complete') initMotion();
   else window.addEventListener('load', initMotion);
   setTimeout(initMotion, 3500); /* rede lenta: última chance; idempotente */
