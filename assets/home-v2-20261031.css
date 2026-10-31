@@ -466,3 +466,6 @@
  .home-v2 .readme-grid{grid-template-columns:minmax(0,1fr)}
  .home-v2 .readme-files{flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem;border-right:0;border-bottom:1px solid var(--rule)}
 }
+
+/* Decorative sticker must not grow beyond the portrait at 200% text. */
+.home-v2 .bio-portrait img.bio-sticker{max-width:40%}

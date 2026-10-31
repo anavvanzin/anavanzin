@@ -25,6 +25,7 @@ for (const width of [1440,390,320]) {
     expect((await page.goto('/')).status()).toBe(200);
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('#name')).toBeVisible();
+    await page.locator('.study-inspiration img').scrollIntoViewIfNeeded();
     await expect.poll(() => page.locator('.study-inspiration img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
     await page.getByRole('button',{name:'EN',exact:true}).click();
     await expect(page.locator('html')).toHaveAttribute('lang','en');

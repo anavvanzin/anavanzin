@@ -81,6 +81,11 @@ for (const width of [320,390,768,1024,1440]) {
       await expect(page.locator('.menu-trigger')).toHaveAttribute('aria-expanded','false');
       await expect(page.locator('.menu-trigger')).toBeFocused();
     }
+    await page.locator('.bio-cta').focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/#readme$/);
+    await expect(page.locator('#readme')).toBeInViewport();
+    expect(await page.locator('#readme').evaluate(el=>el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(0);
     const door=page.locator('.door').first();
     const name=await door.getAttribute('aria-label');
     await door.focus();
@@ -126,6 +131,11 @@ test('home-v2 artifact links return valid first hops and canonical redirects',as
     const response=await request.get(new URL(path,baseURL).href,{maxRedirects:0});
     expect(response.status()).toBe(status); expect(response.headers().location).toBe(location);
   }
+  for(const [path,title] of [['/readme','Dossiê · ana vanzin'],['/perfil','Perfil · ana vanzin']]){
+    const r=await request.get(new URL(path,baseURL).href,{maxRedirects:0});
+    expect(r.status()).toBe(200);
+    expect(await r.text()).toContain('<title>'+title+'</title>');
+  }
   const paths=await page.locator('a[href^="/"]').evaluateAll(a=>[...new Set(a.map(x=>x.getAttribute('href').split('#')[0]))]);
   for(const path of paths){
     const r=await request.get(new URL(path,baseURL).href,{maxRedirects:0});
@@ -136,6 +146,7 @@ test('home-v2 artifact links return valid first hops and canonical redirects',as
 for(const width of [390,1440]) for(const reducedMotion of ['no-preference','reduce']){
   test('home-v2 real CDN motion without oversized manifesto: '+width+' '+reducedMotion,async({page,context,baseURL})=>{
     test.skip(process.env.PAGES_TEST_ALLOW_CDN!=='1','Opt-in GET-only check of existing pinned CDN scripts.');
+    const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await localOnly(context,baseURL,true);
     await page.emulateMedia({reducedMotion});
     await page.setViewportSize({width,height:900});
@@ -157,5 +168,6 @@ for(const width of [390,1440]) for(const reducedMotion of ['no-preference','redu
       expect(await page.evaluate(()=>ScrollTrigger.getAll().filter(t=>t.pin).length)).toBe(0);
       await noOverflow(page);
     }
+    expect(errors).toEqual([]);
   });
 }
