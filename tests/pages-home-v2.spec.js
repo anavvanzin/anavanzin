@@ -93,7 +93,8 @@ for (const width of [320,390,768,1024,1440]) {
     await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA↗');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
-    await expect(page.locator('main > :last-child')).toHaveClass('study-inspiration');
+    await expect(page.locator('.study-inspiration + .editorial-strip')).toHaveCount(1);
+    await expect(page.locator('main > :last-child')).toHaveClass('closing-motto');
     expect(await page.locator('.board').evaluate(el=>!!(el.compareDocumentPosition(document.querySelector('#readme')) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
     const crop=await page.locator('.study-inspiration img').evaluate(img=>({fit:getComputedStyle(img).objectFit,pos:getComputedStyle(img).objectPosition,ratio:img.clientWidth/img.clientHeight}));
     expect(crop.fit).toBe('cover');expect(crop.pos).toBe('50% 0%');

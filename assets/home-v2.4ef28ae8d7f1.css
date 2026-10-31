@@ -590,3 +590,7 @@
 .home-v2 .editorial-footer :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 @media(max-width:1000px){.home-v2.v3 .fluid-hero{grid-template-columns:minmax(0,1fr)}.home-v2.v3 .fluid-hero h1{font-size:clamp(4rem,22vw,13rem)}.home-v2 .hero-project{justify-self:end;max-width:100%;padding:0}.home-v2 .project-caption{font-size:1.4rem}.home-v2 .editorial-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v2 .editorial-strip>*:nth-child(3){border-left:0}.home-v2 .editorial-strip>*:nth-child(n+3){border-top:1px solid var(--rule)}}
 @media(max-width:640px){.home-v2 .hero-panel .doors-grid{grid-template-columns:minmax(0,1fr)}.home-v2 .hero-panel .door+.door{padding:1rem 0;border-left:0;border-top:1px solid var(--rule)}.home-v2 .hero-panel .door{padding:1rem 0}.home-v2 .hero-panel .door .word{font-size:1.75rem}.home-v2 .editorial-strip,.home-v2 .colophon-top{grid-template-columns:minmax(0,1fr)}.home-v2 .editorial-strip>*+*{border-left:0;border-top:1px solid var(--rule)}.home-v2 .colophon-contact{text-align:left}.home-v2 .colophon-brand{flex-wrap:wrap}.home-v2 .closing-collection{max-width:280px}.home-v2 .closing-motto{letter-spacing:.03em}}
+
+/* Enlarged text may wrap the wordmark rather than escape the paper panel. */
+.home-v2.v3 .fluid-hero h1 .surname{overflow-wrap:anywhere}
+.home-v2 .hero-secondary a{min-width:0;max-width:100%;overflow-wrap:anywhere}
