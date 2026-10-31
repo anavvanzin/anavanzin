@@ -33,11 +33,15 @@ async function heroGeometry(page) {
     const a=document.querySelector('.project-float'),r=a.getBoundingClientRect();
     return {link:rect('.project-float'),panel:rect('.hero-panel'),hero:rect('.fluid-hero'),bio:rect('.bio'),position:getComputedStyle(a).position,animation:getComputedStyle(a).animationName};
   });
-  expect(g.link.bottom).toBeLessThanOrEqual(g.panel.top);
+  expect(g.link.right<=g.panel.left || g.link.left>=g.panel.right || g.link.top>=g.panel.bottom || g.link.bottom<=g.panel.top).toBe(true);
   expect(g.panel.bottom).toBeLessThanOrEqual(g.hero.bottom);
   expect(g.hero.bottom).toBeLessThanOrEqual(g.bio.top);
   expect(g.link.height).toBeGreaterThanOrEqual(44);
   expect(g.position).not.toBe('fixed');expect(g.animation).toBe('none');
+  await expect(page.locator('.hero-panel .door')).toHaveCount(3);
+  await expect(page.locator('main > .doors')).toHaveCount(0);
+  await expect(page.locator('.editorial-strip')).toHaveCount(1);
+  await expect(page.locator('.colophon-sticker')).toHaveAttribute('src','/assets/stickers/sticker-heart.png');
   await expect(page.locator('.project-float')).toHaveAccessibleName(/ICONOCRACIA · (pesquisa|research)/);
 }
 async function commentaryGeometry(page) {
@@ -67,7 +71,7 @@ for (const width of [320,390,768,1024,1440]) {
     expect((await page.goto('/')).status()).toBe(200);
     await ready(page);
     await expect(page.locator('#name')).toBeVisible();
-    expect(await page.locator('img').count()).toBe(20);
+    expect(await page.locator('img').count()).toBe(24);
     expect(await page.locator('img[src*="ana-reading"]').count()).toBe(0);
     await expect(page.locator('.study-inspiration img')).toHaveAttribute('src','/assets/home/avo-original-color.webp');
     await expect(page.locator('.editorial-portrait img')).toHaveAttribute('src','/assets/ana-portrait.webp');

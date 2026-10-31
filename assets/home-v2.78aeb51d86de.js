@@ -215,12 +215,6 @@
       y: 24, opacity: 0, duration: 1, ease: EASE, stagger: 0.1, delay: 0.55
     });
 
-    /* hero respira com o scroll: o texto esvai */
-    gsap.to('.hero-inner', {
-      opacity: 0.18, y: -40, ease: 'none',
-      scrollTrigger: { trigger: '.fluid-hero', start: 'top top', end: 'bottom 30%', scrub: true }
-    });
-
     /* as variantes A/B ainda têm a arte no hero; a candidata v3 não tem */
     if (document.querySelector('.hero-art')) {
       gsap.from('.hero-art', { opacity: 0, y: 34, duration: 1.3, ease: EASE, delay: 0.35 });
