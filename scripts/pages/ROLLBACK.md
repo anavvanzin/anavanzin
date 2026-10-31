@@ -1,7 +1,8 @@
 # Publicação Pages e rollback
 
-O domínio canônico é anavanzin.com; produção Pages usa main. A prévia permitida
-é codex/pages-preflight. Sempre conferir os filtros e a revisão remota antes de
+O domínio canônico é anavanzin.com; produção Pages usa main. As prévias permitidas
+são fix/*, feat/* e codex/*. O PR precisa passar pages-release-check e Cloudflare
+Pages antes do merge. Sempre conferir os filtros e a revisão remota antes de
 publicar. Não fazer force-push nem alterar grants compartilhados.
 
 ## Dados e configuração
@@ -18,17 +19,19 @@ Serviço correto: anavanzin. Deployment preservado:
 c9ad8658-8aee-4277-9afb-adbb0548171c, versão
 09b41516-076d-40da-a626-910dba7f36aa a 100%.
 
-O corte retira somente as rotas literais anavanzin.com e anavanzin.com/* desse
-Worker. Os padrões de subdomínios, Arno e Mentoria permanecem. A configuração
-anterior das duas rotas deve ficar no snapshot operacional para recriação por API.
+O corte de 27/10 retira somente anavanzin.com/* do Worker antigo. A rota exata
+anavanzin.com já está com script null e permanece assim, como as exceções de
+assets existentes. Os padrões de subdomínios, Trabalhos, Iconocracia, Arno e
+Mentoria permanecem. Guardar a configuração anterior em operations/ antes do corte.
 
 ## Reversão de uma publicação
 
 1. Conferir o incidente e preservar o deployment/revisão que o causou.
 2. Se houver versão Pages de produção anterior validada, usar o rollback Pages
    dessa versão, mantendo os namespaces de dados existentes.
-3. Se for necessário voltar ao Worker preservado, recriar apenas suas duas
-   rotas apex com o serviço anavanzin. O DNS apex deve permanecer proxied para
+3. Se for necessário voltar ao Worker preservado, recriar somente o catch-all
+   anavanzin.com/* com o serviço anavanzin, conforme snapshot, preservando a rota
+   exata e as exceções que já existiam antes do corte. O DNS apex permanece proxied para
    que as rotas Workers possam ser aplicadas. Não alterar rotas wildcard,
    Arno, Mentoria, MX/TXT ou aplicações Access não relacionadas.
 4. Conferir os bytes HTML/CSS, trabalhos e Functions no domínio anônimo;

@@ -39,6 +39,8 @@
       ]
     },
     "preview": {
+      // Shared read-only static work; MESAS remains isolated below.
+      "services": [{ "binding": "ICONOCRACIA_WORK", "service": "anavanzin-kimi" }],
       "kv_namespaces": [
         {
           "binding": "MESAS",

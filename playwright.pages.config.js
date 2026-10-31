@@ -9,17 +9,23 @@ process.env.PAGES_UI_TEST_URL = baseURL;
 
 module.exports = defineConfig({
   testDir:'./tests',
-  testMatch:'pages-mesa.spec.js',
+  testMatch:'pages-release.spec.js',
   outputDir:'./test-results/pages',
   workers:1,
   timeout:45000,
   reporter:'list',
   use:{baseURL,headless:true,channel:process.env.PAGES_BROWSER_CHANNEL || undefined},
-  webServer:{
-    command:`wrangler pages dev .worker-assets --kv MESAS --port ${Number(runtime.port)} --ip 127.0.0.1 --show-interactive-dev-session=false`,
+  webServer:[{
+    command:`wrangler dev --config tests/fixtures/iconocracia-work/wrangler.jsonc --local --port ${Number(runtime.port)+1} --ip 127.0.0.1 --show-interactive-dev-session=false`,
+    url:`http://127.0.0.1:${Number(runtime.port)+1}`,
+    reuseExistingServer:!process.env.CI,
+    timeout:30000,
+    env:{WRANGLER_SEND_METRICS:'false'}
+  },{
+    command:`wrangler pages dev .worker-assets --kv MESAS --service ICONOCRACIA_WORK=pages-iconocracia-fixture --port ${Number(runtime.port)} --ip 127.0.0.1 --show-interactive-dev-session=false`,
     url:baseURL,
     reuseExistingServer:!process.env.CI,
     timeout:30000,
     env:{WRANGLER_SEND_METRICS:'false'}
-  }
+  }]
 });

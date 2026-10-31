@@ -16,6 +16,13 @@ const securityHeaders = response => {
   assert.equal(response.headers.get('x-frame-options'), 'SAMEORIGIN');
 };
 
+test('Pages delegates the work route through a local service binding', async () => {
+  const response = await request('/trabalhos/iconocracia/?lang=en');
+  assert.equal(response.status,200);
+  assert.equal(await response.text(),'Local Iconocracia fixture /trabalhos/iconocracia/?lang=en');
+  securityHeaders(response);
+});
+
 test('Pages restores and writes mesa state using local KV', async () => {
   const empty = await request('/_state?id=' + id);
   assert.equal(empty.status, 200);
@@ -81,11 +88,13 @@ test('Pages preserves 200 and content at historical corpus .html URLs', async ()
 
 test('Pages keeps the current home and restored academic artifacts intact', async () => {
   for (const [route,file] of [
-    ['/','index.html'],['/trabalhos','trabalhos.html'],
+    ['/','index.html'],['/trabalhos/','trabalhos/index.html'],
+    ['/sobre/','sobre/index.html'],['/metodologia/','metodologia/index.html'],
+    ['/defesa/','defesa/index.html'],['/mesa/','mesa/index.html'],
     ['/seminario8-dever-poder/','seminario8-dever-poder/index.html'],
     ['/seminario8-dever-poder/colegas','seminario8-dever-poder/colegas.html'],
     ['/prot-tipo/','prot-tipo/index.html'],['/algoritmo-em-disputa/','algoritmo-em-disputa/index.html'],
-    ['/mesa/','mesa/index.html'],['/fonts/fonts.css','fonts/fonts.css']
+    ['/fonts/fonts.css','fonts/fonts.css']
   ]) {
     const response = await request(route);
     assert.equal(response.status,200,route);
@@ -100,6 +109,9 @@ test('Pages keeps the current home and restored academic artifacts intact', asyn
 });
 
 test('Pages keeps legacy redirects, 404 and tooling exclusion', async () => {
+  const trabalhos = await request('/trabalhos');
+  assert.equal(trabalhos.status,308);
+  assert.equal(new URL(trabalhos.headers.get('location'),base).pathname,'/trabalhos/');
   const redirect = await request('/arno-dal-ri-site');
   assert.equal(redirect.status,301);
   assert.equal(redirect.headers.get('location'),'https://arno-dal-ri.anavanzin.workers.dev/');

@@ -27,10 +27,9 @@ const globalHeaders = ${JSON.stringify(globalHeaders)};
 export default {
   async fetch(request, env, context) {
     const pathname = new URL(request.url).pathname;
-    if (pathname === "/trabalhos/iconocracia" || pathname.startsWith("/trabalhos/iconocracia/")) {
-      return env.ICONOCRACIA_WORK.fetch(request);
-    }
-    const response = await originalHandler.fetch(request, env, context);
+    const response = pathname === "/trabalhos/iconocracia" || pathname.startsWith("/trabalhos/iconocracia/")
+      ? await env.ICONOCRACIA_WORK.fetch(request)
+      : await originalHandler.fetch(request, env, context);
     const headers = new Headers(response.headers);
     for (const [name, value] of globalHeaders) headers.set(name, value);
     if (new URL(request.url).hostname.endsWith('.pages.dev')) {
