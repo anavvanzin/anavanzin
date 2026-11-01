@@ -286,3 +286,38 @@ for(const motion of ['reduce','no-preference']) {
     expect(result.animation).toBe(motion==='reduce'?'none':'av-slide');expect(result.words).toBe(8);expect(result.hidden).toBe('true');await noOverflow(page);
   });
 }
+
+for (const route of ['/', '/trabalhos/']) {
+  test('decorative vector arrows and author credit survive locale changes: '+route, async ({page,context,baseURL})=>{
+    await localOnly(context,baseURL);
+    await page.setViewportSize({width:390,height:844});
+    await page.goto(route);
+    for (const lang of ['pt','en','pt']) {
+      await page.locator('.lang button[data-lang="'+lang+'"]').click();
+      expect(await page.locator('body').innerText()).not.toMatch(/[↗↘]/);
+      expect(await page.locator('svg.link-arrow').count()).toBeGreaterThan(10);
+      const arrows=await page.locator('svg.link-arrow').evaluateAll(xs=>xs.map(x=>{const r=x.getBoundingClientRect();return {hidden:x.getAttribute('aria-hidden'),focus:x.getAttribute('focusable'),w:r.width,h:r.height}}));
+      for (const a of arrows){expect(a.hidden).toBe('true');expect(a.focus).toBe('false');expect(a.w).toBeLessThanOrEqual(20);expect(a.h).toBeLessThanOrEqual(20);}
+      const note=page.locator(route==='/'?'.exhibition-note':'.expo-note');
+      await expect(note).toHaveText(lang==='pt'?'Pesquisa e curadoria: Ana Vanzin. Fontes e referências em cada ficha.':'Research and curation: Ana Vanzin. Sources and references accompany each entry.');
+      await noOverflow(page);
+    }
+    if(route==='/'){
+      await page.locator('.index-toggle').click();
+      await expect(page.locator('#site-index svg.link-arrow')).toHaveCount(15);
+      await page.keyboard.press('Escape');
+      await expect(page.locator('.index-toggle')).toBeFocused();
+    } else await expect(page.locator('.coda-cta')).toHaveAccessibleName('abrir uma conversa');
+  });
+}
+
+test('exhibition credits research in PT/EN and preserves source uncertainty', async ({page,context,baseURL})=>{
+  await localOnly(context,baseURL);
+  await page.goto('/atlas/nacao-como-mulher/');
+  await expect(page.locator('.provenance-note')).toHaveText('Pesquisa e curadoria: Ana Vanzin. Fontes e referências em cada ficha.');
+  await page.getByRole('button',{name:'EN',exact:true}).click();
+  await expect(page.locator('.provenance-note')).toHaveText('Research and curation: Ana Vanzin. Sources and references accompany each entry.');
+  expect(await page.locator('body').innerText()).not.toContain('AI-generated interpretive studies');
+  await expect(page.locator('.object-card')).toHaveCount(9);
+  expect(await page.content()).toContain('Visual similarity alone does not establish which source file was used.');
+});
