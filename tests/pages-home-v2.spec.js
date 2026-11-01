@@ -37,6 +37,7 @@ async function heroGeometry(page) {
   expect(g.panel.bottom).toBeLessThanOrEqual(g.hero.bottom);
   expect(g.hero.bottom).toBeLessThanOrEqual(g.bio.top);
   expect(g.link.height).toBeGreaterThanOrEqual(44);
+  if(page.viewportSize().width>=1600){expect(g.panel.width).toBeLessThanOrEqual(900);expect(g.link.right).toBeLessThan(page.viewportSize().width-100);}
   expect(g.position).not.toBe('fixed');expect(g.animation).toBe('none');
   await expect(page.locator('.hero-panel .door')).toHaveCount(3);
   await expect(page.locator('main > .doors')).toHaveCount(0);
@@ -64,7 +65,7 @@ async function commentaryGeometry(page) {
   expect(g.pad).toBeGreaterThanOrEqual(20);
 }
 
-for (const width of [320,390,768,1024,1440]) {
+for (const width of [320,390,768,1024,1440,1920,2048]) {
   test('home-v2 artifact: PT/EN, assets and keyboard at '+width, async ({page,context,baseURL})=>{
     await page.emulateMedia({reducedMotion:'reduce'});
     await localOnly(context,baseURL);

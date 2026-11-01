@@ -605,3 +605,6 @@
 .home-v2 .capela-historical .capela-note{margin-top:1rem;font-size:.8125rem;color:#CABDA8}
 .home-v2 .editorial-footer .foot-meta{color:#CABDA8}
 @media(max-width:640px){.home-v2 .capela-historical{grid-template-columns:minmax(0,1fr);padding:1.25rem;gap:1.25rem}.home-v2 .capela-historical .capela-frame img{max-height:240px}}
+
+/* Bound only the wide-screen composition; keep the fluid field full width. */
+@media(min-width:1600px){.home-v2.v3 .fluid-hero{padding-inline:max(var(--gutter),calc((100% - 1440px)/2))}}
