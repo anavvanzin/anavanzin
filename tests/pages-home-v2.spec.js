@@ -76,7 +76,7 @@ for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
     expect((await page.goto('/')).status()).toBe(200);
     await ready(page);
     await expect(page.locator('#name')).toBeVisible();
-    expect(await page.locator('img').count()).toBe(24);
+    expect(await page.locator('img').count()).toBe(25);
     expect(await page.locator('img[src*="ana-reading"]').count()).toBe(0);
     await expect(page.locator('.study-inspiration img')).toHaveAttribute('src','/assets/home/avo-original-color.webp');
     await expect(page.locator('.editorial-portrait img')).toHaveAttribute('src','/assets/ana-portrait.webp');
@@ -98,9 +98,18 @@ for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
     await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
-    await expect(page.locator('.study-inspiration + .editorial-strip')).toHaveCount(1);
+    await expect(page.locator('.family-notes + .editorial-strip')).toHaveCount(1);
     await expect(page.locator('main > :last-child')).toHaveClass('closing-motto');
     expect(await page.locator('.board').evaluate(el=>!!(el.compareDocumentPosition(document.querySelector('#readme')) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+    await expect(page.locator('.family-notes > aside')).toHaveCount(2);
+    await expect(page.locator('.mother-tribute img')).toHaveAttribute('src','/assets/mae/mae-04-1200.webp');
+    await expect(page.locator('.mother-tribute a')).toHaveAttribute('href','/mae');
+    const family=await page.locator('.family-notes').evaluate(el=>{
+      const [a,b]=[...el.children].map(x=>x.getBoundingClientRect());
+      return {left:a.left,right:a.right,top:a.top,bottom:a.bottom,nextLeft:b.left,nextTop:b.top};
+    });
+    if(width>1000){expect(family.nextLeft).toBeGreaterThanOrEqual(family.right);expect(Math.abs(family.nextTop-family.top)).toBeLessThan(1);}
+    else expect(family.nextTop).toBeGreaterThanOrEqual(family.bottom);
     const crop=await page.locator('.study-inspiration img').evaluate(img=>({fit:getComputedStyle(img).objectFit,pos:getComputedStyle(img).objectPosition,ratio:img.clientWidth/img.clientHeight}));
     expect(crop.fit).toBe('cover');expect(crop.pos).toBe('50% 0%');
     expect(crop.ratio).toBeGreaterThan(1.14);expect(crop.ratio).toBeLessThan(1.16);
@@ -117,6 +126,10 @@ for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
       }
       await noOverflow(page);
       await commentaryGeometry(page);
+      await expect(page.locator('.mother-tribute')).toHaveAccessibleName(language==='en'?'For my mother':'Para minha mãe');
+      await expect(page.locator('.mother-tribute a')).toHaveAccessibleName(language==='en'?'Read the tribute':'Ler a homenagem');
+      await page.locator('.mother-tribute a').focus();
+      await expect(page.locator('.mother-tribute a')).toBeFocused();
       await expect(page.locator('.bio')).toHaveAccessibleName(language==='en'?'Introduction':'Apresentação');
       await expect(page.locator('.bio-cta')).toHaveAccessibleName(language==='en'?'About me ↓':'Sobre mim ↓');
       await expect(page.locator('.bio-cta')).toHaveAttribute('href','#readme');
