@@ -95,7 +95,7 @@ for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
 
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
     await expect(page.locator('.project-float')).toHaveAttribute('href','https://iconocracia.com');
-    await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA↗');
+    await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
     await expect(page.locator('.study-inspiration + .editorial-strip')).toHaveCount(1);
