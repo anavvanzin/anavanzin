@@ -147,7 +147,7 @@ test('Trabalhos includes the bilingual exhibition card and preserves ICONOCRACIA
   await page.goto('/trabalhos/');
   await expect(page.locator('.expo .pt-t a')).toHaveText('A Nação como Mulher');
   await expect(page.locator('a[href="https://anavanzin.com/trabalhos/iconocracia/"]').first()).toBeAttached();
-  await page.evaluate(() => { localStorage.setItem('av_lang', 'en'); });
+  await page.getByRole('button', { name: 'EN', exact: true }).click();
   await page.reload();
   await expect(page.locator('.expo .pt-t a')).toHaveText('The Nation as a Woman');
 });
