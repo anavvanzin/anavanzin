@@ -181,7 +181,8 @@
 }
 
 /* ---------- marquee elevado a interlúdio tipográfico -------------------- */
-.home-v2 .marquee{padding:1.2rem 0}
+.home-v2 .marquee{padding:1.2rem 0;background:var(--night);color:var(--paper);border-color:#706044}
+.home-v2 .marquee em{color:var(--gold)}
 .home-v2 .marquee span{font-size:clamp(2.25rem,1.2rem + 3.4vw,4.25rem)}
 
 /* ---------- entries: numeração editorial -------------------------------- */

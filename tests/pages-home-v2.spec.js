@@ -266,3 +266,20 @@ test('homepage asset URLs are content fingerprints, not stale dated cache keys',
   }
   expect(html).not.toContain('home-v2-20261031.');
 });
+
+for(const motion of ['reduce','no-preference']) {
+  test('dark marquee preserves readable type and motion preference: '+motion,async({page,context,baseURL})=>{
+    await localOnly(context,baseURL);await page.emulateMedia({reducedMotion:motion});
+    await page.setViewportSize({width:390,height:900});await page.goto('/');await ready(page);
+    const result=await page.locator('.marquee').evaluate(el=>{
+      const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
+      const lum=c=>c.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+      const bg=rgb(getComputedStyle(el).backgroundColor),fg=rgb(getComputedStyle(el.querySelector('span')).color),label=rgb(getComputedStyle(el.querySelector('em')).color);
+      const contrast=c=>(Math.max(lum(bg),lum(c))+.05)/(Math.min(lum(bg),lum(c))+.05);
+      return {bg,wordContrast:contrast(fg),labelContrast:contrast(label),animation:getComputedStyle(el.querySelector('.marquee-track')).animationName,words:el.querySelectorAll('.marquee-track>span').length,hidden:el.getAttribute('aria-hidden')};
+    });
+    expect(Math.max(...result.bg)).toBeLessThan(32);
+    expect(result.wordContrast).toBeGreaterThanOrEqual(4.5);expect(result.labelContrast).toBeGreaterThanOrEqual(4.5);
+    expect(result.animation).toBe(motion==='reduce'?'none':'av-slide');expect(result.words).toBe(8);expect(result.hidden).toBe('true');await noOverflow(page);
+  });
+}
