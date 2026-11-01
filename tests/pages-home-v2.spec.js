@@ -65,7 +65,7 @@ async function commentaryGeometry(page) {
   expect(g.pad).toBeGreaterThanOrEqual(20);
 }
 
-for (const width of [320,390,768,1024,1440,1920,2048]) {
+for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
   test('home-v2 artifact: PT/EN, assets and keyboard at '+width, async ({page,context,baseURL})=>{
     await page.emulateMedia({reducedMotion:'reduce'});
     await localOnly(context,baseURL);
