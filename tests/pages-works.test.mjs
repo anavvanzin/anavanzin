@@ -13,7 +13,10 @@ test('Only legacy publication indexes redirect to the consolidated writing secti
   assert.equal(destination.pathname,'/trabalhos/');assert.equal(destination.hash,'#escrita');
  }
  const r=await get('/trabalhos/');assert.equal(r.status,200);
- const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,20);
+ const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,18);
+ assert.ok(!/acesso sob solicitação|available on request/.test(html));
+ assert.ok(!html.includes('data-record="em-curso-1"')&&!html.includes('data-record="em-curso-3"'));
+ assert.ok(html.indexOf('id="apresentacoes"')<html.indexOf('id="em-curso"'));
  for(const id of ['escrita','em-curso','apresentacoes','projetos-visuais','recursos'])assert.ok(html.includes('id="'+id+'"'));
  for(const slug of ['vrouwe-justitia','contrato-visual','maria-marianne']){
   const historical=await get('/publicacoes/'+slug+'.html');assert.equal(historical.status,308);assert.equal(new URL(historical.headers.get('location'),base).pathname,'/publicacoes/'+slug);

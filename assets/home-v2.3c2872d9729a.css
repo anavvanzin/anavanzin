@@ -608,3 +608,17 @@
 
 /* Bound only the wide-screen composition; keep the fluid field full width. */
 @media(min-width:1600px){.home-v2.v3 .fluid-hero{padding-inline:max(var(--gutter),calc((100% - 1440px)/2))}}
+
+/* Two personal notes together; existing grandmother photograph/crop unchanged. */
+.home-v2 .family-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:clamp(2rem,4vw,3rem) var(--gutter) clamp(3rem,5vw,4rem);max-width:1440px}
+.home-v2 .family-notes .study-inspiration{margin:0;max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.home-v2 .mother-tribute{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:center;min-width:0;padding:1.25rem;border:1px solid var(--rule)}
+.home-v2 .mother-tribute-photo{margin:0;max-width:12rem}
+.home-v2 .mother-tribute-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 44%}
+.home-v2 .mother-tribute-copy{min-width:0}
+.home-v2 .mother-tribute h2{font-family:var(--display);font-size:1.75rem;font-weight:400;line-height:1.15;margin:0 0 .75rem}
+.home-v2 .mother-tribute p{font-size:1rem;line-height:1.6;max-width:30ch}
+.home-v2 .mother-tribute a{display:inline-flex;align-items:center;min-height:44px;margin-top:.75rem;color:var(--burgundy);text-underline-offset:.2em}
+.home-v2 .mother-tribute a:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px}
+@media(max-width:1000px){.home-v2 .family-notes{grid-template-columns:minmax(0,1fr);max-width:44rem}}
+@media(max-width:640px){.home-v2 .family-notes .study-inspiration,.home-v2 .mother-tribute{grid-template-columns:minmax(0,1fr)}.home-v2 .mother-tribute{padding:1rem;gap:1rem}}
