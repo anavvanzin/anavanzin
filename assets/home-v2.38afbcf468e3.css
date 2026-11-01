@@ -181,7 +181,8 @@
 }
 
 /* ---------- marquee elevado a interlúdio tipográfico -------------------- */
-.home-v2 .marquee{padding:1.2rem 0}
+.home-v2 .marquee{padding:1.2rem 0;background:var(--night);color:var(--paper);border-color:#706044}
+.home-v2 .marquee em{color:var(--gold)}
 .home-v2 .marquee span{font-size:clamp(2.25rem,1.2rem + 3.4vw,4.25rem)}
 
 /* ---------- entries: numeração editorial -------------------------------- */
@@ -604,3 +605,6 @@
 .home-v2 .capela-historical .capela-note{margin-top:1rem;font-size:.8125rem;color:#CABDA8}
 .home-v2 .editorial-footer .foot-meta{color:#CABDA8}
 @media(max-width:640px){.home-v2 .capela-historical{grid-template-columns:minmax(0,1fr);padding:1.25rem;gap:1.25rem}.home-v2 .capela-historical .capela-frame img{max-height:240px}}
+
+/* Bound only the wide-screen composition; keep the fluid field full width. */
+@media(min-width:1600px){.home-v2.v3 .fluid-hero{padding-inline:max(var(--gutter),calc((100% - 1440px)/2))}}

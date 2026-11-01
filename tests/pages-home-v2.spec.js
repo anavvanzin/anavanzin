@@ -37,6 +37,7 @@ async function heroGeometry(page) {
   expect(g.panel.bottom).toBeLessThanOrEqual(g.hero.bottom);
   expect(g.hero.bottom).toBeLessThanOrEqual(g.bio.top);
   expect(g.link.height).toBeGreaterThanOrEqual(44);
+  if(page.viewportSize().width>=1600){expect(g.panel.width).toBeLessThanOrEqual(900);expect(g.link.right).toBeLessThan(page.viewportSize().width-100);}
   expect(g.position).not.toBe('fixed');expect(g.animation).toBe('none');
   await expect(page.locator('.hero-panel .door')).toHaveCount(3);
   await expect(page.locator('main > .doors')).toHaveCount(0);
@@ -64,7 +65,7 @@ async function commentaryGeometry(page) {
   expect(g.pad).toBeGreaterThanOrEqual(20);
 }
 
-for (const width of [320,390,768,1024,1440]) {
+for (const width of [320,390,768,1024,1440,1599,1600,1920,2048,2560]) {
   test('home-v2 artifact: PT/EN, assets and keyboard at '+width, async ({page,context,baseURL})=>{
     await page.emulateMedia({reducedMotion:'reduce'});
     await localOnly(context,baseURL);
@@ -94,7 +95,7 @@ for (const width of [320,390,768,1024,1440]) {
 
     await expect(page.locator('.bio-frame img')).toHaveAttribute('src','/assets/home/ana-vanzin-staircase.jpg');
     await expect(page.locator('.project-float')).toHaveAttribute('href','https://iconocracia.com');
-    await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA↗');
+    await expect(page.locator('.project-float')).toHaveText('ICONOCRACIA');
     await expect(page.locator('.publications-projects a[href="/atlas/"]')).toHaveCount(1);
     await expect(page.locator('.statements')).toHaveCount(0);
     await expect(page.locator('.study-inspiration + .editorial-strip')).toHaveCount(1);
@@ -117,6 +118,8 @@ for (const width of [320,390,768,1024,1440]) {
       await noOverflow(page);
       await commentaryGeometry(page);
       await expect(page.locator('.bio')).toHaveAccessibleName(language==='en'?'Introduction':'Apresentação');
+      await expect(page.locator('.bio-cta')).toHaveAccessibleName(language==='en'?'About me ↓':'Sobre mim ↓');
+      await expect(page.locator('.bio-cta')).toHaveAttribute('href','#readme');
       await expect(page.locator('.bio h1, .bio h2, #about-title')).toHaveCount(0);
       await expect(page.locator('.bio-lede')).toBeVisible();
       await expect(page.locator('.bio')).not.toContainText(/Olá, sou a Ana|Hello, I’m Ana/);
@@ -265,4 +268,56 @@ test('homepage asset URLs are content fingerprints, not stale dated cache keys',
     expect(createHash('sha256').update(await response.body()).digest('hex').slice(0,12)).toBe(match[1]);
   }
   expect(html).not.toContain('home-v2-20261031.');
+});
+
+for(const motion of ['reduce','no-preference']) {
+  test('dark marquee preserves readable type and motion preference: '+motion,async({page,context,baseURL})=>{
+    await localOnly(context,baseURL);await page.emulateMedia({reducedMotion:motion});
+    await page.setViewportSize({width:390,height:900});await page.goto('/');await ready(page);
+    const result=await page.locator('.marquee').evaluate(el=>{
+      const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
+      const lum=c=>c.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+      const bg=rgb(getComputedStyle(el).backgroundColor),fg=rgb(getComputedStyle(el.querySelector('span')).color),label=rgb(getComputedStyle(el.querySelector('em')).color);
+      const contrast=c=>(Math.max(lum(bg),lum(c))+.05)/(Math.min(lum(bg),lum(c))+.05);
+      return {bg,wordContrast:contrast(fg),labelContrast:contrast(label),animation:getComputedStyle(el.querySelector('.marquee-track')).animationName,words:el.querySelectorAll('.marquee-track>span').length,hidden:el.getAttribute('aria-hidden')};
+    });
+    expect(Math.max(...result.bg)).toBeLessThan(32);
+    expect(result.wordContrast).toBeGreaterThanOrEqual(4.5);expect(result.labelContrast).toBeGreaterThanOrEqual(4.5);
+    expect(result.animation).toBe(motion==='reduce'?'none':'av-slide');expect(result.words).toBe(8);expect(result.hidden).toBe('true');await noOverflow(page);
+  });
+}
+
+for (const route of ['/', '/trabalhos/']) {
+  test('decorative vector arrows and author credit survive locale changes: '+route, async ({page,context,baseURL})=>{
+    await localOnly(context,baseURL);
+    await page.setViewportSize({width:390,height:844});
+    await page.goto(route);
+    for (const lang of ['pt','en','pt']) {
+      await page.locator('.lang button[data-lang="'+lang+'"]').click();
+      expect(await page.locator('body').innerText()).not.toMatch(/[↗↘]/);
+      expect(await page.locator('svg.link-arrow').count()).toBeGreaterThan(10);
+      const arrows=await page.locator('svg.link-arrow').evaluateAll(xs=>xs.map(x=>{const r=x.getBoundingClientRect();return {hidden:x.getAttribute('aria-hidden'),focus:x.getAttribute('focusable'),w:r.width,h:r.height}}));
+      for (const a of arrows){expect(a.hidden).toBe('true');expect(a.focus).toBe('false');expect(a.w).toBeLessThanOrEqual(20);expect(a.h).toBeLessThanOrEqual(20);}
+      const note=page.locator(route==='/'?'.exhibition-note':'.expo-note');
+      await expect(note).toHaveText(lang==='pt'?'Pesquisa e curadoria: Ana Vanzin. Fontes e referências em cada ficha.':'Research and curation: Ana Vanzin. Sources and references accompany each entry.');
+      await noOverflow(page);
+    }
+    if(route==='/'){
+      await page.locator('.index-toggle').click();
+      await expect(page.locator('#site-index svg.link-arrow')).toHaveCount(15);
+      await page.keyboard.press('Escape');
+      await expect(page.locator('.index-toggle')).toBeFocused();
+    } else await expect(page.locator('.coda-cta')).toHaveAccessibleName('abrir uma conversa');
+  });
+}
+
+test('exhibition credits research in PT/EN and preserves source uncertainty', async ({page,context,baseURL})=>{
+  await localOnly(context,baseURL);
+  await page.goto('/atlas/nacao-como-mulher/');
+  await expect(page.locator('.provenance-note')).toHaveText('Pesquisa e curadoria: Ana Vanzin. Fontes e referências em cada ficha.');
+  await page.getByRole('button',{name:'EN',exact:true}).click();
+  await expect(page.locator('.provenance-note')).toHaveText('Research and curation: Ana Vanzin. Sources and references accompany each entry.');
+  expect(await page.locator('body').innerText()).not.toContain('AI-generated interpretive studies');
+  await expect(page.locator('.object-card')).toHaveCount(9);
+  expect(await page.content()).toContain('Visual similarity alone does not establish which source file was used.');
 });

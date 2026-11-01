@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 const route = '/atlas/nacao-como-mulher/';
+test.use({locale: 'pt-BR'});
 
 test('exhibition has a complete no-JavaScript reading edition', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
@@ -9,6 +10,7 @@ test('exhibition has a complete no-JavaScript reading edition', async ({ browser
   expect(response.status()).toBe(200);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('A Nação como Mulher');
   await expect(page.locator('.object-card')).toHaveCount(9);
+  await expect(page.locator('.provenance-note')).toContainText('Pesquisa e curadoria: Ana Vanzin.');
   await expect(page.locator('.derivative-label')).toHaveCount(0);
   await expect(page.locator('.source-panel')).toHaveCount(9);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://anavanzin.com/atlas/nacao-como-mulher/');
@@ -34,6 +36,10 @@ test('language, filters and modes are keyboard-accessible', async ({ page }) => 
   await page.getByRole('button', { name: 'Explore', exact: true }).click();
   const figure = page.locator('.draggable-figure');
   await expect(figure).toBeVisible();
+  await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode().catch(() => {}))); });
+  await figure.focus(); // Focus may scroll and trigger the responsive stage layout.
+  let priorX;
+  await expect.poll(async () => { const x=(await figure.boundingBox()).x; const stable=x===priorX; priorX=x; return stable; }).toBe(true);
   const before = await figure.boundingBox();
   await figure.focus();
   await page.keyboard.press('ArrowLeft');
@@ -138,12 +144,12 @@ test('touch reading remains scrollable and uses stable plates', async ({ browser
 });
 
 test('Trabalhos includes the bilingual exhibition card and preserves ICONOCRACIA', async ({ page }) => {
-  await page.goto('/trabalhos.html');
-  await expect(page.getByRole('heading', { name: 'A Nação como Mulher', exact: true })).toBeVisible();
+  await page.goto('/trabalhos/');
+  await expect(page.locator('.expo .pt-t a')).toHaveText('A Nação como Mulher');
   await expect(page.locator('a[href="https://anavanzin.com/trabalhos/iconocracia/"]').first()).toBeAttached();
-  await page.evaluate(() => { localStorage.setItem('av_lang', 'en'); });
+  await page.getByRole('button', { name: 'EN', exact: true }).click();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'The Nation as a Woman', exact: true })).toBeVisible();
+  await expect(page.locator('.expo .pt-t a')).toHaveText('The Nation as a Woman');
 });
 
 test('the Atlas advertises the thematic exhibition', async ({ page }) => {
@@ -156,7 +162,7 @@ test('the Atlas advertises the thematic exhibition', async ({ page }) => {
 test('Atlas cards preserve the four existing destinations', async ({ page }) => {
   await page.goto('/atlas/');
   for (const slug of ['justitia', 'marianne', 'britannia', 'republica']) {
-    const link = page.locator(`#grid a[href="${slug}.html"]`);
+    const link = page.locator(`#grid a[href="/atlas/${slug}.html"]`);
     await expect(link).toHaveCount(1);
     const response = await page.request.get(`/atlas/${slug}.html`);
     expect(response.status()).toBe(200);
