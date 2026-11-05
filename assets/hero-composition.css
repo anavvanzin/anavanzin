@@ -1,0 +1,52 @@
+/* A continuous personal wordmark; retain the existing fluid field and layout. */
+.home-v2.v3 .fluid-hero h1 {
+  font-size: clamp(4rem, 10vw, 10rem);
+  line-height: 1.1;
+}
+
+.home-v2.v3 .fluid-hero h1 a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: .18em;
+}
+
+.home-v2.v3 .fluid-hero h1 a > span {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.home-v2.v3 .fluid-hero h1 .surname {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 1em;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.home-v2 .hero-left .hero-panel {
+  padding: 1.5rem 0 0;
+  background: transparent;
+}
+
+/* Continuous, feathered reading surface instead of separate opaque boxes.
+   Only the existing overlay changes; canvas colors and input remain intact. */
+.home-v2.v3 .fluid-hero::after {
+  background: linear-gradient(90deg,
+    rgb(245 240 230 / .94) 0%,
+    rgb(245 240 230 / .88) 62%,
+    rgb(245 240 230 / .2) 100%);
+}
+
+@media (max-width: 1000px) {
+  .home-v2.v3 .fluid-hero::after {
+    background: rgb(245 240 230 / .88);
+  }
+}
+
+/* Keep the native pointer in the hero and the custom cursor elsewhere. */
+.home-v2.v3 body:has(.fluid-hero:hover) .cursor-dot,
+.home-v2.v3 body:has(.fluid-hero:hover) .cursor-ring {
+  opacity: 0;
+}
