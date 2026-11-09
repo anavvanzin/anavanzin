@@ -81,9 +81,9 @@
     },
     {
       "file": "av-os-staging/mentoria/index.html",
-      "canonical": "https://anavanzin.com/av-os-staging/mentoria/",
-      "category": "utility",
-      "reason": "Espelho de staging da Mentoria (paridade de governança); manter fora da indexação."
+      "canonical": "https://mentoria.anavanzin.com/",
+      "category": "duplicate",
+      "reason": "Espelho de staging da Mentoria (paridade byte-a-byte com a canônica); canonical aponta para a página canônica."
     },
     {
       "file": "atlas/britannia.html",
