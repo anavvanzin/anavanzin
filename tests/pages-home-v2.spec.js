@@ -320,7 +320,7 @@ for (const route of ['/', '/trabalhos/']) {
     }
     if(route==='/'){
       await page.locator('.index-toggle').click();
-      await expect(page.locator('#site-index svg.link-arrow')).toHaveCount(15);
+      await expect(page.locator('#site-index svg.link-arrow')).toHaveCount(17);
       await page.keyboard.press('Escape');
       await expect(page.locator('.index-toggle')).toBeFocused();
     } else await expect(page.locator('.coda-cta')).toHaveAccessibleName('abrir uma conversa');
