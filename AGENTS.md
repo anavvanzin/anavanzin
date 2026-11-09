@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## Staging scope and corpus fidelity
+
+- Use the task's explicit target path. For this staging task, the target is `av-os-staging/` at the repository root. Preserve the separate copy under `Kimi_Agent_anavanzin 设计系统迁移/`; hook findings across copies do not expand task scope.
+- Use original corpus assets and approved academic text in implementations. Label generated mockup imagery as illustrative and check generated text against its source before delivery.
+
 ## Cursor Cloud specific instructions
 
 This repository is a **static website** for the ICONOCRACIA / *Iuris Memoria* academic

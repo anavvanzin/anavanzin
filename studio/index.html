@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-pt="Studio · Arquitetura Web &amp; Infraestrutura Cloudflare · Ana Vanzin" data-en="Studio · Web Architecture &amp; Cloudflare Infrastructure · Ana Vanzin">Studio · Arquitetura Web &amp; Infraestrutura Cloudflare · Ana Vanzin</title>
+<meta name="description" content="Desenvolvimento autoral de sites estáticos de alta performance na Cloudflare para advogados, pesquisadores e consultorias. R$ 0 de hospedagem mensal e titularidade 100% própria.">
+<meta name="theme-color" content="#F5F0E6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ana vanzin">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://anavanzin.com/studio">
+<meta property="og:title" content="Studio · Arquitetura Web &amp; Infraestrutura Cloudflare · Ana Vanzin">
+<meta property="og:description" content="Desenvolvimento autoral de sites estáticos de alta performance na Cloudflare para advogados, pesquisadores e consultorias. R$ 0 de hospedagem mensal e titularidade 100% própria.">
+<meta property="og:image" content="https://anavanzin.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Studio · Arquitetura Web &amp; Infraestrutura Cloudflare · Ana Vanzin">
+<meta name="twitter:description" content="Desenvolvimento autoral de sites estáticos de alta performance na Cloudflare para advogados, pesquisadores e consultorias. R$ 0 de hospedagem mensal e titularidade 100% própria.">
+<meta name="twitter:image" content="https://anavanzin.com/assets/og-image.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZEX4SFYEN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TZEX4SFYEN');
+</script>
+<link rel="icon" href="/assets/favicon-32.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/av-os.css">
+<script src="/assets/av-os.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Ana Vanzin Studio · Arquitetura Web & Infraestrutura Cloudflare",
+  "url": "https://anavanzin.com/studio",
+  "description": "Desenvolvimento autoral de sites estáticos de alta performance na Cloudflare para advogados, pesquisadores e consultorias. R$ 0 de hospedagem mensal e titularidade 100% própria.",
+  "founder": {
+    "@type": "Person",
+    "name": "Ana Vanzin"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Florianópolis",
+    "addressRegion": "SC",
+    "addressCountry": "BR"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "01. Presença Essencial",
+      "price": "1490.00",
+      "priceCurrency": "BRL"
+    },
+    {
+      "@type": "Offer",
+      "name": "02. Site Autoral & Institucional Completo",
+      "price": "2490.00",
+      "priceCurrency": "BRL"
+    },
+    {
+      "@type": "Offer",
+      "name": "03. Portal Avançado, Acervo Digital ou Ecossistema Multirrota",
+      "price": "3900.00",
+      "priceCurrency": "BRL"
+    },
+    {
+      "@type": "Offer",
+      "name": "04. Reestruturação & Migração para Cloudflare",
+      "price": "990.00",
+      "priceCurrency": "BRL"
+    }
+  ]
+}
+</script>
+<style>
+.tbl-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 2.5rem;
+  border: 1px solid var(--rule);
+  background: #FAF6EF;
+}
+body.night .tbl-wrap {
+  background: #181411;
+  border-color: #706044;
+}
+.data-tbl {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: .9375rem;
+}
+.data-tbl th {
+  background: #F1EAE0;
+}
+body.night .data-tbl th {
+  background: #201B17;
+  color: var(--gold);
+}
+.data-tbl tr.highlight td {
+  background: #F5E8D3;
+  font-weight: 500;
+}
+body.night .data-tbl tr.highlight td {
+  background: #2A221B;
+  color: var(--gold);
+}
+.tag-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .6875rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  padding: .2rem .5rem;
+  margin-top: .4rem;
+  margin-right: .3rem;
+}
+body.night .tag-badge {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.case-card {
+  border-top: 1px solid var(--burgundy);
+  padding: 1.5rem 0;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+body.night .case-card {
+  border-color: #706044;
+}
+.case-card .case-tag {
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+body.night .case-card .case-tag {
+  color: var(--gold);
+}
+.case-card .case-body h3 {
+  margin: 0 0 .5rem;
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
+  line-height: 1.2;
+}
+.case-card .case-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.case-card .case-body h3 a:hover {
+  color: var(--burgundy);
+}
+body.night .case-card .case-body h3 a:hover {
+  color: var(--gold);
+}
+.case-metrics {
+  font-family: var(--mono);
+  font-size: .8125rem;
+  color: var(--burgundy);
+  margin-top: .6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+body.night .case-metrics {
+  color: var(--gold);
+}
+.case-metrics span::after {
+  content: " ·";
+}
+.case-metrics span:last-child::after {
+  content: "";
+}
+.bridge-box {
+  border: 1px solid var(--burgundy);
+  padding: 1.75rem 2rem;
+  margin: 3.5rem 0 2rem;
+  background: #F8F3E9;
+  max-width: 64rem;
+}
+body.night .bridge-box {
+  background: #1B1613;
+  border-color: #706044;
+}
+.bridge-box .bh {
+  font-family: var(--mono);
+  font-size: .8125rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+body.night .bridge-box .bh {
+  color: var(--gold);
+}
+.bridge-box .links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.bridge-box .links a {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  color: var(--burgundy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--burgundy);
+}
+body.night .bridge-box .links a {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+@media (max-width: 768px) {
+  .case-card {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+}
+</style>
+<link rel="canonical" href="https://anavanzin.com/studio">
+<meta name="robots" content="index,follow">
+</head>
+<body>
+<a class="skip" href="#main" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Ana Vanzin · início" data-label-pt="Ana Vanzin · início" data-label-en="Ana Vanzin · home">av<span aria-hidden="true">.</span></a>
+  <nav class="nav-links" id="nav-links" aria-label="Navegação principal" data-label-pt="Navegação principal" data-label-en="Main navigation">
+    <a href="/sobre" data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="/atlas/">Atlas</a>
+    <a href="/publicacoes/" data-pt="Publicações" data-en="Publications">Publicações</a>
+    <a href="/metodologia/" data-pt="Metodologia" data-en="Methodology">Metodologia</a>
+    <a href="/estudar/" data-pt="Estudar" data-en="Study">Estudar</a>
+    <a href="/advocacia" data-pt="Advocacia" data-en="Legal Practice">Advocacia</a>
+    <a href="https://mentoria.anavanzin.com" data-pt="Mentoria" data-en="Mentoring">Mentoria</a>
+    <a href="/studio" aria-current="page" data-pt="Studio" data-en="Studio">Studio</a>
+    <a href="mailto:ana@anavanzin.com" data-pt="Contato" data-en="Contact">Contato</a>
+  </nav>
+  <div class="nav-controls">
+    <button class="menu-trigger" type="button" aria-expanded="false" aria-controls="nav-links"><span data-pt="Menu" data-en="Menu">Menu</span><span aria-hidden="true">+</span></button>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="ed">
+  <a class="ed-back" href="/"><span class="ar">←</span><span data-pt="ana vanzin" data-en="ana vanzin">ana vanzin</span></a>
+
+  <header class="ed-head">
+    <p class="kicker rise" data-pt="Arquitetura Web · Design Editorial · Cloudflare" data-en="Web Architecture · Editorial Design · Cloudflare">Arquitetura Web · Design Editorial · Cloudflare</p>
+    <h1 class="ed-title rise" style="--d:.06s" data-pt="Sites rápidos, autorais e sem aluguel mensal de hospedagem." data-en="Fast, authorial websites with zero monthly hosting rent.">Sites rápidos, autorais e sem aluguel mensal de hospedagem.</h1>
+    <p class="dek serif rise" style="--d:.12s" data-pt="Desenvolvemos sites estáticos e de borda sob medida para advogados, pesquisadores acadêmicos, consultorias e iniciativas culturais. Alta velocidade global, proteção nativa contra ataques e custo mensal zero de hospedagem — sem WordPress pesado, sem plugins frágeis e sem mensalidades perpétuas de agências." data-en="We develop tailor-made static and edge websites for lawyers, academic researchers, boutique consultancies, and cultural initiatives. High global speed, native attack protection, and permanent zero-cost hosting — no bloated WordPress, no fragile plugins, and no perpetual agency retainers.">Desenvolvemos sites estáticos e de borda sob medida para advogados, pesquisadores acadêmicos, consultorias e iniciativas culturais. Alta velocidade global, proteção nativa contra ataques e custo mensal zero de hospedagem — sem WordPress pesado, sem plugins frágeis e sem mensalidades perpétuas de agências.</p>
+    <div class="folio-meta rise" style="--d:.18s">
+      <div class="fm">
+        <span class="k" data-pt="Infraestrutura" data-en="Infrastructure">Infraestrutura</span>
+        <span class="v" data-pt="Cloudflare Pages &amp; Workers (300+ datacenters)" data-en="Cloudflare Pages &amp; Workers (300+ datacenters)">Cloudflare Pages &amp; Workers (300+ datacenters)</span>
+      </div>
+      <div class="fm">
+        <span class="k" data-pt="Custo Hospedagem" data-en="Hosting Cost">Custo Hospedagem</span>
+        <span class="v" data-pt="R$ 0,00 / mês permanente (camada nativa Cloudflare)" data-en="R$ 0.00 / month permanent (native Cloudflare tier)">R$ 0,00 / mês permanente (camada nativa Cloudflare)</span>
+      </div>
+      <div class="fm">
+        <span class="k" data-pt="Propriedade" data-en="Ownership">Propriedade</span>
+        <span class="v" data-pt="100% titularidade do cliente (código-fonte e contas próprias)" data-en="100% client ownership (source code and direct accounts)">100% titularidade do cliente (código-fonte e contas próprias)</span>
+      </div>
+      <div class="fm">
+        <span class="k" data-pt="Padrão Ético" data-en="Ethical Standard">Padrão Ético</span>
+        <span class="v" data-pt="Conformidade estrita com o Provimento 205/2021 da OAB e autoridade científica" data-en="Strict compliance with Brazilian Bar (OAB 205/2021) and academic authority">Conformidade estrita com o Provimento 205/2021 da OAB e autoridade científica</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="prop" aria-label="Apresentação">
+    <span class="n">00</span>
+    <p class="lede" data-pt="A presença digital de um escritório de advocacia, pesquisador ou consultoria não deve ser refém de plataformas lentas, vulneráveis e sobretaxadas por aluguel mensal de servidores. Desenvolvemos ferramentas autorais que combinam rigor tipográfico editorial e infraestrutura de borda de nível global." data-en="The digital presence of a law firm, researcher, or boutique consultancy should never be held hostage by slow, vulnerable platforms burdened with monthly server rental. We engineer authorial tools that unite refined editorial typography and global-grade edge infrastructure.">A presença digital de um escritório de advocacia, pesquisador ou consultoria não deve ser refém de plataformas lentas, vulneráveis e sobretaxadas por aluguel mensal de servidores.</p>
+  </section>
+
+  <!-- DIFERENCIAL TÉCNICO E EDITORIAL -->
+  <section class="pr-grp" aria-labelledby="diferenciais-heading">
+    <h2 class="gh" id="diferenciais-heading" data-pt="Diferenciais Técnicos e Rigor Editorial" data-en="Technical Edge &amp; Editorial Rigor">Diferenciais Técnicos e Rigor Editorial</h2>
+    
+    <div class="pr">
+      <span class="n">01</span>
+      <span>
+        <span class="t" data-pt="Velocidade de Borda (TTFB &lt; 50ms)" data-en="Edge-First Speed (TTFB &lt; 50ms)">Velocidade de Borda (TTFB &lt; 50ms)</span>
+        <span class="d" data-pt="Seu site é distribuído diretamente a partir da rede Anycast global da Cloudflare (mais de 300 datacenters espalhados pelo mundo), garantindo respostas em milissegundos mesmo no Brasil. Código HTML/CSS estático pré-compilado: carregamento instantâneo, sem consultas a bancos de dados lentos a cada visita e notas máximas (100/100) no Google Lighthouse." data-en="Your site is delivered directly from Cloudflare's global Anycast edge network (over 300 cities worldwide), guaranteeing sub-50ms response times. Pre-compiled static HTML/CSS: instant loading, zero runtime database latency on page visits, and flawless 100/100 Google Lighthouse performance scores.">Seu site é distribuído diretamente a partir da rede Anycast global da Cloudflare em milissegundos, com páginas estáticas ultrarrápidas e pontuação 100/100 no Lighthouse.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">02</span>
+      <span>
+        <span class="t" data-pt="R$ 0,00/mês de Hospedagem Perpétua" data-en="Permanent R$ 0.00/Month Hosting">R$ 0,00/mês de Hospedagem Perpétua</span>
+        <span class="d" data-pt="Aproveitamos tecnicamente a generosa camada gratuita da Cloudflare Pages: largura de banda e tráfego ilimitados sem taxa de transferência (zero egress), certificados de segurança SSL automáticos e até 500 deploys mensais. Você nunca paga mensalidades de hospedagem para nossa agência — uma economia direta de R$ 150 a R$ 450 todos os meses." data-en="We expertly leverage Cloudflare Pages' native tier: unlimited bandwidth with zero egress fees, automated auto-renewing SSL certificates, and up to 500 monthly deploys. You never pay recurring hosting retainers to our studio — resulting in direct savings of R$ 150 to R$ 450 every single month.">Aproveitamento técnico da camada nativa da Cloudflare: tráfego ilimitado sem custo de egress e fim definitivo das mensalidades de servidor de agências tradicionais.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">03</span>
+      <span>
+        <span class="t" data-pt="Copywriting Sóbrio &amp; Rigor Editorial" data-en="Disciplined Copywriting &amp; Editorial Rigor">Copywriting Sóbrio &amp; Rigor Editorial</span>
+        <span class="d" data-pt="Redação culta, sóbria e precisa desenvolvida por quem vivencia a advocacia pública e a pesquisa acadêmica de doutorado. Estrita conformidade ética com o Provimento 205/2021 da OAB (sem promessas sensacionalistas ou mercantilismo) e comunicação de prestígio para juristas, docentes e consultorias boutique. Tipografia local auto-hospedada (WOFF2) sem Google Fonts, garantindo conformidade com a LGPD e privacidade integral aos visitantes." data-en="Cultivated, disciplined prose written by an active legal practitioner and doctoral researcher. Strict adherence to Brazilian Bar ethics (Provimento 205/2021 da OAB, non-mercantile communication) and prestige positioning for jurists, scholars, and consultancies. 100% self-hosted local typography (WOFF2) with zero third-party font calls, guaranteeing LGPD compliance and privacy.">Redação elegante e sóbria em estrita conformidade com o Provimento 205/2021 da OAB, sem fontes de terceiros (zero Google Fonts) e com privacidade alinhada à LGPD.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">04</span>
+      <span>
+        <span class="t" data-pt="Autonomia e Soberania Digital (Sem Lock-in)" data-en="Digital Sovereignty &amp; Zero Lock-in">Autonomia e Soberania Digital (Sem Lock-in)</span>
+        <span class="d" data-pt="Soberania tecnológica real: o domínio é registrado no seu CPF ou CNPJ (Registro.br); a conta da Cloudflare é criada no seu e-mail corporativo; e o código-fonte limpo é entregue em repositório Git ou arquivo compactado. Você não fica preso à nossa agência ou a qualquer plataforma proprietária fechada: o site é 100% seu." data-en="True digital sovereignty: your domain is registered under your own tax ID (Registro.br); your Cloudflare account is bound to your corporate email; and clean source code is delivered via Git or archive. You are never locked into our studio or any closed proprietary platform: the website is 100% yours.">Soberania tecnológica real: domínio no seu CPF/CNPJ, conta da Cloudflare no seu e-mail e código-fonte livre entregue sem qualquer dependência ou aprisionamento.</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- PORTFÓLIO VIVO -->
+  <section class="pub-grp" aria-labelledby="portfolio-heading">
+    <h2 class="gh" id="portfolio-heading" data-pt="Portfólio Vivo · Arquitetura em Produção" data-en="Live Portfolio · Production Architecture">Portfólio Vivo · Arquitetura em Produção</h2>
+    <p class="prose" data-pt="Não apresentamos maquetes hipotéticas ou protótipos de gaveta. Abaixo estão plataformas reais, ativas em produção e mantidas sob esta mesma arquitetura Cloudflare:" data-en="We do not present hypothetical mockups or speculative sketches. Below are real, active production platforms engineered and sustained on this exact Cloudflare architecture:">Não apresentamos maquetes hipotéticas. Abaixo estão plataformas reais em produção sob esta mesma arquitetura Cloudflare:</p>
+
+    <div class="case-card">
+      <div class="case-tag" data-pt="Portal &amp; OS" data-en="Portal &amp; OS">Portal &amp; OS</div>
+      <div class="case-body">
+        <h3><a href="/" target="_blank" rel="noopener">anavanzin.com</a></h3>
+        <p data-pt="Portal de presença autoral, acadêmica e jurídica. Design system próprio av-os, render de campo fluido, tipografia editorial Instrument Serif e alternância instantânea de idioma PT/EN sem recarregar a página." data-en="Authorial, academic, and legal presence portal. Custom av-os design system, fluid background field, editorial Instrument Serif typography, and instant zero-reload PT/EN language toggle.">Portal de presença autoral, acadêmica e jurídica com design system próprio av-os e alternância bilíngue instantânea.</p>
+        <div class="case-metrics">
+          <span data-pt="TTFB &lt; 40ms" data-en="TTFB &lt; 40ms">TTFB &lt; 40ms</span>
+          <span data-pt="Lighthouse 100/100" data-en="Lighthouse 100/100">Lighthouse 100/100</span>
+          <span data-pt="Hospedagem R$ 0/mês" data-en="Hosting R$ 0/mo">Hospedagem R$ 0/mês</span>
+          <span data-pt="Zero Google Fonts" data-en="Zero Google Fonts">Zero Google Fonts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag" data-pt="Advocacia" data-en="Legal Practice">Advocacia</div>
+      <div class="case-body">
+        <h3><a href="/advocacia" target="_blank" rel="noopener">anavanzin.com/advocacia</a></h3>
+        <p data-pt="One-page institucional para advocacia pública, direitos das mulheres e consultoria histórico-documental. Comunicação sóbria e refinada estruturada dentro dos limites éticos estritos do Provimento 205/2021 da OAB." data-en="Institutional one-page for public law, women’s rights, and historical-documentary consulting. Symmetrical and refined communication engineered within the strict ethical parameters of the Brazilian Bar (Provimento 205/2021 OAB).">One-page institucional para advocacia pública e consultoria documental dentro dos limites éticos da OAB.</p>
+        <div class="case-metrics">
+          <span data-pt="Carga &lt; 250ms" data-en="Load &lt; 250ms">Carga &lt; 250ms</span>
+          <span data-pt="Conformidade OAB" data-en="Bar Ethics Compliant">Conformidade OAB</span>
+          <span data-pt="Sem Frameworks Pesados" data-en="Zero Heavy Frameworks">Sem Frameworks Pesados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag" data-pt="Mentoria" data-en="Mentoring">Mentoria</div>
+      <div class="case-body">
+        <h3><a href="https://mentoria.anavanzin.com" target="_blank" rel="noopener">mentoria.anavanzin.com</a></h3>
+        <p data-pt="Plataforma em subdomínio dedicado para preparação estratégica e leitura crítica de projetos de mestrado e doutorado (PPGD/UFSC e humanidades). Escada de 4 serviços transparentes e funil de contato direto via mailto estruturado." data-en="Dedicated subdomain platform for strategic preparation and critical review of Master’s and PhD proposals (PPGD/UFSC and humanities). 4-tier transparent service ladder and frictionless structured mailto contact funnel.">Plataforma em subdomínio dedicado com escada de 4 serviços e funil de contato direto sem atrito.</p>
+        <div class="case-metrics">
+          <span data-pt="Subdomínio Cloudflare" data-en="Cloudflare Subdomain">Subdomínio Cloudflare</span>
+          <span data-pt="Conversão sem Atrito" data-en="Frictionless Conversion">Conversão sem Atrito</span>
+          <span data-pt="SSL Nativo Borda" data-en="Native Edge SSL">SSL Nativo Borda</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag" data-pt="Humanidades" data-en="Humanities">Humanidades</div>
+      <div class="case-body">
+        <h3><a href="/metodologia/" target="_blank" rel="noopener">anavanzin.com/metodologia/</a> &amp; <a href="/estudar/" target="_blank" rel="noopener">/estudar/</a></h3>
+        <p data-pt="Acervos metodológicos e interfaces interativas de pesquisa acadêmica aberta. Guia metodológico com protocolo PRISMA para revisão sistemática e aplicação SPA de estudo focada em neurodivergência e sustentabilidade cognitiva." data-en="Open academic methodological guides and interactive research interfaces. Comprehensive guide with PRISMA protocol for systematic literature reviews and a study SPA engineered for neurodiversity and cognitive sustainability.">Acervos abertos com protocolo PRISMA e aplicação SPA focada em pesquisa sustentável.</p>
+        <div class="case-metrics">
+          <span data-pt="Arquitetura Híbrida" data-en="Hybrid Architecture">Arquitetura Híbrida</span>
+          <span data-pt="Metodologia Aberta" data-en="Open Methodology">Metodologia Aberta</span>
+          <span data-pt="Cache Imutável" data-en="Immutable Caching">Cache Imutável</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag" data-pt="Acervo D1" data-en="D1 Archive">Acervo D1</div>
+      <div class="case-body">
+        <h3><a href="/trabalhos/iconocracia/" target="_blank" rel="noopener">anavanzin.com/trabalhos/iconocracia/</a></h3>
+        <p data-pt="Corpus iconográfico digital da tese doutoral reunindo 145 objetos históricos de 6 países. Infraestrutura avançada com banco de dados relacional distribuído de borda Cloudflare D1 e Workers para pesquisa e filtros em tempo real." data-en="Digital iconographic corpus of the doctoral thesis gathering 145 historical objects from 6 countries. Advanced infrastructure powered by Cloudflare D1 distributed edge relational database and Workers for real-time search and faceted filtering.">Corpus iconográfico de 145 objetos históricos com banco distribuído Cloudflare D1 e Workers.</p>
+        <div class="case-metrics">
+          <span data-pt="Cloudflare D1 SQL" data-en="Cloudflare D1 SQL">Cloudflare D1 SQL</span>
+          <span data-pt="Edge Workers" data-en="Edge Workers">Edge Workers</span>
+          <span data-pt="Busca em Tempo Real" data-en="Real-time Search">Busca em Tempo Real</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACOTES E PREÇOS -->
+  <section class="pr-grp" aria-labelledby="pacotes-heading">
+    <h2 class="gh" id="pacotes-heading" data-pt="Tabela de Pacotes &amp; Preços Transparentes" data-en="Package Tiers &amp; Transparent Pricing">Tabela de Pacotes &amp; Preços Transparentes</h2>
+    <p class="prose" data-pt="Trabalhamos com escopo fechado, entrega rápida e valor integralmente definido antes do início do projeto. Sem orçamentos obscuros, taxas ocultas ou mensalidades surpresa de hospedagem:" data-en="We work with closed scope, rapid delivery, and transparent pricing established upfront. No hidden fees, surprise charges, or recurring hosting retainers:">Trabalhamos com escopo fechado, entrega rápida e investimento transparente definido antes do início:</p>
+
+    <div class="pr">
+      <span class="n">01</span>
+      <span>
+        <span class="t" data-pt="Presença Essencial (One-Page) — R$ 1.490" data-en="Essential Presence (One-Page) — R$ 1,490">Presença Essencial (One-Page) — R$ 1.490</span>
+        <span class="d" data-pt="Ideal para advogados autônomos, consultores e pesquisadores individuais que precisam de uma presença digital refinada e imediata. Estrutura completa em página única com até 5 seções: Hero autoral com metadados, biografia e credenciais, áreas de atuação detalhadas, destaques/artigos e canal de contato com links diretos. Hospedagem R$ 0,00/mês na Cloudflare, SSL automático e código limpo entregue. Prazo de entrega: 7 a 10 dias úteis." data-en="Ideal for solo practitioners, boutique consultants, and independent scholars seeking an immediate high-prestige digital presence. Single-page architecture with up to 5 sections: Authorial hero, bio/credentials, practice areas, publications/articles, and direct contact funnel. R$ 0/month Cloudflare hosting, automated SSL, and clean code handover. Delivery: 7 to 10 business days.">Ideal para advogados autônomos e pesquisadores. Página única com até 5 seções, hospedagem R$ 0/mês, código próprio e entrega em 7 a 10 dias úteis.</span>
+        <span class="tag-badge" data-pt="Hospedagem R$ 0/mês" data-en="Hosting R$ 0/mo">Hospedagem R$ 0/mês</span>
+        <span class="tag-badge" data-pt="Código Próprio" data-en="Client Code">Código Próprio</span>
+        <span class="tag-badge" data-pt="Entrega em 7–10 dias" data-en="Delivery in 7–10 days">Entrega em 7–10 dias</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">02</span>
+      <span>
+        <span class="t" data-pt="Site Autoral &amp; Institucional Completo — R$ 2.490" data-en="Full Authorial &amp; Institutional Website — R$ 2,490">Site Autoral &amp; Institucional Completo — R$ 2.490</span>
+        <span class="d" data-pt="Para escritórios de advocacia, consultorias boutique, laboratórios de pesquisa e profissionais seniores. Até 5 páginas/rotas completas (Início, Sobre, Atuação/Serviços, Publicações/Artigos, Contato). SEO técnico avançado (OpenGraph, meta tags editoriais e schema.org JSON-LD para indexação de autoridade no Google). Opcional bilíngue nativo (PT/EN toggle instantâneo sem recarregamento): +R$ 500. Hospedagem R$ 0,00/mês. Prazo: 15 a 20 dias úteis." data-en="For law firms, boutique consultancies, research labs, and senior professionals. Up to 5 full pages/routes (Home, About, Practice/Services, Publications/Articles, Contact). Advanced technical SEO (OpenGraph, editorial meta tags, and schema.org JSON-LD structured data). Optional native bilingual switcher (PT/EN toggle without page reload): +R$ 500. R$ 0/month hosting. Delivery: 15 to 20 business days.">Para escritórios e consultorias boutique. Até 5 rotas completas, SEO avançado, opcional bilíngue (+R$ 500) e hospedagem R$ 0/mês. Prazo de 15 a 20 dias úteis.</span>
+        <span class="tag-badge" data-pt="Até 5 Páginas" data-en="Up to 5 Pages">Até 5 Páginas</span>
+        <span class="tag-badge" data-pt="SEO Avançado schema.org" data-en="Advanced schema.org SEO">SEO Avançado schema.org</span>
+        <span class="tag-badge" data-pt="Opção Bilíngue (+R$ 500)" data-en="Bilingual Option (+R$ 500)">Opção Bilíngue (+R$ 500)</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">03</span>
+      <span>
+        <span class="t" data-pt="Portal Avançado, Acervo Digital ou Multirrota — A partir de R$ 3.900" data-en="Advanced Portal, Digital Archive, or Multi-Route — From R$ 3,900">Portal Avançado, Acervo Digital ou Multirrota — A partir de R$ 3.900</span>
+        <span class="d" data-pt="Projetado para grupos de pesquisa CNPq/CAPES/FAPESC, acervos iconográficos, catálogos documentais, institutos e bancas jurídicas com acervos complexos. Inclui banco de dados relacional distribuído de borda (Cloudflare D1), rotas dinâmicas em Workers, sistemas de busca rápida (TTFB &lt; 50ms), filtros facetados e painel de curadoria de acervo. Cronograma sob medida conforme especificação técnica." data-en="Engineered for university research groups (CNPq/CAPES/FAPESC), digital heritage archives, documentary catalogs, and institutions with complex asset collections. Features distributed edge relational databases (Cloudflare D1), dynamic serverless Workers, fast sub-50ms search, faceted filtering, and curated digital asset workflows. Custom schedule.">Para grupos de pesquisa, acervos iconográficos e institutos. Banco relacional Cloudflare D1, Workers de busca e filtros facetados. Sob orçamento.</span>
+        <span class="tag-badge" data-pt="Cloudflare D1 + Workers" data-en="Cloudflare D1 + Workers">Cloudflare D1 + Workers</span>
+        <span class="tag-badge" data-pt="Busca Rápida de Borda" data-en="Edge Fast Search">Busca Rápida de Borda</span>
+        <span class="tag-badge" data-pt="Sob Orçamento" data-en="Custom Quote">Sob Orçamento</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">04</span>
+      <span>
+        <span class="t" data-pt="Reestruturação &amp; Migração para Cloudflare — A partir de R$ 990" data-en="Re-Architecture &amp; Migration to Cloudflare — From R$ 990">Reestruturação &amp; Migração para Cloudflare — A partir de R$ 990</span>
+        <span class="d" data-pt="Para quem já possui site em WordPress lento, Wix, Squarespace ou servidores tradicionais caros (Locaweb, HostGator, GoDaddy) e deseja eliminar mensalidades de hospedagem e riscos de invasão por plugins desatualizados. Limpeza e migração de conteúdo, reconstrução em arquitetura estática leve, apontamento seguro de DNS sem interrupção de e-mails corporativos e cancelamento definitivo das mensalidades anteriores." data-en="For existing sites burdened by slow WordPress instances, Wix, Squarespace, or overpriced shared hosting (Locaweb, HostGator, GoDaddy) seeking to eliminate monthly hosting bills and malware vulnerabilities. Content migration, clean static rebuilding, zero-downtime DNS cutover preserving corporate email, and permanent cancellation of legacy hosting subscriptions.">Resgate de sites lentos em WordPress ou Wix. Migração de conteúdo, DNS seguro sem queda de e-mails corporativos e corte definitivo das mensalidades de servidor.</span>
+        <span class="tag-badge" data-pt="Corte de Custos Mensais" data-en="Cut Monthly Retainers">Corte de Custos Mensais</span>
+        <span class="tag-badge" data-pt="Zero Downtime de E-mails" data-en="Zero Email Downtime">Zero Downtime de E-mails</span>
+        <span class="tag-badge" data-pt="Fim de Plugins Vulneráveis" data-en="No Vulnerable Plugins">Fim de Plugins Vulneráveis</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO DE CUSTO EM 2 ANOS -->
+  <section class="pr-grp" aria-labelledby="comparativo-heading">
+    <h2 class="gh" id="comparativo-heading" data-pt="Comparativo de Custo em 2 Anos · Agência Tradicional vs. Cloudflare Studio" data-en="2-Year Cost Comparison · Traditional Agency vs. Cloudflare Studio">Comparativo de Custo em 2 Anos · Agência Tradicional vs. Cloudflare Studio</h2>
+    <p class="prose" data-pt="Agências tradicionais vendem sites em WordPress a preços de entrada aparentemente baixos, mas cobram mensalidades perpétuas de hospedagem e manutenção de plugins que transformam o site em um custo recorrente pesado. Veja o custo real consolidado em 24 meses:" data-en="Traditional agencies often sell WordPress sites with apparently low initial setup fees, but impose perpetual monthly hosting and maintenance retainers. Here is the real 24-month consolidated financial picture:">Agências tradicionais cobram mensalidades perpétuas de hospedagem e manutenção de plugins que transformam o site em um custo recorrente pesado. Veja o custo real consolidado em 24 meses:</p>
+
+    <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela comparativa de custos em 2 anos">
+      <table class="data-tbl">
+        <thead>
+          <tr>
+            <th data-pt="Item de Custo" data-en="Cost Component">Item de Custo</th>
+            <th data-pt="Modelo Agência Tradicional (WordPress Alugado / WLab)" data-en="Traditional Agency (WordPress / Retainer Model)">Modelo Agência Tradicional (WordPress Alugado / WLab)</th>
+            <th data-pt="Arquitetura Cloudflare Studio Ana Vanzin" data-en="Cloudflare Studio Ana Vanzin Architecture">Arquitetura Cloudflare Studio Ana Vanzin</th>
+            <th data-pt="Diferença / Economia Real" data-en="Net Difference / Savings">Diferença / Economia Real</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-pt="Criação e Setup Inicial" data-en="Initial Setup &amp; Design">Criação e Setup Inicial</td>
+            <td data-pt="R$ 1.500 a R$ 3.000 (layout padrão em tema pronto)" data-en="R$ 1,500 to R$ 3,000 (generic off-the-shelf theme)">R$ 1.500 a R$ 3.000 (layout padrão em tema pronto)</td>
+            <td data-pt="R$ 1.490 a R$ 2.490 (design autoral e código limpo)" data-en="R$ 1,490 to R$ 2,490 (authorial design &amp; clean code)">R$ 1.490 a R$ 2.490 (design autoral e código limpo)</td>
+            <td data-pt="Investimento inicial equivalente com qualidade superior" data-en="Equivalent initial investment with superior quality">Investimento inicial equivalente com qualidade superior</td>
+          </tr>
+          <tr>
+            <td data-pt="Hospedagem Mensal (24 Meses)" data-en="Monthly Hosting (24 Months)">Hospedagem Mensal (24 Meses)</td>
+            <td data-pt="R$ 120 a R$ 250 / mês (Total: R$ 2.880 a R$ 6.000)" data-en="R$ 120 to R$ 250 / month (Total: R$ 2,880 to R$ 6,000)">R$ 120 a R$ 250 / mês (Total: R$ 2.880 a R$ 6.000)</td>
+            <td data-pt="R$ 0,00 / mês (Total: R$ 0,00 na Cloudflare Pages)" data-en="R$ 0.00 / month (Total: R$ 0.00 on Cloudflare Pages)"><strong>R$ 0,00 / mês</strong> (Total: R$ 0,00 na Cloudflare Pages)</td>
+            <td data-pt="Economia direta de R$ 2.880 a R$ 6.000" data-en="Direct savings of R$ 2,880 to R$ 6,000"><strong>Economia de R$ 2.880 a R$ 6.000</strong></td>
+          </tr>
+          <tr>
+            <td data-pt="Manutenção de Plugins &amp; Segurança (24 Meses)" data-en="Plugin Maintenance &amp; Security (24 Months)">Manutenção de Plugins &amp; Segurança (24 Meses)</td>
+            <td data-pt="R$ 100 a R$ 300 / mês (Total: R$ 2.400 a R$ 7.200)" data-en="R$ 100 to R$ 300 / month (Total: R$ 2,400 to R$ 7,200)">R$ 100 a R$ 300 / mês (Total: R$ 2.400 a R$ 7.200)</td>
+            <td data-pt="R$ 0,00 / mês (código estático compilado não sofre falhas de plugins)" data-en="R$ 0.00 / month (compiled static code has no plugin flaws)"><strong>R$ 0,00 / mês</strong> (código estático imune a falhas de plugins)</td>
+            <td data-pt="Economia direta de R$ 2.400 a R$ 7.200" data-en="Direct savings of R$ 2,400 to R$ 7,200"><strong>Economia de R$ 2.400 a R$ 7.200</strong></td>
+          </tr>
+          <tr>
+            <td data-pt="Registro de Domínio Próprio (2 Anos)" data-en="Domain Name Registration (2 Years)">Registro de Domínio Próprio (2 Anos)</td>
+            <td data-pt="R$ 80 a R$ 140 (Registro.br ou com ágio da agência)" data-en="R$ 80 to R$ 140 (Registro.br or agency markup)">R$ 80 a R$ 140 (Registro.br ou com ágio da agência)</td>
+            <td data-pt="R$ 80 a R$ 140 (pago diretamente pelo cliente ao Registro.br)" data-en="R$ 80 to R$ 140 (paid directly by client to registrar)">R$ 80 a R$ 140 (pago diretamente pelo cliente ao Registro.br)</td>
+            <td data-pt="Custo direto oficial sem margens ocultas" data-en="Direct official cost with zero markup">Custo direto oficial sem margens ocultas</td>
+          </tr>
+          <tr>
+            <td data-pt="Titularidade e Propriedade do Código" data-en="Code Ownership &amp; Sovereignty">Titularidade e Propriedade do Código</td>
+            <td data-pt="Preso à agência (cancelar a mensalidade retira o site do ar)" data-en="Locked to agency (cancelling retainer takes site down)">Preso à agência (cancelar a mensalidade retira o site do ar)</td>
+            <td data-pt="100% sua (código entregue em repositório Git ou zip)" data-en="100% yours (clean source code delivered in Git/zip)"><strong>100% sua</strong> (código entregue em repositório Git ou zip)</td>
+            <td data-pt="Soberania digital permanente sem dependência" data-en="Permanent digital sovereignty without vendor lock-in"><strong>Soberania digital permanente</strong></td>
+          </tr>
+          <tr class="highlight">
+            <td data-pt="Investimento Total em 2 Anos (24 Meses)" data-en="Total 2-Year Investment (24 Months)"><strong>Investimento Total em 2 Anos (24 Meses)</strong></td>
+            <td data-pt="R$ 6.860 a R$ 16.340" data-en="R$ 6,860 to R$ 16,340"><strong>R$ 6.860 a R$ 16.340</strong></td>
+            <td data-pt="R$ 1.570 a R$ 2.630" data-en="R$ 1,570 to R$ 2,630"><strong>R$ 1.570 a R$ 2.630</strong></td>
+            <td data-pt="Economia líquida de R$ 5.290 a R$ 13.710 (até 85% de redução)" data-en="Net savings of R$ 5,290 to R$ 13,710 (up to 85% reduction)"><strong>Economia líquida de R$ 5.290 a R$ 13.710</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TRANSPARÊNCIA TÉCNICA -->
+  <section class="pr-grp" aria-labelledby="transparencia-heading">
+    <h2 class="gh" id="transparencia-heading" data-pt="Transparência Técnica · Quem é dono do quê e quanto custa manter" data-en="Technical Transparency · Who owns what and ongoing costs">Transparência Técnica · Quem é dono do quê e quanto custa manter</h2>
+    
+    <div class="pr">
+      <span class="n">01</span>
+      <span>
+        <span class="t" data-pt="Pagamento Único à Concepção e Código" data-en="One-Time Payment for Architecture &amp; Code">Pagamento Único à Concepção e Código</span>
+        <span class="d" data-pt="Você nos paga uma única vez pela arquitetura, design editorial e implementação do código-fonte. Não cobramos mensalidade de retenção, taxa de licença ou aluguel de layout. Uma vez concluído e aprovado, o projeto é seu." data-en="You pay us once for the architecture, editorial design, and source code implementation. We do not charge monthly retention fees, licensing costs, or layout rental. Once delivered and approved, the project is yours.">Você nos paga uma única vez pela arquitetura, design editorial e código. Não há mensalidade de retenção ou licença.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">02</span>
+      <span>
+        <span class="t" data-pt="Hospedagem Permanente R$ 0,00 na Cloudflare" data-en="Permanent R$ 0.00 Hosting on Cloudflare">Hospedagem Permanente R$ 0,00 na Cloudflare</span>
+        <span class="d" data-pt="A camada gratuita da Cloudflare Pages oferece tráfego ilimitado, proteção DDoS global contra ataques e entrega em mais de 300 cidades no mundo. Para 99,9% dos sites institucionais, acadêmicos e jurídicos, essa cota é mais do que suficiente e o custo de hospedagem é rigorosamente R$ 0,00 para sempre." data-en="Cloudflare Pages' free tier provides unlimited bandwidth, global DDoS mitigation, and edge delivery in over 300 cities worldwide. For 99.9% of institutional, academic, and legal websites, this quota is more than sufficient and hosting is strictly R$ 0.00 forever.">A camada nativa da Cloudflare Pages atende 99,9% dos sites com tráfego ilimitado e custo rigorosamente zero.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">03</span>
+      <span>
+        <span class="t" data-pt="Custo Único Obrigatório: Domínio Próprio (~R$ 40–70/ano)" data-en="Only Mandatory Ongoing Cost: Domain (~R$ 40–70/year)">Custo Único Obrigatório: Domínio Próprio (~R$ 40–70/ano)</span>
+        <span class="d" data-pt="A única despesa contínua necessária para manter seu site ativo é a anuidade do seu próprio domínio (como seunome.adv.br, suaempresa.com.br ou institutopesquisa.org). Esse valor é pago por você diretamente ao Registro.br ou à entidade registradora oficial, sem intermediários, sem comissões e sem sobrepreço da nossa parte." data-en="The only ongoing expense required to keep your site online is your annual domain registration (e.g., yourname.adv.br, yourfirm.com.br, or researchinstitute.org). This fee is paid directly by you to Registro.br or your official registrar, with zero middlemen or markups.">A única despesa contínua é a anuidade do seu próprio domínio, paga diretamente ao Registro.br sem intermediários.</span>
+      </span>
+    </div>
+
+    <div class="pr">
+      <span class="n">04</span>
+      <span>
+        <span class="t" data-pt="100% de Titularidade e Liberdade de Gestão" data-en="100% Digital Ownership &amp; Management Freedom">100% de Titularidade e Liberdade de Gestão</span>
+        <span class="d" data-pt="O domínio fica registrado no seu CPF ou CNPJ; a conta da Cloudflare é criada com o seu e-mail corporativo; e o código-fonte integral (HTML, CSS, JavaScript, imagens) é entregue em repositório GitHub ou arquivo compactado. Se amanhã você quiser editar por conta própria ou contratar outro desenvolvedor, terá autonomia total para fazê-lo." data-en="The domain is registered under your own CPF or CNPJ tax ID; the Cloudflare account is bound to your corporate email; and the complete source code (HTML, CSS, JS, assets) is delivered in a GitHub repository or zip archive. You have absolute freedom to edit or maintain it as you see fit.">Domínio no seu CPF/CNPJ, conta Cloudflare no seu e-mail e código-fonte entregue para total autonomia futura.</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- CTA E CONTATO SEM ATRITO -->
+  <div class="pr-note" aria-labelledby="contato-heading">
+    <p class="nh" id="contato-heading" data-pt="Iniciar Projeto ou Solicitar Diagnóstico" data-en="Start a Project or Request an Assessment">Iniciar Projeto ou Solicitar Diagnóstico</p>
+    <p data-pt="Para consultar disponibilidade na agenda do estúdio, solicitar um diagnóstico preliminar do seu site atual ou receber uma proposta formal de escopo, escreva diretamente para ana@anavanzin.com com os dados da sua demanda. Respondemos em até 24 horas úteis." data-en="To check studio availability, request a preliminary assessment of your current website, or receive a formal scope proposal, write directly to ana@anavanzin.com detailing your requirements. We respond within 24 business hours.">Para consultar disponibilidade ou solicitar um diagnóstico preliminar de migração, escreva para ana@anavanzin.com. Respondemos em até 24 horas úteis.</p>
+    
+    <div class="pr-cta">
+      <a class="primary" href="mailto:ana@anavanzin.com?subject=Studio%20Ana%20Vanzin%20-%20Consulta%20de%20Projeto%20Web&amp;body=Ol%C3%A1%20Ana%2C%0A%0AGostaria%20de%20conversar%20sobre%20um%20projeto%20de%20desenvolvimento%20web%20%2F%20arquitetura%20Cloudflare.%0A%0A-%20Meu%20nome%20%2F%20Organiza%C3%A7%C3%A3o%3A%0A-%20Site%20atual%20(se%20houver)%3A%0A-%20Modalidade%20de%20interesse%3A%20(Presen%C3%A7a%20Essencial%20%7C%20Site%20Institucional%20%7C%20Portal%2FAcervo%20%7C%20Migra%C3%A7%C3%A3o)%0A-%20Prazo%20estimado%20ou%20detalhes%3A%0A%0AAtenciosamente%2C" data-pt="ana@anavanzin.com ↗ (E-mail Direto)" data-en="ana@anavanzin.com ↗ (Direct Email)">ana@anavanzin.com ↗ (E-mail Direto)</a>
+      <a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Lattes ↗</a>
+    </div>
+  </div>
+
+  <!-- PONTE INVERSA NO RODAPÉ -->
+  <section class="bridge-box" aria-labelledby="outras-frentes-heading">
+    <p class="bh" id="outras-frentes-heading" data-pt="Ecossistema Ana Vanzin · Outras Áreas de Atuação" data-en="Ana Vanzin Ecosystem · Other Practice Areas">Ecossistema Ana Vanzin · Outras Áreas de Atuação</p>
+    <p class="prose" data-pt="A arquitetura web do Studio integra uma prática profissional ampla que alia pesquisa acadêmica de excelência e atuação jurídica especializada:" data-en="The Studio’s web architecture integrates an overarching professional practice uniting academic scholarship and legal advocacy:">A arquitetura web do Studio integra uma prática profissional ampla que alia pesquisa acadêmica e advocacia especializada:</p>
+    <div class="links">
+      <a href="https://mentoria.anavanzin.com" target="_blank" rel="noopener">
+        <span data-pt="Mentoria Acadêmica (Mestrado &amp; Doutorado)" data-en="Academic Mentoring (Master's &amp; PhD)">Mentoria Acadêmica (Mestrado &amp; Doutorado)</span> ↗
+      </a>
+      <a href="/advocacia">
+        <span data-pt="Advocacia Especializada (OAB/SC)" data-en="Legal Practice (Brazilian Bar)">Advocacia Especializada (OAB/SC)</span> ↗
+      </a>
+      <a href="/metodologia/">
+        <span data-pt="Metodologia &amp; Pesquisa Aberta" data-en="Methodology &amp; Open Research">Metodologia &amp; Pesquisa Aberta</span> ↗
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a class="foot-brand" href="/">ana vanzin</a>
+  <span data-pt="arquitetura web · advocacia · historiadora do direito" data-en="web architecture · lawyer · legal historian">arquitetura web · advocacia · historiadora do direito</span>
+  <span class="foot-meta">Florianópolis · MMXXVI</span>
+  <a href="/studio" aria-current="page" data-pt="Studio" data-en="Studio">Studio</a>
+  <a href="/advocacia" data-pt="Advocacia" data-en="Legal Practice">Advocacia</a>
+  <a href="https://mentoria.anavanzin.com" data-pt="Mentoria" data-en="Mentoring">Mentoria</a>
+  <a href="mailto:ana@anavanzin.com">ana@anavanzin.com</a>
+</footer>
+
+</body>
+</html>
