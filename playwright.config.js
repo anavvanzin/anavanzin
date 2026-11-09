@@ -1,5 +1,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 
+const PORT = process.env.PORT || 8080;
+
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -12,7 +14,7 @@ module.exports = defineConfig({
     timeout: 10000,
   },
   use: {
-    baseURL: 'http://localhost:8080',
+    baseURL: `http://localhost:${PORT}`,
     trace: 'on-first-retry',
     viewport: { width: 1280, height: 720 },
     headless: true,
@@ -24,8 +26,8 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    command: 'npx http-server . -p 8080',
-    url: 'http://localhost:8080',
+    command: `npx http-server . -p ${PORT}`,
+    url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'pipe',
