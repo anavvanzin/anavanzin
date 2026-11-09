@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Vanzin — Mentoria PPG · Leitura Crítica &amp; Projetos Defensáveis</title>
+<meta name="description" content="Leitura Crítica, Planejamento Estratégico &amp; Estruturação de Projetos Juridicamente Consistentes e Defensáveis para Mestrado e Doutorado em Direito e Ciências Humanas. Com Ana Vanzin (PPGD/UFSC).">
+<link rel="canonical" href="https://mentoria.anavanzin.com/">
+<link rel="icon" href="/assets/favicon-32.png">
+<meta name="theme-color" content="#EFE5CF">
+<meta property="og:title" content="Ana Vanzin — Mentoria PPG · Leitura Crítica &amp; Projetos Defensáveis">
+<meta property="og:description" content="Leitura Crítica, Planejamento Estratégico e Estruturação de Projetos Juridicamente Consistentes e Defensáveis (Direito, História, Filosofia e Humanidades).">
+<meta property="og:image" content="https://mentoria.anavanzin.com/assets/engraving-hero.png">
+<meta property="og:url" content="https://mentoria.anavanzin.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Self-hosted font preloads & stylesheet with Google Fonts fallback -->
+<link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/crimson-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ====================================================
+     ICONOCRACIA / Mnemosyne Viva — "Iuris Memoria"
+     Vellum paper · iron-gall ink · terracotta live margin
+     aged gold frames · amethyst active states · lacre seals
+     Instrument Serif (display) · Crimson Pro (prose)
+     JetBrains Mono (archival designations)
+     ==================================================== */
+  :root{
+    --paper:#EFE5CF;
+    --cream:#F8F5EE;
+    --ink:#1A1612;
+    --muted:#7D756D;
+    --faded:#8D8377;
+    --terra:#A04030;
+    --terra-deep:#7C2D12;
+    --lacre:#A8281F;
+    --gold:#B8924A;
+    --gold-bright:#D4A85E;
+    --gold-soft:rgba(184,146,74,.18);
+    --amethyst:#8A5FA8;
+    --light-border:#D4C19A;
+    --card-bg:#FAF7F0;
+    --serif-display:"Instrument Serif",Georgia,serif;
+    --serif-body:"Crimson Pro",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif-body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:rgba(168,40,31,.16);color:var(--ink)}
+  img{max-width:100%;height:auto}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+
+  /* Accessible Skip Link */
+  .skip-link{
+    position:absolute;top:-60px;left:20px;
+    background:var(--ink);color:var(--paper);
+    padding:10px 16px;font-family:var(--mono);font-size:12px;
+    text-decoration:none;z-index:9999;transition:top .2s;
+  }
+  .skip-link:focus{top:12px}
+
+  /* ---------- masthead ---------- */
+  header.masthead{border-bottom:1px solid var(--light-border);background:var(--paper);position:sticky;top:0;z-index:100}
+  .masthead-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 0;gap:20px;flex-wrap:wrap;
+  }
+  .wordmark{display:flex;align-items:center;gap:12px;font-family:var(--serif-display);font-size:22px;letter-spacing:.01em;text-decoration:none;color:var(--ink)}
+  .wordmark img{width:36px;height:36px;object-fit:contain}
+  .wordmark em{font-style:italic;color:var(--muted);font-size:19px}
+  nav.top{display:flex;gap:clamp(14px,2.2vw,28px);flex-wrap:wrap;align-items:center}
+  nav.top a{
+    font-family:var(--mono);font-size:11px;letter-spacing:1.8px;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:2px;
+    transition:color .2s,border-color .2s;
+  }
+  nav.top a:hover{color:var(--terra);border-color:var(--terra)}
+  nav.top a.nav-highlight{
+    color:var(--terra-deep);font-weight:600;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,72px);
+    padding:clamp(48px,7vw,96px) 0 clamp(40px,5vw,72px);
+    align-items:start;
+  }
+  .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--terra);margin-bottom:24px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";display:block;width:28px;height:1px;background:var(--terra)}
+  h1.display{
+    font-family:var(--serif-display);
+    font-size:clamp(38px,5.4vw,68px);
+    line-height:1.06;font-weight:400;letter-spacing:-.01em;
+    margin-bottom:26px;
+  }
+  h1.display em{font-style:italic;color:var(--terra-deep)}
+  .flourish{display:block;width:min(220px,60%);height:auto;margin-bottom:24px}
+  .hero-lede{
+    font-size:clamp(18px,1.45vw,21px);line-height:1.68;color:var(--muted);
+    max-width:44ch;margin-bottom:34px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .btn{
+    display:inline-block;
+    background:var(--terra);color:var(--cream);
+    font-family:var(--mono);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+    padding:14px 26px;text-decoration:none;
+    border:1.5px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform .15s,box-shadow .15s,background .2s;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);background:var(--terra-deep)}
+  .btn .arr{display:inline-block;margin-left:8px;transition:transform .2s}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-ghost{
+    display:inline-block;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);
+    padding-bottom:3px;transition:color .2s,border-color .2s;
+  }
+  .btn-ghost:hover{color:var(--terra);border-color:var(--terra)}
+
+  .plate{margin:0}
+  .plate-frame{
+    border:1.5px solid var(--gold);padding:10px;background:var(--cream);
+    box-shadow:5px 5px 0 rgba(184,146,74,.25);
+  }
+  .plate-frame img{display:block;width:100%;height:auto}
+  figcaption.plate-caption{
+    margin-top:14px;text-align:center;
+    font-style:italic;font-size:15px;color:var(--muted);
+  }
+  figcaption.plate-caption .src{
+    display:block;font-style:normal;font-family:var(--mono);
+    font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--faded);margin-top:4px;
+  }
+
+  /* ---------- section head ---------- */
+  section.block{padding:clamp(56px,7vw,96px) 0 0}
+  .section-head{text-align:center;margin-bottom:clamp(36px,4vw,52px)}
+  .section-title{font-family:var(--serif-display);font-size:clamp(32px,3.8vw,48px);font-weight:400;letter-spacing:-.01em}
+  .section-head .flourish{margin:18px auto 0}
+  .section-sub{text-align:center;color:var(--muted);max-width:58ch;margin:-24px auto 40px;font-size:17.5px;font-style:italic}
+
+  /* ---------- problem section & vices ---------- */
+  .problem{
+    border-top:1px solid var(--light-border);
+    padding:clamp(48px,6vw,80px) 0 0;
+  }
+  .problem-intro{
+    display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px);
+    margin-bottom:44px;
+  }
+  .problem h2{font-family:var(--serif-display);font-size:clamp(28px,3.4vw,44px);font-weight:400;line-height:1.15}
+  .problem .body{border-left:2px solid var(--terra);padding-left:clamp(18px,2.4vw,32px)}
+  .problem .body p{color:var(--muted);margin-bottom:14px;max-width:58ch;font-size:17.5px}
+  .problem .body p strong{color:var(--ink);font-weight:600}
+
+  .vices-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,30px);
+    margin-top:36px;
+  }
+  .vice-card{
+    border:1.5px solid var(--light-border);background:var(--cream);
+    padding:clamp(24px,3vw,34px);box-shadow:3px 3px 0 rgba(26,22,18,.06);
+    display:flex;flex-direction:column;gap:12px;position:relative;
+  }
+  .vice-tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--lacre);font-weight:600;
+  }
+  .vice-card h3{
+    font-family:var(--serif-display);font-size:23px;font-weight:400;line-height:1.2;
+    color:var(--ink);
+  }
+  .vice-card p{
+    font-size:16px;line-height:1.55;color:var(--muted);
+  }
+  .vice-quote{
+    border-top:1px dashed var(--light-border);padding-top:10px;margin-top:auto;
+    font-size:14.5px;font-style:italic;color:var(--terra-deep);
+  }
+
+  /* ---------- practical comparative section (ANTES -> DEPOIS) ---------- */
+  .practical-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);
+  }
+  .practical-card{
+    border:1.5px solid var(--ink);background:var(--cream);
+    box-shadow:5px 5px 0 rgba(26,22,18,.10);
+    display:flex;flex-direction:column;
+  }
+  .practical-header{
+    padding:20px 22px 16px;border-bottom:1.5px solid var(--ink);
+    background:var(--card-bg);
+  }
+  .practical-num{
+    font-family:var(--mono);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:6px;
+  }
+  .practical-title{
+    font-family:var(--serif-display);font-size:22px;font-weight:400;line-height:1.2;
+  }
+  .practical-body{
+    padding:22px;display:flex;flex-direction:column;gap:20px;flex-grow:1;
+  }
+  .side-block{display:flex;flex-direction:column;gap:8px}
+  .side-label{
+    font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .side-label.before{color:var(--lacre)}
+  .side-label.after{color:var(--terra-deep)}
+  .side-text{
+    font-size:15.5px;line-height:1.55;color:var(--ink);background:var(--paper);
+    padding:12px 14px;border-left:2px solid var(--light-border);
+  }
+  .side-text.after-box{border-left-color:var(--terra);background:#F3EBE0}
+  .side-note{
+    font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;
+  }
+
+  /* ---------- method (Quatro Movimentos) ---------- */
+  .steps{border-top:1px solid var(--light-border)}
+  .step{
+    display:grid;grid-template-columns:110px 280px 1fr;gap:clamp(20px,3vw,48px);
+    padding:34px 10px;border-bottom:1px solid var(--light-border);align-items:baseline;
+  }
+  .step .num{font-family:var(--serif-display);font-style:italic;font-size:32px;color:var(--gold)}
+  .step h3{font-family:var(--mono);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+  .step p{font-size:16.8px;line-height:1.62;color:var(--muted);max-width:58ch}
+  .step p strong{color:var(--ink);font-weight:600}
+
+  /* ---------- care & neurodiversity section ---------- */
+  .care-section{
+    margin-top:clamp(56px,7vw,96px);
+    border:1.5px solid var(--ink);background:var(--cream);
+    box-shadow:6px 6px 0 rgba(26,22,18,.12);
+    padding:clamp(32px,5vw,64px);
+  }
+  .care-kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--amethyst);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+  }
+  .care-kicker::before{content:"";display:block;width:24px;height:1px;background:var(--amethyst)}
+  .care-title{
+    font-family:var(--serif-display);font-size:clamp(30px,4vw,50px);
+    font-weight:400;line-height:1.12;margin-bottom:24px;
+  }
+  .care-title em{font-style:italic;color:var(--terra-deep)}
+  .care-columns{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);margin-top:28px;
+  }
+  .care-columns p{font-size:17.5px;line-height:1.65;color:var(--muted);margin-bottom:16px}
+  .care-columns p strong{color:var(--ink);font-weight:600}
+  .care-pillars{
+    margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-top:1px dashed var(--light-border);padding-top:28px;
+  }
+  .care-pillar{
+    background:var(--paper);border:1px solid var(--light-border);padding:18px 16px;
+  }
+  .care-pillar-num{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase}
+  .care-pillar h4{font-family:var(--serif-display);font-size:19px;margin:6px 0;line-height:1.25}
+  .care-pillar p{font-size:14.5px;line-height:1.45;color:var(--muted)}
+
+  /* ---------- lead magnet (guia & estudar) ---------- */
+  .guide{
+    display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,72px);
+    align-items:center;margin-top:clamp(56px,7vw,96px);
+    padding:clamp(36px,4.5vw,56px);
+    border:1.5px solid var(--ink);background:var(--cream);
+    box-shadow:6px 6px 0 rgba(26,22,18,.12);
+  }
+  .guide .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amethyst);margin-bottom:14px}
+  .guide h2{font-family:var(--serif-display);font-size:clamp(26px,3.2vw,40px);font-weight:400;line-height:1.15;margin-bottom:16px}
+  .guide p{color:var(--muted);margin-bottom:14px;max-width:54ch;font-size:16.8px}
+  .guide .topics{margin:18px 0 26px;display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+  .guide .topics li{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:1px;padding:5px 12px;
+    border:1px solid var(--light-border);background:var(--paper);color:var(--muted);
+  }
+  .guide-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .guide .framed{
+    border:1.5px solid var(--gold);background:var(--paper);padding:28px 26px;
+    box-shadow:4px 4px 0 rgba(184,146,74,.3);text-align:center;
+  }
+  .guide .framed img{width:110px;margin:0 auto 16px;display:block}
+  .guide .framed .q{font-style:italic;font-size:18px;line-height:1.6;margin-bottom:12px}
+  .guide .framed .c{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faded)}
+
+  /* ---------- pricing: escada de 4 formatos ---------- */
+  .pricing-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,3vw,40px);
+  }
+  .pricing-card{
+    border:1.5px solid var(--ink);background:var(--cream);
+    box-shadow:6px 6px 0 rgba(26,22,18,.12);
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .pricing-card.featured{
+    border-color:var(--terra-deep);
+    box-shadow:6px 6px 0 var(--terra-deep);
+  }
+  .pricing-header{
+    padding:clamp(24px,3vw,34px);border-bottom:1.5px solid var(--ink);
+    background:var(--card-bg);
+  }
+  .pricing-tagline{
+    display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;
+  }
+  .pricing-num{font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .pricing-badge{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:3px 8px;border:1px solid var(--terra);color:var(--terra);background:var(--paper);
+  }
+  .pricing-badge.prime{background:var(--terra);color:var(--cream)}
+  .pricing-title{font-family:var(--serif-display);font-size:clamp(24px,2.6vw,32px);font-weight:400;line-height:1.15;margin-bottom:8px}
+  .pricing-sub{font-size:15px;color:var(--muted);font-style:italic}
+  .pricing-price-box{
+    margin-top:16px;display:flex;align-items:baseline;gap:8px;
+  }
+  .price-val{
+    font-family:var(--serif-display);font-size:clamp(34px,3.8vw,46px);
+    color:var(--terra-deep);line-height:1;
+  }
+  .price-note{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--faded);text-transform:uppercase}
+  .pricing-body{
+    padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:18px;flex-grow:1;
+  }
+  .pricing-body ul{list-style:none}
+  .pricing-body li{
+    font-size:16px;line-height:1.55;color:var(--muted);padding:8px 0 8px 24px;position:relative;
+  }
+  .pricing-body li + li{border-top:1px dashed var(--light-border)}
+  .pricing-body li::before{content:"❦";position:absolute;left:0;font-size:13px;color:var(--gold)}
+  .pricing-footer{
+    padding:0 clamp(24px,3vw,34px) clamp(24px,3vw,34px);margin-top:auto;
+  }
+  .btn-pricing{
+    display:block;width:100%;text-align:center;
+    background:var(--terra);color:var(--cream);
+    font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    padding:14px 20px;text-decoration:none;
+    border:1.5px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform .15s,box-shadow .15s,background .2s;
+  }
+  .btn-pricing:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);background:var(--terra-deep)}
+  .pricing-guarantee{
+    font-size:13.5px;color:var(--terra-deep);font-style:italic;margin-top:10px;text-align:center;
+  }
+
+  /* ---------- who ---------- */
+  .who{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--light-border)}
+  .who > div{padding:36px 34px 42px}
+  .who .yes{border-right:1px solid var(--light-border)}
+  .who h3{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:20px}
+  .who .yes h3{color:var(--terra)}
+  .who .no h3{color:var(--faded)}
+  .who ul{list-style:none}
+  .who li{font-size:16.5px;line-height:1.55;color:var(--muted);padding:10px 0 10px 26px;position:relative}
+  .who li + li{border-top:1px dashed var(--light-border)}
+  .who li::before{position:absolute;left:0;font-style:italic}
+  .who .yes li::before{content:"✓";color:var(--terra)}
+  .who .no li::before{content:"—";color:var(--faded)}
+
+  /* ---------- creds & bio ---------- */
+  .creds{
+    display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,72px);
+    align-items:start;padding-top:clamp(40px,5vw,64px);
+  }
+  .creds h2{font-family:var(--serif-display);font-size:clamp(30px,3.4vw,44px);font-weight:400;margin-bottom:20px}
+  .creds p{color:var(--muted);margin-bottom:16px;max-width:58ch;font-size:17.5px}
+  .creds p strong{color:var(--ink);font-weight:600}
+  .creds-meta{
+    margin-top:22px;padding-top:18px;border-top:1px solid var(--light-border);
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;
+  }
+  .creds-meta a{
+    font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--terra);text-decoration:none;border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+  .creds-meta a:hover{color:var(--terra-deep);border-color:var(--terra-deep)}
+
+  /* ---------- faq ---------- */
+  .faq{border-top:1px solid var(--light-border)}
+  details{border-bottom:1px solid var(--light-border)}
+  summary{
+    cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+    padding:22px 10px;font-size:19px;font-family:var(--serif-display);
+  }
+  summary::-webkit-details-marker{display:none}
+  summary .plus{font-style:italic;color:var(--gold);font-size:22px;transition:transform .2s}
+  details[open] summary .plus{transform:rotate(45deg)}
+  details .ans{padding:0 10px 24px;color:var(--muted);max-width:68ch;line-height:1.65;font-size:17px}
+
+  /* ---------- colophon card (ponte Cloudflare / Studio) ---------- */
+  .colophon-card{
+    margin-top:clamp(64px,8vw,100px);
+    border:1.5px solid var(--gold);background:var(--cream);
+    box-shadow:5px 5px 0 rgba(184,146,74,.25);
+    padding:clamp(32px,4.5vw,52px);
+    display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,48px);align-items:center;
+  }
+  .colophon-lbl{
+    font-family:var(--mono);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--terra);margin-bottom:10px;
+  }
+  .colophon-card h3{
+    font-family:var(--serif-display);font-size:clamp(24px,3vw,36px);
+    font-weight:400;line-height:1.2;margin-bottom:14px;
+  }
+  .colophon-card p{
+    font-size:16.5px;line-height:1.6;color:var(--muted);max-width:60ch;
+  }
+  .colophon-card p strong{color:var(--ink);font-weight:600}
+  .colophon-btn-wrap{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:clamp(48px,6vw,80px);border-top:1.5px solid var(--ink);
+    background:var(--cream);
+    padding:clamp(44px,5vw,72px) 0 40px;text-align:center;
+  }
+  footer .seal{width:60px;margin:0 auto 16px;display:block}
+  footer .cta-line{font-family:var(--mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--faded);margin-bottom:12px}
+  footer .mail{
+    font-family:var(--serif-display);
+    font-size:clamp(26px,4.2vw,48px);text-decoration:none;color:var(--ink);
+    letter-spacing:-.01em;border-bottom:2px solid var(--lacre);
+  }
+  footer .mail:hover{color:var(--terra)}
+  footer .loc{margin-top:16px;font-size:15px;color:var(--muted);font-style:italic}
+  footer .socials{margin-top:26px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+  footer .socials a{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;
+  }
+  footer .socials a:hover{color:var(--terra);border-color:var(--terra)}
+  footer .fine{margin-top:38px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--faded);text-transform:uppercase}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .hero{grid-template-columns:1fr}
+    .hero .plate{max-width:440px;margin:0 auto}
+    .problem-intro{grid-template-columns:1fr}
+    .vices-grid{grid-template-columns:1fr}
+    .practical-grid{grid-template-columns:1fr}
+    .pricing-grid{grid-template-columns:1fr}
+    .care-columns{grid-template-columns:1fr}
+    .care-pillars{grid-template-columns:repeat(2,1fr)}
+    .guide{grid-template-columns:1fr}
+    .guide .framed{max-width:400px;margin:0 auto}
+    .step{grid-template-columns:50px 1fr;grid-template-rows:auto auto}
+    .step p{grid-column:2}
+    .who{grid-template-columns:1fr}
+    .who .yes{border-right:none;border-bottom:1px solid var(--light-border)}
+    .creds{grid-template-columns:1fr}
+    .creds .plate{max-width:420px;margin:0 auto}
+    .colophon-card{grid-template-columns:1fr}
+  }
+  @media (max-width:540px){
+    .care-pillars{grid-template-columns:1fr}
+    .step{grid-template-columns:1fr;gap:8px}
+    .step p{grid-column:1}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="wordmark" href="#inicio">
+      <img src="/assets/mentoria/edelweiss-seal.png" alt="Selo edelweiss — ana vanzin" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-seal.png';}">
+      ana vanzin <em>— mentoria PPG</em>
+    </a>
+    <nav class="top" aria-label="Navegação principal">
+      <a href="#problema">Por que reprovam</a>
+      <a href="#metodo">O Método</a>
+      <a href="#pratica">Na Prática</a>
+      <a href="#cuidado">Método como Cuidado</a>
+      <a href="#formatos" class="nav-highlight">Formatos &amp; Preços</a>
+      <a href="#sobre">Quem conduz</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="https://anavanzin.com/metodologia/" target="_blank" rel="noopener">Guia gratuito ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" class="wrap">
+
+  <!-- HERO SECTION: Novo Posicionamento Central -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div>
+      <p class="kicker">Direito, História, Filosofia &amp; Humanidades</p>
+      <h1 class="display" id="hero-title">Leitura Crítica, Planejamento Estratégico &amp; Estruturação de Projetos <em>Juridicamente Consistentes e Defensáveis</em></h1>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+      <p class="hero-lede">Acompanhamento individual e rigoroso para transformar intuições dispersas em projetos de pesquisa viáveis, metodologicamente sólidos e preparados para as exigências reais das bancas de pós-graduação — com quem vive a pesquisa de dentro.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#formatos">Ver formatos &amp; investimento <span class="arr">↓</span></a>
+        <a class="btn-ghost" href="#problema">Por que projetos promissores reprovam?</a>
+      </div>
+    </div>
+    <figure class="plate reveal">
+      <div class="plate-frame">
+        <img src="/assets/mentoria/engraving-hero.png" alt="Gravura emblemática: coluna com a balança da justiça, livros e atributos do estudo" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/engraving-hero.png';}">
+      </div>
+      <figcaption class="plate-caption">Iustitiae Praesidium.
+        <span class="src">O projeto defensável começa muito antes do edital</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- PROBLEM SECTION: Por que projetos promissores reprovam? -->
+  <section class="problem reveal" id="problema" aria-labelledby="prob-title">
+    <div class="problem-intro">
+      <h2 id="prob-title">Por que projetos promissores reprovam?</h2>
+      <div class="body">
+        <p>Todos os anos, candidatos com trajetórias intelectuais notáveis e capacidade comprovada são sumariamente eliminados na fase de projeto ou na arguição oral. <strong>A reprovação quase nunca decorre de falta de inteligência.</strong></p>
+        <p>A banca examinadora de um programa de pós-graduação stricto sensu não avalia convicções pessoais ou paixão pelo tema: ela avalia a <strong>viabilidade operacional do projeto em 24 ou 48 meses</strong> e o domínio do método. Quem passa entendeu a gramática do processo antes de submeter.</p>
+        <p>Projetos promissores soçobram quase invariavelmente em três vícios capitais:</p>
+      </div>
+    </div>
+
+    <!-- OS 3 VÍCIOS CAPITAIS -->
+    <div class="vices-grid">
+      <article class="vice-card">
+        <span class="vice-tag">Vício 01</span>
+        <h3>O problema com resposta pronta (vício de parecer)</h3>
+        <p>Tratar a pesquisa como petição inicial ou parecer jurídico, ingressando com uma tese pré-julgada que o candidato apenas deseja "provar". A banca descarta de imediato projetos que não contêm uma verdadeira dúvida epistemológica investigável.</p>
+        <p class="vice-quote">«Se a conclusão já está dada antes da pesquisa começar, o projeto não é ciência: é retórica.»</p>
+      </article>
+
+      <article class="vice-card">
+        <span class="vice-card-tag vice-tag">Vício 02</span>
+        <h3>A metodologia decorativa (checklist de jargões)</h3>
+        <p>Colar fórmulas vazias como "pesquisa qualitativa, bibliográfica e documental com método indutivo-dedutivo", sem demonstrar operacionalmente quais fontes serão lidas, quais critérios de seleção serão aplicados e como os dados serão analisados.</p>
+        <p class="vice-quote">«A banca precisa saber o que você fará na segunda-feira pela manhã se for aprovado.»</p>
+      </article>
+
+      <article class="vice-card">
+        <span class="vice-card-tag vice-tag">Vício 03</span>
+        <h3>A desconexão com a linha e com o orientador</h3>
+        <p>Apresentar um tema isolado sem qualquer diálogo com as pesquisas contemporâneas do corpo docente e do grupo de pesquisa. Professores orientam pesquisas alinhadas aos seus projetos em andamento; projetos órfãos dificilmente encontram orientador.</p>
+        <p class="vice-quote">«Nenhum projeto sobrevive no vácuo institucional do programa pretendido.»</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- METHOD: Quatro Movimentos com Lattes e Barema -->
+  <section class="block" id="metodo" aria-labelledby="metodo-title">
+    <div class="section-head">
+      <h2 class="section-title" id="metodo-title">O método em quatro movimentos</h2>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+    </div>
+    <p class="section-sub">Uma sequência estratégica que desacopla o projeto da prova escrita e substitui a improvisação por planejamento antecipado.</p>
+    
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">I.</span>
+        <h3>Diagnóstico, Auditoria de Lattes &amp; Timing Pré-Edital</h3>
+        <p>Análise aprofundada da trajetória do candidato e <strong>auditoria minuciosa do Currículo Lattes com base no barema de pontuação de títulos do edital</strong>. Estruturação antecipada na entressafra pré-edital: separamos intencionalmente o amadurecimento do projeto de pesquisa do estudo direcionado da bibliografia para a prova escrita, garantindo clareza e previsibilidade.</p>
+      </div>
+
+      <div class="step">
+        <span class="num">II.</span>
+        <h3>Estruturação do Objeto &amp; Desenho Metodológico</h3>
+        <p>Construção do projeto do zero ou reestruturação radical do rascunho: delimitação cirúrgica do problema, hipótese de trabalho aberta, marco teórico consistente e <strong>metodologia operacional verificável</strong> (seleção de fontes, critérios de inclusão e etapas de análise). Revisão linha a linha com padrões de rigor da pós-graduação de excelência.</p>
+      </div>
+
+      <div class="step">
+        <span class="num">III.</span>
+        <h3>Mapeamento de Linha, Orientadores &amp; Contato Ético</h3>
+        <p>Estudo aprofundado da produção recente dos professores e dos projetos financiados em andamento no programa. Definição da estratégia de aproximação ética e preparação de memoriais acadêmicos, cartas de apresentação e adequação do texto à identidade da linha de pesquisa.</p>
+      </div>
+
+      <div class="step">
+        <span class="num">IV.</span>
+        <h3>Estudo Direcionado, Arguição Simulada &amp; Pré-Banca</h3>
+        <p>Organização do cronograma de estudos para a prova teórica com o edital aberto. <strong>Simulações individuais de arguição com banca examinadora</strong>: identificação prévia dos pontos de vulnerabilidade do projeto, treinamento de respostas fundamentadas e sustentação oral sob pressão.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVE PRACTICAL SECTION: Substituição de depoimentos em verificação -->
+  <section class="block" id="pratica" aria-labelledby="pratica-title">
+    <div class="section-head">
+      <h2 class="section-title" id="pratica-title">Na prática · O que a banca realmente avalia</h2>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+    </div>
+    <p class="section-sub">A diferença entre a reprovação e a aprovação não é retórica rebuscada: é clareza metodológica, exequibilidade empírica e alinhamento com a linha. Veja a transformação real:</p>
+
+    <div class="practical-grid reveal">
+      
+      <!-- Card 1 -->
+      <article class="practical-card">
+        <div class="practical-header">
+          <p class="practical-num">Transformação 01</p>
+          <h3 class="practical-title">Da Tese Genérica ao Problema Delimitado</h3>
+        </div>
+        <div class="practical-body">
+          <div class="side-block">
+            <span class="side-label before">✕ Antes · Reprovação Frequente</span>
+            <div class="side-text">«Quero pesquisar a crise da democracia no Brasil e demonstrar como as decisões judiciais recentes violam o Estado de Direito.»</div>
+            <p class="side-note">Diagnóstico da banca: Tese de parecer pré-julgada, sem delimitação temporal ou empírica. Inviável em 24 meses.</p>
+          </div>
+          <div class="side-block">
+            <span class="side-label after">✓ Depois · Projeto Defensável</span>
+            <div class="side-text after-box">«De que maneira o Supremo Tribunal Federal mobilizou o conceito de ‘instituição democrática’ nos julgamentos do Inquérito 4.781 entre 2019 e 2022?»</div>
+            <p class="side-note">Avaliação da banca: Pergunta aberta, recorte temporal exato, acervo probatório delimitado e viabilidade plena.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="practical-card">
+        <div class="practical-header">
+          <p class="practical-num">Transformação 02</p>
+          <h3 class="practical-title">Da Metodologia Decorativa ao Caminho Verificável</h3>
+        </div>
+        <div class="practical-body">
+          <div class="side-block">
+            <span class="side-label before">✕ Antes · Reprovação Frequente</span>
+            <div class="side-text">«Utilizar-se-á a pesquisa qualitativa, bibliográfica e documental, com método dedutivo e abordagem hermenêutica.»</div>
+            <p class="side-note">Diagnóstico da banca: Jargão decorativo de manual. Não explica onde buscará os documentos nem como os lerá.</p>
+          </div>
+          <div class="side-block">
+            <span class="side-label after">✓ Depois · Projeto Defensável</span>
+            <div class="side-text after-box">«Revisão sistemática nas bases Scielo e CAPES com busca booleana; coleta documental do acervo do Arquivo Público; análise temática de conteúdo por categorias a priori e a posteriori.»</div>
+            <p class="side-note">Avaliação da banca: Caminho operacional claro, replicável e verificável por qualquer avaliador da comissão.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="practical-card">
+        <div class="practical-header">
+          <p class="practical-num">Transformação 03</p>
+          <h3 class="practical-title">Do Contato no Escuro ao Alinhamento com a Linha</h3>
+        </div>
+        <div class="practical-body">
+          <div class="side-block">
+            <span class="side-label before">✕ Antes · Reprovação Frequente</span>
+            <div class="side-text">E-mail padronizado em massa com o mesmo projeto em anexo para múltiplos orientadores do programa de pós-graduação.</div>
+            <p class="side-note">Diagnóstico da banca: O docente percebe de imediato o envio genérico e descarta o projeto que não dialoga com suas pesquisas.</p>
+          </div>
+          <div class="side-block">
+            <span class="side-label after">✓ Depois · Projeto Defensável</span>
+            <div class="side-text after-box">Mapeamento dos artigos recentes e projetos CNPq/FAPESC do grupo de pesquisa; projeto construído como desdobramento legítimo dos debates da linha.</div>
+            <p class="side-note">Avaliação da banca: Demonstração de maturidade científica. O orientador reconhece uma contribuição real para sua equipe.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- RIGOR SEM ADOECIMENTO: Método como Cuidado -->
+  <section class="care-section reveal" id="cuidado" aria-labelledby="cuidado-title">
+    <p class="care-kicker">Saúde Mental, Neuroatipicidade &amp; Sustentabilidade Intelectual</p>
+    <h2 class="care-title" id="cuidado-title">Rigor sem Adoecimento · <em>O Método como Cuidado</em></h2>
+    
+    <div class="care-columns">
+      <div>
+        <p>Quem já passou pelos corredores de uma pós-graduação conhece o custo silencioso da academia: a exaustão normalizada, a culpa permanente por não estar lendo mais, a paralisia diante do arquivo em branco e a crença tóxica de que o sofrimento mental seria um atestado de seriedade intelectual.</p>
+        <p><strong>Falo disso com acolhimento, naturalidade e sobriedade porque convivo há anos com a depressão e lido cotidianamente com a neuroatipicidade.</strong> Conheço na própria pele a paralisia executiva, o peso do perfeccionismo paralisante e o descompasso entre a velocidade do pensamento e o ritmo de execução exigido pelas instituições.</p>
+      </div>
+      <div>
+        <p>O método de mentoria que pratico não nasceu nos manuais abstratos: ele nasceu da necessidade concreta de <strong>pesquisar, estudar e produzir em alto nível sem entrar em colapso</strong>. Ele existe para criar previsibilidade, delimitar o escopo antes que ele se torne infinito e transformar objetivos difusos em microtarefas acionáveis.</p>
+        <p>Aqui rejeitamos terminantemente o terrorismo acadêmico. Rigor metodológico e respeito aos limites humanos não são opostos: são faces da mesma moeda. Um projeto juridicamente impecável nasce da calma analítica e da constância sustentável — nunca do desespero na véspera da banca.</p>
+      </div>
+    </div>
+
+    <div class="care-pillars">
+      <div class="care-pillar">
+        <span class="care-pillar-num">Pilar 01</span>
+        <h4>Previsibilidade</h4>
+        <p>Calendários antecipados e quebra do processo seletivo em fases claras para conter picos de ansiedade.</p>
+      </div>
+      <div class="care-pillar">
+        <span class="care-pillar-num">Pilar 02</span>
+        <h4>Alívio da Paralisia</h4>
+        <p>Microetapas com entregáveis delimitados: primeiro o fichamento estruturado, depois o esqueleto, depois a redação.</p>
+      </div>
+      <div class="care-pillar">
+        <span class="care-pillar-num">Pilar 03</span>
+        <h4>Ritmo Cognitivo Real</h4>
+        <p>Adaptação do cronograma pré-edital e pré-banca ao seu funcionamento individual, sem modelos industriais de estudo.</p>
+      </div>
+      <div class="care-pillar">
+        <span class="care-pillar-num">Pilar 04</span>
+        <h4>Sobriedade Ética</h4>
+        <p>Construção de autonomia intelectual duradoura, preparando você para sustentar a pesquisa com dignidade e segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET: Conexão viva com /estudar/ e /metodologia/ -->
+  <section class="block" id="acervos" aria-label="Acervos abertos de metodologia e estudo">
+    <div class="guide reveal">
+      <div>
+        <p class="lbl">Acesso Aberto · Sem Cadastro</p>
+        <h2>Sistemas reais desenvolvidos para pesquisar sem colapsar</h2>
+        <p>Antes de abrir qualquer mentoria, disponibilizei publicamente duas plataformas completas no ecossistema: o <strong>Guia de Metodologia Jurídica</strong> e o sistema <strong>Estudar</strong>. Elas existem porque desenvolvi esses métodos para a minha própria sobrevivência acadêmica — e decidi abri-las para democratizar o acesso ao rigor metodológico.</p>
+        <ul class="topics">
+          <li>Métodos em história do direito</li>
+          <li>Iconografia jurídica (Warburg &amp; Panofsky)</li>
+          <li>Busca booleana &amp; Protocolo PRISMA</li>
+          <li>Fichamento em camadas para prova escrita</li>
+          <li>Gestão de energia e leitura sem colapsar</li>
+          <li>Integridade de citações &amp; ABNT</li>
+        </ul>
+        <div class="guide-buttons">
+          <a class="btn" href="https://anavanzin.com/metodologia/" target="_blank" rel="noopener">Guia de Metodologia ↗</a>
+          <a class="btn-ghost" href="https://anavanzin.com/estudar/" target="_blank" rel="noopener">Sistema Estudar ↗</a>
+        </div>
+      </div>
+      <div class="framed">
+        <img src="/assets/mentoria/edelweiss-flower.png" alt="Flor edelweiss — marca da pesquisa" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flower.png';}">
+        <p class="q">«O espaço entre as imagens é onde se deve pensar.»</p>
+        <p class="c">Aby Warburg — epígrafe do método</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING & FORMATOS: Escada de 4 Formatos com Preços Transparentes -->
+  <section class="block" id="formatos" aria-labelledby="formatos-title">
+    <div class="section-head">
+      <h2 class="section-title" id="formatos-title">Formatos de acompanhamento &amp; investimento</h2>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+    </div>
+    <p class="section-sub">Preços claros, entregáveis delimitados e sem propostas no escuro. Escolha a modalidade adequada ao momento exato da sua candidatura:</p>
+
+    <div class="pricing-grid reveal">
+      
+      <!-- FORMATO 01 -->
+      <article class="pricing-card" id="formato-01">
+        <div class="pricing-header">
+          <div class="pricing-tagline">
+            <span class="pricing-num">Modalidade 01</span>
+            <span class="pricing-badge">Revisão Avançada</span>
+          </div>
+          <h3 class="pricing-title">Leitura Crítica &amp; Parecer de Projeto</h3>
+          <p class="pricing-sub">Para quem já tem um projeto pronto ou rascunho avançado e precisa de um diagnóstico rigoroso com olhar de banca antes de submeter.</p>
+          <div class="pricing-price-box">
+            <span class="price-val">R$ 550</span>
+            <span class="price-note">Pagamento único · à vista</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul>
+            <li>Parecer escrito minucioso com anotações pontuais no seu texto (Word/PDF)</li>
+            <li>Auditoria de coerência entre problema, hipótese, marco teórico e metodologia</li>
+            <li>Identificação preventiva de pontos vulneráveis perante a comissão examinadora</li>
+            <li>1 sessão individual 1:1 de 60 minutos para alinhamento estratégico de reescrita</li>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+          <a class="btn-pricing" href="mailto:ana@anavanzin.com?subject=Mentoria%20PPG%20%E2%80%94%20Leitura%20Cr%C3%ADtica%20%26%20Parecer%20(R%24%20550)&amp;body=Ol%C3%A1%2C%20Ana!%0A%0AGostaria%20de%20solicitar%20a%20Leitura%20Cr%C3%ADtica%20%26%20Parecer%20de%20Projeto%20(R%24%20550).%0A%0AMeu%20nome%3A%20%0AN%C3%ADvel%20(Mestrado%20ou%20Doutorado)%3A%20%0APrograma%2FUniversidade%20pretendida%3A%20%0AEst%C3%A1gio%20atual%20do%20projeto%3A%20%0APrazo%20do%20edital%20(se%20houver)%3A%20%0A">Solicitar Leitura Crítica (R$ 550) →</a>
+          <p class="pricing-guarantee">Valor integralmente abatido se você migrar para um dos ciclos em até 7 dias.</p>
+        </div>
+      </article>
+
+      <!-- FORMATO 02 -->
+      <article class="pricing-card" id="formato-02">
+        <div class="pricing-header">
+          <div class="pricing-tagline">
+            <span class="pricing-num">Modalidade 02</span>
+            <span class="pricing-badge">Tema ao Projeto Fechado</span>
+          </div>
+          <h3 class="pricing-title">Ciclo de Estruturação de Projeto</h3>
+          <p class="pricing-sub">Para quem tem um tema bruto ou rascunho inicial e precisa construir um projeto completo, defensável e aprovável do zero.</p>
+          <div class="pricing-price-box">
+            <span class="price-val">R$ 1.690</span>
+            <span class="price-note">Parcelamento disponível</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul>
+            <li>4 sessões individuais 1:1 de 60 minutos (com gravação e encaminhamentos)</li>
+            <li>Revisão assíncrona detalhada entre os encontros (capítulo a capítulo)</li>
+            <li>Delimitação precisa do problema, estado da arte e metodologia operacional</li>
+            <li>Lapidação do referencial bibliográfico e adequação formal estrita à ABNT</li>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+          <a class="btn-pricing" href="mailto:ana@anavanzin.com?subject=Mentoria%20PPG%20%E2%80%94%20Ciclo%20de%20Estrutura%C3%A7%C3%A3o%20de%20Projeto%20(R%24%201.690)&amp;body=Ol%C3%A1%2C%20Ana!%0A%0ATenho%20interesse%20no%20Ciclo%20de%20Estrutura%C3%A7%C3%A3o%20de%20Projeto%20(4%20encontros%201%3A1%20%E2%80%94%20R%24%201.690).%0A%0AMeu%20nome%3A%20%0AN%C3%ADvel%20(Mestrado%20ou%20Doutorado)%3A%20%0APrograma%2FUniversidade%3A%20%0ATema%20ou%20ideia%20inicial%3A%20%0APrevis%C3%A3o%20de%20submiss%C3%A3o%3A%20%0A">Quero o Ciclo de Projeto (R$ 1.690) →</a>
+          <p class="pricing-guarantee">Do tema difuso ao projeto pronto para submissão em 4 semanas.</p>
+        </div>
+      </article>
+
+      <!-- FORMATO 03 -->
+      <article class="pricing-card featured" id="formato-03">
+        <div class="pricing-header">
+          <div class="pricing-tagline">
+            <span class="pricing-num">Modalidade 03</span>
+            <span class="pricing-badge prime">Ponta a Ponta · Completa</span>
+          </div>
+          <h3 class="pricing-title">Mentoria Completa de Candidatura</h3>
+          <p class="pricing-sub">Acompanhamento abrangente do pré-edital até a banca final. O caminho mais seguro para quem disputa vagas concorridas.</p>
+          <div class="pricing-price-box">
+            <span class="price-val">R$ 2.590</span>
+            <span class="price-note">Parcelamento disponível · Vagas limitadas</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul>
+            <li>6 sessões individuais 1:1 de 60 minutos ao longo de todo o calendário</li>
+            <li>Auditoria estratégica do Currículo Lattes com foco no barema de títulos</li>
+            <li>Construção e revisão completa do projeto de pesquisa em todas as etapas</li>
+            <li>Estratégia de aproximação com orientadores, cartas de motivação e memoriais</li>
+            <li>Método de estudo para a prova escrita com o edital aberto</li>
+            <li><strong>2 sessões completas de simulação de arguição</strong> com perguntas reais da linha</li>
+            <li>Suporte assíncrono direto e contínuo até o encerramento do processo seletivo</li>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+          <a class="btn-pricing" href="mailto:ana@anavanzin.com?subject=Mentoria%20PPG%20%E2%80%94%20Mentoria%20Completa%20de%20Candidatura%20(R%24%202.590)&amp;body=Ol%C3%A1%2C%20Ana!%0A%0AGostaria%20de%20candidatar-me%20a%20uma%20vaga%20na%20Mentoria%20Completa%20de%20Candidatura%20(Ponta%20a%20Ponta%20%E2%80%94%20R%24%202.590).%0A%0AMeu%20nome%3A%20%0AN%C3%ADvel%20(Mestrado%20ou%20Doutorado)%3A%20%0APrograma%20e%20linha%20pretendida%3A%20%0AOrientador(a)%20visado(a)%20(se%20houver)%3A%20%0APrevis%C3%A3o%20do%20edital%20ou%20data%20da%20prova%3A%20%0A">Candidatar-se à Mentoria Completa (R$ 2.590) →</a>
+          <p class="pricing-guarantee">Poucas vagas ativas por edital para assegurar atenção integral.</p>
+        </div>
+      </article>
+
+      <!-- FORMATO 04 -->
+      <article class="pricing-card" id="formato-04">
+        <div class="pricing-header">
+          <div class="pricing-tagline">
+            <span class="pricing-num">Modalidade 04</span>
+            <span class="pricing-badge">Sessão Avulsa Pré-Banca</span>
+          </div>
+          <h3 class="pricing-title">Arguição Simulada &amp; Defesa</h3>
+          <p class="pricing-sub">Para quem foi convocado para a entrevista de seleção ou está às vésperas de qualificação ou defesa final de dissertação/tese.</p>
+          <div class="pricing-price-box">
+            <span class="price-val">R$ 390</span>
+            <span class="price-note">Sessão avulsa · pagamento único</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul>
+            <li>Leitura prévia atenta do seu projeto, dissertação ou tese pela mentora</li>
+            <li>1 sessão individual 1:1 de 60 minutos com simulação realista da comissão</li>
+            <li>Mapeamento imediato de flancos frágeis e perguntas prováveis da banca</li>
+            <li>Treinamento de postura, síntese conceitual e sustentação oral segura</li>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+          <a class="btn-pricing" href="mailto:ana@anavanzin.com?subject=Mentoria%20PPG%20%E2%80%94%20Planejamento%20Pr%C3%A9-Banca%20%26%20Argui%C3%A7%C3%A3o%20Simulada%20(R%24%20390)&amp;body=Ol%C3%A1%2C%20Ana!%0A%0AGostaria%20de%20agendar%20a%20Argui%C3%A7%C3%A3o%20Simulada%20Pr%C3%A9-Banca%20(R%24%20390).%0A%0AMeu%20nome%3A%20%0ATipo%20de%20banca%20(Entrevista%20de%20Sele%C3%A7%C3%A3o%2C%20Qualifica%C3%A7%C3%A3o%20ou%20Defesa)%3A%20%0APrograma%2FInstitui%C3%A7%C3%A3o%3A%20%0AData%20prevista%20da%20banca%3A%20%0ATema%2FResumo%20do%20trabalho%3A%20%0A">Agendar Arguição Simulada (R$ 390) →</a>
+          <p class="pricing-guarantee">Chegue à banca sabendo de antemão o que será perguntado.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- WHO: Para quem é / Não é -->
+  <section class="block" id="para-quem" aria-labelledby="quem-title">
+    <div class="section-head">
+      <h2 class="section-title" id="quem-title">Critérios de admissão na mentoria</h2>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+    </div>
+    <div class="who reveal">
+      <div class="yes">
+        <h3>É para você que…</h3>
+        <ul>
+          <li>Pretende ingressar no mestrado ou doutorado em Direito, História, Filosofia ou Humanidades</li>
+          <li>Possui um tema de interesse, mas não consegue transformá-lo em problema acadêmico viável</li>
+          <li>Quer estruturar o projeto na entressafra para dedicar o edital aberto ao estudo da prova escrita</li>
+          <li>Precisa de um método previsível para quebrar a paralisia executiva e estudar sem adoecimento</li>
+          <li>Busca interlocução qualificada e honesta sobre as reais vulnerabilidades do seu texto</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>Não é para você que…</h3>
+        <ul>
+          <li>Procura alguém para redigir o projeto em seu lugar (o projeto deve ser rigorosamente autoral)</li>
+          <li>Espera promessas fáceis de aprovação garantida sem dedicação ao estudo e à reescrita</li>
+          <li>Não tem disponibilidade para ler criticamente e revisar os textos entre os encontros</li>
+          <li>Acredita que erudição formal e jargão rebuscado substituem solidez metodológica</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDS: Quem conduz (Ana Vanzin, trajetória e timing real) -->
+  <section class="block creds" id="sobre" aria-labelledby="bio-title">
+    <figure class="plate reveal">
+      <div class="plate-frame">
+        <img src="/assets/mentoria/work-council.png" alt="Gravura: conselho de juristas reunidos em torno da mesa de estudos" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/work-council.png';}">
+      </div>
+      <figcaption class="plate-caption">Iudicium et Consilium.
+        <span class="src">Quem conduz a mentoria conhece a mesa por dentro</span>
+      </figcaption>
+    </figure>
+    <div class="reveal">
+      <h2 id="bio-title">Quem te acompanha · Ana Vanzin</h2>
+      <p>Sou advogada e historiadora do direito, <strong>doutoranda e mestra no PPGD/UFSC</strong> — o Programa de Pós-Graduação em Direito da Universidade Federal de Santa Catarina —, onde pesquiso história da cultura jurídica, iconografia e imagens de justiça na Época Moderna sob a orientação do Prof. Dr. Arno Dal Ri Jr.</p>
+      <p>Conheço a pós-graduação e seus processos seletivos <strong>dos dois lados da mesa</strong>. Minha própria trajetória acadêmica foi moldada por estratégia rigorosa e antecipação de timing: fui <strong>aprovada no exame da OAB e no processo seletivo do mestrado ainda durante a graduação em Direito</strong>. Na transição para o doutorado, estruturei o projeto inteiro com meses de antecedência durante a entressafra acadêmica, o que me permitiu focar integralmente no livro da prova escrita com o edital aberto. Hoje, estou com a <strong>tese de doutorado bem adiantada</strong>, aplicando exatamente os mesmos sistemas de gestão de energia e escrita contínua.</p>
+      <p>Na mentoria, alio rigor analítico, pesquisa de ponta e acolhimento humano. O objetivo não é acelerar você para o esgotamento, mas <strong>construir uma candidatura juridicamente defensável, metodologicamente inatacável e psicologicamente sustentável</strong>.</p>
+      <div class="creds-meta">
+        <a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Currículo Lattes ↗</a>
+        <a href="https://orcid.org/0009-0004-8464-6761" target="_blank" rel="noopener">ORCID ↗</a>
+        <a href="https://anavanzin.com/perfil" target="_blank" rel="noopener">Perfil Acadêmico ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq" aria-labelledby="faq-title">
+    <div class="section-head">
+      <h2 class="section-title" id="faq-title">Dúvidas frequentes</h2>
+      <img class="flourish" src="/assets/mentoria/edelweiss-flourish.png" alt="" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-flourish.png';}">
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>O método se aplica a qualquer universidade do país? <span class="plus">+</span></summary>
+        <p class="ans">Sim. O método foi concebido com base nos padrões de avaliação da CAPES e nas exigências dos principais programas de pós-graduação em Direito e ciências humanas do Brasil (federais, estaduais e comunitárias), bem como seleções internacionais. A etapa de mapeamento e diagnóstico existe justamente para calibrar a proposta aos critérios específicos do seu edital e da sua banca.</p>
+      </details>
+      <details>
+        <summary>Não tenho publicações no Lattes. Ainda vale a pena tentar? <span class="plus">+</span></summary>
+        <p class="ans">Com certeza. A pontuação de títulos no barema é apenas uma fração da nota total. Um projeto de pesquisa metodologicamente irrepreensível e uma prova escrita consistente têm peso decisivo na maioria dos editais. No Movimento I, auditamos o seu barema para identificar onde você já pontua e como compensar eventuais lacunas.</p>
+      </details>
+      <details>
+        <summary>Com que antecedência devo começar a preparação? <span class="plus">+</span></summary>
+        <p class="ans">A melhor estratégia é começar na entressafra (3 a 6 meses antes da publicação do edital). Dessa forma, seu projeto de pesquisa amadurece sem a pressão do relógio e, quando o edital finalmente sai, você dedica sua atenção exclusivamente ao estudo focado da bibliografia da prova escrita. Caso o edital já esteja aberto, recalibramos o cronograma para o prazo disponível.</p>
+      </details>
+      <details>
+        <summary>Você redige ou formula o projeto por mim? <span class="plus">+</span></summary>
+        <p class="ans">Não — e desconfie firmemente de qualquer serviço que ofereça isso. A banca examinadora argui o candidato pessoalmente e identifica em minutos se o autor domina o que escreveu. Meu trabalho é estruturar, revisar, provocar, apontar inconsistências e ensinar você a defender cada vírgula perante a comissão com autoridade e clareza.</p>
+      </details>
+      <details>
+        <summary>Como funcionam os pagamentos e o abatimento da Leitura Crítica? <span class="plus">+</span></summary>
+        <p class="ans">A contratação pode ser feita via PIX ou cartão de crédito (com opção de parcelamento). Se você contratar a Leitura Crítica &amp; Parecer (R$ 550) e, em até 7 dias após a sessão devolutiva, decidir migrar para o Ciclo de Estruturação ou para a Mentoria Completa, os R$ 550 pagos são integralmente deduzidos do valor total do plano escolhido.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- COLOFÃO CLOUDFLARE: Ponte Sutil para Frente 2 (/studio) -->
+  <aside class="colophon-card reveal" aria-label="Sobre a arquitetura digital deste site">
+    <div>
+      <p class="colophon-lbl">Sobre este site · Arquitetura Digital Autoral</p>
+      <h3>Plataformas rápidas, sob medida e sem aluguel mensal de hospedagem.</h3>
+      <p>Este site e todos os acervos do ecossistema foram concebidos com design editorial autoral e implantados na borda global da <strong>Cloudflare (Pages &amp; Workers)</strong>. Com velocidade instantânea, código proprietário limpo e <strong>R$ 0,00 de custo mensal de servidor</strong>, essa mesma engenharia está disponível para pesquisadores, advogados, escritórios e projetos culturais.</p>
+    </div>
+    <div class="colophon-btn-wrap">
+      <a class="btn" href="/studio">Conhecer o estúdio web &amp; editorial <span class="arr">→</span></a>
+    </div>
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contato">
+  <div class="wrap">
+    <img class="seal" src="/assets/mentoria/edelweiss-seal.png" alt="Selo de autenticidade da pesquisa" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../assets/mentoria/edelweiss-seal.png';}">
+    <p class="cta-line">Vagas limitadas por calendário de seleção</p>
+    <a class="mail" href="mailto:ana@anavanzin.com?subject=Contato%20Geral%20%E2%80%94%20Mentoria%20PPG&amp;body=Ol%C3%A1%2C%20Ana!%0A%0AEstou%20entrando%20em%20contato%20sobre%20a%20mentoria%20acad%C3%AAmica.%0A%0AMeu%20nome%3A%20%0AN%C3%ADvel%20(Mestrado%20ou%20Doutorado)%3A%20%0A%C3%81rea%20e%20institui%C3%A7%C3%A3o%20pretendida%3A%20%0AMensagem%3A%20%0A">ana@anavanzin.com</a>
+    <p class="loc">Escreva informando seu objetivo, programa pretendido e prazo do edital. Responderei diretamente com os próximos passos.</p>
+    
+    <div class="socials">
+      <a href="http://lattes.cnpq.br/9079096818962275" target="_blank" rel="noopener">Currículo Lattes</a>
+      <a href="https://orcid.org/0009-0004-8464-6761" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://instagram.com/anavanzin" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://anavanzin.com/" target="_blank" rel="noopener">anavanzin.com</a>
+      <a href="/studio">Studio Web</a>
+    </div>
+    
+    <p class="fine">© 2026 Ana Vanzin · Mnemosyne Viva — ler é método, método é pesquisa.</p>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for tasteful reveal animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
