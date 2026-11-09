@@ -26,3 +26,6 @@ FOTOSSSS/
 
 # scratch: images for Claude to evaluate (never deploy)
 assets/_eval/
+
+# Superdesign working files (analysis + design drafts)
+.superdesign/
