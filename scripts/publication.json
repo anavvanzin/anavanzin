@@ -14,6 +14,12 @@
       "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
+      "file": "algoritmo-em-disputa/index.html",
+      "canonical": "https://anavanzin.com/algoritmo-em-disputa/",
+      "category": "ready",
+      "reason": "Apresentação autoral da adaptação jurídica do LLM Council, com créditos e demonstração estática própria."
+    },
+    {
       "file": "ampulheta.html",
       "canonical": "https://anavanzin.com/ampulheta",
       "category": "utility",
@@ -38,8 +44,8 @@
       "reason": "Endereço antigo do orientador."
     },
     {
-      "file": "assets/ICONOCRACIAgrupohistoriadireito.html",
-      "canonical": "https://anavanzin.com/assets/ICONOCRACIAgrupohistoriadireito",
+      "file": "assets/do-ventre-a-alegoria 2/index.html",
+      "canonical": "https://anavanzin.com/assets/do-ventre-a-alegoria%202/",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
@@ -68,14 +74,14 @@
       "reason": "Exportação dependente de suporte ausente; encaminhar para a apresentação pública correspondente e preservar o arquivo de origem."
     },
     {
-      "file": "assets/do-ventre-a-alegoria 2/index.html",
-      "canonical": "https://anavanzin.com/assets/do-ventre-a-alegoria%202/",
+      "file": "assets/iconocracia-deck.html",
+      "canonical": "https://anavanzin.com/assets/iconocracia-deck",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
     {
-      "file": "assets/iconocracia-deck.html",
-      "canonical": "https://anavanzin.com/assets/iconocracia-deck",
+      "file": "assets/ICONOCRACIAgrupohistoriadireito.html",
+      "canonical": "https://anavanzin.com/assets/ICONOCRACIAgrupohistoriadireito",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
@@ -314,10 +320,154 @@
       "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
+      "file": "estudar/biblioteca/aulas-metodologia/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/aulas-metodologia/",
+      "category": "ready",
+      "reason": "Aulas de Metodologia — Projeto de Tese — Método · Ana Vanzin. A série do curso de metodologia em três movimentos: da ideia à hipótese (tema, delimitação, problematização), o embasamento teórico (tripé, revisão sistemática, termos-chave) e a revisão integrativa (tipos de revisão, PRISMA, inclusão e exclusão)."
+    },
+    {
+      "file": "estudar/biblioteca/capes-metodologia/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/capes-metodologia/",
+      "category": "ready",
+      "reason": "Projeto de Tese e Metodologia sob a Ótica da CAPES — Método · Ana Vanzin. A aula inaugural sobre rigor metodológico na perspectiva da avaliação CAPES: o projeto de tese como mapa intelectual, a metodologia como condição de validade e os critérios que reprovam projetos em qualificação."
+    },
+    {
+      "file": "estudar/biblioteca/dicionario-analogico/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/dicionario-analogico/",
+      "category": "ready",
+      "reason": "Dicionário Analógico da Língua Portuguesa — F. F. S. Azevedo — Método · Ana Vanzin. O dicionário de ideias afins de Fernando de Fonseca e Sousa Azevedo: palavras agrupadas por conceito, com remissivas etimológicas — a estante de consulta do Herbário e o instrumento de precisão lexical da escrita jurídica."
+    },
+    {
+      "file": "estudar/biblioteca/estudo-grossi/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/estudo-grossi/",
+      "category": "ready",
+      "reason": "Estudo Crítico e Analítico — Paolo Grossi — Método · Ana Vanzin. Fichamento analítico completo de Mitologias jurídicas da modernidade: cada seção do livro é reconstruída com perguntas de compreensão, conclusões próprias e um quadro comparativo final — o modelo de como transformar leitura densa em estudo ativo."
+    },
+    {
+      "file": "estudar/biblioteca/feferbaum-queiroz/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/feferbaum-queiroz/",
+      "category": "ready",
+      "reason": "Metodologia da Pesquisa em Direito — Feferbaum & Queiroz — Método · Ana Vanzin. O manual de referência para monografias, dissertações e teses. Esta página condensa a arquitetura do livro — do tema como fronteira à escrita em camadas — e acompanha um instrumento para testar um tema real contra os critérios dos autores."
+    },
+    {
+      "file": "estudar/biblioteca/guia-mitologias/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/guia-mitologias/",
+      "category": "ready",
+      "reason": "Guia de Estudos — Mitologias Jurídicas da Modernidade — Método · Ana Vanzin. Um questionário de dez questões de resposta curta sobre Mitologias jurídicas da modernidade, com chave de respostas comentadas, cinco frentes de dissertação e um glossário mínimo de treze termos — um exemplo pronto de recordação ativa aplicada à leitura densa."
+    },
+    {
+      "file": "estudar/biblioteca/malleus-maleficarum/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/malleus-maleficarum/",
+      "category": "ready",
+      "reason": "Estudo de Caso — Malleus Maleficarum — Método · Ana Vanzin. Apresentação completa de um estudo de caso historiográfico: o contexto medieval da perseguição, a obra de 1486, sua recepção pela Inquisição e pelos tribunais seculares, e o diálogo com a historiografia processual italiana."
+    },
+    {
+      "file": "estudar/biblioteca/metodos-metodologias/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/metodos-metodologias/",
+      "category": "ready",
+      "reason": "Métodos e Metodologias Aplicados ao Projeto de Tese — Método · Ana Vanzin. O caderno do curso de métodos e metodologias: a arquitetura do projeto de pesquisa, as tradições de pesquisa em direito, os métodos e técnicas explicados passo a passo, e os instrumentos de trabalho — matriz de leitura, plano de revisão e cronograma."
+    },
+    {
+      "file": "estudar/biblioteca/savigny-metodologia/index.html",
+      "canonical": "https://anavanzin.com/estudar/biblioteca/savigny-metodologia/",
+      "category": "ready",
+      "reason": "Metodologia Jurídica — Friedrich Carl von Savigny — Método · Ana Vanzin. O clássico que fundou a metodologia do direito moderno: a interpretação como reconstrução do pensamento posto na lei, as técnicas hermenêuticas e a história delas em cinco períodos. A página acompanha um instrumento para classificar fragmentos segundo as quatro técnicas savignyanas."
+    },
+    {
+      "file": "estudar/exhibitions/a-virgula/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/a-virgula/",
+      "category": "ready",
+      "reason": "A Vírgula — Método · Ana Vanzin. Nenhum sinal de pontuação gera tanta insegurança quanto a vírgula — e nenhum é tão decisivo para o sentido de uma frase. A boa notícia: o uso da vírgula não é intuição nem pausa para respirar. É regra, e as regras cabem em uma página."
+    },
+    {
+      "file": "estudar/exhibitions/como-as-palavras-nascem/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/como-as-palavras-nascem/",
+      "category": "ready",
+      "reason": "Como as Palavras Nascem — Método · Ana Vanzin. Cada palavra do português é um fóssil: carrega, comprimida na sua forma, uma história de conquistas, comércio, religião e ciência. Estudar etimologia não é decorar origens — é ganhar uma chave mestra que destrava o significado de milhares de palavras."
+    },
+    {
+      "file": "estudar/exhibitions/escrever-em-camadas/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/escrever-em-camadas/",
+      "category": "ready",
+      "reason": "Escrever em Camadas — Método · Ana Vanzin. O texto acadêmico não se escreve do início ao fim — constrói-se em camadas, como uma impressão. No capítulo final do manual, a página em branco vira uma sequência de seis passos, e a introdução, contraintuitivamente, é a penúltima coisa a ser escrita."
+    },
+    {
+      "file": "estudar/exhibitions/excelencia/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/excelencia/",
+      "category": "ready",
+      "reason": "Excelência — Método · Ana Vanzin. Dez mil horas de repetição distraída produzem um amador experiente. A pesquisa de Anders Ericsson sobre violinistas, enxadristas e atletas de elite identificou o que realmente diferencia os melhores: a prática deliberada — um tipo muito específico de esforço."
+    },
+    {
+      "file": "estudar/exhibitions/fichamento-e-cornell/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/fichamento-e-cornell/",
+      "category": "ready",
+      "reason": "Notas & Fichamento — Método · Ana Vanzin. Anotar não é copiar — é processar. O método Cornell, criado na década de 1950 pelo professor Walter Pauk, e a tradição acadêmica do fichamento transformam a anotação em uma máquina de revisão: a nota certa hoje é a recordação ativa de amanhã."
+    },
+    {
+      "file": "estudar/exhibitions/metodo-feynman/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/metodo-feynman/",
+      "category": "ready",
+      "reason": "Método Feynman — Método · Ana Vanzin. Você só entendeu de verdade o que consegue explicar com palavras simples. O método atribuído ao físico Richard Feynman transforma essa ideia em um procedimento de quatro passos que expõe — e corrige — lacunas de compreensão."
+    },
+    {
+      "file": "estudar/exhibitions/no-lugar-do-legislador/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/no-lugar-do-legislador/",
+      "category": "ready",
+      "reason": "No Lugar do Legislador — Método · Ana Vanzin. Interpretar um texto difícil não é adivinhar nem opinar: é reconstruir, com método, o pensamento que nele ficou gravado. Savigny transformou essa ideia na disciplina de leitura mais influente do direito moderno — e ela serve para qualquer livro denso da sua estante."
+    },
+    {
+      "file": "estudar/exhibitions/persistencia/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/persistencia/",
+      "category": "ready",
+      "reason": "Persistência — Método · Ana Vanzin. Persistir não é repetir com força bruta — é continuar com método quando a motivação, que é volátil, já foi embora. A pesquisa sobre hábito e autorregulação mostra que a constância é uma habilidade treinável, não um traço de personalidade."
+    },
+    {
+      "file": "estudar/exhibitions/pomodoro/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/pomodoro/",
+      "category": "ready",
+      "reason": "Pomodoro — Método · Ana Vanzin. Um timer de cozinha em forma de tomate, vinte e cinco minutos de foco total, cinco de pausa. Criada por Francesco Cirillo no fim dos anos 1980, a técnica Pomodoro é a ferramenta mais simples — e mais subestimada — para vencer a procrastinação e proteger a atenção."
+    },
+    {
+      "file": "estudar/exhibitions/pratica-intercalada/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/pratica-intercalada/",
+      "category": "ready",
+      "reason": "Prática Intercalada — Método · Ana Vanzin. Estudar um único tipo de problema até dominar — e só então passar ao próximo — parece organizado, mas produz aprendizado frágil. Misturar tipos diferentes de questões na mesma sessão rende mais, embora pareça mais difícil. É a prática intercalada."
+    },
+    {
+      "file": "estudar/exhibitions/recordacao-ativa/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/recordacao-ativa/",
+      "category": "ready",
+      "reason": "Recordação Ativa — Método · Ana Vanzin. Reler e grifar dão a sensação de progresso, mas quase não constroem memória. O que constrói é o oposto: fechar o livro e tentar lembrar. A recordação ativa é a técnica com melhor evidência científica acumulada — e a menos praticada."
+    },
+    {
+      "file": "estudar/exhibitions/repeticao-espacada/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/repeticao-espacada/",
+      "category": "ready",
+      "reason": "Repetição Espaçada — Método · Ana Vanzin. A memória não se fortalece pela quantidade de revisões, mas pelo espaçamento entre elas. Revisar no momento certo — quando o conteúdo começa a escapar — é o que fixa o conhecimento por anos, e não por dias."
+    },
+    {
+      "file": "estudar/exhibitions/um-tema-e-uma-duvida-verdadeira/index.html",
+      "canonical": "https://anavanzin.com/estudar/exhibitions/um-tema-e-uma-duvida-verdadeira/",
+      "category": "ready",
+      "reason": "Um Tema é uma Dúvida Verdadeira — Método · Ana Vanzin. Todo trabalho longo morre ou nasce na escolha do tema. No capítulo 4 do manual de metodologia da sua estante, o tema deixa de ser uma área vaga — 'quero estudar direito penal' — e vira o que sempre deveria ter sido: uma dúvida de verdade, formulável em uma pergunta."
+    },
+    {
+      "file": "estudar/index.html",
+      "canonical": "https://anavanzin.com/estudar/",
+      "category": "ready",
+      "reason": "Estudar — Método · Ana Vanzin. Um acervo técnico de metodologia de estudo: ciência cognitiva, gramática e etimologia. Sem coach, sem fórmula mágica."
+    },
+    {
       "file": "grupoiusgentium/index.html",
       "canonical": "https://anavanzin.com/grupoiusgentium/",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
+    },
+    {
+      "file": "iconocracia_grupo_estudos_impactante.html",
+      "canonical": "https://anavanzin.com/iconocracia_grupo_estudos_impactante",
+      "category": "ready",
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
       "file": "iconocracia/atlas-lab/index.html",
@@ -530,12 +680,6 @@
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
     {
-      "file": "iconocracia_grupo_estudos_impactante.html",
-      "canonical": "https://anavanzin.com/iconocracia_grupo_estudos_impactante",
-      "category": "ready",
-      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
-    },
-    {
       "file": "index.html",
       "canonical": "https://anavanzin.com/",
       "category": "ready",
@@ -546,6 +690,18 @@
       "canonical": "https://anavanzin.com/intro/",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
+    },
+    {
+      "file": "justitia-capers/iconografia-justitia-capers.html",
+      "canonical": "https://anavanzin.com/justitia-capers/iconografia-justitia-capers",
+      "category": "utility",
+      "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
+    },
+    {
+      "file": "justitia-capers/index.html",
+      "canonical": "https://anavanzin.com/justitia-capers/",
+      "category": "ready",
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
       "file": "landing/index.html",
@@ -596,6 +752,12 @@
       "reason": "Cópia com destino canônico preservado."
     },
     {
+      "file": "mapa-bibliografico/index.html",
+      "canonical": "https://anavanzin.com/mapa-bibliografico/",
+      "category": "ready",
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
+    },
+    {
       "file": "marginalia/balanca.html",
       "canonical": "https://anavanzin.com/marginalia/balanca",
       "category": "draft",
@@ -618,6 +780,12 @@
       "canonical": "https://anavanzin.com/marginalia/justica-nao-nasceu-cega",
       "category": "draft",
       "reason": "Texto provisório ou dossiê com curadoria/fontes pendentes."
+    },
+    {
+      "file": "mentoria/index.html",
+      "canonical": "https://mentoria.anavanzin.com/",
+      "category": "ready",
+      "reason": "Página de mentoria acadêmica e leitura crítica de projetos"
     },
     {
       "file": "mesa/index.html",
@@ -654,6 +822,12 @@
       "canonical": "https://anavanzin.com/poster",
       "category": "utility",
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
+    },
+    {
+      "file": "prot-tipo/index.html",
+      "canonical": "https://anavanzin.com/prot-tipo/",
+      "category": "utility",
+      "reason": "Demonstração acadêmica React com cenários fictícios, pareceres preparados e índices didáticos, sem backend ou dados pessoais."
     },
     {
       "file": "publicacoes/contrato-visual.html",
@@ -704,50 +878,14 @@
       "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "sobre.html",
-      "canonical": "https://anavanzin.com/sobre",
-      "category": "ready",
-      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
-    },
-    {
-      "file": "tarot/index.html",
-      "canonical": "https://anavanzin.com/tarot/",
-      "category": "ready",
-      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
-    },
-    {
-      "file": "trabalhos.html",
-      "canonical": "https://anavanzin.com/trabalhos",
-      "category": "ready",
-      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
-    },
-    {
-      "file": "video/index.html",
-      "canonical": "https://anavanzin.com/video/",
-      "category": "ready",
-      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
-    },
-    {
-      "file": "seminario8-dever-poder/index.html",
-      "canonical": "https://anavanzin.com/seminario8-dever-poder/",
-      "category": "ready",
-      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
-    },
-    {
       "file": "seminario8-dever-poder/colegas.html",
       "canonical": "https://anavanzin.com/seminario8-dever-poder/colegas",
       "category": "ready",
       "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "seminario8-dever-poder/Seminario8.html",
-      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8.html",
-      "category": "utility",
-      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
-    },
-    {
-      "file": "seminario8-dever-poder/Seminario8-print.html",
-      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8-print.html",
+      "file": "seminario8-dever-poder/conselho-architecture.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/conselho-architecture.html",
       "category": "utility",
       "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
@@ -758,166 +896,70 @@
       "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "seminario8-dever-poder/conselho-architecture.html",
-      "canonical": "https://anavanzin.com/seminario8-dever-poder/conselho-architecture.html",
-      "category": "utility",
-      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
-    },
-    {
       "file": "seminario8-dever-poder/flyer.html",
       "canonical": "https://anavanzin.com/seminario8-dever-poder/flyer.html",
       "category": "utility",
       "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "algoritmo-em-disputa/index.html",
-      "canonical": "https://anavanzin.com/algoritmo-em-disputa/",
+      "file": "seminario8-dever-poder/index.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/",
       "category": "ready",
-      "reason": "Apresentação autoral da adaptação jurídica do LLM Council, com créditos e demonstração estática própria."
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "prot-tipo/index.html",
-      "canonical": "https://anavanzin.com/prot-tipo/",
+      "file": "seminario8-dever-poder/Seminario8-print.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8-print.html",
       "category": "utility",
-      "reason": "Demonstração acadêmica React com cenários fictícios, pareceres preparados e índices didáticos, sem backend ou dados pessoais."
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "estudar/biblioteca/aulas-metodologia/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/aulas-metodologia/",
-      "category": "ready",
-      "reason": "Aulas de Metodologia — Projeto de Tese — Método · Ana Vanzin. A série do curso de metodologia em três movimentos: da ideia à hipótese (tema, delimitação, problematização), o embasamento teórico (tripé, revisão sistemática, termos-chave) e a revisão integrativa (tipos de revisão, PRISMA, inclusão e exclusão)."
+      "file": "seminario8-dever-poder/Seminario8.html",
+      "canonical": "https://anavanzin.com/seminario8-dever-poder/Seminario8.html",
+      "category": "utility",
+      "reason": "Peça pública do seminário em coautoria Ana Vitória Vanzin e Vinícius Oliveira; protótipos identificados como simulação e referências revisadas."
     },
     {
-      "file": "estudar/biblioteca/capes-metodologia/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/capes-metodologia/",
+      "file": "sobre/index.html",
+      "canonical": "https://anavanzin.com/sobre/",
       "category": "ready",
-      "reason": "Projeto de Tese e Metodologia sob a Ótica da CAPES — Método · Ana Vanzin. A aula inaugural sobre rigor metodológico na perspectiva da avaliação CAPES: o projeto de tese como mapa intelectual, a metodologia como condição de validade e os critérios que reprovam projetos em qualificação."
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "estudar/biblioteca/dicionario-analogico/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/dicionario-analogico/",
+      "file": "sorte/index.html",
+      "canonical": "https://anavanzin.com/sorte/",
       "category": "ready",
-      "reason": "Dicionário Analógico da Língua Portuguesa — F. F. S. Azevedo — Método · Ana Vanzin. O dicionário de ideias afins de Fernando de Fonseca e Sousa Azevedo: palavras agrupadas por conceito, com remissivas etimológicas — a estante de consulta do Herbário e o instrumento de precisão lexical da escrita jurídica."
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "estudar/biblioteca/estudo-grossi/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/estudo-grossi/",
+      "file": "studio/index.html",
+      "canonical": "https://anavanzin.com/studio",
       "category": "ready",
-      "reason": "Estudo Crítico e Analítico — Paolo Grossi — Método · Ana Vanzin. Fichamento analítico completo de Mitologias jurídicas da modernidade: cada seção do livro é reconstruída com perguntas de compreensão, conclusões próprias e um quadro comparativo final — o modelo de como transformar leitura densa em estudo ativo."
+      "reason": "Página comercial de arquitetura web e infraestrutura Cloudflare"
     },
     {
-      "file": "estudar/biblioteca/feferbaum-queiroz/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/feferbaum-queiroz/",
+      "file": "tarot/index.html",
+      "canonical": "https://anavanzin.com/tarot/",
       "category": "ready",
-      "reason": "Metodologia da Pesquisa em Direito — Feferbaum & Queiroz — Método · Ana Vanzin. O manual de referência para monografias, dissertações e teses. Esta página condensa a arquitetura do livro — do tema como fronteira à escrita em camadas — e acompanha um instrumento para testar um tema real contra os critérios dos autores."
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "estudar/biblioteca/guia-mitologias/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/guia-mitologias/",
+      "file": "trabalhos/index.html",
+      "canonical": "https://anavanzin.com/trabalhos/",
       "category": "ready",
-      "reason": "Guia de Estudos — Mitologias Jurídicas da Modernidade — Método · Ana Vanzin. Um questionário de dez questões de resposta curta sobre Mitologias jurídicas da modernidade, com chave de respostas comentadas, cinco frentes de dissertação e um glossário mínimo de treze termos — um exemplo pronto de recordação ativa aplicada à leitura densa."
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "estudar/biblioteca/malleus-maleficarum/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/malleus-maleficarum/",
+      "file": "video/index.html",
+      "canonical": "https://anavanzin.com/video/",
       "category": "ready",
-      "reason": "Estudo de Caso — Malleus Maleficarum — Método · Ana Vanzin. Apresentação completa de um estudo de caso historiográfico: o contexto medieval da perseguição, a obra de 1486, sua recepção pela Inquisição e pelos tribunais seculares, e o diálogo com a historiografia processual italiana."
+      "reason": "Página de apresentação, referência ou material público sem indicação explícita de rascunho."
     },
     {
-      "file": "estudar/biblioteca/metodos-metodologias/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/metodos-metodologias/",
-      "category": "ready",
-      "reason": "Métodos e Metodologias Aplicados ao Projeto de Tese — Método · Ana Vanzin. O caderno do curso de métodos e metodologias: a arquitetura do projeto de pesquisa, as tradições de pesquisa em direito, os métodos e técnicas explicados passo a passo, e os instrumentos de trabalho — matriz de leitura, plano de revisão e cronograma."
-    },
-    {
-      "file": "estudar/biblioteca/savigny-metodologia/index.html",
-      "canonical": "https://anavanzin.com/estudar/biblioteca/savigny-metodologia/",
-      "category": "ready",
-      "reason": "Metodologia Jurídica — Friedrich Carl von Savigny — Método · Ana Vanzin. O clássico que fundou a metodologia do direito moderno: a interpretação como reconstrução do pensamento posto na lei, as técnicas hermenêuticas e a história delas em cinco períodos. A página acompanha um instrumento para classificar fragmentos segundo as quatro técnicas savignyanas."
-    },
-    {
-      "file": "estudar/exhibitions/a-virgula/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/a-virgula/",
-      "category": "ready",
-      "reason": "A Vírgula — Método · Ana Vanzin. Nenhum sinal de pontuação gera tanta insegurança quanto a vírgula — e nenhum é tão decisivo para o sentido de uma frase. A boa notícia: o uso da vírgula não é intuição nem pausa para respirar. É regra, e as regras cabem em uma página."
-    },
-    {
-      "file": "estudar/exhibitions/como-as-palavras-nascem/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/como-as-palavras-nascem/",
-      "category": "ready",
-      "reason": "Como as Palavras Nascem — Método · Ana Vanzin. Cada palavra do português é um fóssil: carrega, comprimida na sua forma, uma história de conquistas, comércio, religião e ciência. Estudar etimologia não é decorar origens — é ganhar uma chave mestra que destrava o significado de milhares de palavras."
-    },
-    {
-      "file": "estudar/exhibitions/escrever-em-camadas/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/escrever-em-camadas/",
-      "category": "ready",
-      "reason": "Escrever em Camadas — Método · Ana Vanzin. O texto acadêmico não se escreve do início ao fim — constrói-se em camadas, como uma impressão. No capítulo final do manual, a página em branco vira uma sequência de seis passos, e a introdução, contraintuitivamente, é a penúltima coisa a ser escrita."
-    },
-    {
-      "file": "estudar/exhibitions/excelencia/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/excelencia/",
-      "category": "ready",
-      "reason": "Excelência — Método · Ana Vanzin. Dez mil horas de repetição distraída produzem um amador experiente. A pesquisa de Anders Ericsson sobre violinistas, enxadristas e atletas de elite identificou o que realmente diferencia os melhores: a prática deliberada — um tipo muito específico de esforço."
-    },
-    {
-      "file": "estudar/exhibitions/fichamento-e-cornell/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/fichamento-e-cornell/",
-      "category": "ready",
-      "reason": "Notas & Fichamento — Método · Ana Vanzin. Anotar não é copiar — é processar. O método Cornell, criado na década de 1950 pelo professor Walter Pauk, e a tradição acadêmica do fichamento transformam a anotação em uma máquina de revisão: a nota certa hoje é a recordação ativa de amanhã."
-    },
-    {
-      "file": "estudar/exhibitions/metodo-feynman/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/metodo-feynman/",
-      "category": "ready",
-      "reason": "Método Feynman — Método · Ana Vanzin. Você só entendeu de verdade o que consegue explicar com palavras simples. O método atribuído ao físico Richard Feynman transforma essa ideia em um procedimento de quatro passos que expõe — e corrige — lacunas de compreensão."
-    },
-    {
-      "file": "estudar/exhibitions/no-lugar-do-legislador/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/no-lugar-do-legislador/",
-      "category": "ready",
-      "reason": "No Lugar do Legislador — Método · Ana Vanzin. Interpretar um texto difícil não é adivinhar nem opinar: é reconstruir, com método, o pensamento que nele ficou gravado. Savigny transformou essa ideia na disciplina de leitura mais influente do direito moderno — e ela serve para qualquer livro denso da sua estante."
-    },
-    {
-      "file": "estudar/exhibitions/persistencia/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/persistencia/",
-      "category": "ready",
-      "reason": "Persistência — Método · Ana Vanzin. Persistir não é repetir com força bruta — é continuar com método quando a motivação, que é volátil, já foi embora. A pesquisa sobre hábito e autorregulação mostra que a constância é uma habilidade treinável, não um traço de personalidade."
-    },
-    {
-      "file": "estudar/exhibitions/pomodoro/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/pomodoro/",
-      "category": "ready",
-      "reason": "Pomodoro — Método · Ana Vanzin. Um timer de cozinha em forma de tomate, vinte e cinco minutos de foco total, cinco de pausa. Criada por Francesco Cirillo no fim dos anos 1980, a técnica Pomodoro é a ferramenta mais simples — e mais subestimada — para vencer a procrastinação e proteger a atenção."
-    },
-    {
-      "file": "estudar/exhibitions/pratica-intercalada/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/pratica-intercalada/",
-      "category": "ready",
-      "reason": "Prática Intercalada — Método · Ana Vanzin. Estudar um único tipo de problema até dominar — e só então passar ao próximo — parece organizado, mas produz aprendizado frágil. Misturar tipos diferentes de questões na mesma sessão rende mais, embora pareça mais difícil. É a prática intercalada."
-    },
-    {
-      "file": "estudar/exhibitions/recordacao-ativa/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/recordacao-ativa/",
-      "category": "ready",
-      "reason": "Recordação Ativa — Método · Ana Vanzin. Reler e grifar dão a sensação de progresso, mas quase não constroem memória. O que constrói é o oposto: fechar o livro e tentar lembrar. A recordação ativa é a técnica com melhor evidência científica acumulada — e a menos praticada."
-    },
-    {
-      "file": "estudar/exhibitions/repeticao-espacada/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/repeticao-espacada/",
-      "category": "ready",
-      "reason": "Repetição Espaçada — Método · Ana Vanzin. A memória não se fortalece pela quantidade de revisões, mas pelo espaçamento entre elas. Revisar no momento certo — quando o conteúdo começa a escapar — é o que fixa o conhecimento por anos, e não por dias."
-    },
-    {
-      "file": "estudar/exhibitions/um-tema-e-uma-duvida-verdadeira/index.html",
-      "canonical": "https://anavanzin.com/estudar/exhibitions/um-tema-e-uma-duvida-verdadeira/",
-      "category": "ready",
-      "reason": "Um Tema é uma Dúvida Verdadeira — Método · Ana Vanzin. Todo trabalho longo morre ou nasce na escolha do tema. No capítulo 4 do manual de metodologia da sua estante, o tema deixa de ser uma área vaga — 'quero estudar direito penal' — e vira o que sempre deveria ter sido: uma dúvida de verdade, formulável em uma pergunta."
-    },
-    {
-      "file": "estudar/index.html",
-      "canonical": "https://anavanzin.com/estudar/",
-      "category": "ready",
-      "reason": "Estudar — Método · Ana Vanzin. Um acervo técnico de metodologia de estudo: ciência cognitiva, gramática e etimologia. Sem coach, sem fórmula mágica."
+      "file": "web/index.html",
+      "canonical": "https://anavanzin.com/studio",
+      "category": "redirect",
+      "reason": "Redirecionamento estático para /studio/"
     }
   ]
 }

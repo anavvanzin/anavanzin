@@ -3,6 +3,12 @@
 /arno-dal-ri-site/ https://arno-dal-ri.anavanzin.workers.dev/ 301
 /arno-dal-ri-site/index.html https://arno-dal-ri.anavanzin.workers.dev/ 301
 
+# Front 2 — Studio / Web aliases
+/web /studio 301
+/web/ /studio 301
+/web/* /studio/:splat 301
+
+
 # Legacy design exports depend on an unavailable editor runtime.
 /assets/Iconocracia%20-%20Apresentacao.dc.html https://anavanzin.com/apresentacao/ 301
 /assets/Iconocracia%20-%20Apresentacao.dc https://anavanzin.com/apresentacao/ 301
