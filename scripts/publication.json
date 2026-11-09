@@ -80,6 +80,12 @@
       "reason": "Superfície auxiliar, exportação ou apresentação institucional pendente de conferência."
     },
     {
+      "file": "av-os-staging/mentoria/index.html",
+      "canonical": "https://anavanzin.com/av-os-staging/mentoria/",
+      "category": "utility",
+      "reason": "Espelho de staging da Mentoria (paridade de governança); manter fora da indexação."
+    },
+    {
       "file": "atlas/britannia.html",
       "canonical": "https://anavanzin.com/atlas/britannia",
       "category": "draft",
