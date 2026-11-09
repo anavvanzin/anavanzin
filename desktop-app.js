@@ -1,6 +1,6 @@
 /*IIFE*/(function(){
 /* ana vanzin desktop — window manager, menu bar, dock, boot. */
-const { FolderIcon, DocIcon, MailIcon, GroupIcon, ImageIcon, SealIcon, QuoteIcon, AtlasIcon, WorksIcon, HourglassIcon } = window.avapp;
+const { FolderIcon, DocIcon, MailIcon, GroupIcon, ImageIcon, SealIcon, QuoteIcon, AtlasIcon, WorksIcon } = window.avapp;
 const {
   WSobre,
   WTese,
@@ -11,7 +11,6 @@ const {
   WJustitia,
   WVo,
   WMae,
-  WAmpulheta,
   WTarot
 } = window.avapp;
 const REG = {
@@ -98,14 +97,6 @@ const REG = {
     },
     w: 360,
     Body: WMae
-  },
-  ampulheta: {
-    title: {
-      pt: 'ampulheta.app',
-      en: 'hourglass.app'
-    },
-    w: 480,
-    Body: WAmpulheta
   },
   tarot: {
     title: {
@@ -259,13 +250,6 @@ const DESK_ICONS = [{
   },
   Icon: MailIcon
 }, {
-  id: 'ampulheta',
-  label: {
-    pt: 'ampulheta.app',
-    en: 'hourglass.app'
-  },
-  Icon: HourglassIcon
-}, {
   id: 'contrato-visual',
   label: {
     pt: 'o contrato visual',
@@ -294,7 +278,6 @@ const ICON_TILES = {
   vo: '/assets/icons/vo.webp',
   mae: '/assets/mae/mae-icon.jpg',
   contato: '/assets/icons/contato-v1.png',
-  ampulheta: '/assets/icons/ampulheta-v1.png',
   'contrato-visual': '/assets/icons/tabula-v1.png'
 };
 // Ficha flutuante (preview card que segue o cursor): código de registro +
@@ -321,7 +304,6 @@ const FICHA = {
   vo: { code: 'IMG-02', human: { pt: 'Arquivo de família', en: 'Family archive' } },
   mae: { code: 'IMG-03', human: { pt: 'Arquivo de família', en: 'Family archive' } },
   contato: { code: 'CTT-01', human: { pt: 'Escreva-me', en: 'Write to me' } },
-  ampulheta: { code: 'TMP-01', human: { pt: 'Ensaio sobre o tempo', en: 'Essay on time' } },
   'contrato-visual': { code: 'PUB-02', human: { pt: 'Artigo · versão de trabalho', en: 'Article · working version' } }
 };
 const DESK_GROUPS = [{
@@ -355,7 +337,7 @@ const DESK_GROUPS = [{
     en: 'person and memory'
   },
   tile: '/assets/icons/perfil.webp',
-  ids: ['sobre', 'perfil', 'curriculo', 'vo', 'mae', 'ampulheta', 'contato']
+  ids: ['sobre', 'perfil', 'curriculo', 'vo', 'mae', 'contato']
 }];
 const DESK_ICON_BY_ID = Object.fromEntries(DESK_ICONS.map(icon => [icon.id, icon]));
 const PUBLIC_ROUTES = { intro: '/intro/', sobre: '/sobre', conceitos: '/conceitos', publicacoes: '/publicacoes/' };
@@ -668,7 +650,7 @@ function WindowFrame({
   }), /*#__PURE__*/React.createElement("div", {
     className: "dwin__body",
     style: {
-      padding: archiveInterior || win.id === 'tarot' ? 0 : win.id === 'ampulheta' ? 16 : 22,
+      padding: archiveInterior || win.id === 'tarot' ? 0 : 22,
       maxHeight: isMobile ? '64vh' : '58vh',
       overflow: 'auto'
     }

@@ -36,7 +36,7 @@ npm run deploy:worker              # deploy Cloudflare Worker (repo root + .asse
 The repo-root `index.html` is the home page — a **static editorial "mesa" page** (inline CSS/JS + `editorial.js`, its own inline CSS variables, no React). The retro **React desktop shell** (window manager metaphor) lives at **`/mesa/`** (`mesa/index.html`), which loads self-hosted React from `/vendor/react/` plus the shell scripts at the repo root. These scripts are **pre-compiled** React IIFEs that register on the `window.avapp` global — there is no Babel/JSX at runtime and the original JSX sources are not in this repo, so edit the `.js` files directly:
 
 - `desktop-app.js` — window manager, menu bar, dock, boot sequence. Holds the `REG` object mapping window keys (`sobre`, `tese`, `publicacoes`, …) to `{ title: {pt, en}, w, Body }`.
-- `window-contents.js` — most window body components (`WSobre`, `WTese`, `WMae`, …), composed from the design-system bundle. Some components live in their own root file loaded separately by `mesa/index.html`, notably `ampulheta-native.js`.
+- `window-contents.js` — most window body components (`WSobre`, `WTese`, `WMae`, …), composed from the design-system bundle.
 - `icons.js` — pixel-art icon components.
 - `_ds_bundle.js` — the design-system component bundle, exposed as `window.AnaVanzinDesignSystem_b45a86`.
 - `styles.css` + `tokens/` — design tokens (colors, typography, spacing) and global styles.
@@ -45,7 +45,7 @@ The repo-root `index.html` is the home page — a **static editorial "mesa" page
 
 ### Standalone pages and sub-sites
 
-Self-contained sections with their own entry points, largely independent of the desktop shell: `iconocracia/` (thesis atlas + atlas-lab, own `styles.css`/`tokens/`), `manifesto/`, `mesa/`, `malleus/`, `marginalia/`, `atlas/`, plus single pages like `poster.html`, `ampulheta.html`, `conceitos.html`, `trabalhos.html`, `perfil.html`, `mae.html`. Sub-site `.jsx` files are **sources for pre-compiled `.js` twins** (see Rules below), not runtime code — editing a `.jsx` alone changes nothing in the browser. The one exception loading `.jsx` via CDN Babel at runtime is the nested `manifesto/manifesto/` page.
+Self-contained sections with their own entry points, largely independent of the desktop shell: `iconocracia/` (thesis atlas + atlas-lab, own `styles.css`/`tokens/`), `manifesto/`, `mesa/`, `malleus/`, `marginalia/`, `atlas/`, plus single pages like `poster.html`, `conceitos.html`, `trabalhos.html`, `perfil.html`, `mae.html`. Sub-site `.jsx` files are **sources for pre-compiled `.js` twins** (see Rules below), not runtime code — editing a `.jsx` alone changes nothing in the browser. The one exception loading `.jsx` via CDN Babel at runtime is the nested `manifesto/manifesto/` page.
 
 `.agents/` and the various `*_REQUEST.md` / handoff markdown files at the root are working notes from previous agent sessions, not site content — but note they are tracked and therefore deployed (see Deployment).
 

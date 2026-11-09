@@ -18,3 +18,8 @@
 /assets/Iconocracia%20-%20Video.dc https://anavanzin.com/video/ 301
 /assets/Iconocracia%20-%20Video%20Vertical.dc.html https://anavanzin.com/video/ 301
 /assets/Iconocracia%20-%20Video%20Vertical.dc https://anavanzin.com/video/ 301
+
+# Consolidated index only; never capture /publicacoes/* or /trabalhos/iconocracia.
+/publicacoes /trabalhos/#escrita 301
+/publicacoes/ /trabalhos/#escrita 301
+/publicacoes/index.html /trabalhos/#escrita 301
