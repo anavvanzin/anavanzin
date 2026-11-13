@@ -3,10 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { buildMontesquieu } from '../montesquieu/build.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const output = path.join(root, '.worker-assets');
 execFileSync('bash', ['scripts/stage-worker-assets.sh'], { cwd: root, stdio: 'inherit' });
+await buildMontesquieu(output);
 
 const source = fs.readFileSync(path.join(root, 'worker.js'), 'utf8');
 if ((source.match(/export default \{/g) || []).length !== 1) {

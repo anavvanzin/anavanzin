@@ -13,7 +13,8 @@ test('Only legacy publication indexes redirect to the consolidated writing secti
   assert.equal(destination.pathname,'/trabalhos/');assert.equal(destination.hash,'#escrita');
  }
  const r=await get('/trabalhos/');assert.equal(r.status,200);
- const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,18);
+ const html=await r.text();assert.equal((html.match(/data-record=/g)||[]).length,19);
+ assert.match(html,/data-record="apresentacoes-montesquieu"[^>]*href="\/montesquieu\/"/);
  assert.ok(!/acesso sob solicitação|available on request/.test(html));
  assert.ok(!html.includes('data-record="em-curso-1"')&&!html.includes('data-record="em-curso-3"'));
  assert.ok(html.indexOf('id="apresentacoes"')<html.indexOf('id="em-curso"'));
