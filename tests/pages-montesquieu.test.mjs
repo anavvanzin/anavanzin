@@ -22,6 +22,25 @@ test('all reading routes are prerendered with section URLs and public controls',
   assert.match(fs.readFileSync('.worker-assets/sitemap.xml', 'utf8'), /https:\/\/anavanzin.com\/montesquieu\/slide\/7/);
 });
 
+test('reading links stay in the section and reference existing academic targets', () => {
+  const html = fs.readFileSync(root + 'index.html', 'utf8');
+  const base = new URL('https://anavanzin.com/montesquieu/');
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]));
+  for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+    const url = new URL(href, base);
+    if (url.origin !== base.origin || url.pathname.startsWith('/trabalhos/')) continue;
+    assert.ok(url.pathname.startsWith(base.pathname), `Reading link escapes the section: ${href}`);
+    if (href.startsWith('#') && href.length > 1 && href !== '#landing') {
+      assert.ok(ids.has(decodeURIComponent(url.hash.slice(1))), `Missing reading target: ${href}`);
+    }
+  }
+  for (const id of ['src-dauchy', 'src-montesquieu', 'src-const-1824', 'src-figueiredo', 'src-ceschiatti', 'src-transplants']) {
+    assert.ok(ids.has(id), `Missing academic source: ${id}`);
+  }
+  const version = JSON.parse(fs.readFileSync(root + 'source-version.json'));
+  assert.equal(version.commit, 'f75cd797b43f6c0597498bbcf28a4d7c4497dede');
+});
+
 test('service worker preserves unrelated caches and ignores other site sections', async () => {
   const listeners = {};
   const deleted = [];

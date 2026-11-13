@@ -4,7 +4,15 @@ const PRECACHE = __PRECACHE__;
 const BASE = '/montesquieu/';
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  event.waitUntil((async () => {
+    try {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.addAll(PRECACHE);
+    } catch {
+      // Quota exhaustion or cache write failure must not block worker activation.
+    }
+    await self.skipWaiting();
+  })());
 });
 self.addEventListener('activate', event => {
   event.waitUntil(caches.keys().then(keys => Promise.all(
@@ -20,7 +28,13 @@ self.addEventListener('fetch', event => {
     const cache = await caches.open(CACHE_NAME);
     try {
       const response = await fetch(request);
-      if (response.ok) await cache.put(request, response.clone());
+      if (response.ok) {
+        try {
+          await cache.put(request, response.clone());
+        } catch {
+          // Cache storage failure must not discard a successful network response.
+        }
+      }
       return response;
     } catch {
       const cached = await cache.match(request);

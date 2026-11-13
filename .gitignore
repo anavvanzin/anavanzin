@@ -17,7 +17,7 @@ node_modules
 site/
 .worker-assets/
 _site/
-test-results/montesquieu/
+test-results/
 
 # local-only reference material (NOT deployed — kept off GH Pages)
 assets/anavanzin_site_asset_pack/

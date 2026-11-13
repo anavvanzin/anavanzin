@@ -17,6 +17,9 @@ function replaceRequired(text, before, after) {
 
 function publicHtml(html) {
   html = replaceRequired(html, '<base href="/">', `<base href="${config.basePath}">`);
+  // The landing route opens the poster; only reading views bypass it.
+  html = replaceRequired(html, "document.documentElement.hasAttribute('data-initial-view')",
+    "['sources', 'stories'].includes(document.documentElement.getAttribute('data-initial-view'))");
   html = html.replaceAll('https://montesquieu.anavanzin.com', config.canonical)
     .replaceAll('https://www.anavanzin.com/projetos', 'https://anavanzin.com/trabalhos/')
     .replaceAll('anavanzin.com / projetos', 'anavanzin.com / trabalhos');
@@ -82,6 +85,15 @@ export async function buildMontesquieu(output) {
     const reportFile = path.join(destination, 'js/report.js');
     let report = fs.readFileSync(reportFile, 'utf8');
     report = replaceRequired(report, 'window.location.pathname', `(window.location.pathname.replace(/^\\/montesquieu(?=\\/|$)/, '') || '/')`);
+    report = replaceRequired(report, '    initialViewAttr ||', "    ['sources', 'stories'].includes(initialViewAttr) ||");
+    // The sources register follows slide 7. Scrolling to it while on a sources
+    // deep link must not replace the sources route or canonical with the slide URL.
+    report = replaceRequired(report, '    const viewportFocusDocY = scrollY + window.innerHeight * 0.45;', `    const sourcesSection = $('#sources');
+    const isSourcesRoute = window.location.pathname.replace(/\\/$/, '').endsWith('/sources') || window.location.hash === '#sources';
+    if (isSourcesRoute && sourcesSection && sourcesSection.getBoundingClientRect().top <= window.innerHeight * 0.45) return;
+
+    const viewportFocusDocY = scrollY + window.innerHeight * 0.45;`);
+    report = replaceRequired(report, '    if (changed && !fromRemoteSync) {', '    if ((changed || window.location.pathname !== `/slide/${num}`) && !fromRemoteSync) {');
     report = replaceRequired(report, '`/slide/${num}`', '`/montesquieu/slide/${num}`');
     report = replaceRequired(report, '${window.location.origin}/slide/', '${window.location.origin}/montesquieu/slide/');
     report = replaceRequired(report, '${origin}/slide/', '${origin}/montesquieu/slide/');
@@ -116,7 +128,7 @@ export async function buildMontesquieu(output) {
     const precache = ['./', './manifest.webmanifest', './css/report.css', './vendor/js/gsap.min.js',
       ...fs.readdirSync(path.join(destination, 'js')).filter(f => /\.[cm]?js$/.test(f)).map(f => './js/' + f)];
     fs.writeFileSync(path.join(destination, 'sw.js'), swSource
-      .replace('__VERSION__', `${config.commit.slice(0, 12)}-1`)
+      .replace('__VERSION__', `${config.commit.slice(0, 12)}-2`)
       .replace('__PRECACHE__', JSON.stringify(precache)));
     fs.writeFileSync(path.join(destination, 'source-version.json'), JSON.stringify({ repository: config.repository, commit: config.commit, edition: 'public-reading' }));
 
