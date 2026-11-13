@@ -128,7 +128,7 @@ export async function buildMontesquieu(output) {
     const precache = ['./', './manifest.webmanifest', './css/report.css', './vendor/js/gsap.min.js',
       ...fs.readdirSync(path.join(destination, 'js')).filter(f => /\.[cm]?js$/.test(f)).map(f => './js/' + f)];
     fs.writeFileSync(path.join(destination, 'sw.js'), swSource
-      .replace('__VERSION__', `${config.commit.slice(0, 12)}-1`)
+      .replace('__VERSION__', `${config.commit.slice(0, 12)}-2`)
       .replace('__PRECACHE__', JSON.stringify(precache)));
     fs.writeFileSync(path.join(destination, 'source-version.json'), JSON.stringify({ repository: config.repository, commit: config.commit, edition: 'public-reading' }));
 

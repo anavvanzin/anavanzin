@@ -9,16 +9,20 @@ const source = fs.readFileSync(new URL('../scripts/montesquieu/sw.js', import.me
   .replace('__VERSION__', 'regression-test')
   .replace('__PRECACHE__', '[]');
 
-function worker({ response = new Response('fresh network content'), offline = false, putFails = false, entries = new Map() } = {}) {
+function worker({ response = new Response('fresh network content'), offline = false, putFails = false, entries = new Map(), addAllFails = false } = {}) {
   const listeners = {};
   const puts = [];
   const matches = [];
   const deleted = [];
+  let skippedWaiting = false;
   const cacheName = 'anavanzin-montesquieu-regression-test';
   const cache = {
     put: async (request, cachedResponse) => {
       puts.push([request, cachedResponse]);
       if (putFails) throw new DOMException('Storage quota exceeded', 'QuotaExceededError');
+    },
+    addAll: async () => {
+      if (addAllFails) throw new DOMException('Storage quota exceeded', 'QuotaExceededError');
     },
     match: async request => {
       const key = typeof request === 'string' ? request : request.url;
@@ -32,6 +36,7 @@ function worker({ response = new Response('fresh network content'), offline = fa
       location: { origin },
       addEventListener: (name, handler) => { listeners[name] = handler; },
       clients: { claim: async () => {} },
+      skipWaiting: async () => { skippedWaiting = true; },
     },
     caches: {
       open: async name => { assert.equal(name, cacheName); return cache; },
@@ -45,12 +50,18 @@ function worker({ response = new Response('fresh network content'), offline = fa
   });
   return {
     response, puts, matches, deleted,
+    skippedWaiting: () => skippedWaiting,
     fetch(path, { mode, ...init } = {}) {
       const request = new Request(new URL(path, origin), init);
       if (mode) Object.defineProperty(request, 'mode', { value: mode });
       let result;
       listeners.fetch({ request, respondWith: promise => { result = promise; } });
       return result;
+    },
+    async install() {
+      let completion;
+      listeners.install({ waitUntil: promise => { completion = promise; } });
+      await completion;
     },
     async activate() {
       let completion;
@@ -129,4 +140,10 @@ test('activation deletes only obsolete Montesquieu caches', async () => {
   const sw = worker();
   await sw.activate();
   assert.deepEqual(sw.deleted, ['anavanzin-montesquieu-old']);
+});
+
+test('installation activates and skips waiting even if precaching fails', async () => {
+  const sw = worker({ addAllFails: true });
+  await sw.install();
+  assert.equal(sw.skippedWaiting(), true);
 });
