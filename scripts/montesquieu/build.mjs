@@ -86,12 +86,14 @@ export async function buildMontesquieu(output) {
     let report = fs.readFileSync(reportFile, 'utf8');
     report = replaceRequired(report, 'window.location.pathname', `(window.location.pathname.replace(/^\\/montesquieu(?=\\/|$)/, '') || '/')`);
     report = replaceRequired(report, '    initialViewAttr ||', "    ['sources', 'stories'].includes(initialViewAttr) ||");
-    // The sources register follows slide 7. Scrolling to it must not replace a
-    // sources deep link (and its metadata) with the nearest slide's URL.
+    // The sources register follows slide 7. Scrolling to it while on a sources
+    // deep link must not replace the sources route or canonical with the slide URL.
     report = replaceRequired(report, '    const viewportFocusDocY = scrollY + window.innerHeight * 0.45;', `    const sourcesSection = $('#sources');
-    if (sourcesSection && sourcesSection.getBoundingClientRect().top <= window.innerHeight * 0.45) return;
+    const isSourcesRoute = window.location.pathname.replace(/\\/$/, '').endsWith('/sources') || window.location.hash === '#sources';
+    if (isSourcesRoute && sourcesSection && sourcesSection.getBoundingClientRect().top <= window.innerHeight * 0.45) return;
 
     const viewportFocusDocY = scrollY + window.innerHeight * 0.45;`);
+    report = replaceRequired(report, '    if (changed && !fromRemoteSync) {', '    if ((changed || window.location.pathname !== `/slide/${num}`) && !fromRemoteSync) {');
     report = replaceRequired(report, '`/slide/${num}`', '`/montesquieu/slide/${num}`');
     report = replaceRequired(report, '${window.location.origin}/slide/', '${window.location.origin}/montesquieu/slide/');
     report = replaceRequired(report, '${origin}/slide/', '${origin}/montesquieu/slide/');

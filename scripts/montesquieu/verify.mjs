@@ -85,6 +85,20 @@ try {
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://anavanzin.com/montesquieu/' + route);
   }
 
+  // Regression check: navigating from /sources to header "01" synchronizes the
+  // URL and canonical even though currentSlideNum was already 1, surviving reload.
+  await page.goto(base + '/montesquieu/sources');
+  await page.locator('.header__nav [data-slide-link="1"]').click();
+  await expect(page).toHaveURL(/\/montesquieu\/slide\/1$/);
+  await expect(page.locator('#slide-1')).toBeInViewport();
+  await expect(page.locator('#banner-slide-label')).toHaveText('01');
+  assert.match(await page.locator('link[rel="canonical"]').getAttribute('href'), /\/montesquieu\/slide\/1$/);
+  const reloadFromSources = await page.reload();
+  assert.equal(reloadFromSources.status(), 200);
+  await expect(page.locator('#slide-1')).toBeInViewport();
+  await expect(page.locator('#banner-slide-label')).toHaveText('01');
+  await expect(page).toHaveURL(/\/montesquieu\/slide\/1$/);
+
   await page.goto(base + '/montesquieu/slide/1');
   for (let i=1;i<=7;i++) {
     await page.locator(`.header__nav [data-slide-link="${i}"]`).click();
