@@ -9,13 +9,14 @@ for(const width of [320,768,1440])test('consolidated works: categories, locale a
  await expect(page.locator('[data-record="em-curso-1"], [data-record="em-curso-3"]')).toHaveCount(0);
  await expect(page.locator('#em-curso [data-record="em-curso-2"]')).toContainText('versão de trabalho');
  await expect(page.locator('#em-curso [data-record="em-curso-4"]')).toContainText('versão de trabalho');
- await expect(page.locator('[data-record]')).toHaveCount(18);
+ await expect(page.locator('[data-record]')).toHaveCount(19);
+ await expect(page.locator('[data-record="apresentacoes-montesquieu"]')).toHaveAttribute('href','/montesquieu/');
  expect(await page.locator('.pub-grp').evaluateAll(els=>els.map(e=>e.id))).toEqual(['recursos','escrita','apresentacoes','em-curso','projetos-visuais']);
  expect(await page.locator('.works-sections a').evaluateAll(els=>els.map(e=>e.getAttribute('href')))).toEqual(['#recursos','#escrita','#apresentacoes','#em-curso','#projetos-visuais']);
  await expect(page.locator('.pub-grp').first()).toHaveAttribute('id','recursos');
  await expect(page.locator('#recursos')).toContainText('Participei da construção da biblioteca digital');
  await expect(page.locator('#recursos')).not.toContainText('quinzenais');
- for(const [id,count] of [['escrita',2],['em-curso',2],['apresentacoes',9],['projetos-visuais',3],['recursos',2]])await expect(page.locator('#'+id+' [data-record]')).toHaveCount(count);
+ for(const [id,count] of [['escrita',2],['em-curso',2],['apresentacoes',10],['projetos-visuais',3],['recursos',2]])await expect(page.locator('#'+id+' [data-record]')).toHaveCount(count);
  await expect(page.locator('[data-record="projetos-visuais-2"]')).toContainText('protótipo');
  await expect(page.locator('[data-record="projetos-visuais-2"]')).not.toContainText('328');
  await expect(page.locator('[data-record="projetos-visuais-2"]')).not.toContainText('88%');
