@@ -22,7 +22,7 @@ Required source replacements fail the build when upstream routing changes.
 For a local build, `MONTESQUIEU_SOURCE_DIR=/absolute/clean/checkout` avoids a
 second download; the checkout must match the pinned commit and be clean.
 
-Validation: `node --test tests/montesquieu-build.test.mjs`, the existing Pages
+Validation: `node --test tests/pages-montesquieu.test.mjs`, the existing Pages
 runtime tests, and `node scripts/montesquieu/verify.mjs` with Pages dev on port
 8101. The browser check uses local Chromium and never writes remote state.
 
