@@ -17,6 +17,9 @@ function replaceRequired(text, before, after) {
 
 function publicHtml(html) {
   html = replaceRequired(html, '<base href="/">', `<base href="${config.basePath}">`);
+  // The landing route opens the poster; only reading views bypass it.
+  html = replaceRequired(html, "document.documentElement.hasAttribute('data-initial-view')",
+    "['sources', 'stories'].includes(document.documentElement.getAttribute('data-initial-view'))");
   html = html.replaceAll('https://montesquieu.anavanzin.com', config.canonical)
     .replaceAll('https://www.anavanzin.com/projetos', 'https://anavanzin.com/trabalhos/')
     .replaceAll('anavanzin.com / projetos', 'anavanzin.com / trabalhos');
@@ -82,6 +85,13 @@ export async function buildMontesquieu(output) {
     const reportFile = path.join(destination, 'js/report.js');
     let report = fs.readFileSync(reportFile, 'utf8');
     report = replaceRequired(report, 'window.location.pathname', `(window.location.pathname.replace(/^\\/montesquieu(?=\\/|$)/, '') || '/')`);
+    report = replaceRequired(report, '    initialViewAttr ||', "    ['sources', 'stories'].includes(initialViewAttr) ||");
+    // The sources register follows slide 7. Scrolling to it must not replace a
+    // sources deep link (and its metadata) with the nearest slide's URL.
+    report = replaceRequired(report, '    const viewportFocusDocY = scrollY + window.innerHeight * 0.45;', `    const sourcesSection = $('#sources');
+    if (sourcesSection && sourcesSection.getBoundingClientRect().top <= window.innerHeight * 0.45) return;
+
+    const viewportFocusDocY = scrollY + window.innerHeight * 0.45;`);
     report = replaceRequired(report, '`/slide/${num}`', '`/montesquieu/slide/${num}`');
     report = replaceRequired(report, '${window.location.origin}/slide/', '${window.location.origin}/montesquieu/slide/');
     report = replaceRequired(report, '${origin}/slide/', '${origin}/montesquieu/slide/');

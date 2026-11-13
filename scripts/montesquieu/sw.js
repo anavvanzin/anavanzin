@@ -20,7 +20,13 @@ self.addEventListener('fetch', event => {
     const cache = await caches.open(CACHE_NAME);
     try {
       const response = await fetch(request);
-      if (response.ok) await cache.put(request, response.clone());
+      if (response.ok) {
+        try {
+          await cache.put(request, response.clone());
+        } catch {
+          // Cache storage failure must not discard a successful network response.
+        }
+      }
       return response;
     } catch {
       const cached = await cache.match(request);
