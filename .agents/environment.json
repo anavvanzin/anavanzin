@@ -1,0 +1,3 @@
+{
+  "install": "npm ci && npm --prefix apps/nacao-como-mulher ci && npx playwright install chromium"
+}
